@@ -1,0 +1,11 @@
+<environmentvariabledefinition schemaname="tc_PowerBIWorkspace">
+  <defaultvalue>{"group":{"id":"410a12e2-8457-4cd1-b982-40c330084f5c","name":"TC-PACE DEV"},"component":{"id":"5eb46b54-fb8e-4c38-bb15-7b2b628ffeb5","name":"Dreams Hack CDN","type":"Report","embedUrl":"https://app.powerbi.com/reportEmbed"}}</defaultvalue>
+  <displayname default="Power BI Workspace">
+    <label description="Power BI Workspace" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000003</type>
+</environmentvariabledefinition>

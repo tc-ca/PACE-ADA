@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="Dreams Hack CDN Dashboard" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{fecd41e1-4c23-ef11-840b-000d3af4271c}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>0</IsDefault>
+  <FormXml>
+    <forms type="powerbi">
+      <form>
+        <tabs>
+          <tab showlabel="false" verticallayout="true" id="{90fa0984-56d1-46cd-affe-d0a28171266b}">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="false" showbar="false" columns="111" id="{abd7409b-6e9c-4f11-b9b2-4cef9892e8f3}">
+                    <labels>
+                      <label description="" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell colspan="3" rowspan="24" showlabel="false" id="{59125164-f53b-4b4c-98b6-cc54b60df4ea}" availableforphone="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                          <control id="d0d2c23c-3669-4537-9620-40bc04d86664" classid="{8C54228C-1B25-4909-A12A-F2B968BB0D62}">
+                            <parameters>
+                              <PowerBIGroupId>{EV:tc_PowerBIWorkspace.group.id}</PowerBIGroupId>
+                              <PowerBIReportId>{EV:tc_PowerBIWorkspace.component.id}</PowerBIReportId>
+                              <TileUrl>https://app.powerbi.com/reportEmbed?groupId={EV:tc_PowerBIWorkspace.group.id}&amp;reportId={EV:tc_PowerBIWorkspace.component.id}</TileUrl>
+                              <Type>2</Type>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+        <DisplayConditions FallbackForm="true">
+          <Everyone />
+        </DisplayConditions>
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>

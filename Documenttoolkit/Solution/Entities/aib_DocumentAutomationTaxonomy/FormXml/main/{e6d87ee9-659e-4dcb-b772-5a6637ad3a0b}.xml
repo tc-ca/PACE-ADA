@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{e6d87ee9-659e-4dcb-b772-5a6637ad3a0b}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls" solutionaction="Modified">
+      <tabs>
+        <tab verticallayout="true" id="{6693fcec-265b-4a70-8c48-1a80356be272}" IsUserDefined="1" ordinalvalue="0">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{947138f3-b955-4ec6-9191-bbd341d6bb4c}" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{afbfb8e9-f254-47b1-a580-8b0ff7a1ba32}" ordinalvalue="10004" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{f068d9f0-d7d2-4c3a-a8f7-498b1fb66e4a}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10001" solutionaction="Added">
+                        <labels>
+                          <label description="Index" languagecode="1033" />
+                        </labels>
+                        <control id="aib_index" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="aib_index" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4a75f3b1-d902-4213-bd37-18834816b286}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10002" solutionaction="Added">
+                        <labels>
+                          <label description="Mapped Column" languagecode="1033" />
+                        </labels>
+                        <control id="aib_mappedcolumn" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="aib_mappedcolumn" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{41ca03f7-cb51-43f7-8be1-32f6c3d8f45f}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10003" solutionaction="Added">
+                        <labels>
+                          <label description="Document Automation Configuration" languagecode="1033" />
+                        </labels>
+                        <control id="aib_documentautomationconfigurati" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="aib_documentautomationconfigurati" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{bf0d5230-09f6-4720-98c3-d1e920c564b0}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
+        <rows></rows>
+      </header>
+      <footer id="{65c5a437-76b3-47cc-b8af-eaf358d928da}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
+        <rows></rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true" solutionaction="Added">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

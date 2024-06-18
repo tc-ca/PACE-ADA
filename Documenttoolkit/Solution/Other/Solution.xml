@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.24061.176" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>Documenttoolkit</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="AI Document toolkit extension" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.0</Version>
+    <Managed>2</Managed>
+    <Publisher>
+      <UniqueName>TransportCanada</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Transport Canada" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>tc</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>10000</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="aib_documentautomationconfiguration" behavior="0" />
+      <RootComponent type="1" schemaName="aib_documentautomationdata" behavior="0" />
+      <RootComponent type="1" schemaName="aib_documentautomationprocessing" behavior="0" />
+      <RootComponent type="1" schemaName="aib_documentautomationtabledata" behavior="0" />
+      <RootComponent type="1" schemaName="aib_documentautomationtabletaxonomy" behavior="0" />
+      <RootComponent type="1" schemaName="aib_documentautomationtaxonomy" behavior="0" />
+      <RootComponent type="1" schemaName="msdyn_aievent" behavior="2" />
+      <RootComponent type="1" schemaName="tc_servicerequest" behavior="0" />
+      <RootComponent type="20" id="{1afb2a9e-c725-ef11-840b-6045bdcd3da1}" behavior="0" />
+      <RootComponent type="20" id="{55547ef8-742d-eb11-a813-000d3af77de6}" behavior="0" />
+      <RootComponent type="29" id="{2354bb7a-7440-eb11-a812-000d3a06a63e}" behavior="0" />
+      <RootComponent type="29" id="{36a0d496-8322-ef11-840b-6045bdcd3da1}" behavior="0" />
+      <RootComponent type="29" id="{44b31d34-ef80-eb11-a812-000d3a4f53f6}" behavior="0" />
+      <RootComponent type="29" id="{61f6db6c-6a40-eb11-a812-000d3af77de6}" behavior="0" />
+      <RootComponent type="300" schemaName="aib_documentautomationapplication_a3a44" behavior="0" />
+      <RootComponent type="60" id="{fecd41e1-4c23-ef11-840b-000d3af4271c}" behavior="0" />
+      <RootComponent type="62" schemaName="tc_DocumentAutomationAdmin" behavior="0" />
+      <RootComponent type="80" schemaName="tc_DocumentAutomationAdmin" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="aib_documentautomationconfiguration" displayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="1" schemaName="aib_documentautomationconfiguration" displayName="Document Automation Configuration" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="aib_documentautomationdata" displayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="1" schemaName="aib_documentautomationdata" displayName="Document Automation Data" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="aib_documentautomationprocessing" displayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="1" schemaName="aib_documentautomationprocessing" displayName="Document Automation Processing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="aib_documentautomationtabledata" displayName="Document Automation Table Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="1" schemaName="aib_documentautomationtabledata" displayName="Document Automation Table Data" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="aib_documentautomationtabletaxonomy" displayName="Document Automation Table Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="1" schemaName="aib_documentautomationtabletaxonomy" displayName="Document Automation Table Taxonomy" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="aib_documentautomationtaxonomy" displayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="1" schemaName="aib_documentautomationtaxonomy" displayName="Document Automation Taxonomy" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_aiconfiguration" displayName="AI Configuration" solution="msdyn_AISolution (202406.1.0.5)">
+          <package>msdyn_AISolutionAnchor (202406.1.0.5)</package>
+        </Required>
+        <Dependent type="300" schemaName="aib_documentautomationapplication_a3a44" displayName="Document Automation Application" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_aievent" displayName="AI Event" solution="msdyn_AISolution (202406.1.0.5)">
+          <package>msdyn_AISolutionAnchor (202406.1.0.5)</package>
+        </Required>
+        <Dependent type="1" schemaName="msdyn_aievent" displayName="AI Event" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_aievent" displayName="AI Event" solution="msdyn_AISolution (202406.1.0.5)">
+          <package>msdyn_AISolutionAnchor (202406.1.0.5)</package>
+        </Required>
+        <Dependent type="62" schemaName="tc_DocumentAutomationAdmin" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_aievent" displayName="AI Event" solution="msdyn_AISolution (202406.1.0.5)">
+          <package>msdyn_AISolutionAnchor (202406.1.0.5)</package>
+        </Required>
+        <Dependent type="80" schemaName="tc_DocumentAutomationAdmin" displayName="Document Automation Admin" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202406.1.0.5)">
+          <package>msdyn_AISolutionAnchor (202406.1.0.5)</package>
+        </Required>
+        <Dependent type="29" displayName="Document Automation Validator" id="{2354bb7a-7440-eb11-a812-000d3a06a63e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202406.1.0.5)">
+          <package>msdyn_AISolutionAnchor (202406.1.0.5)</package>
+        </Required>
+        <Dependent type="29" displayName="Document Automation Processor" id="{61f6db6c-6a40-eb11-a812-000d3af77de6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202406.1.0.5)">
+          <package>msdyn_AISolutionAnchor (202406.1.0.5)</package>
+        </Required>
+        <Dependent type="300" schemaName="aib_documentautomationapplication_a3a44" displayName="Document Automation Application" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_aitemplate" displayName="AI Template" solution="msdyn_AISolution (202406.1.0.5)">
+          <package>msdyn_AISolutionAnchor (202406.1.0.5)</package>
+        </Required>
+        <Dependent type="300" schemaName="aib_documentautomationapplication_a3a44" displayName="Document Automation Application" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="aib_DocumentAutomationConfiguration_msdyn" displayName="aib_DocumentAutomationConfiguration_msdyn" parentSchemaName="msdyn_aimodel" parentDisplayName="AI Model" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="10" schemaName="aib_DocumentAutomationConfiguration_msdyn" displayName="aib_DocumentAutomationConfiguration_msdyn" parentSchemaName="msdyn_aimodel" parentDisplayName="AI Model" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="aib_DocumentAutomationConfiguration_msdyn" displayName="aib_DocumentAutomationConfiguration_msdyn" parentSchemaName="msdyn_aimodel" parentDisplayName="AI Model" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Configuration" id="{265ce927-ef7e-4c67-a8d0-e0c1d4153573}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="aib_DocumentAutomationData_aib_DocumentAu" displayName="aib_DocumentAutomationData_aib_DocumentAu" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="10" schemaName="aib_DocumentAutomationData_aib_DocumentAu" displayName="aib_DocumentAutomationData_aib_DocumentAu" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="aib_DocumentAutomationProcessing_aib_Docu" displayName="aib_DocumentAutomationProcessing_aib_Docu" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="10" schemaName="aib_DocumentAutomationProcessing_aib_Docu" displayName="aib_DocumentAutomationProcessing_aib_Docu" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="aib_DocumentAutomationProcessing_aib_Docu" displayName="aib_DocumentAutomationProcessing_aib_Docu" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Processing" id="{7041c6dd-1343-429f-a808-326914a16a82}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="aib_DocumentAutomationProcessing_Assigned" displayName="aib_DocumentAutomationProcessing_Assigned" parentSchemaName="systemuser" parentDisplayName="User" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="10" schemaName="aib_DocumentAutomationProcessing_Assigned" displayName="aib_DocumentAutomationProcessing_Assigned" parentSchemaName="systemuser" parentDisplayName="User" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="aib_DocumentAutomationProcessing_Assigned" displayName="aib_DocumentAutomationProcessing_Assigned" parentSchemaName="systemuser" parentDisplayName="User" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Processing" id="{7041c6dd-1343-429f-a808-326914a16a82}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="aib_DocumentAutomationTableData_aib_Docum" displayName="aib_DocumentAutomationTableData_aib_Docum" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="10" schemaName="aib_DocumentAutomationTableData_aib_Docum" displayName="aib_DocumentAutomationTableData_aib_Docum" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="aib_DocumentAutomationTableTaxonomy_aib_D" displayName="aib_DocumentAutomationTableTaxonomy_aib_D" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="10" schemaName="aib_DocumentAutomationTableTaxonomy_aib_D" displayName="aib_DocumentAutomationTableTaxonomy_aib_D" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="aib_DocumentAutomationTaxonomy_aib_Docume" displayName="aib_DocumentAutomationTaxonomy_aib_Docume" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="10" schemaName="aib_DocumentAutomationTaxonomy_aib_Docume" displayName="aib_DocumentAutomationTaxonomy_aib_Docume" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="aib_DocumentAutomationTaxonomy_aib_Docume" displayName="aib_DocumentAutomationTaxonomy_aib_Docume" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Taxonomy" id="{e6d87ee9-659e-4dcb-b772-5a6637ad3a0b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_assignedto" displayName="Assigned To" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" id="{b65157c4-f22c-414a-96d9-b71286a918da}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_assignedto" displayName="Assigned To" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Processing" id="{7041c6dd-1343-429f-a808-326914a16a82}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_comment" displayName="Comment" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" id="{b65157c4-f22c-414a-96d9-b71286a918da}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_comment" displayName="Comment" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Processing" id="{7041c6dd-1343-429f-a808-326914a16a82}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_configurationstatus" displayName="Configuration Status" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Configurations" displayName="Active Document Automation Configurations" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" id="{78c636b2-ce1e-4391-8530-4a0e6894bd76}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_configurationstatus" displayName="Configuration Status" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Configuration" id="{265ce927-ef7e-4c67-a8d0-e0c1d4153573}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_data1" displayName="Data1" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Data" displayName="Active Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" id="{dce412b7-acf1-403e-91d0-1438c58649ea}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_data1" displayName="Data1" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Data" id="{3464b02d-dbab-42c6-99f6-a3dfb53a0472}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_data2" displayName="Data2" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Data" displayName="Active Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" id="{dce412b7-acf1-403e-91d0-1438c58649ea}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_data3" displayName="Data3" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Data" displayName="Active Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" id="{dce412b7-acf1-403e-91d0-1438c58649ea}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_documentautomationconfigurati" displayName="Document Automation Configuration" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" id="{b65157c4-f22c-414a-96d9-b71286a918da}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_documentautomationconfigurati" displayName="Document Automation Configuration" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Processing" id="{7041c6dd-1343-429f-a808-326914a16a82}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_documentautomationconfigurati" displayName="Document Automation Configuration" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Taxonomies" displayName="Active Document Automation Taxonomies" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" id="{7cadb6da-50cd-4ae2-ab82-1a148774a78d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_documentautomationconfigurati" displayName="Document Automation Configuration" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Taxonomy" id="{e6d87ee9-659e-4dcb-b772-5a6637ad3a0b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_documentautomationconfigurationid" displayName="Document Automation Configuration" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Configurations" displayName="Active Document Automation Configurations" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" id="{78c636b2-ce1e-4391-8530-4a0e6894bd76}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_documentautomationdataid" displayName="Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Data" displayName="Active Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" id="{dce412b7-acf1-403e-91d0-1438c58649ea}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_documentautomationprocessing" displayName="Document Automation Processing" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Data" displayName="Active Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" id="{dce412b7-acf1-403e-91d0-1438c58649ea}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_documentautomationprocessingid" displayName="Document Automation Processing" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" id="{b65157c4-f22c-414a-96d9-b71286a918da}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_documentautomationtaxonomyid" displayName="Document Automation Taxonomy" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Taxonomies" displayName="Active Document Automation Taxonomies" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" id="{7cadb6da-50cd-4ae2-ab82-1a148774a78d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_filedata" displayName="File Data" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" id="{b65157c4-f22c-414a-96d9-b71286a918da}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_filemimetype" displayName="File Mime Type" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" id="{b65157c4-f22c-414a-96d9-b71286a918da}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_filemimetype" displayName="File Mime Type" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Processing" id="{7041c6dd-1343-429f-a808-326914a16a82}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_filename" displayName="File Name" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" id="{b65157c4-f22c-414a-96d9-b71286a918da}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_filename" displayName="File Name" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Processing" id="{7041c6dd-1343-429f-a808-326914a16a82}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_index" displayName="Index" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Taxonomies" displayName="Active Document Automation Taxonomies" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" id="{7cadb6da-50cd-4ae2-ab82-1a148774a78d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_index" displayName="Index" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Taxonomy" id="{e6d87ee9-659e-4dcb-b772-5a6637ad3a0b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_mappedcolumn" displayName="Mapped Column" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Taxonomies" displayName="Active Document Automation Taxonomies" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" id="{7cadb6da-50cd-4ae2-ab82-1a148774a78d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_mappedcolumn" displayName="Mapped Column" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Taxonomy" id="{e6d87ee9-659e-4dcb-b772-5a6637ad3a0b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_metadata1" displayName="Metadata1" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Data" displayName="Active Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" id="{dce412b7-acf1-403e-91d0-1438c58649ea}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_metadata2" displayName="Metadata2" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Data" displayName="Active Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" id="{dce412b7-acf1-403e-91d0-1438c58649ea}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_metadata3" displayName="Metadata3" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Data" displayName="Active Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" id="{dce412b7-acf1-403e-91d0-1438c58649ea}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_msdyn_aimodel" displayName="AI Model" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Configurations" displayName="Active Document Automation Configurations" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" id="{78c636b2-ce1e-4391-8530-4a0e6894bd76}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_msdyn_aimodel" displayName="AI Model" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Configuration" id="{265ce927-ef7e-4c67-a8d0-e0c1d4153573}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_name" displayName="Name" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Configurations" displayName="Active Document Automation Configurations" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" id="{78c636b2-ce1e-4391-8530-4a0e6894bd76}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_name" displayName="Name" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Configuration" id="{265ce927-ef7e-4c67-a8d0-e0c1d4153573}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_name" displayName="Name" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Data" displayName="Active Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" id="{dce412b7-acf1-403e-91d0-1438c58649ea}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_name" displayName="Name" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Data" id="{3464b02d-dbab-42c6-99f6-a3dfb53a0472}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_name" displayName="Name" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" id="{b65157c4-f22c-414a-96d9-b71286a918da}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_name" displayName="Name" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Processing" id="{7041c6dd-1343-429f-a808-326914a16a82}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_name" displayName="Name" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Taxonomies" displayName="Active Document Automation Taxonomies" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" id="{7cadb6da-50cd-4ae2-ab82-1a148774a78d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_name" displayName="Name" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Taxonomy" id="{e6d87ee9-659e-4dcb-b772-5a6637ad3a0b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_processingstatus" displayName="Processing Status" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" id="{b65157c4-f22c-414a-96d9-b71286a918da}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_processingstatus" displayName="Processing Status" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Document Automation Processor" id="{61f6db6c-6a40-eb11-a812-000d3af77de6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="aib_processingstatus" displayName="Processing Status" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Processing" id="{7041c6dd-1343-429f-a808-326914a16a82}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Configurations" displayName="Active Document Automation Configurations" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" id="{78c636b2-ce1e-4391-8530-4a0e6894bd76}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" id="{b65157c4-f22c-414a-96d9-b71286a918da}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Taxonomies" displayName="Active Document Automation Taxonomies" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" id="{7cadb6da-50cd-4ae2-ab82-1a148774a78d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Configurations" displayName="Active Document Automation Configurations" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" id="{78c636b2-ce1e-4391-8530-4a0e6894bd76}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Data" displayName="Active Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" id="{dce412b7-acf1-403e-91d0-1438c58649ea}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" id="{b65157c4-f22c-414a-96d9-b71286a918da}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Taxonomies" displayName="Active Document Automation Taxonomies" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" id="{7cadb6da-50cd-4ae2-ab82-1a148774a78d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Document Automation Reviewer" solution="Documentautomationbasekit (202109.1.0303.0)" id="{55547ef8-742d-eb11-a813-000d3af77de6}">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="20" displayName="Document Automation Reviewer" id="{55547ef8-742d-eb11-a813-000d3af77de6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Active Document Automation Configurations" displayName="Active Document Automation Configurations" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)" id="{78c636b2-ce1e-4391-8530-4a0e6894bd76}">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Configurations" displayName="Active Document Automation Configurations" parentSchemaName="aib_documentautomationconfiguration" parentDisplayName="Document Automation Configuration" id="{78c636b2-ce1e-4391-8530-4a0e6894bd76}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Active Document Automation Data" displayName="Active Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)" id="{dce412b7-acf1-403e-91d0-1438c58649ea}">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Data" displayName="Active Document Automation Data" parentSchemaName="aib_documentautomationdata" parentDisplayName="Document Automation Data" id="{dce412b7-acf1-403e-91d0-1438c58649ea}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)" id="{b65157c4-f22c-414a-96d9-b71286a918da}">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Processings" displayName="Active Document Automation Processings" parentSchemaName="aib_documentautomationprocessing" parentDisplayName="Document Automation Processing" id="{b65157c4-f22c-414a-96d9-b71286a918da}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Active Document Automation Taxonomies" displayName="Active Document Automation Taxonomies" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)" id="{7cadb6da-50cd-4ae2-ab82-1a148774a78d}">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="26" schemaName="Active Document Automation Taxonomies" displayName="Active Document Automation Taxonomies" parentSchemaName="aib_documentautomationtaxonomy" parentDisplayName="Document Automation Taxonomy" id="{7cadb6da-50cd-4ae2-ab82-1a148774a78d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="AI Event Lookup View" displayName="AI Event Lookup View" parentSchemaName="msdyn_aievent" parentDisplayName="AI Event" solution="msdyn_AISolution (202406.1.0.5)" id="{b9d2657a-92e7-45a1-9dc2-f38bcf170c5f}">
+          <package>msdyn_AISolutionAnchor (202406.1.0.5)</package>
+        </Required>
+        <Dependent type="80" schemaName="tc_DocumentAutomationAdmin" displayName="Document Automation Admin" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="My AI Events" displayName="My AI Events" parentSchemaName="msdyn_aievent" parentDisplayName="AI Event" solution="msdyn_AISolution (202406.1.0.5)" id="{1e5cfd14-eec1-ed11-b597-000d3a5c3eca}">
+          <package>msdyn_AISolutionAnchor (202406.1.0.5)</package>
+        </Required>
+        <Dependent type="26" schemaName="My AI Events" displayName="My AI Events" parentSchemaName="msdyn_aievent" parentDisplayName="AI Event" id="{1e5cfd14-eec1-ed11-b597-000d3a5c3eca}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="29" displayName="Document Automation Validator" solution="Documentautomationbasekit (202109.1.0303.0)" id="{2354bb7a-7440-eb11-a812-000d3a06a63e}">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Document Automation Validator" id="{2354bb7a-7440-eb11-a812-000d3a06a63e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="29" displayName="Document Automation Email Importer" solution="Documentautomationbasekit (202109.1.0303.0)" id="{44b31d34-ef80-eb11-a812-000d3a4f53f6}">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Document Automation Email Importer" id="{44b31d34-ef80-eb11-a812-000d3a4f53f6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="29" displayName="Document Automation Processor" solution="Documentautomationbasekit (202109.1.0303.0)" id="{61f6db6c-6a40-eb11-a812-000d3af77de6}">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Document Automation Processor" id="{61f6db6c-6a40-eb11-a812-000d3af77de6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="300" schemaName="aib_documentautomationapplication_a3a44" displayName="Document Automation Application" solution="Documentautomationbasekit (202109.1.0303.0)">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="300" schemaName="aib_documentautomationapplication_a3a44" displayName="Document Automation Application" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Information" parentDisplayName="Document Automation Configuration" solution="Documentautomationbasekit (202109.1.0303.0)" id="{265ce927-ef7e-4c67-a8d0-e0c1d4153573}">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Configuration" id="{265ce927-ef7e-4c67-a8d0-e0c1d4153573}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Information" parentDisplayName="Document Automation Data" solution="Documentautomationbasekit (202109.1.0303.0)" id="{3464b02d-dbab-42c6-99f6-a3dfb53a0472}">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Data" id="{3464b02d-dbab-42c6-99f6-a3dfb53a0472}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Information" parentDisplayName="Document Automation Processing" solution="Documentautomationbasekit (202109.1.0303.0)" id="{7041c6dd-1343-429f-a808-326914a16a82}">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Processing" id="{7041c6dd-1343-429f-a808-326914a16a82}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Information" parentDisplayName="Document Automation Taxonomy" solution="Documentautomationbasekit (202109.1.0303.0)" id="{e6d87ee9-659e-4dcb-b772-5a6637ad3a0b}">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Document Automation Taxonomy" id="{e6d87ee9-659e-4dcb-b772-5a6637ad3a0b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cat_dataverse_icon" displayName="cat_dataverse_icon" solution="msdyn_DataverseAcceleratorApp (1.0.4.36)" />
+        <Dependent type="62" schemaName="tc_DocumentAutomationAdmin" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cc_MscrmControls.PowerBIPCFControl/images/powerbi_icon.svg" displayName="cc_MscrmControls.PowerBIPCFControl/images/powerbi_icon.svg" solution="BaseCustomControlsCore (9.0.2406.1010)" />
+        <Dependent type="62" schemaName="tc_DocumentAutomationAdmin" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_/Icons/SolutionHealthAppModuleTeal.svg" displayName="msdyn_/Icons/SolutionHealthAppModuleTeal.svg" solution="msdyn_PowerAppsChecker (2.0.0.95)">
+          <package>msdyn_PowerAppsCheckerAnchor (2.0.0.95)</package>
+        </Required>
+        <Dependent type="62" schemaName="tc_DocumentAutomationAdmin" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
+        <Dependent type="80" schemaName="tc_DocumentAutomationAdmin" displayName="Document Automation Admin" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyncrm_/KnowledgeSearch/CopilotIcon.svg" displayName="msdyncrm_/KnowledgeSearch/CopilotIcon.svg" solution="msdynce_KnowledgeManagementFeatures (9.0.24051.5010)">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.24051.5010)</package>
+        </Required>
+        <Dependent type="62" schemaName="tc_DocumentAutomationAdmin" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyncrm_/KnowledgeSearch/Link.svg" displayName="msdyncrm_/KnowledgeSearch/Link.svg" solution="msdynce_KnowledgeManagementFeatures (9.0.24051.5010)">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.24051.5010)</package>
+        </Required>
+        <Dependent type="62" schemaName="tc_DocumentAutomationAdmin" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="mspp_publishing_state_transition_rules.svg" displayName="mspp_publishing_state_transition_rules.svg" solution="PowerPages_AppResources (1.0.2405.1)" />
+        <Dependent type="62" schemaName="tc_DocumentAutomationAdmin" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aib_currentcommondataserviceconnection" solution="Documentautomationbasekit (202109.1.0303.0)" id.connectionreferencelogicalname="aib_currentcommondataserviceconnection">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Document Automation Validator" id="{2354bb7a-7440-eb11-a812-000d3a06a63e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aib_currentcommondataserviceconnection" solution="Documentautomationbasekit (202109.1.0303.0)" id.connectionreferencelogicalname="aib_currentcommondataserviceconnection">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Document Automation Canvas App File Importer" id="{36a0d496-8322-ef11-840b-6045bdcd3da1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aib_currentcommondataserviceconnection" solution="Documentautomationbasekit (202109.1.0303.0)" id.connectionreferencelogicalname="aib_currentcommondataserviceconnection">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Document Automation Email Importer" id="{44b31d34-ef80-eb11-a812-000d3a4f53f6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aib_currentcommondataserviceconnection" solution="Documentautomationbasekit (202109.1.0303.0)" id.connectionreferencelogicalname="aib_currentcommondataserviceconnection">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Document Automation Processor" id="{61f6db6c-6a40-eb11-a812-000d3af77de6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aib_office365outlookconnection" solution="Documentautomationbasekit (202109.1.0303.0)" id.connectionreferencelogicalname="aib_office365outlookconnection">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Document Automation Email Importer" id="{44b31d34-ef80-eb11-a812-000d3a4f53f6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="dh_sharedcommondataserviceforapps_37c74" solution="Active" id.connectionreferencelogicalname="dh_sharedcommondataserviceforapps_37c74" />
+        <Dependent type="29" displayName="Document Automation Processor" id="{61f6db6c-6a40-eb11-a812-000d3af77de6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.10)" id.uniquename="AppChannel" />
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=tc_DocumentAutomationAdmin,settingdefinitionid.uniquename=AppChannel" id.parentappmoduleid.uniquename="tc_DocumentAutomationAdmin" id.settingdefinitionid.uniquename="AppChannel" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

@@ -1,0 +1,916 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "impersonation": {
+          "source": "invoker"
+        },
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aib_currentcommondataserviceconnection"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_commondataserviceforapps_1": {
+        "impersonation": {
+          "source": "invoker"
+        },
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "dh_sharedcommondataserviceforapps_37c74"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_record_is_created,_updated_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "b473cb75-b4cd-4e1b-af22-463022b62a3c"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "aib_documentautomationprocessing",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "aib_processingstatus",
+              "subscriptionRequest/filterexpression": "aib_processingstatus eq 914700001"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Get_attachment": {
+          "runAfter": {
+            "Initialize_variable_TableRows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "27ac71b4-0102-4c72-877d-791cf7ec7b37"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetEntityFileImageFieldContent",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "aib_documentautomationprocessings",
+              "recordId": "@triggerOutputs()?['body/aib_documentautomationprocessingid']",
+              "fileImageFieldName": "aib_filedata"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Create_document_processing_data": {
+          "runAfter": {
+            "Get_document_processing": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "23885397-0b6e-49c9-958b-357b81eaa941"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "CreateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "aib_documentautomationdatas",
+              "item/aib_name": "@triggerOutputs()?['body/aib_name']",
+              "item/aib_data1": "@variables('DataDictionary')?['Data1']",
+              "item/aib_data10": "@variables('DataDictionary')?['Data10']",
+              "item/aib_data11": "@variables('DataDictionary')?['Data11']",
+              "item/aib_data12": "@variables('DataDictionary')?['Data12']",
+              "item/aib_data13": "@variables('DataDictionary')?['Data13']",
+              "item/aib_data14": "@variables('DataDictionary')?['Data14']",
+              "item/aib_data15": "@variables('DataDictionary')?['Data15']",
+              "item/aib_data16": "@variables('DataDictionary')?['Data16']",
+              "item/aib_data17": "@variables('DataDictionary')?['Data17']",
+              "item/aib_data18": "@variables('DataDictionary')?['Data18']",
+              "item/aib_data19": "@variables('DataDictionary')?['Data19']",
+              "item/aib_data2": "@variables('DataDictionary')?['Data2']",
+              "item/aib_data20": "@variables('DataDictionary')?['Data20']",
+              "item/aib_data21": "@variables('DataDictionary')?['Data21']",
+              "item/aib_data22": "@variables('DataDictionary')?['Data22']",
+              "item/aib_data23": "@variables('DataDictionary')?['Data23']",
+              "item/aib_data24": "@variables('DataDictionary')?['Data24']",
+              "item/aib_data25": "@variables('DataDictionary')?['Data25']",
+              "item/aib_data26": "@variables('DataDictionary')?['Data26']",
+              "item/aib_data27": "@variables('DataDictionary')?['Data27']",
+              "item/tc_data28": "@variables('DataDictionary')?['Data28']",
+              "item/tc_data29": "@variables('DataDictionary')?['Data29']",
+              "item/aib_data3": "@variables('DataDictionary')?['Data3']",
+              "item/tc_data30": "@variables('DataDictionary')?['Data30']",
+              "item/tc_data31": "@variables('DataDictionary')?['Data31']",
+              "item/tc_data32": "@variables('DataDictionary')?['Data32']",
+              "item/tc_data33": "@variables('DataDictionary')?['Data33']",
+              "item/tc_data34": "@variables('DataDictionary')?['Data34']",
+              "item/tc_data35": "@variables('DataDictionary')?['Data35']",
+              "item/aib_data4": "@variables('DataDictionary')?['Data4']",
+              "item/aib_data5": "@variables('DataDictionary')?['Data5']",
+              "item/aib_data6": "@variables('DataDictionary')?['Data6']",
+              "item/aib_data7": "@variables('DataDictionary')?['Data7']",
+              "item/aib_data8": "@variables('DataDictionary')?['Data8']",
+              "item/aib_data9": "@variables('DataDictionary')?['Data9']",
+              "item/aib_DocumentAutomationProcessing@odata.bind": "@outputs('Get_document_processing')?['body/@odata.id']",
+              "item/aib_metadata1": "@variables('DataDictionary')?['Data1_confidence']",
+              "item/aib_metadata10": "@variables('DataDictionary')?['Data10_confidence']",
+              "item/aib_metadata11": "@variables('DataDictionary')?['Data11_confidence']",
+              "item/aib_metadata12": "@variables('DataDictionary')?['Data12_confidence']",
+              "item/aib_metadata13": "@variables('DataDictionary')?['Data13_confidence']",
+              "item/aib_metadata14": "@variables('DataDictionary')?['Data14_confidence']",
+              "item/aib_metadata15": "@variables('DataDictionary')?['Data15_confidence']",
+              "item/aib_metadata16": "@variables('DataDictionary')?['Data16_confidence']",
+              "item/aib_metadata17": "@variables('DataDictionary')?['Data17_confidence']",
+              "item/aib_metadata18": "@variables('DataDictionary')?['Data18_confidence']",
+              "item/aib_metadata19": "@variables('DataDictionary')?['Data19_confidence']",
+              "item/aib_metadata2": "@variables('DataDictionary')?['Data2_confidence']",
+              "item/aib_metadata20": "@variables('DataDictionary')?['Data20_confidence']",
+              "item/aib_metadata21": "@variables('DataDictionary')?['Data21_confidence']",
+              "item/aib_metadata22": "@variables('DataDictionary')?['Data22_confidence']",
+              "item/aib_metadata23": "@variables('DataDictionary')?['Data23_confidence']",
+              "item/aib_metadata24": "@variables('DataDictionary')?['Data24_confidence']",
+              "item/aib_metadata25": "@variables('DataDictionary')?['Data25_confidence']",
+              "item/aib_metadata26": "@variables('DataDictionary')?['Data26_confidence']",
+              "item/aib_metadata27": "@variables('DataDictionary')?['Data27_confidence']",
+              "item/tc_metadata28": "@variables('DataDictionary')?['Data28_confidence']",
+              "item/tc_metadata29": "@variables('DataDictionary')?['Data29_confidence']",
+              "item/aib_metadata3": "@variables('DataDictionary')?['Data3_confidence']",
+              "item/tc_metadata30": "@variables('DataDictionary')?['Data30_confidence']",
+              "item/tc_metadata31": "@variables('DataDictionary')?['Data31_confidence']",
+              "item/tc_metadata32": "@variables('DataDictionary')?['Data32_confidence']",
+              "item/tc_metadata33": "@variables('DataDictionary')?['Data33_confidence']",
+              "item/tc_metadata34": "@variables('DataDictionary')?['Data34_confidence']",
+              "item/tc_metadata35": "@variables('DataDictionary')?['Data35_confidence']",
+              "item/aib_metadata4": "@variables('DataDictionary')?['Data4_confidence']",
+              "item/aib_metadata5": "@variables('DataDictionary')?['Data5_confidence']",
+              "item/aib_metadata6": "@variables('DataDictionary')?['Data6_confidence']",
+              "item/aib_metadata7": "@variables('DataDictionary')?['Data7_confidence']",
+              "item/aib_metadata8": "@variables('DataDictionary')?['Data8_confidence']",
+              "item/aib_metadata9": "@variables('DataDictionary')?['Data9_confidence']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Set_Predict_failed": {
+          "runAfter": {
+            "Predict": [
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ec5ea0c0-65f3-4f5d-a599-0d97d51438b1"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "aib_documentautomationprocessings",
+              "recordId": "@triggerOutputs()?['body/aib_documentautomationprocessingid']",
+              "item/aib_processingstatus": 914700006
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Predict": {
+          "runAfter": {
+            "Get_Model_type": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "63fab294-fcee-48d0-91c6-18c44c778036"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "PerformBoundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "msdyn_aimodels",
+              "actionName": "Microsoft.Dynamics.CRM.Predict",
+              "recordId": "@outputs('Get_model_to_use')?['body/_aib_msdyn_aimodel_value']",
+              "item/version": "1.0",
+              "item/request": "{\"mimeType\":\"@{triggerOutputs()?['body/aib_filemimetype']}\",\"base64Encoded\":\"@{base64(outputs('Get_attachment')?['body'])}\"}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_model_to_use": {
+          "runAfter": {
+            "Get_attachment": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9116107a-1527-4a0c-9c67-95b672e4a499"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "aib_documentautomationconfigurations",
+              "recordId": "@triggerOutputs()?['body/_aib_documentautomationconfigurati_value']",
+              "$select": "_aib_msdyn_aimodel_value"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_label_to_field_mapping": {
+          "runAfter": {
+            "Predict": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cae27366-5248-4ebe-8e3a-b020501982e7"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "aib_documentautomationtaxonomies",
+              "$select": "aib_name,aib_mappedcolumn",
+              "$filter": "_aib_documentautomationconfigurati_value eq '@{triggerOutputs()?['body/_aib_documentautomationconfigurati_value']}'",
+              "$orderby": "aib_index"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Initialize_variable_DataDictionary": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "8c1b7063-1593-4b7c-95b8-485228f4c19d"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "DataDictionary",
+                "type": "object",
+                "value": {}
+              }
+            ]
+          }
+        },
+        "Extract_values": {
+          "foreach": "@outputs('Get_label_to_field_mapping')?['body/value']",
+          "actions": {
+            "_Check_Model_Type": {
+              "runAfter": {},
+              "cases": {
+                "Case": {
+                  "case": "Invoice Processing Model",
+                  "actions": {
+                    "Get_extracted_value_Invoice_Processing": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "09608299-5c98-40ef-82d6-42b915a5da45"
+                      },
+                      "type": "Compose",
+                      "inputs": "@if(empty(items('Extract_values')?['aib_mappedcolumn']), null, json(outputs('Predict')?['body/response'])['predictionOutput']?['result']?['fields']?[items('Extract_values')?['aib_mappedcolumn']]?['valueText'])"
+                    },
+                    "Set_variable_DataDictionary_with_extracted_data_Invoice_Processing": {
+                      "runAfter": {
+                        "Set_extracted_value_Invoice_Processing": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "b98b65ab-7c07-4102-825e-133e552e4a2f"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "DataDictionary",
+                        "value": "@outputs('Set_extracted_value_Invoice_Processing')"
+                      }
+                    },
+                    "Set_extracted_value_Invoice_Processing": {
+                      "runAfter": {
+                        "Get_extracted_value_Invoice_Processing": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "c2acabb4-dbd9-4edb-8498-20f229433585"
+                      },
+                      "type": "Compose",
+                      "inputs": "@setProperty(variables('DataDictionary'), items('Extract_values')?['aib_name'], outputs('Get_extracted_value_Invoice_Processing'))"
+                    },
+                    "Get_extracted_value_confidence_Invoice_Processing": {
+                      "runAfter": {
+                        "Set_variable_DataDictionary_with_extracted_data_Invoice_Processing": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "68b052c3-170e-48ce-822c-927fa295f67a"
+                      },
+                      "type": "Compose",
+                      "inputs": "@if(or(empty(items('Extract_values')?['aib_mappedcolumn']), empty(outputs('Get_extracted_value_Invoice_Processing'))), null, concat('{\"confidence\":', coalesce(json(outputs('Predict')?['body/response'])['predictionOutput']?['result']?['fields']?[items('Extract_values')?['aib_mappedcolumn']]?['confidence'], '0.0'),'}'))"
+                    },
+                    "Set_variable_DataDictionary_with_confidence_Invoice_Processing": {
+                      "runAfter": {
+                        "Set_extracted_value_confidence_Invoice_Processing": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "c0e71ff0-63f9-49c0-8fc1-b4f4fb8990d7"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "DataDictionary",
+                        "value": "@outputs('Set_extracted_value_confidence_Invoice_Processing')"
+                      }
+                    },
+                    "Set_extracted_value_confidence_Invoice_Processing": {
+                      "runAfter": {
+                        "Get_extracted_value_confidence_Invoice_Processing": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "6eceeded-3183-45b5-85e2-9953bd466e38"
+                      },
+                      "type": "Compose",
+                      "inputs": "@setProperty(variables('DataDictionary'), concat(items('Extract_values')?['aib_name'], '_confidence'), outputs('Get_extracted_value_confidence_Invoice_Processing'))"
+                    }
+                  }
+                }
+              },
+              "default": {
+                "actions": {
+                  "Get_extracted_value": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "752db508-8653-477f-b9c2-45ecc554fe20"
+                    },
+                    "type": "Compose",
+                    "inputs": "@if(empty(items('Extract_values')?['aib_mappedcolumn']), null, json(outputs('Predict')?['body/response'])['predictionOutput']?['labels']?[items('Extract_values')?['aib_mappedcolumn']]?['value'])"
+                  },
+                  "Set_variable_DataDictionary_with_extracted_data": {
+                    "runAfter": {
+                      "Set_extracted_value": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "ee7726f9-ab18-47fd-a9d5-3bf32c388877"
+                    },
+                    "type": "SetVariable",
+                    "inputs": {
+                      "name": "DataDictionary",
+                      "value": "@outputs('Set_extracted_value')"
+                    }
+                  },
+                  "Set_extracted_value": {
+                    "runAfter": {
+                      "Get_extracted_value": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "7b9a8d1e-c55f-4019-82aa-ed5e0036db14"
+                    },
+                    "type": "Compose",
+                    "inputs": "@setProperty(variables('DataDictionary'), items('Extract_values')?['aib_name'], outputs('Get_extracted_value'))"
+                  },
+                  "Get_extracted_value_confidence": {
+                    "runAfter": {
+                      "Set_variable_DataDictionary_with_extracted_data": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "090f4057-6054-40a3-95bc-c6733fdd8305"
+                    },
+                    "type": "Compose",
+                    "inputs": "@if(empty(items('Extract_values')?['aib_mappedcolumn']), null, concat('{\"confidence\":', coalesce(json(outputs('Predict')?['body/response'])['predictionOutput']?['labels']?[items('Extract_values')?['aib_mappedcolumn']]?['confidence'], '0.0'),'}'))"
+                  },
+                  "Set_variable_DataDictionary_with_confidence": {
+                    "runAfter": {
+                      "Set_extracted_value_confidence": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "0305d7e1-83e8-4c02-bfe3-91bd642bd6c1"
+                    },
+                    "type": "SetVariable",
+                    "inputs": {
+                      "name": "DataDictionary",
+                      "value": "@outputs('Set_extracted_value_confidence')"
+                    }
+                  },
+                  "Set_extracted_value_confidence": {
+                    "runAfter": {
+                      "Get_extracted_value_confidence": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "0a0f3305-75e7-4723-ac1a-50afa2b8b056"
+                    },
+                    "type": "Compose",
+                    "inputs": "@setProperty(variables('DataDictionary'), concat(items('Extract_values')?['aib_name'], '_confidence'), outputs('Get_extracted_value_confidence'))"
+                  }
+                }
+              },
+              "expression": "@outputs('Get_Model_type')?['body/msdyn_name']",
+              "metadata": {
+                "operationMetadataId": "70af56e9-6eeb-47ed-b320-36f783fc74fd"
+              },
+              "type": "Switch"
+            }
+          },
+          "runAfter": {
+            "Get_label_to_field_mapping": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9a8dd6b6-b4d5-4461-854f-e3e887ff947b"
+          },
+          "type": "Foreach"
+        },
+        "Get_table_label_to_field_mapping": {
+          "runAfter": {
+            "Create_document_processing_data": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d2145320-ec45-4adf-9e18-8abe651a469a"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "aib_documentautomationtabletaxonomies",
+              "$select": "aib_tablename, aib_name, aib_mappedcolumn",
+              "$filter": "_aib_documentautomationconfigurati_value eq '@{triggerOutputs()?['body/_aib_documentautomationconfigurati_value']}'",
+              "$orderby": "aib_tablename, aib_index"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Extract_tables_taxonomies": {
+          "foreach": "@outputs('Get_table_label_to_field_mapping')?['body/value']",
+          "actions": {
+            "Condition": {
+              "actions": {
+                "Reset_variable_TableTaxonomy": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "5c65ccc6-a5e8-4a7b-8e13-f25fa8a3f7d1"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "TableTaxonomy",
+                    "value": []
+                  }
+                },
+                "Append_to_array_variable": {
+                  "runAfter": {
+                    "Reset_variable_TableTaxonomy": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6bfd0af1-838b-4e48-83e0-fff7c2fa5841"
+                  },
+                  "type": "AppendToArrayVariable",
+                  "inputs": {
+                    "name": "TableNames",
+                    "value": "@items('Extract_tables_taxonomies')?['aib_tablename']"
+                  }
+                }
+              },
+              "runAfter": {},
+              "expression": {
+                "not": {
+                  "contains": [
+                    "@variables('TableNames')",
+                    "@items('Extract_tables_taxonomies')?['aib_tablename']"
+                  ]
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "b268fa98-ff25-4ba3-a2d9-d726ff7a3dd2"
+              },
+              "type": "If"
+            },
+            "Set_variable_TableTaxonomyDictionary": {
+              "runAfter": {
+                "Update_table_taxonomies": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "98f56815-2872-4a6b-bb4a-b9db701b11ab"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "TableTaxonomyDictionary",
+                "value": "@outputs('Update_table_taxonomies')"
+              }
+            },
+            "Append_to_array_variable_TableTaxonomy": {
+              "runAfter": {
+                "Condition": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "b937d242-16de-4c0f-a2b5-4c2559fa5f2a"
+              },
+              "type": "AppendToArrayVariable",
+              "inputs": {
+                "name": "TableTaxonomy",
+                "value": "@coalesce(items('Extract_tables_taxonomies')?['aib_mappedcolumn'], '')"
+              }
+            },
+            "Update_table_taxonomies": {
+              "runAfter": {
+                "Append_to_array_variable_TableTaxonomy": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "33ff2a4a-9f40-444b-8ce7-a9ec813ce744"
+              },
+              "type": "Compose",
+              "inputs": "@setProperty(variables('TableTaxonomyDictionary'), items('Extract_tables_taxonomies')?['aib_tablename'], variables('TableTaxonomy'))"
+            }
+          },
+          "runAfter": {
+            "Get_table_label_to_field_mapping": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "da868d8d-0535-47e0-82df-9958a157a9eb"
+          },
+          "type": "Foreach",
+          "runtimeConfiguration": {
+            "concurrency": {
+              "repetitions": 1
+            }
+          }
+        },
+        "Initialize_variable_TableRows": {
+          "runAfter": {
+            "Initialize_variable_TableTaxonomy": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "eb1e9fd3-8732-4ca5-b57b-fdcf7452adc1"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TableRows",
+                "type": "array",
+                "value": []
+              }
+            ]
+          }
+        },
+        "Initialize_variable_TableNames": {
+          "runAfter": {
+            "Initialize_variable_DataDictionary": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "06e68f64-4840-43e2-8727-da1ee288d387"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TableNames",
+                "type": "array",
+                "value": []
+              }
+            ]
+          }
+        },
+        "Initialize_variable_TableTaxonomy": {
+          "runAfter": {
+            "Initialize_variable_TableTaxonomyDictionary": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "46821cdd-e749-45e7-8e39-a05a0bf57d93"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TableTaxonomy",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_TableTaxonomyDictionary": {
+          "runAfter": {
+            "Initialize_variable_TableNames": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "027a5e68-b76e-45ce-9e0e-dfacbeeb13ab"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TableTaxonomyDictionary",
+                "type": "object",
+                "value": {}
+              }
+            ]
+          }
+        },
+        "Extract_tables_data": {
+          "foreach": "@variables('TableNames')",
+          "actions": {
+            "_Check_Model_Type_Again": {
+              "runAfter": {},
+              "cases": {
+                "Case": {
+                  "case": "Invoice Processing Model",
+                  "actions": {
+                    "Set_Table_Rows_Invoice_Processing": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "5b918281-9462-4750-9d67-3f1520255dff"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "TableRows",
+                        "value": "@json(outputs('Predict')?['body/response'])['predictionOutput']?['result']?[items('Extract_tables_data')]"
+                      }
+                    },
+                    "Extract_table_row_Invoice_Processing": {
+                      "foreach": "@variables('TableRows')",
+                      "actions": {
+                        "Create_document_automation_table_Data_Invoice_Processing": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "65d02ea8-9b47-47df-b8c6-4dc1df6bfdbe"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "CreateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "aib_documentautomationtabledatas",
+                              "item/aib_name": "@guid()",
+                              "item/aib_tablename": "@items('Extract_tables_data')",
+                              "item/aib_data1": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][0],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][0]]?['valueText'])",
+                              "item/aib_data10": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][9],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][9]]?['valueText'])",
+                              "item/aib_data2": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][1],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][1]]?['valueText'])",
+                              "item/aib_data3": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][2],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][2]]?['valueText'])",
+                              "item/aib_data4": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][3],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][3]]?['valueText'])",
+                              "item/aib_data5": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][4],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][4]]?['valueText'])",
+                              "item/aib_data6": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][5],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][5]]?['valueText'])",
+                              "item/aib_data7": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][6],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][6]]?['valueText'])",
+                              "item/aib_data8": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][7],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][7]]?['valueText'])",
+                              "item/aib_data9": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][8],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][8]]?['valueText'])",
+                              "item/aib_DocumentAutomationProcessing@odata.bind": "@outputs('Get_document_processing')?['body/@odata.id']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Set_Table_Rows_Invoice_Processing": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "b20c1cd6-1e0e-48ec-aac0-22fab6f50913"
+                      },
+                      "type": "Foreach"
+                    }
+                  }
+                }
+              },
+              "default": {
+                "actions": {
+                  "Set_Table_Rows": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "326d25ab-c742-4eac-83de-155b1662889b"
+                    },
+                    "type": "SetVariable",
+                    "inputs": {
+                      "name": "TableRows",
+                      "value": "@json(outputs('Predict')?['body/response'])['predictionOutput']?['tables']?[items('Extract_tables_data')]?['entries']"
+                    }
+                  },
+                  "Extract_table_row": {
+                    "foreach": "@variables('TableRows')",
+                    "actions": {
+                      "Create_document_automation_table_Data": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "7ef3537d-7ea1-4532-8b1c-0b91a5678ac1"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataserviceforapps_1",
+                            "operationId": "CreateRecord",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                          },
+                          "parameters": {
+                            "entityName": "aib_documentautomationtabledatas",
+                            "item/aib_name": "@guid()",
+                            "item/aib_tablename": "@items('Extract_tables_data')",
+                            "item/aib_data1": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][0],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][0]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][0]]?['value'], null))",
+                            "item/aib_data10": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][9],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][9]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][9]]?['value'], null))",
+                            "item/aib_data2": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][1],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][1]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][1]]?['value'], null))",
+                            "item/aib_data3": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][2],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][2]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][2]]?['value'], null))",
+                            "item/aib_data4": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][3],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][3]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][3]]?['value'], null))",
+                            "item/aib_data5": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][4],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][4]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][4]]?['value'], null))",
+                            "item/aib_data6": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][5],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][5]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][5]]?['value'], null))",
+                            "item/aib_data7": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][6],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][6]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][6]]?['value'], null))",
+                            "item/aib_data8": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][7],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][7]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][7]]?['value'], null))",
+                            "item/aib_data9": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][8],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][8]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][8]]?['value'], null))",
+                            "item/aib_DocumentAutomationProcessing@odata.bind": "@outputs('Get_document_processing')?['body/@odata.id']"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      }
+                    },
+                    "runAfter": {
+                      "Set_Table_Rows": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "3b909c5c-28cf-4782-933e-88b82da1ecc5"
+                    },
+                    "type": "Foreach"
+                  }
+                }
+              },
+              "expression": "@outputs('Get_Model_type')?['body/msdyn_name']",
+              "metadata": {
+                "operationMetadataId": "90330842-a864-4771-85e4-0b56b6d3afff"
+              },
+              "type": "Switch"
+            }
+          },
+          "runAfter": {
+            "Extract_tables_taxonomies": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "161299da-fae8-4425-ac62-6e52965e67ae"
+          },
+          "type": "Foreach",
+          "runtimeConfiguration": {
+            "concurrency": {
+              "repetitions": 1
+            }
+          }
+        },
+        "Update_processing_status": {
+          "runAfter": {
+            "Extract_tables_data": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7920a4f2-1032-473f-aed0-b0a961468037"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "aib_documentautomationprocessings",
+              "recordId": "@triggerOutputs()?['body/aib_documentautomationprocessingid']",
+              "item/aib_processingstatus": 914700002
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Model_type": {
+          "runAfter": {
+            "Get_model_to_use": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d84134a8-1a71-4aa3-85e6-24c574f7082e"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "msdyn_aimodels",
+              "recordId": "@outputs('Get_model_to_use')?['body/_aib_msdyn_aimodel_value']",
+              "$select": "msdyn_name"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_document_processing": {
+          "runAfter": {
+            "Extract_values": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f71d8f98-a033-45d3-9123-f93c99a5e6f9"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "aib_documentautomationprocessings",
+              "recordId": "@triggerOutputs()?['body/aib_documentautomationprocessingid']",
+              "$select": "aib_documentautomationprocessingid"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

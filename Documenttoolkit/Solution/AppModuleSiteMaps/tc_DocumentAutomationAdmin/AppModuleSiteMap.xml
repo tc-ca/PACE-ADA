@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModuleSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SiteMapUniqueName>tc_DocumentAutomationAdmin</SiteMapUniqueName>
+  <EnableCollapsibleGroups>False</EnableCollapsibleGroups>
+  <ShowHome>True</ShowHome>
+  <ShowPinned>True</ShowPinned>
+  <ShowRecents>True</ShowRecents>
+  <SiteMap IntroducedVersion="7.0.0.0">
+    <Area Id="area_5908bd2d" ResourceId="SitemapDesigner.NewTitle" DescriptionResourceId="SitemapDesigner.NewTitle" ShowGroups="true" IntroducedVersion="7.0.0.0">
+      <Titles>
+        <Title LCID="1033" Title="Area1" />
+      </Titles>
+      <Group Id="group_e3d67e5f" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="General" />
+        </Titles>
+        <SubArea Id="NewSubArea_e1cad0bb" DescriptionResourceId="Dashboards_Description" VectorIcon="/WebResources/cc_MscrmControls.PowerBIPCFControl/images/powerbi_icon.svg" Icon="/WebResources/cc_MscrmControls.PowerBIPCFControl/images/powerbi_icon.svg" Url="/workplace/home_dashboards.aspx" DefaultDashboard="fecd41e1-4c23-ef11-840b-000d3af4271c" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" ToolTipResourseId="DashboardTooltip">
+          <Titles>
+            <Title LCID="1033" Title="Dashboards" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_a71051d9" VectorIcon="/WebResources/mspp_publishing_state_transition_rules.svg" Icon="/WebResources/mspp_publishing_state_transition_rules.svg" Entity="aib_documentautomationconfiguration" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Configurations" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_11899b2d" VectorIcon="/WebResources/msdyncrm_/KnowledgeSearch/CopilotIcon.svg" Icon="/WebResources/msdyncrm_/KnowledgeSearch/CopilotIcon.svg" Entity="aib_documentautomationprocessing" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Processings" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_716dd68d" VectorIcon="/WebResources/cat_dataverse_icon" Icon="/WebResources/cat_dataverse_icon" Entity="aib_documentautomationdata" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Data" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_f856b627" VectorIcon="/WebResources/msdyncrm_/KnowledgeSearch/Link.svg" Icon="/WebResources/msdyncrm_/KnowledgeSearch/Link.svg" Entity="aib_documentautomationtaxonomy" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Taxonomies" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_386bc165" VectorIcon="/WebResources/mspp_publishing_state_transition_rules.svg" Icon="/WebResources/mspp_publishing_state_transition_rules.svg" Entity="aib_documentautomationtabletaxonomy" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Table Taxonomies" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_7ae03e54" VectorIcon="/WebResources/msdyn_/Icons/SolutionHealthAppModuleTeal.svg" Icon="/WebResources/msdyn_/Icons/SolutionHealthAppModuleTeal.svg" Entity="msdyn_aievent" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="AI Credits Consumption" />
+          </Titles>
+        </SubArea>
+      </Group>
+    </Area>
+  </SiteMap>
+  <LocalizedNames>
+    <LocalizedName description="Document Automation Admin" languagecode="1033" />
+  </LocalizedNames>
+</AppModuleSiteMap>

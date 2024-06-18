@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{78c636b2-ce1e-4391-8530-4a0e6894bd76}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="aib_name" select="1" icon="1" preview="1">
+        <row name="result" id="aib_documentautomationconfigurationid">
+          <cell name="aib_name" width="300" />
+          <cell name="aib_msdyn_aimodel" width="100" />
+          <cell name="aib_configurationstatus" width="157" />
+          <cell name="createdon" width="105" />
+          <cell name="createdby" width="104" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="aib_documentautomationconfiguration">
+          <attribute name="aib_documentautomationconfigurationid" />
+          <attribute name="aib_name" />
+          <order attribute="aib_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="aib_msdyn_aimodel" />
+          <attribute name="aib_configurationstatus" />
+          <attribute name="createdon" />
+          <attribute name="createdby" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Document Automation Configurations" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

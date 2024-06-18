@@ -1,0 +1,261 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aib_currentcommondataserviceconnection"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_office365_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aib_office365outlookconnection"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_new_email_arrives_(V3)": {
+          "splitOn": "@triggerOutputs()?['body/value']",
+          "metadata": {
+            "operationMetadataId": "41c51f2a-4ccf-4f53-93d4-4ddbb90df02e",
+            "Id::AAMkAGYyZDNhNGJkLWIyYWYtNDBjYS05OWQxLTgxYTI4MTU1NDU2YwAuAAAAAAACiNiRxP8mTqY5T2sEu-0fAQDHa4Km0f6QS7mI1iGZSKuJAAK13iNGAAA=": "Pace"
+          },
+          "type": "OpenApiConnectionNotification",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365_1",
+              "operationId": "OnNewEmailV3",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "folderPath": "Id::AAMkAGYyZDNhNGJkLWIyYWYtNDBjYS05OWQxLTgxYTI4MTU1NDU2YwAuAAAAAAACiNiRxP8mTqY5T2sEu-0fAQDHa4Km0f6QS7mI1iGZSKuJAAK13iNGAAA=",
+              "includeAttachments": true,
+              "importance": "Any",
+              "fetchOnlyWithAttachment": true
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "For_each_attachment": {
+          "foreach": "@triggerOutputs()?['body/attachments']",
+          "actions": {
+            "If_attachment_is_not_inline": {
+              "actions": {
+                "Get_configuration": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "f8c6ccd3-b7f2-4825-b0f9-1e0e4a9f7af7"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "aib_documentautomationconfigurations",
+                      "$filter": "aib_configurationstatus eq 914700000",
+                      "$top": 1
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "For_each_configuration": {
+                  "foreach": "@outputs('Get_configuration')?['body/value']",
+                  "actions": {
+                    "Upload_attachment": {
+                      "runAfter": {
+                        "Create_a_new_document_processing": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "2e1360f7-3bb7-4548-be3a-28c6c158bcd5"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "UpdateEntityFileImageFieldContent",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "aib_documentautomationprocessings",
+                          "recordId": "@outputs('Create_a_new_document_processing')?['body/aib_documentautomationprocessingid']",
+                          "fileImageFieldName": "aib_filedata",
+                          "item": "@base64ToBinary(items('For_each_attachment')?['contentBytes'])",
+                          "x-ms-file-name": "Untitled"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      },
+                      "runtimeConfiguration": {
+                        "secureData": {
+                          "properties": [
+                            "inputs"
+                          ]
+                        }
+                      }
+                    },
+                    "Check_content_type_is_valid": {
+                      "actions": {
+                        "Update_document_processing_to_start_extraction": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "92af7f7e-4663-48c8-b6c1-c5611f8bdeb5"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "UpdateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "aib_documentautomationprocessings",
+                              "recordId": "@outputs('Create_a_new_document_processing')?['body/aib_documentautomationprocessingid']",
+                              "item/aib_processingstatus": 914700001
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Upload_attachment": [
+                          "Succeeded"
+                        ]
+                      },
+                      "else": {
+                        "actions": {
+                          "Update_document_processing_invalid_document": {
+                            "runAfter": {},
+                            "metadata": {
+                              "operationMetadataId": "61702b6c-63f3-46a3-95e4-9cabbb957afe"
+                            },
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "host": {
+                                "connectionName": "shared_commondataserviceforapps_1",
+                                "operationId": "UpdateRecord",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                              },
+                              "parameters": {
+                                "entityName": "aib_documentautomationprocessings",
+                                "recordId": "@outputs('Create_a_new_document_processing')?['body/aib_documentautomationprocessingid']",
+                                "item/aib_processingstatus": 914700005
+                              },
+                              "authentication": "@parameters('$authentication')"
+                            }
+                          }
+                        }
+                      },
+                      "expression": {
+                        "or": [
+                          {
+                            "equals": [
+                              "@items('For_each_attachment')?['contentType']",
+                              "application/pdf"
+                            ]
+                          },
+                          {
+                            "equals": [
+                              "@items('For_each_attachment')?['contentType']",
+                              "image/jpeg"
+                            ]
+                          },
+                          {
+                            "equals": [
+                              "@items('For_each_attachment')?['contentType']",
+                              "image/png"
+                            ]
+                          }
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "8aac7da1-abd0-4b7d-a341-268415f0a484"
+                      },
+                      "type": "If"
+                    },
+                    "Create_a_new_document_processing": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "634bc1d6-38a4-4faf-bdc5-9fe9c6a1117e"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "aib_documentautomationprocessings",
+                          "item/aib_name": "@triggerOutputs()?['body/receivedDateTime']",
+                          "item/aib_DocumentAutomationConfigurati@odata.bind": "@items('For_each_configuration')?['@odata.id']",
+                          "item/aib_filemimetype": "@items('For_each_attachment')?['contentType']",
+                          "item/aib_filename": "@items('For_each_attachment')?['name']",
+                          "item/aib_processingstatus": 914700000
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Get_configuration": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "bedcd9c7-b864-47e8-865b-c4aa3af537b3"
+                  },
+                  "type": "Foreach"
+                }
+              },
+              "runAfter": {},
+              "expression": {
+                "equals": [
+                  "@items('For_each_attachment')?['isInline']",
+                  false
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "4823d030-1c16-49ca-9cd8-eb60e87eea8c"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "394fbc62-f2f7-418d-8fdb-3163ece870e6"
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

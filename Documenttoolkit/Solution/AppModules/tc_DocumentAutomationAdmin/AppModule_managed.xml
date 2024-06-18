@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>tc_DocumentAutomationAdmin</UniqueName>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="aib_documentautomationconfiguration" />
+    <AppModuleComponent type="1" schemaName="aib_documentautomationdata" />
+    <AppModuleComponent type="1" schemaName="aib_documentautomationprocessing" />
+    <AppModuleComponent type="1" schemaName="aib_documentautomationtabletaxonomy" />
+    <AppModuleComponent type="1" schemaName="aib_documentautomationtaxonomy" />
+    <AppModuleComponent type="1" schemaName="msdyn_aievent" />
+    <AppModuleComponent type="26" id="{b9d2657a-92e7-45a1-9dc2-f38bcf170c5f}" />
+    <AppModuleComponent type="60" id="{fecd41e1-4c23-ef11-840b-000d3af4271c}" />
+    <AppModuleComponent type="62" schemaName="tc_DocumentAutomationAdmin" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{1afb2a9e-c725-ef11-840b-6045bdcd3da1}" />
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="Document Automation Admin" languagecode="1033" />
+  </LocalizedNames>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="AppChannel">
+      <iscustomizable>1</iscustomizable>
+      <value>1</value>
+    </appsetting>
+  </appsettings>
+</AppModule>

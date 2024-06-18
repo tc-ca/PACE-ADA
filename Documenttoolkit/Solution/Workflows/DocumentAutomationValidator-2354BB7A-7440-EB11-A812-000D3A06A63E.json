@@ -1,0 +1,357 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aib_currentcommondataserviceconnection"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_record_is_created,_updated_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "5d8fa660-21a3-4c22-8a73-fd1fc9197e22"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "aib_documentautomationprocessing",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filterexpression": "aib_processingstatus eq 914700002"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Get_extracted_data": {
+          "runAfter": {
+            "Get_Model_type": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c1afdb56-6a4e-4ff5-9e99-55f5d47186dd"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "aib_documentautomationdatas",
+              "$filter": "_aib_documentautomationprocessing_value eq '@{triggerOutputs()?['body/aib_documentautomationprocessingid']}'",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Initialize_variable_IsValid": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "fa4d4e5c-64e1-4bc3-8654-90161cd68e8d"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "IsValid",
+                "type": "boolean",
+                "value": false
+              }
+            ]
+          }
+        },
+        "Check_if_extraction_is_valid": {
+          "actions": {
+            "Set_validated": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "3b8acba0-0ee3-442f-9860-92db80136446"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "aib_documentautomationprocessings",
+                  "recordId": "@triggerOutputs()?['body/aib_documentautomationprocessingid']",
+                  "item/aib_processingstatus": 914700004
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "For_each_extracted_data": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Send_to_manual_review": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "5ec89a08-bbf5-4eda-8b06-907e006d663b"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_commondataserviceforapps",
+                    "operationId": "UpdateRecord",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                  },
+                  "parameters": {
+                    "entityName": "aib_documentautomationprocessings",
+                    "recordId": "@triggerOutputs()?['body/aib_documentautomationprocessingid']",
+                    "item/aib_processingstatus": 914700003
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@variables('IsValid')",
+              true
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2cd37ec2-9419-4e6d-93f1-0e06a599bdb7"
+          },
+          "type": "If"
+        },
+        "For_each_extracted_data": {
+          "foreach": "@outputs('Get_extracted_data')?['body/value']",
+          "actions": {
+            "Get_fields_to_be_extracted": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "dea95143-217b-4937-af51-4865b3e75f88"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "aib_documentautomationtaxonomies",
+                  "$filter": "_aib_documentautomationconfigurati_value eq '@{triggerOutputs()?['body/_aib_documentautomationconfigurati_value']}'"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "For_each_field_to_be_extracted": {
+              "foreach": "@outputs('Get_fields_to_be_extracted')?['body/value']",
+              "actions": {
+                "Perform_validation_checks": {
+                  "actions": {},
+                  "runAfter": {
+                    "Parse_Metadata_to_get_confidence": [
+                      "Succeeded"
+                    ]
+                  },
+                  "else": {
+                    "actions": {
+                      "Set_variable_IsValid": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "ecdd8251-ff04-4e1c-a2eb-138a84cb6f6a"
+                        },
+                        "type": "SetVariable",
+                        "inputs": {
+                          "name": "IsValid",
+                          "value": false
+                        }
+                      }
+                    }
+                  },
+                  "expression": {
+                    "or": [
+                      {
+                        "equals": [
+                          "@items('For_each_field_to_be_extracted')?['aib_mappedcolumn']",
+                          null
+                        ]
+                      },
+                      {
+                        "or": [
+                          {
+                            "and": [
+                              {
+                                "equals": [
+                                  "@outputs('Get_Model_type')?['body/msdyn_name']",
+                                  "Invoice Processing Model"
+                                ]
+                              },
+                              {
+                                "or": [
+                                  {
+                                    "greater": [
+                                      "@float(coalesce(body('Parse_metadata_to_get_confidence')?['confidence'], '0.0'))",
+                                      0.6
+                                    ]
+                                  },
+                                  {
+                                    "equals": [
+                                      "@items('For_each_extracted_data')?[concat('aib_',items('For_each_field_to_be_extracted')?['aib_name'])]",
+                                      null
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "and": [
+                              {
+                                "greater": [
+                                  "@float(coalesce(body('Parse_metadata_to_get_confidence')?['confidence'], '0.0'))",
+                                  0.8
+                                ]
+                              },
+                              {
+                                "not": {
+                                  "equals": [
+                                    "@items('For_each_extracted_data')?[concat('aib_',items('For_each_field_to_be_extracted')?['aib_name'])]",
+                                    null
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "48d42589-3874-4353-aff1-7e4081ed1be7"
+                  },
+                  "type": "If"
+                },
+                "Parse_Metadata_to_get_confidence": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "40c68af2-9b39-4a3b-b8a9-173e0d3a9fef"
+                  },
+                  "type": "ParseJson",
+                  "inputs": {
+                    "content": "@coalesce(items('For_each_extracted_data')?[concat( 'aib_', replace(items('For_each_field_to_be_extracted')?['aib_name'], 'Data', 'Metadata'))], '{}')",
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "confidence": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "runAfter": {
+                "Get_fields_to_be_extracted": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "bd7260e0-de7c-40e3-b0e2-a0fe75bfd10c"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Get_extracted_data": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5e042125-8331-4ff5-b82a-e8113d87b5e4"
+          },
+          "type": "Foreach"
+        },
+        "Get_model_to_use": {
+          "runAfter": {
+            "Initialize_variable_IsValid": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5c271439-a9b4-4e4b-91c6-e88a7c1ff92e"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "aib_documentautomationconfigurations",
+              "recordId": "@triggerOutputs()?['body/_aib_documentautomationconfigurati_value']",
+              "$select": "_aib_msdyn_aimodel_value"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Model_type": {
+          "runAfter": {
+            "Get_model_to_use": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5646f210-1bf3-48b9-9d5b-ae195105dbc9"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "msdyn_aimodels",
+              "recordId": "@outputs('Get_model_to_use')?['body/_aib_msdyn_aimodel_value']",
+              "$select": "msdyn_name"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
