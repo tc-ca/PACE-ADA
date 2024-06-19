@@ -21,7 +21,7 @@
     <RolePrivilege name="prvAppendToaib_DocumentAutomationTableTaxonomy" level="Local" />
     <RolePrivilege name="prvAppendToaib_DocumentAutomationTaxonomy" level="Local" />
     <RolePrivilege name="prvAppendTomsdyn_AIFpTrainingDocument" level="Global" />
-    <RolePrivilege name="prvAppendTomsdyn_AIModel" level="Local" />
+    <RolePrivilege name="prvAppendTomsdyn_AIModel" level="Global" />
     <RolePrivilege name="prvAppendTomsdyn_AIOdImage" level="Global" />
     <RolePrivilege name="prvAppendTomsdyn_AIOdLabel" level="Global" />
     <RolePrivilege name="prvAppendTomsdyn_AIOdTrainingBoundingBox" level="Global" />
