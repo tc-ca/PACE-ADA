@@ -686,12 +686,12 @@
           </Descriptions>
         </attribute>
         <attribute PhysicalName="tc_ServiceRequestNumber">
-          <Type>int</Type>
+          <Type>nvarchar</Type>
           <Name>tc_servicerequestnumber</Name>
           <LogicalName>tc_servicerequestnumber</LogicalName>
           <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>disabled</ImeMode>
+          <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
@@ -715,14 +715,14 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <Format>none</Format>
-          <MinValue>-2147483648</MinValue>
-          <MaxValue>2147483647</MaxValue>
+          <Format>text</Format>
+          <MaxLength>20</MaxLength>
+          <Length>40</Length>
           <displaynames>
             <displayname description="Service Request Number" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Service request number" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="TimeZoneRuleVersionNumber">

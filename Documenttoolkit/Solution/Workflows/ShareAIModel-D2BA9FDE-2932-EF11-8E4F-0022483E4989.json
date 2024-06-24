@@ -1,0 +1,261 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aib_currentcommondataserviceconnection"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_commondataservice_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "tc_DataverseLegacy"
+        },
+        "api": {
+          "name": "shared_commondataservice"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_Solution_is_Modified": {
+          "metadata": {
+            "operationMetadataId": "0dac8eb8-fb45-44f4-ab96-89f399da26c0"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "solution",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "List_AI_Models": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "38005283-923b-4c72-b64c-1362bc1e773a"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "msdyn_aimodels",
+              "$filter": "solutionid eq '@{triggerOutputs()?['body/solutionid']}'"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_AI_Model": {
+          "foreach": "@outputs('List_AI_Models')?['body/value']",
+          "actions": {
+            "Get_AI_Model_by_Id_in_paceada-dev1-tcd365": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "39ea9f21-d271-4174-8ad1-aa64985a87f8"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataservice_1",
+                  "operationId": "GetItem_V2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                },
+                "parameters": {
+                  "dataset": "https://paceada-dev1-tcd365.crm3.dynamics.com",
+                  "table": "msdyn_aimodels",
+                  "id": "@items('Apply_to_each_AI_Model')?['msdyn_aimodelid']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Get_AI_Model_Owner_by_Id_in_paceada-dev1-tcd365": {
+              "runAfter": {
+                "Get_AI_Model_by_Id_in_paceada-dev1-tcd365": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "5eabfd6e-670f-4cd2-91be-2657e25ce305"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataservice_1",
+                  "operationId": "GetItem_V2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                },
+                "parameters": {
+                  "dataset": "https://paceada-dev1-tcd365.crm3.dynamics.com",
+                  "table": "systemusers",
+                  "id": "@outputs('Get_AI_Model_by_Id_in_paceada-dev1-tcd365')?['body/_ownerid_value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Get_Owner_Business_Unit_in_paceada-dev1-tcd365": {
+              "runAfter": {
+                "Get_AI_Model_Owner_by_Id_in_paceada-dev1-tcd365": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "433e78b6-38f7-4bc1-94a2-6c8ad8763c1f"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataservice_1",
+                  "operationId": "GetItem_V2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                },
+                "parameters": {
+                  "dataset": "https://paceada-dev1-tcd365.crm3.dynamics.com",
+                  "table": "businessunits",
+                  "id": "@outputs('Get_AI_Model_Owner_by_Id_in_paceada-dev1-tcd365')?['body/_businessunitid_value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "List_Owner_Team_in_paceada-dev1-tcd365": {
+              "runAfter": {
+                "Get_Owner_Business_Unit_in_paceada-dev1-tcd365": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "3b896a73-ec52-478f-838f-5ece31f26e67"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataservice_1",
+                  "operationId": "GetItems_V2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                },
+                "parameters": {
+                  "dataset": "https://paceada-dev1-tcd365.crm3.dynamics.com",
+                  "table": "teams",
+                  "$filter": "name eq '@{outputs('Get_Owner_Business_Unit_in_paceada-dev1-tcd365')?['body/name']}'"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Apply_to_each_Team_from_paceada-dev1-tcd365": {
+              "foreach": "@outputs('List_Owner_Team_in_paceada-dev1-tcd365')?['body/value']",
+              "actions": {
+                "List_Owner_Team": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "3b896a73-ec52-478f-838f-5ece31f26e67"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "teams",
+                      "$filter": "name eq '@{items('Apply_to_each_Team_from_paceada-dev1-tcd365')?['name']}'"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Apply_to_each_Team": {
+                  "foreach": "@outputs('List_Owner_Team')?['body/value']",
+                  "actions": {
+                    "Share_AI_Model_with_Team": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "928e288c-41bc-46f8-926e-62d0a6d5d72f"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "PerformUnboundAction",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "actionName": "GrantAccess",
+                          "item/Target": "msdyn_aimodels(@{items('Apply_to_each_AI_Model')?['msdyn_aimodelid']})",
+                          "item/PrincipalAccess": {
+                            "AccessMask": "ReadAccess",
+                            "Principal": {
+                              "teamid": "@{items('Apply_to_each_Team')?['teamid']}",
+                              "@@odata.type": "Microsoft.Dynamics.CRM.team"
+                            }
+                          }
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "List_Owner_Team": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "14c2aa42-c341-49e0-b4da-2181bc0d7758"
+                  },
+                  "type": "Foreach"
+                }
+              },
+              "runAfter": {
+                "List_Owner_Team_in_paceada-dev1-tcd365": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "3481c985-e26b-4b30-8143-4a2b61707fc5"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "List_AI_Models": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "fda7cc08-f792-4a7b-99df-bfcb42d30ed1"
+          },
+          "type": "Foreach"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

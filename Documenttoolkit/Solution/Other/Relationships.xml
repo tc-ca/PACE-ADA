@@ -36,6 +36,7 @@
   <EntityRelationship Name="owner_aib_documentautomationtabletaxonomy" />
   <EntityRelationship Name="owner_aib_documentautomationtaxonomy" />
   <EntityRelationship Name="owner_tc_servicerequest" />
+  <EntityRelationship Name="tc_aib_documentautomationprocessing_ServiceRequest_tc_servicerequest" />
   <EntityRelationship Name="team_aib_documentautomationconfiguration" />
   <EntityRelationship Name="team_aib_documentautomationdata" />
   <EntityRelationship Name="team_aib_documentautomationprocessing" />

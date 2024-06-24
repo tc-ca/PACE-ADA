@@ -16,9 +16,9 @@
   <EntityDataProviders />
   <CanvasApps />
   <connectionreferences>
-    <connectionreference connectionreferencelogicalname="dh_sharedcommondataserviceforapps_37c74">
-      <connectionreferencedisplayname>Microsoft Dataverse DreamsHack-37c74</connectionreferencedisplayname>
-      <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps</connectorid>
+    <connectionreference connectionreferencelogicalname="tc_DataverseLegacy">
+      <connectionreferencedisplayname>Dataverse Legacy</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataservice</connectorid>
       <iscustomizable>1</iscustomizable>
       <promptingbehavior>0</promptingbehavior>
       <statecode>0</statecode>

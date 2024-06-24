@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.24061.176" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.24062.148" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>Documenttoolkit</UniqueName>
     <LocalizedNames>
       <LocalizedName description="AI Document toolkit extension" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.4.0.0</Version>
+    <Version>1.5.0.0</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>TransportCanada</UniqueName>
@@ -92,6 +92,7 @@
       <RootComponent type="29" id="{36a0d496-8322-ef11-840b-6045bdcd3da1}" behavior="0" />
       <RootComponent type="29" id="{44b31d34-ef80-eb11-a812-000d3a4f53f6}" behavior="0" />
       <RootComponent type="29" id="{61f6db6c-6a40-eb11-a812-000d3af77de6}" behavior="0" />
+      <RootComponent type="29" id="{d2ba9fde-2932-ef11-8e4f-0022483e4989}" behavior="0" />
       <RootComponent type="300" schemaName="aib_documentautomationapplication_a3a44" behavior="0" />
       <RootComponent type="60" id="{fecd41e1-4c23-ef11-840b-000d3af4271c}" behavior="0" />
       <RootComponent type="62" schemaName="tc_DocumentAutomationAdmin" behavior="0" />
@@ -169,6 +170,12 @@
           <package>msdyn_AISolutionAnchor (202406.1.0.5)</package>
         </Required>
         <Dependent type="29" displayName="Document Automation Processor" id="{61f6db6c-6a40-eb11-a812-000d3af77de6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202406.1.0.5)">
+          <package>msdyn_AISolutionAnchor (202406.1.0.5)</package>
+        </Required>
+        <Dependent type="29" displayName="Share AI Model" id="{d2ba9fde-2932-ef11-8e4f-0022483e4989}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202406.1.0.5)">
@@ -649,7 +656,7 @@
         <Dependent type="62" schemaName="tc_DocumentAutomationAdmin" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="cc_MscrmControls.PowerBIPCFControl/images/powerbi_icon.svg" displayName="cc_MscrmControls.PowerBIPCFControl/images/powerbi_icon.svg" solution="BaseCustomControlsCore (9.0.2406.1010)" />
+        <Required type="61" schemaName="cc_MscrmControls.PowerBIPCFControl/images/powerbi_icon.svg" displayName="cc_MscrmControls.PowerBIPCFControl/images/powerbi_icon.svg" solution="BaseCustomControlsCore (9.0.2406.2012)" />
         <Dependent type="62" schemaName="tc_DocumentAutomationAdmin" />
       </MissingDependency>
       <MissingDependency>
@@ -703,13 +710,19 @@
         <Dependent type="29" displayName="Document Automation Processor" id="{61f6db6c-6a40-eb11-a812-000d3af77de6}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="connectionreference" displayName="aib_currentcommondataserviceconnection" solution="Documentautomationbasekit (202109.1.0303.0)" id.connectionreferencelogicalname="aib_currentcommondataserviceconnection">
+          <package>Documentautomationbasekit (202109.1.0303.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Share AI Model" id="{d2ba9fde-2932-ef11-8e4f-0022483e4989}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="connectionreference" displayName="aib_office365outlookconnection" solution="Documentautomationbasekit (202109.1.0303.0)" id.connectionreferencelogicalname="aib_office365outlookconnection">
           <package>Documentautomationbasekit (202109.1.0303.0)</package>
         </Required>
         <Dependent type="29" displayName="Document Automation Email Importer" id="{44b31d34-ef80-eb11-a812-000d3a4f53f6}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.10)" id.uniquename="AppChannel" />
+        <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.11)" id.uniquename="AppChannel" />
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=tc_DocumentAutomationAdmin,settingdefinitionid.uniquename=AppChannel" id.parentappmoduleid.uniquename="tc_DocumentAutomationAdmin" id.settingdefinitionid.uniquename="AppChannel" />
       </MissingDependency>
     </MissingDependencies>

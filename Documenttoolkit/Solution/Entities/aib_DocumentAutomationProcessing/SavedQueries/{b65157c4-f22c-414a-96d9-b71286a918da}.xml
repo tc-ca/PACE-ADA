@@ -16,6 +16,7 @@
           <cell name="aib_filemimetype" width="131" />
           <cell name="aib_filename" width="100" />
           <cell name="aib_processingstatus" width="139" />
+          <cell name="createdby" width="109" />
           <cell name="createdon" width="105" />
         </row>
       </grid>
@@ -38,6 +39,7 @@
           <attribute name="aib_filename" />
           <attribute name="aib_processingstatus" />
           <attribute name="createdon" />
+          <attribute name="createdby" />
         </entity>
       </fetch>
     </fetchxml>
