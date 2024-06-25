@@ -1,0 +1,110 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "aib_documentautomationtabledatas",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "aib_documentautomationtabledata",
+    "MaxGetRowsCount": 500,
+    "Name": "Document Automation Table Data",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "aib_data1": "Data1",
+      "aib_data10": "Data10",
+      "aib_data2": "Data2",
+      "aib_data3": "Data3",
+      "aib_data4": "Data4",
+      "aib_data5": "Data5",
+      "aib_data6": "Data6",
+      "aib_data7": "Data7",
+      "aib_data8": "Data8",
+      "aib_data9": "Data9",
+      "aib_DocumentAutomationProcessing": "Document Automation Processing",
+      "aib_documentautomationtabledata_AsyncOperations": "System Jobs",
+      "aib_documentautomationtabledata_BulkDeleteFailures": "Bulk Delete Failures",
+      "aib_documentautomationtabledata_DuplicateBaseRecord": "Duplicate Records (aib_documentautomationtabledata_DuplicateBaseRecord)",
+      "aib_documentautomationtabledata_DuplicateMatchingRecord": "Duplicate Records (aib_documentautomationtabledata_DuplicateMatchingRecord)",
+      "aib_documentautomationtabledata_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "aib_documentautomationtabledata_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "aib_documentautomationtabledata_ProcessSession": "Process Sessions",
+      "aib_documentautomationtabledata_SyncErrors": "Sync Errors",
+      "aib_documentautomationtabledataid": "Document Automation Table Data",
+      "aib_name": "Name",
+      "aib_rowindex": "Row Index",
+      "aib_tablename": "Table Name",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Document Automation Table Data",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Document Automation Table Data (Views)",
+    "Name": "_aib_documentautomationtabledata_views",
+    "RelatedEntityName": "Document Automation Table Data",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "7c271be7-b2d9-4b60-8546-174c141096a9": "Inactive Document Automation Table Data",
+      "9e386eef-edbe-4999-b8a3-f00251557fca": "Document Automation Table Data Lookup View",
+      "a6c941a4-12ac-4040-b776-6ae8e8d22460": "Document Automation Table Data Advanced Find View",
+      "b0584fb9-80e0-4414-99d9-74c6eb667890": "Active Document Automation Table Data",
+      "b16569cc-dae0-4e10-a5e4-2add5d5db1b2": "Document Automation Table Data Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (Document Automation Table Data)",
+    "Name": "aib_documentautomationtabledata_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Document Automation Table Data"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Document Automation Table Data",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Document Automation Table Data)",
+    "Name": "aib_documentautomationtabledata_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Document Automation Table Data"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Document Automation Table Data",
+    "Type": "OptionSetInfo"
+  }
+]

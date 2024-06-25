@@ -1,0 +1,122 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "aib_documentautomationconfigurations",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "aib_documentautomationconfiguration",
+    "MaxGetRowsCount": 500,
+    "Name": "Document Automation Configurations",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "aib_configurationstatus": "Configuration Status",
+      "aib_documentautomationconfiguration_AsyncOperations": "System Jobs",
+      "aib_documentautomationconfiguration_BulkDeleteFailures": "Bulk Delete Failures",
+      "aib_documentautomationconfiguration_DuplicateBaseRecord": "Duplicate Records (aib_documentautomationconfiguration_DuplicateBaseRecord)",
+      "aib_documentautomationconfiguration_DuplicateMatchingRecord": "Duplicate Records (aib_documentautomationconfiguration_DuplicateMatchingRecord)",
+      "aib_documentautomationconfiguration_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "aib_documentautomationconfiguration_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "aib_documentautomationconfiguration_ProcessSession": "Process Sessions",
+      "aib_documentautomationconfiguration_SyncErrors": "Sync Errors",
+      "aib_documentautomationconfigurationid": "Document Automation Configuration",
+      "aib_DocumentAutomationProcessing_aib_Docu": "Document Automation Processings",
+      "aib_DocumentAutomationTableTaxonomy_aib_D": "Document Automation Table Taxonomies",
+      "aib_DocumentAutomationTaxonomy_aib_Docume": "Document Automation Taxonomies",
+      "aib_msdyn_AIModel": "AI Model",
+      "aib_name": "Name",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Document Automation Configurations",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Document Automation Configurations (Views)",
+    "Name": "_aib_documentautomationconfiguration_views",
+    "RelatedEntityName": "Document Automation Configurations",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "2989a01d-5e41-4dea-b503-ed95d4f1f8ba": "Document Automation Configuration Associated View",
+      "5da3e5f0-ac6f-4b58-8214-609f139ef54f": "Document Automation Configuration Lookup View",
+      "78c636b2-ce1e-4391-8530-4a0e6894bd76": "Active Document Automation Configurations",
+      "7f1e2ad9-8855-4fe1-afaa-3d93b71d9274": "Inactive Document Automation Configurations",
+      "aec2f99c-03b5-44cc-9d68-547d2b5a7747": "Document Automation Configuration Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Document Automation Configurations)",
+    "Name": "aib_documentautomationconfiguration_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Document Automation Configurations"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Document Automation Configurations",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Document Automation Configurations)",
+    "Name": "aib_documentautomationconfiguration_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Document Automation Configurations"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Document Automation Configurations",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Document Automation Configuration Status",
+    "Name": "aib_documentautomationconfigurationstatus",
+    "OptionSetInfoNameMapping": {
+      "914700000": "Active",
+      "914700001": "Draft"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "aib_configurationstatus",
+        "OptionSetReferenceEntityName": "Document Automation Configurations"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "aib_configurationstatus",
+    "RelatedEntityName": "Document Automation Configurations",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "roletemplates",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "roletemplate",
+    "MaxGetRowsCount": 500,
+    "Name": "Role Templates",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "name": "Name",
+      "role_template_roles": "Security Roles",
+      "roletemplateid": "RoleTemplateId",
+      "roletemplateprivileges_association": "Privileges"
+    },
+    "PreferredName": "Role Templates",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Role Templates (Views)",
+    "Name": "_roletemplate_views",
+    "RelatedEntityName": "Role Templates",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "9dcc2d8e-9768-dd11-b1b0-00155d869f00": "All Role Templates"
+    }
+  },
+  {
+    "DisplayName": "Upgrading (Role Templates)",
+    "Name": "roletemplate_upgrading",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "upgrading",
+        "OptionSetReferenceEntityName": "Role Templates"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "upgrading",
+    "RelatedEntityName": "Role Templates",
+    "Type": "OptionSetInfo"
+  }
+]

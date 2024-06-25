@@ -1,0 +1,227 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "msdyn_aiconfigurations",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "msdyn_aiconfiguration",
+    "MaxGetRowsCount": 500,
+    "Name": "AI Configurations",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "componentstate": "Component State",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "introducedversion": "Introduced Version",
+      "ismanaged": "Is Managed",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "msdyn_aiconfiguration_AsyncOperations": "System Jobs",
+      "msdyn_aiconfiguration_BulkDeleteFailures": "Bulk Delete Failures",
+      "msdyn_aiconfiguration_FileAttachments": "FileAttachments",
+      "msdyn_aiconfiguration_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "msdyn_aiconfiguration_msdyn_aiconfiguration": "AI Configurations (msdyn_aiconfiguration_msdyn_aiconfiguration)",
+      "msdyn_aiconfiguration_msdyn_aiodtrainingimage": "AI Object Detection Image Mappings",
+      "msdyn_aiconfiguration_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "msdyn_aiconfiguration_ProcessSession": "Process Sessions",
+      "msdyn_aiconfiguration_SyncErrors": "Sync Errors",
+      "msdyn_aiconfigurationid": "AIConfiguration",
+      "msdyn_aiconfigurationidunique": "msdyn_AIConfigurationIdUnique",
+      "msdyn_AIModelId": "AIModel",
+      "msdyn_aiodlabel_msdyn_aiconfiguration": "AI Object Detection Labels",
+      "msdyn_ConnectionReferenceId": "Connection Reference Id",
+      "msdyn_createdfromconfiguration_msdyn_toconfiguration": "AI Configurations (msdyn_createdfromconfiguration_msdyn_toconfiguration)",
+      "msdyn_CreatedFromConfigurationId": "CreatedFromConfigurationId",
+      "msdyn_customconfiguration": "CustomConfiguration",
+      "msdyn_databinding": "DataBinding",
+      "msdyn_lasterrors": "LastErrors",
+      "msdyn_lasttrainorrundate": "LastTrainOrRunDate",
+      "msdyn_majoriterationnumber": "MajorIterationNumber",
+      "msdyn_minoriterationnumber": "MinorIterationNumber",
+      "msdyn_model": "msdyn_Model",
+      "msdyn_modelaction": "ModelAction",
+      "msdyn_modeldata": "ModelData",
+      "msdyn_modelglobalexplainability": "ModelGlobalExplainability",
+      "msdyn_modelperformance": "ModelPerformance",
+      "msdyn_modelprovisioningmetadata": "ModelProvisioningMetadata",
+      "msdyn_modelprovisioningstatus": "ModelProvisioningStatus",
+      "msdyn_modelrundataspecification": "ModelRunDataSpecification",
+      "msdyn_msdyn_aiconfiguration_msdyn_aifptrainingdocument_AIConfigurationId": "AI Form Processing Document",
+      "msdyn_name": "Name",
+      "msdyn_resourceinfo": "ResourceInfo",
+      "msdyn_runconfiguration": "RunConfiguration",
+      "msdyn_schedulingoptions": "SchedulingOptions",
+      "msdyn_templateversion": "TemplateVersion",
+      "msdyn_TrainedModelAIConfigurationPareId": "TrainedModelAIConfigurationParent",
+      "msdyn_type": "Type",
+      "overriddencreatedon": "Record Created On",
+      "overwritetime": "Record Overwrite Time",
+      "solutionid": "Solution",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "AI Configurations",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "AI Configurations (Views)",
+    "Name": "_msdyn_aiconfiguration_views",
+    "RelatedEntityName": "AI Configurations",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "14e7fbd4-cc90-4cc9-b119-976ebc43aee9": "Inactive AIConfigurations",
+      "16911680-556d-416a-8f45-0668044b99e1": "AIConfiguration Lookup View",
+      "25c730c4-6605-463d-a4aa-056b56b80d16": "AIConfiguration Advanced Find View",
+      "63843874-f892-42bb-bf80-8ef452f99a3e": "Active AIConfigurations",
+      "7c533ce9-0ce5-4565-9c62-81f8c5d10416": "AIConfiguration Associated View"
+    }
+  },
+  {
+    "DisplayName": "Component State",
+    "Name": "componentstate",
+    "OptionSetInfoNameMapping": {
+      "0": "Published",
+      "1": "Unpublished",
+      "2": "Deleted",
+      "3": "Deleted Unpublished"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "componentstate",
+        "OptionSetReferenceEntityName": "AI Configurations"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "componentstate",
+        "OptionSetReferenceEntityName": "AI Models"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "componentstate",
+        "OptionSetReferenceEntityName": "AI Templates"
+      },
+      "OptionSetReferenceItem3": {
+        "OptionSetReferenceColumnName": "componentstate",
+        "OptionSetReferenceEntityName": "Security Roles"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "componentstate",
+    "RelatedEntityName": "AI Configurations",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Is Component Managed",
+    "Name": "ismanaged",
+    "OptionSetInfoNameMapping": {
+      "0": "Unmanaged",
+      "1": "Managed"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "ismanaged",
+        "OptionSetReferenceEntityName": "AI Configurations"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "ismanaged",
+        "OptionSetReferenceEntityName": "AI Models"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "ismanaged",
+        "OptionSetReferenceEntityName": "AI Templates"
+      },
+      "OptionSetReferenceItem3": {
+        "OptionSetReferenceColumnName": "ismanaged",
+        "OptionSetReferenceEntityName": "Security Roles"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "ismanaged",
+    "RelatedEntityName": "AI Configurations",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Type (AI Configurations)",
+    "Name": "msdyn_aiconfiguration_msdyn_type",
+    "OptionSetInfoNameMapping": {
+      "190690000": "TrainingConfiguration",
+      "190690001": "RunConfiguration"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_type",
+        "OptionSetReferenceEntityName": "AI Configurations"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_type",
+    "RelatedEntityName": "AI Configurations",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (AI Configurations)",
+    "Name": "msdyn_aiconfiguration_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Draft",
+      "1": "InProgress",
+      "2": "Done",
+      "3": "Failed"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "AI Configurations"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "AI Configurations",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (AI Configurations)",
+    "Name": "msdyn_aiconfiguration_statuscode",
+    "OptionSetInfoNameMapping": {
+      "0": "Draft",
+      "1": "Training",
+      "10": "PublishFailed",
+      "11": "UnpublishFailed",
+      "12": "CancelFailed",
+      "13": "DeleteFailed",
+      "14": "UnsuccessfulTraining",
+      "2": "Cancelling",
+      "3": "Publishing",
+      "4": "Unpublishing",
+      "5": "Deleting",
+      "6": "Trained",
+      "7": "Published",
+      "8": "Scheduled",
+      "9": "TrainFailed"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "AI Configurations"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "AI Configurations",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{8e8189b0-3d32-ef11-8e4e-002248b34c09}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="tc_id" select="1" icon="1" preview="1">
+        <row name="result" id="tc_servicerequestid">
+          <cell name="tc_id" width="180" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="tc_servicerequest">
+          <attribute name="tc_servicerequestid" />
+          <attribute name="tc_id" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.5.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Service Request Number" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

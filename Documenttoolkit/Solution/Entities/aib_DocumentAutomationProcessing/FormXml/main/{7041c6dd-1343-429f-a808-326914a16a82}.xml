@@ -14,7 +14,7 @@
                 <section showlabel="false" showbar="false" IsUserDefined="0" id="{0fef9e97-1123-4100-a9e0-c2ebdcf22857}" ordinalvalue="0">
                   <rows>
                     <row>
-                      <cell id="{2066224e-e018-4fee-9ba9-ab71696ae6d4}" ordinalvalue="10008" solutionaction="Modified" />
+                      <cell id="{2066224e-e018-4fee-9ba9-ab71696ae6d4}" ordinalvalue="10009" solutionaction="Modified" />
                     </row>
                     <row>
                       <cell id="{b268cef3-f3b3-4264-9e1e-becb544cea99}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10001" solutionaction="Added">
@@ -72,6 +72,20 @@
                         <control id="aib_processingstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="aib_processingstatus" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{5773db13-a1b0-446a-98b7-30a52fafd566}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10008" solutionaction="Added">
+                        <labels>
+                          <label description="Service Request" languagecode="1033" />
+                        </labels>
+                        <control id="tc_servicerequest" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="tc_servicerequest" disabled="false">
+                          <parameters>
+                            <DefaultViewId>{8E8189B0-3D32-EF11-8E4E-002248B34C09}</DefaultViewId>
+                            <AvailableViewIds>{62183ED3-C440-4FE6-B542-4E5AD33061A5},{D26C557C-212B-45B8-B956-8D438D97AB89},{7081C42E-2DF4-4DB9-8A31-04758CF61694},{8E8189B0-3D32-EF11-8E4E-002248B34C09}</AvailableViewIds>
+                            <DisableViewPicker>true</DisableViewPicker>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -80,10 +94,10 @@
         </tab>
       </tabs>
       <header id="{81ef9da3-eab3-4504-8ca3-ff32ca13b401}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows></rows>
+        <rows />
       </header>
       <footer id="{a9109196-649e-4af7-b942-a18fa3f59da3}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows></rows>
+        <rows />
       </footer>
       <DisplayConditions Order="0" FallbackForm="true" solutionaction="Added">
         <Everyone />

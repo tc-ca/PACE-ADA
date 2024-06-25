@@ -1,0 +1,213 @@
+App As appinfo:
+    BackEnabled: =false
+    Formulas: |
+        =IsDocumentLocked = Not(IsBlank(CurrentProcessing.'Assigned To')) && Not(CurrentProcessing.'Assigned To'.'User Name' = UserEmail) && Not(CurrentProcessing.'Assigned To'.'Full Name' = "SYSTEM") && Not IsPowerUser;
+    OnStart: |-
+        =// Styles
+        Set(
+            ButtonBold,
+            {
+                BorderColor: RGBA(
+                    116,
+                    39,
+                    116,
+                    1
+                ),
+                BorderThickness: 1,
+                FocusedBorderColor: RGBA(
+                    114,
+                    39,
+                    116,
+                    1
+                ),
+                FocusedBorderThickness: 2,
+                HoverBorderColor: RGBA(
+                    103,
+                    35,
+                    103,
+                    1
+                ),
+                HoverColor: RGBA(
+                    255,
+                    255,
+                    255,
+                    1
+                ),
+                HoverFill: RGBA(
+                    103,
+                    35,
+                    103,
+                    1
+                ),
+                PressedBorderColor: RGBA(
+                    80,
+                    27,
+                    80,
+                    1
+                ),
+                PressedColor: RGBA(
+                    255,
+                    255,
+                    255,
+                    1
+                ),
+                PressedFill: RGBA(
+                    80,
+                    27,
+                    80,
+                    1
+                ),
+                BorderRadius: 2
+            }
+        );
+        Set(
+            ButtonStandard,
+            {
+                BorderColor: RGBA(
+                    96,
+                    94,
+                    92,
+                    1
+                ),
+                BorderThickness: 1,
+                FocusedBorderColor: RGBA(
+                    161,
+                    159,
+                    157,
+                    1
+                ),
+                FocusedBorderThickness: 2,
+                HoverBorderColor: RGBA(
+                    96,
+                    94,
+                    92,
+                    1
+                ),
+                HoverColor: RGBA(
+                    32,
+                    31,
+                    30,
+                    1
+                ),
+                HoverFill: RGBA(
+                    237,
+                    235,
+                    233,
+                    1
+                ),
+                PressedBorderColor: RGBA(
+                    96,
+                    94,
+                    92,
+                    1
+                ),
+                PressedColor: RGBA(
+                    32,
+                    31,
+                    30,
+                    1
+                ),
+                PressedFill: RGBA(
+                    225,
+                    223,
+                    221,
+                    1
+                ),
+                BorderRadius: 2
+            }
+        );
+        Set(
+            TextBox,
+            {
+                BorderColor: RGBA(
+                    225,
+                    223,
+                    221,
+                    1
+                ),
+                BorderThickness: 1,
+                FocusedBorderColor: RGBA(
+                    116,
+                    39,
+                    116,
+                    1
+                ),
+                FocusedBorderThickness: 1,
+                HoverBorderColor: RGBA(
+                    50,
+                    49,
+                    48,
+                    1
+                ),
+                HoverFill: RGBA(
+                    255,
+                    255,
+                    255,
+                    1
+                )
+            }
+        );
+        // Invoice Processing Label Definition
+        Set(
+            InvoiceProcessingModelLabels,
+        """labels"":{""newLabel"":""amountDue"",""newLabel"":""billingAddress"",""newLabel"":""billingAddressRecipient"",""newLabel"":""customerAddress"",""newLabel"":""customerAddressRecipient"",""newLabel"":""customerId"",""newLabel"":""customerName"",""newLabel"":""dueDate"",""newLabel"":""invoiceDate"",""newLabel"":""invoiceId"",""newLabel"":""invoiceTotal"",""newLabel"":""previousUnpaidBalance"",""newLabel"":""purchaseOrder"",""newLabel"":""remittanceAddress"",""newLabel"":""remittanceAddressRecipient"",""newLabel"":""serviceAddress"",""newLabel"":""serviceAddressRecipient"",""newLabel"":""serviceEndDate"",""newLabel"":""serviceStartDate"",""newLabel"":""shippingAddress"",""newLabel"":""shippingAddressRecipient"",""newLabel"":""subTotal"", ""newLabel"":""totalTax"",""newLabel"":""vendorAddress"",""newLabel"":""vendorAddressRecipient"",""newLabel"":""vendorName""}}},""tables"":{""Items"",""columns"":{""amount"":{}}, ""description"":{}}, ""unitPrice"":{}}, ""quantity"":{}}, ""productCode"":{}}, ""unit"":{}}, ""date"":{}}, ""tax"":{}}}}},""layouts"
+        );
+        // Security Configuration
+        Set(
+            FullName,
+            User().FullName
+        );
+        Set(
+            UserEmail,
+            User().Email
+        );
+        // Get System administrator and System customizer local name
+        ClearCollect(
+            AdminRoles,
+            Filter(
+                'Role Templates',
+                Or(
+                    RoleTemplateId = GUID("627090ff-40a3-4053-8790-584edc5be201"),
+                    RoleTemplateId = GUID("119f245c-3cc8-4b62-b31c-d1a046ced15d")
+                )
+            ).Name,
+            Filter(
+                'Security Roles',
+                Or(
+                    Name = "Document Automation Admin"
+                )
+            ).Name
+        );
+        // Check that current belongs to these roles
+        ClearCollect(
+            UserRoles,
+            LookUp(
+                Users,
+                Or(
+                    'Primary Email' = UserEmail,
+                    'User Name' = UserEmail
+                )
+            ).'Security Roles (systemuserroles_association)'.Name
+        );
+        Set(
+            IsPowerUser, 
+            CountRows(
+                Filter(
+                    UserRoles,
+                    Or(
+                        Name in AdminRoles,
+                        Name = "System Customizer",
+                        Name = "System Administrator"
+                    )
+                )
+            ) > 0
+        );
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

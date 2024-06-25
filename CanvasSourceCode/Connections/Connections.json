@@ -1,0 +1,69 @@
+{
+  "2c824bd1-9e83-413c-aee8-d7f4255d3532": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Premium",
+      "bypassConsent": true,
+      "displayName": "Microsoft Dataverse",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3778/commondataserviceforapps/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "590bb7c5-7935-431a-8b89-5303848fdd53"
+    ],
+    "id": "2c824bd1-9e83-413c-aee8-d7f4255d3532"
+  },
+  "590bb7c5-7935-431a-8b89-5303848fdd53": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "2c824bd1-9e83-413c-aee8-d7f4255d3532": {
+          "value": "shared_commondataserviceforapps_1"
+        },
+        "workflowDisplayName": {
+          "value": "Document Automation Canvas App File Importer"
+        },
+        "workflowEntityId": {
+          "value": "36a0d496-8322-ef11-840b-6045bdcd3da1"
+        },
+        "workflowName": {
+          "value": "b4a75ae6-0f7e-c9bb-589a-c00971dd5b11"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps_1": {
+          "value": "2c824bd1-9e83-413c-aee8-d7f4255d3532"
+        },
+        "workflowDisplayName": {
+          "value": "Document Automation Canvas App File Importer"
+        },
+        "workflowEntityId": {
+          "value": "36a0d496-8322-ef11-840b-6045bdcd3da1"
+        },
+        "workflowName": {
+          "value": "b4a75ae6-0f7e-c9bb-589a-c00971dd5b11"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "DocumentAutomationCanvasAppFileImporter"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps_1": "2c824bd1-9e83-413c-aee8-d7f4255d3532"
+    },
+    "dependents": [],
+    "id": "590bb7c5-7935-431a-8b89-5303848fdd53"
+  }
+}

@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "aib_documentautomationtaxonomies",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "aib_documentautomationtaxonomy",
+    "MaxGetRowsCount": 500,
+    "Name": "Document Automation Taxonomies",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "aib_DocumentAutomationConfigurati": "Document Automation Configuration",
+      "aib_documentautomationtaxonomy_AsyncOperations": "System Jobs",
+      "aib_documentautomationtaxonomy_BulkDeleteFailures": "Bulk Delete Failures",
+      "aib_documentautomationtaxonomy_DuplicateBaseRecord": "Duplicate Records (aib_documentautomationtaxonomy_DuplicateBaseRecord)",
+      "aib_documentautomationtaxonomy_DuplicateMatchingRecord": "Duplicate Records (aib_documentautomationtaxonomy_DuplicateMatchingRecord)",
+      "aib_documentautomationtaxonomy_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "aib_documentautomationtaxonomy_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "aib_documentautomationtaxonomy_ProcessSession": "Process Sessions",
+      "aib_documentautomationtaxonomy_SyncErrors": "Sync Errors",
+      "aib_documentautomationtaxonomyid": "Document Automation Taxonomy",
+      "aib_index": "Index",
+      "aib_mappedcolumn": "Mapped Column",
+      "aib_name": "Name",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Document Automation Taxonomies",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Document Automation Taxonomies (Views)",
+    "Name": "_aib_documentautomationtaxonomy_views",
+    "RelatedEntityName": "Document Automation Taxonomies",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "3d411bdb-c475-4b59-88b9-70045643d3a5": "Inactive Document Automation Taxonomies",
+      "7cadb6da-50cd-4ae2-ab82-1a148774a78d": "Active Document Automation Taxonomies",
+      "8573fdcb-7503-4743-9333-1a0b913e09f1": "Document Automation Taxonomy Advanced Find View",
+      "a7873588-be39-4cbe-9176-f44bdcad1e88": "Document Automation Taxonomy Associated View",
+      "f0d20129-4642-4d79-a08f-49863b38b7b7": "Document Automation Taxonomy Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Document Automation Taxonomies)",
+    "Name": "aib_documentautomationtaxonomy_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Document Automation Taxonomies"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Document Automation Taxonomies",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Document Automation Taxonomies)",
+    "Name": "aib_documentautomationtaxonomy_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Document Automation Taxonomies"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Document Automation Taxonomies",
+    "Type": "OptionSetInfo"
+  }
+]
