@@ -1,0 +1,487 @@
+"'Document List Screen' As screen":
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: =Select('Refresh Button');
+    Orientation: =If('Document List Screen'.Width < 'Document List Screen'.Height, Layout.Vertical, Layout.Horizontal)
+    Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= 'Document List Screen'.Width)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    "'Tip Rectangle_2' As rectangle":
+        BorderColor: =RGBA(204, 204, 204, 1)
+        BorderThickness: =1
+        DisabledFill: ='Tip Rectangle_2'.Fill
+        Fill: =RGBA(250, 249, 248, 1)
+        FocusedBorderColor: ='Tip Rectangle_2'.BorderColor
+        Height: =768
+        HoverFill: ='Tip Rectangle_2'.Fill
+        PressedFill: ='Tip Rectangle_2'.Fill
+        Width: =269.00
+        X: =1097.00
+        ZIndex: =1
+
+    "'Documentation Button_1' As button":
+        BorderColor: =ColorFade('Documentation Button_1'.Fill, -15%)
+        Fill: =RGBA(116, 39, 116, 1)
+        FocusedBorderColor: ='Documentation Button_1'.BorderColor
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =32
+        HoverBorderColor: =ColorFade('Documentation Button_1'.BorderColor, 20%)
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        PressedBorderColor: ='Documentation Button_1'.Fill
+        PressedColor: ='Documentation Button_1'.Fill
+        PressedFill: ='Documentation Button_1'.Color
+        RadiusBottomLeft: =1
+        RadiusBottomRight: =1
+        RadiusTopLeft: =1
+        RadiusTopRight: =1
+        Size: =12.00
+        Text: ="Learn more"
+        Visible: =false
+        Width: =140.00
+        X: =1161.00
+        Y: =693
+        ZIndex: =2
+
+    "'Tip Label_2' As label":
+        Align: =LayoutAlignItems.Center
+        FocusedBorderColor: ='Tip Label_2'.BorderColor
+        Font: =Font.'Segoe UI'
+        Height: =99
+        HoverBorderColor: ='Tip Label_2'.BorderColor
+        HoverColor: ='Tip Label_2'.Color
+        HoverFill: ='Tip Label_2'.Fill
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        PressedBorderColor: ='Tip Label_2'.BorderColor
+        PressedColor: ='Tip Label_2'.Color
+        PressedFill: ='Tip Label_2'.Fill
+        Size: =12.00
+        Text: |-
+            ="Click on a document to review and edit extracted data.
+            "
+        Width: =214.00
+        X: =1124.00
+        Y: =430
+        ZIndex: =3
+
+    "'Tip Title_2' As label":
+        Align: =LayoutAlignItems.Center
+        FocusedBorderColor: ='Tip Title_2'.BorderColor
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =51
+        HoverBorderColor: ='Tip Title_2'.BorderColor
+        HoverColor: ='Tip Title_2'.Color
+        HoverFill: ='Tip Title_2'.Fill
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        PressedBorderColor: ='Tip Title_2'.BorderColor
+        PressedColor: ='Tip Title_2'.Color
+        PressedFill: ='Tip Title_2'.Fill
+        Size: =12.00
+        Text: ="Review documents"
+        Width: =177.00
+        X: =1143.01
+        Y: =380
+        ZIndex: =4
+
+    "'Tip Image_2' As image":
+        FocusedBorderColor: ='Tip Image_2'.BorderColor
+        Height: =128
+        HoverBorderColor: =ColorFade('Tip Image_2'.BorderColor, 20%)
+        HoverFill: =ColorFade('Tip Image_2'.Fill, 20%)
+        Image: =CreateProvider
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =ColorFade('Tip Image_2'.BorderColor, -20%)
+        PressedFill: =ColorFade('Tip Image_2'.Fill, -20%)
+        Width: =166.00
+        X: =1142.00
+        Y: =270
+        ZIndex: =5
+
+    ProcessedDocumentsDataTable As dataTable.datatable:
+        BorderColor: =RGBA(237, 237, 237, 1)
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =1
+        Color: =RGBA(96, 94, 92, 1)
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Segoe UI'
+        HeadingColor: =RGBA(50, 49, 48, 1)
+        HeadingFill: =RGBA(255, 255, 255, 1)
+        HeadingFont: =Font.'Segoe UI'
+        HeadingSize: =12
+        Height: =536
+        HoverColor: =RGBA(96, 94, 92, 1)
+        HoverFill: =RGBA(237, 235, 233, 1)
+        Items: |-
+            =// Display items taking into account the filtering
+            Filter(
+                DocumentsToDisplay,
+                If(
+                    IsBlank(StatusComboBox.Selected.Value),
+                    true,
+                    'Processing Status' = StatusComboBox.Selected.Value
+                ),
+                If(
+                    IsPowerUser,
+                    true,
+                    'Processing Status' <> [@'Document Automation Processing Status'].Validated && 
+                    (IsBlank('Assigned To') || 'Assigned To'.'Primary Email' = UserEmail || 'Assigned To'.'Full Name' = "SYSTEM")
+                )
+            )
+        SelectedColor: =RGBA(96, 94, 92, 1)
+        SelectedFill: =RGBA(225, 223, 221, 1)
+        Size: =12.00
+        Width: =1034.00
+        X: =32.00
+        Y: =213
+        ZIndex: =6
+
+        createdon_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Received on"
+            FieldName: ="createdon"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =14
+            Text: =Text(ThisItem.'Created On',DateTimeFormat.ShortDate)
+            Width: =204.00
+            X: =605.00
+            Y: =0
+            ZIndex: =4
+
+        aib_filename_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Document Name"
+            FieldName: ="aib_filename"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            IsHyperlink: =true
+            LayoutHeight: =Parent.Height
+            OnSelect: |-
+                =Set(
+                    CurrentProcessingGuid,
+                    Parent.Selected.'Document Automation Processing'
+                );
+                Set(
+                    CurrentDocumentName,
+                    Parent.Selected.'File Name'
+                );
+                Set(
+                    CurrentConfigurationGuid,
+                    Parent.Selected.'Document Automation Configuration'.'Document Automation Configuration'
+                );
+                Navigate('Document Detail Screen')
+            Order: =12
+            Text: =ThisItem.'File Name'
+            Width: =605.00
+            X: =0.00
+            Y: =0
+            ZIndex: =18
+
+        aib_processingstatus_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Status"
+            FieldName: ="aib_processingstatus"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =15
+            Text: =ThisItem.'Processing Status'
+            Width: =173.00
+            X: =809.00
+            Y: =0
+            ZIndex: =19
+
+    "'Document List Rectangle_2' As rectangle":
+        BorderColor: =RGBA(204, 204, 204, 1)
+        BorderThickness: =0.2
+        DisabledFill: ='Document List Rectangle_2'.Fill
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: ='Document List Rectangle_2'.BorderColor
+        Height: =43
+        HoverFill: ='Document List Rectangle_2'.Fill
+        PressedFill: ='Document List Rectangle_2'.Fill
+        Width: =1034.00
+        X: =32.00
+        Y: =170
+        ZIndex: =7
+
+    "'Refresh Button' As button":
+        BorderColor: =ButtonStandard.BorderColor
+        BorderThickness: =ButtonStandard.BorderThickness
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(243, 242, 241, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+        FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =32
+        HoverBorderColor: =ButtonStandard.HoverBorderColor
+        HoverColor: =ButtonStandard.HoverColor
+        HoverFill: =ButtonStandard.HoverFill
+        OnSelect: |-
+            =Set(
+                isLoading,
+                true
+            );
+            Refresh('Document Automation Processings');
+            Refresh('Document Automation Data');
+            Refresh('Document Automation Table Data');
+            Clear(RecentProcessingIds);
+            ClearCollect(
+                DocumentsToDisplay,
+                Sort(
+                    'Document Automation Processings',
+                    'Created On',
+                    SortOrder.Descending
+                )
+            );
+            Set(
+                CurrentProcessingGuid,
+                Blank()
+            );
+            Set(
+                isLoading,
+                false
+            );
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        PressedBorderColor: =ButtonStandard.PressedBorderColor
+        PressedColor: =ButtonStandard.PressedColor
+        PressedFill: =ButtonStandard.PressedFill
+        RadiusBottomLeft: =ButtonStandard.BorderRadius
+        RadiusBottomRight: =ButtonStandard.BorderRadius
+        RadiusTopLeft: =ButtonStandard.BorderRadius
+        RadiusTopRight: =ButtonStandard.BorderRadius
+        Size: =12.00
+        Text: ="Refresh"
+        Width: =140.00
+        X: =921.00
+        Y: =175
+        ZIndex: =8
+
+    StatusComboBox As combobox:
+        BorderColor: =RGBA(225, 223, 221, 1)
+        BorderThickness: =1
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronDisabledBackground: =RGBA(159, 167, 165, 1)
+        ChevronDisabledFill: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        ChevronFill: =RGBA(96, 94, 92, 1)
+        ChevronHoverBackground: =RGBA(255, 255, 255, 1)
+        ChevronHoverFill: =RGBA(96, 94, 92, 1)
+        Color: =RGBA(32, 31, 30, 1)
+        DisabledBorderColor: =RGBA(159, 167, 165, 1)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+        DisplayFields: =["Value"]
+        FocusedBorderColor: =RGBA(0, 120, 212, 1)
+        FocusedBorderThickness: =1
+        Font: =Font.'Segoe UI'
+        Height: =32
+        HoverBorderColor: =RGBA(50, 49, 48, 1)
+        HoverColor: =RGBA(32, 31, 30, 1)
+        HoverFill: =RGBA(237, 235, 233, 1)
+        InputTextPlaceholder: ="Status"
+        IsSearchable: =false
+        Items: =Choices('Document Automation Processings'.'Processing Status')
+        MoreItemsButtonColor: =StatusComboBox.ChevronBackground
+        NoSelectionText: ="Status"
+        OnChange: =
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        PressedBorderColor: =StatusComboBox.HoverBorderColor
+        PressedColor: =RGBA(32, 31, 30, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        SearchFields: =["Value"]
+        SearchItems: =[]
+        SelectionColor: =RGBA(32, 31, 30, 1)
+        SelectionFill: =RGBA(237, 235, 233, 1)
+        SelectionTagColor: =StatusComboBox.HoverColor
+        SelectionTagFill: =
+        SelectMultiple: =false
+        Size: =12.00
+        Visible: =IsPowerUser
+        Width: =171.00
+        X: =705.00
+        Y: =175
+        ZIndex: =9
+
+    "'Document List Label' As label":
+        BorderColor: =RGBA(204, 204, 204, 1)
+        FocusedBorderColor: ='Document List Label'.BorderColor
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =43
+        HoverBorderColor: ='Document List Label'.BorderColor
+        HoverColor: ='Document List Label'.Color
+        HoverFill: ='Document List Label'.Fill
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        PressedBorderColor: ='Document List Label'.BorderColor
+        PressedColor: ='Document List Label'.Color
+        PressedFill: ='Document List Label'.Fill
+        Size: =12.00
+        Text: ="Document List"
+        Width: =150.00
+        X: =53.00
+        Y: =169
+        ZIndex: =10
+
+    "'Configuration Tab Button_2' As button":
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade('Configuration Tab Button_2'.Fill, -15%)
+        BorderThickness: =0
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: ='Configuration Tab Button_2'.BorderColor
+        FocusedBorderThickness: =0
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =25
+        HoverBorderColor: =RGBA(255, 255, 255, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =
+        OnSelect: =Navigate('Configuration List Screen')
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =
+        PressedColor: =RGBA(0, 0, 0, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        Size: =14.00
+        Text: ="Configuration"
+        Visible: =IsPowerUser
+        Width: =140.00
+        X: =145.00
+        Y: =84
+        ZIndex: =11
+
+    "'Select Tab Line_2' As rectangle":
+        DisabledFill: ='Select Tab Line_2'.Fill
+        Fill: =RGBA(116, 39, 116, 1)
+        FocusedBorderColor: ='Select Tab Line_2'.BorderColor
+        Height: =2
+        HoverFill: ='Select Tab Line_2'.Fill
+        PressedFill: ='Select Tab Line_2'.Fill
+        Width: =85.01
+        X: =32.00
+        Y: =110
+        ZIndex: =12
+
+    "'Document Tab Label_2' As label":
+        Align: =Align.Center
+        FocusedBorderColor: ='Document Tab Label_2'.BorderColor
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =25
+        HoverBorderColor: ='Document Tab Label_2'.BorderColor
+        HoverColor: ='Document Tab Label_2'.Color
+        HoverFill: ='Document Tab Label_2'.Fill
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: ='Document Tab Label_2'.BorderColor
+        PressedColor: ='Document Tab Label_2'.Color
+        PressedFill: ='Document Tab Label_2'.Fill
+        Size: =14.00
+        Text: ="Documents"
+        Width: =100.00
+        X: =24.00
+        Y: =84
+        ZIndex: =13
+
+    "'Document List Title Label' As label":
+        FocusedBorderColor: ='Document List Title Label'.BorderColor
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverBorderColor: ='Document List Title Label'.BorderColor
+        HoverColor: ='Document List Title Label'.Color
+        HoverFill: ='Document List Title Label'.Fill
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: ='Document List Title Label'.BorderColor
+        PressedColor: ='Document List Title Label'.Color
+        PressedFill: ='Document List Title Label'.Fill
+        Size: =17.99
+        Text: ="Document Automation "
+        Width: =1000.00
+        X: =24.00
+        Y: =24
+        ZIndex: =14
+
+    "'Document List Description Label' As label":
+        Color: =RGBA(96, 94, 92, 1)
+        FocusedBorderColor: ='Document List Description Label'.BorderColor
+        Height: =22
+        HoverBorderColor: ='Document List Description Label'.BorderColor
+        HoverColor: ='Document List Description Label'.Color
+        HoverFill: ='Document List Description Label'.Fill
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        PressedBorderColor: ='Document List Description Label'.BorderColor
+        PressedColor: ='Document List Description Label'.Color
+        PressedFill: ='Document List Description Label'.Fill
+        Size: =12.00
+        Text: ="Review the processed documents you have received."
+        Width: =996.00
+        X: =31.00
+        Y: =140
+        ZIndex: =15
+
+    "'Loading Glass Pane' As rectangle":
+        BorderColor: =RGBA(204, 204, 204, 1)
+        BorderThickness: =1
+        DisabledFill: ='Loading Glass Pane'.Fill
+        Fill: =RGBA(0, 0, 0, 0.02)
+        FocusedBorderColor: ='Loading Glass Pane'.BorderColor
+        Height: =768
+        HoverFill: ='Loading Glass Pane'.Fill
+        PressedFill: ='Loading Glass Pane'.Fill
+        Visible: =isLoading
+        Width: =1366.00
+        X: =0.00
+        ZIndex: =16
+
+    "'Configuration Tab Button_3' As button":
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade('Configuration Tab Button_3'.Fill, -15%)
+        BorderThickness: =0
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: ='Configuration Tab Button_3'.BorderColor
+        FocusedBorderThickness: =0
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =27
+        HoverBorderColor: =RGBA(255, 255, 255, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =
+        OnSelect: =Navigate('File Upload Screen')
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =
+        PressedColor: =RGBA(0, 0, 0, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        Size: =14.00
+        Text: ="Upload"
+        Width: =121
+        X: =290
+        Y: =85
+        ZIndex: =17
+

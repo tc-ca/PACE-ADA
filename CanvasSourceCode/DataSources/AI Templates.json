@@ -1,0 +1,133 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "msdyn_aitemplates",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "msdyn_aitemplate",
+    "MaxGetRowsCount": 500,
+    "Name": "AI Templates",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "componentstate": "Component State",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "introducedversion": "Introduced Version",
+      "ismanaged": "Is Managed",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "msdyn_aitemplate_AsyncOperations": "System Jobs",
+      "msdyn_aitemplate_BulkDeleteFailures": "Bulk Delete Failures",
+      "msdyn_aitemplate_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "msdyn_aitemplate_msdyn_aimodel": "AI Models",
+      "msdyn_aitemplate_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "msdyn_aitemplate_ProcessSession": "Process Sessions",
+      "msdyn_aitemplate_SyncErrors": "Sync Errors",
+      "msdyn_aitemplateid": "AITemplate",
+      "msdyn_aitemplateidunique": "msdyn_AITemplateIdUnique",
+      "msdyn_databinding": "DataBinding",
+      "msdyn_defaultrunschedulingoptions": "DefaultRunSchedulingOptions",
+      "msdyn_istrainable": "IsTrainable",
+      "msdyn_modelaction": "ModelAction",
+      "msdyn_resourceinfo": "ResourceInfo",
+      "msdyn_runconfigschema": "RunConfigSchema",
+      "msdyn_rundataspecification": "RunDataSpecification",
+      "msdyn_templateversion": "TemplateVersion",
+      "msdyn_trainingconfigschema": "TrainingConfigSchema",
+      "msdyn_trainingdataspecification": "TrainingDataSpecification",
+      "msdyn_uniquename": "UniqueName",
+      "msdyn_uxconfiguration": "UXConfiguration",
+      "overriddencreatedon": "Record Created On",
+      "overwritetime": "Record Overwrite Time",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "solutionid": "Solution",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "AI Templates",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "AI Templates (Views)",
+    "Name": "_msdyn_aitemplate_views",
+    "RelatedEntityName": "AI Templates",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "045adfc3-7f75-4969-98b4-f7866eb2cd63": "AITemplate Lookup View",
+      "5059e287-fee3-40d8-b941-2d949a278bcb": "Active AITemplates",
+      "c0fe5b2b-760f-4ed4-b901-8ac7ed542bc6": "AITemplate Associated View",
+      "c725281f-3d99-4139-a40e-3bea18dd28f5": "Inactive AITemplates",
+      "ed643083-6200-4b72-8c9a-723be8e40ae3": "AITemplate Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "IsTrainable (AI Templates)",
+    "Name": "msdyn_aitemplate_msdyn_istrainable",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_istrainable",
+        "OptionSetReferenceEntityName": "AI Templates"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "msdyn_istrainable",
+    "RelatedEntityName": "AI Templates",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (AI Templates)",
+    "Name": "msdyn_aitemplate_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "AI Templates"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "AI Templates",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (AI Templates)",
+    "Name": "msdyn_aitemplate_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "AI Templates"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "AI Templates",
+    "Type": "OptionSetInfo"
+  }
+]

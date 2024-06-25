@@ -1,0 +1,135 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "msdyn_aimodels",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "msdyn_aimodel",
+    "MaxGetRowsCount": 500,
+    "Name": "AI Models",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "{Attachments}": "Attachments",
+      "aib_DocumentAutomationConfiguration_msdyn": "Document Automation Configurations",
+      "botcomponent_msdyn_aimodel": "Chatbot subcomponents",
+      "componentstate": "Component State",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "introducedversion": "Introduced Version",
+      "ismanaged": "Is Managed",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "msdyn_AIBDatasetsContainer_msdyn_AIModelI": "AI Builder Datasets Containers",
+      "msdyn_AIBFeedbackLoop_msdyn_AIModel": "AI Builder Feedback Loops",
+      "msdyn_aimodel_Annotations": "Notes",
+      "msdyn_aimodel_AsyncOperations": "System Jobs",
+      "msdyn_aimodel_BulkDeleteFailures": "Bulk Delete Failures",
+      "msdyn_aimodel_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "msdyn_aimodel_msdyn_aiconfiguration": "AI Configurations",
+      "msdyn_aimodel_msdyn_aievent": "AI Events",
+      "msdyn_aimodel_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "msdyn_aimodel_ProcessSession": "Process Sessions",
+      "msdyn_aimodel_SyncErrors": "Sync Errors",
+      "msdyn_aimodelid": "AIModel",
+      "msdyn_aimodelidunique": "msdyn_AIModelIdUnique",
+      "msdyn_AIPluginOperation_AIModel": "AIPluginOperations",
+      "msdyn_modelcreationcontext": "ModelCreationContext",
+      "msdyn_name": "Name",
+      "msdyn_retrainworkflowid": "RetrainWorkflowId",
+      "msdyn_scheduleinferenceworkflowid": "ScheduleInferenceWorkflowId",
+      "msdyn_sharewithorganizationoncreate": "ShareWithOrganizationOnCreate",
+      "msdyn_TemplateId": "Template",
+      "overriddencreatedon": "Record Created On",
+      "overwritetime": "Record Overwrite Time",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "solutionid": "Solution",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "AI Models",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "AI Models (Views)",
+    "Name": "_msdyn_aimodel_views",
+    "RelatedEntityName": "AI Models",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "7e7d6079-06ec-4fdc-b9e6-8fcd73cc1298": "AIModel Advanced Find View",
+      "938234e1-d104-4306-ac01-46df111582b0": "AIModel Associated View",
+      "a0b7c73c-0bf0-40cb-817b-05530a567d13": "AIModel Lookup View",
+      "a22f1a4c-ab82-40f5-8ee0-267196087c97": "Inactive AIModels",
+      "ba0de7e0-5d3c-4b73-ba34-36e082dbd9e4": "Active AIModels"
+    }
+  },
+  {
+    "DisplayName": "ShareWithOrganizationOnCreate (AI Models)",
+    "Name": "msdyn_aimodel_msdyn_sharewithorganizationoncreate",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_sharewithorganizationoncreate",
+        "OptionSetReferenceEntityName": "AI Models"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "msdyn_sharewithorganizationoncreate",
+    "RelatedEntityName": "AI Models",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (AI Models)",
+    "Name": "msdyn_aimodel_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Inactive",
+      "1": "Active"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "AI Models"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "AI Models",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (AI Models)",
+    "Name": "msdyn_aimodel_statuscode",
+    "OptionSetInfoNameMapping": {
+      "0": "Inactive",
+      "1": "Active"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "AI Models"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "AI Models",
+    "Type": "OptionSetInfo"
+  }
+]

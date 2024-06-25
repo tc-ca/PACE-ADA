@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{3ab32276-8537-45ff-bd6f-8b20588b5f6e}">
                         <labels>
-                          <label description="Id" languagecode="1033" />
+                          <label description="Service Request Number" languagecode="1033" />
                         </labels>
                         <control id="tc_id" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="tc_id" />
                       </cell>

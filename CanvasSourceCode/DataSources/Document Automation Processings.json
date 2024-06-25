@@ -1,0 +1,133 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "aib_documentautomationprocessings",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "aib_documentautomationprocessing",
+    "MaxGetRowsCount": 500,
+    "Name": "Document Automation Processings",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "aib_AssignedTo": "Assigned To",
+      "aib_comment": "Comment",
+      "aib_DocumentAutomationConfigurati": "Document Automation Configuration",
+      "aib_DocumentAutomationData_aib_DocumentAu": "Document Automation Data",
+      "aib_documentautomationprocessing_AsyncOperations": "System Jobs",
+      "aib_documentautomationprocessing_BulkDeleteFailures": "Bulk Delete Failures",
+      "aib_documentautomationprocessing_DuplicateBaseRecord": "Duplicate Records (aib_documentautomationprocessing_DuplicateBaseRecord)",
+      "aib_documentautomationprocessing_DuplicateMatchingRecord": "Duplicate Records (aib_documentautomationprocessing_DuplicateMatchingRecord)",
+      "aib_documentautomationprocessing_FileAttachments": "FileAttachments",
+      "aib_documentautomationprocessing_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "aib_documentautomationprocessing_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "aib_documentautomationprocessing_ProcessSession": "Process Sessions",
+      "aib_documentautomationprocessing_SyncErrors": "Sync Errors",
+      "aib_documentautomationprocessingid": "Document Automation Processing",
+      "aib_DocumentAutomationTableData_aib_Docum": "Document Automation Table Data",
+      "aib_filedata": "File Data",
+      "aib_filemimetype": "File Mime Type",
+      "aib_filename": "File Name",
+      "aib_name": "Name",
+      "aib_processingstatus": "Processing Status",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "tc_ServiceRequest": "Service Request",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Document Automation Processings",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Document Automation Processings (Views)",
+    "Name": "_aib_documentautomationprocessing_views",
+    "RelatedEntityName": "Document Automation Processings",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "7b209cb4-7afa-4328-9a7f-413da2de88f9": "Inactive Document Automation Processings",
+      "b65157c4-f22c-414a-96d9-b71286a918da": "Active Document Automation Processings",
+      "c9a7ddd5-62ab-4848-8f32-672e78a181d7": "Document Automation Processing Advanced Find View",
+      "d83c7e7f-ccaa-4385-a349-925fe1ac818d": "Document Automation Processing Associated View",
+      "ed0a8d56-9db4-4034-b862-20649b82639c": "Document Automation Processing Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Document Automation Processings)",
+    "Name": "aib_documentautomationprocessing_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Document Automation Processings"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Document Automation Processings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Document Automation Processings)",
+    "Name": "aib_documentautomationprocessing_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Document Automation Processings"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Document Automation Processings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Document Automation Processing Status",
+    "Name": "aib_documentautomationprocessingtatus",
+    "OptionSetInfoNameMapping": {
+      "914700000": "Uploading Document",
+      "914700001": "Extracting Data",
+      "914700002": "Validating Data",
+      "914700003": "Manual Review",
+      "914700004": "Validated",
+      "914700005": "Invalid Document",
+      "914700006": "Error"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "aib_processingstatus",
+        "OptionSetReferenceEntityName": "Document Automation Processings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "aib_processingstatus",
+    "RelatedEntityName": "Document Automation Processings",
+    "Type": "OptionSetInfo"
+  }
+]

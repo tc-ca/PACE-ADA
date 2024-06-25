@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "5d13fa62-c39d-42e1-b3c8-ee980db15fa8",
+    "Name": "DocumentAutomationCanvasAppFileImporter",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "36a0d496-8322-ef11-840b-6045bdcd3da1"
+  }
+]

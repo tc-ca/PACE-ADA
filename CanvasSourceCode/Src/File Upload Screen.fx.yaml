@@ -1,0 +1,477 @@
+"'File Upload Screen' As screen":
+    Height: =Max(App.Height, App.DesignHeight)
+    LoadingSpinner: =LoadingSpinner.Controls
+    OnVisible: |-
+        =Set(
+            isLoading,
+            true
+        );
+        Set (
+            MustRefreshConfigurations,
+            IsEmpty(ConfigurationsCollection) || MustRefreshConfigurations;
+        );
+        If(
+            MustRefreshConfigurations,
+            // Fill-in the in-memory collection for providers
+            // Using in-memory collection is needed to perform reading of lookup fields
+            Refresh ('Document Automation Configurations');
+            ClearCollect(
+                ConfigurationsCollection,
+                AddColumns(
+                    Sort(
+                        'Document Automation Configurations',
+                        Name,
+                        SortOrder.Ascending
+                    ),
+                    'Configuration State',
+                    'Configuration Status',
+                    Modified,
+                    'Modified On'
+                )
+            );
+            Refresh ('Document Automation Taxonomies');
+            Refresh ('Document Automation Table Taxonomies');    
+        );
+        Set(
+            MustRefreshConfigurations,
+            false
+        );
+        // By Default, no configuration selected
+        Set (
+            CurrentConfiguration,
+            Blank()
+        );
+        Set (
+            CurrentConfigurationGuid,
+            Blank()
+        );
+        Set(
+            CurrentConfigurationName,
+            ""
+        );
+        Set(
+            RefreshModels,
+            true
+        );
+        Set(
+            isLoading,
+            false
+        );
+    Orientation: =If('File Upload Screen'.Width < 'File Upload Screen'.Height, Layout.Vertical, Layout.Horizontal)
+    Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= 'File Upload Screen'.Width)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    "'Tip Rectangle_3' As rectangle":
+        BorderColor: =RGBA(204, 204, 204, 1)
+        BorderThickness: =1
+        DisabledFill: ='Tip Rectangle_3'.Fill
+        Fill: =RGBA(250, 249, 248, 1)
+        FocusedBorderColor: ='Tip Rectangle_3'.BorderColor
+        Height: =768
+        HoverFill: ='Tip Rectangle_3'.Fill
+        PressedFill: ='Tip Rectangle_3'.Fill
+        Width: =269.00
+        X: =1090
+        ZIndex: =1
+
+    "'Documentation Button_2' As button":
+        BorderColor: =ColorFade('Documentation Button_2'.Fill, -15%)
+        Fill: =RGBA(116, 39, 116, 1)
+        FocusedBorderColor: ='Documentation Button_2'.BorderColor
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =32
+        HoverBorderColor: =ColorFade('Documentation Button_2'.BorderColor, 20%)
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        PressedBorderColor: ='Documentation Button_2'.Fill
+        PressedColor: ='Documentation Button_2'.Fill
+        PressedFill: ='Documentation Button_2'.Color
+        RadiusBottomLeft: =1
+        RadiusBottomRight: =1
+        RadiusTopLeft: =1
+        RadiusTopRight: =1
+        Size: =12.00
+        Text: ="Learn more"
+        Visible: =false
+        Width: =140.00
+        X: =1161.00
+        Y: =693
+        ZIndex: =2
+
+    "'Tip Label_1' As label":
+        Align: =LayoutAlignItems.Center
+        FocusedBorderColor: ='Tip Label_1'.BorderColor
+        Font: =Font.'Segoe UI'
+        Height: =99
+        HoverBorderColor: ='Tip Label_1'.BorderColor
+        HoverColor: ='Tip Label_1'.Color
+        HoverFill: ='Tip Label_1'.Fill
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        PressedBorderColor: ='Tip Label_1'.BorderColor
+        PressedColor: ='Tip Label_1'.Color
+        PressedFill: ='Tip Label_1'.Fill
+        Size: =12.00
+        Text: ="Attach files the AI Builder model will use to start processing documents automatically."
+        Width: =214.00
+        X: =1124.00
+        Y: =430
+        ZIndex: =3
+
+    "'Tip Title_1' As label":
+        Align: =LayoutAlignItems.Center
+        FocusedBorderColor: ='Tip Title_1'.BorderColor
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =51
+        HoverBorderColor: ='Tip Title_1'.BorderColor
+        HoverColor: ='Tip Title_1'.Color
+        HoverFill: ='Tip Title_1'.Fill
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        PressedBorderColor: ='Tip Title_1'.BorderColor
+        PressedColor: ='Tip Title_1'.Color
+        PressedFill: ='Tip Title_1'.Fill
+        Size: =12.00
+        Text: ="Upload files"
+        Width: =177.00
+        X: =1143.01
+        Y: =380
+        ZIndex: =4
+
+    "'Tip Image_1' As image":
+        FocusedBorderColor: ='Tip Image_1'.BorderColor
+        Height: =128
+        HoverBorderColor: =ColorFade('Tip Image_1'.BorderColor, 20%)
+        HoverFill: =ColorFade('Tip Image_1'.Fill, 20%)
+        Image: =CreateProvider
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =ColorFade('Tip Image_1'.BorderColor, -20%)
+        PressedFill: =ColorFade('Tip Image_1'.Fill, -20%)
+        Width: =166.00
+        X: =1142.00
+        Y: =271
+        ZIndex: =5
+
+    "'Provider List Rectangle_1' As rectangle":
+        BorderColor: =RGBA(204, 204, 204, 1)
+        BorderThickness: =0.2
+        DisabledFill: ='Provider List Rectangle_1'.Fill
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: ='Provider List Rectangle_1'.BorderColor
+        Height: =40
+        HoverFill: ='Provider List Rectangle_1'.Fill
+        PressedFill: ='Provider List Rectangle_1'.Fill
+        Width: =1034.00
+        X: =24.00
+        Y: =135
+        ZIndex: =7
+
+    "'Add Provider Button_1' As button":
+        BorderColor: =ButtonStandard.BorderColor
+        BorderThickness: =ButtonStandard.BorderThickness
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+        FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =32
+        HoverBorderColor: =ButtonStandard.HoverBorderColor
+        HoverColor: =ButtonStandard.HoverColor
+        HoverFill: =ButtonStandard.HoverFill
+        OnSelect: |-
+            =// Remove provider data in memory
+            Set (
+                CurrentConfigurationGuid,
+                Blank()
+            );
+            Set(
+                CurrentConfigurationName,
+                ""
+            );
+            Set(
+                ConfigurationModelGuid,
+                Blank()
+            );
+            Set(
+                ConfigurationModelName,
+                ""
+            );
+            // Go to wizard
+            Navigate('Model Selection Screen')
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        PressedBorderColor: =ButtonStandard.PressedBorderColor
+        PressedColor: =ButtonStandard.PressedColor
+        PressedFill: =ButtonStandard.PressedFill
+        RadiusBottomLeft: =ButtonStandard.BorderRadius
+        RadiusBottomRight: =
+        RadiusTopLeft: =ButtonStandard.BorderRadius
+        RadiusTopRight: =
+        Size: =12.00
+        Text: ="Add configuration"
+        Visible: =CountRows(ConfigurationsCollection)=0
+        Width: =180.00
+        X: =874.00
+        Y: =140
+        ZIndex: =8
+
+    "'Selected Tab Line_3' As rectangle":
+        DisabledFill: ='Selected Tab Line_3'.Fill
+        Fill: =RGBA(116, 39, 116, 1)
+        FocusedBorderColor: ='Selected Tab Line_3'.BorderColor
+        Height: =2
+        HoverFill: ='Selected Tab Line_3'.Fill
+        PressedFill: ='Selected Tab Line_3'.Fill
+        Width: =119.99
+        X: =294
+        Y: =110
+        ZIndex: =11
+
+    "'Invoices Tab Button_2' As button":
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade('Invoices Tab Button_2'.Fill, -15%)
+        BorderThickness: =0
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: ='Invoices Tab Button_2'.BorderColor
+        FocusedBorderThickness: =0
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =25
+        HoverBorderColor: =RGBA(255, 255, 255, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =
+        OnSelect: =Navigate('Document List Screen')
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =
+        PressedColor: =RGBA(0, 0, 0, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        Size: =14.00
+        Text: ="Documents"
+        Width: =95.00
+        X: =24.00
+        Y: =84
+        ZIndex: =13
+
+    "'Provider List Title_1' As label":
+        FocusedBorderColor: ='Provider List Title_1'.BorderColor
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverBorderColor: ='Provider List Title_1'.BorderColor
+        HoverColor: ='Provider List Title_1'.Color
+        HoverFill: ='Provider List Title_1'.Fill
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: ='Provider List Title_1'.BorderColor
+        PressedColor: ='Provider List Title_1'.Color
+        PressedFill: ='Provider List Title_1'.Fill
+        Size: =17.99
+        Text: ="File Upload"
+        Width: =1000.00
+        X: =24.00
+        Y: =24
+        ZIndex: =14
+
+    "'Loading Glass Pane_6' As rectangle":
+        BorderColor: =RGBA(204, 204, 204, 1)
+        BorderThickness: =1
+        DisabledFill: ='Loading Glass Pane_6'.Fill
+        Fill: =RGBA(0, 0, 0, 0.02)
+        FocusedBorderColor: ='Loading Glass Pane_6'.BorderColor
+        Height: =768
+        HoverFill: ='Loading Glass Pane_6'.Fill
+        PressedFill: ='Loading Glass Pane_6'.Fill
+        Visible: =isLoading
+        Width: =1366.00
+        X: =0.00
+        ZIndex: =15
+
+    "'Configuration Tab Button_5' As button":
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade('Configuration Tab Button_5'.Fill, -15%)
+        BorderThickness: =0
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: ='Configuration Tab Button_5'.BorderColor
+        FocusedBorderThickness: =0
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =25
+        HoverBorderColor: =RGBA(255, 255, 255, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =
+        OnSelect: =Navigate('Configuration List Screen')
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =
+        PressedColor: =RGBA(0, 0, 0, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        Size: =14.00
+        Text: ="Configuration"
+        Visible: =IsPowerUser
+        Width: =140.00
+        X: =145
+        Y: =84
+        ZIndex: =16
+
+    "'Upload Tab Button_6' As button":
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade('Upload Tab Button_6'.Fill, -15%)
+        BorderThickness: =0
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: ='Upload Tab Button_6'.BorderColor
+        FocusedBorderThickness: =0
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =25
+        HoverBorderColor: =RGBA(255, 255, 255, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        PressedBorderColor: =
+        PressedColor: =RGBA(0, 0, 0, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        Size: =14.00
+        Text: ="Upload"
+        Width: =121
+        X: =290
+        Y: =84
+        ZIndex: =17
+
+    AttachmentControl As attachments:
+        BorderColor: =Color.Black
+        DropTargetBackgroundColor: =RGBA(169, 169, 169, 1)
+        Height: =357
+        IsInDataCard: =true
+        Items: =
+        NoAttachmentsColor: =Self.Color
+        PaddingBottom: =5
+        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+        PaddingRight: =5
+        PaddingTop: =5
+        Tooltip: =
+        Width: =1034
+        X: =24
+        Y: =366
+        ZIndex: =18
+
+    "'Upload Button' As button":
+        BorderColor: =ButtonStandard.BorderColor
+        BorderThickness: =ButtonStandard.BorderThickness
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(243, 242, 241, 1)
+        DisplayMode: =If(IsBlank('AI Model ComboBox'.Selected) Or CountRows(AttachmentControl.Attachments) = 0 , DisplayMode.Disabled, DisplayMode.Edit)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+        FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        Height: =32
+        HoverBorderColor: =ButtonStandard.HoverBorderColor
+        HoverColor: =ButtonStandard.HoverColor
+        HoverFill: =ButtonStandard.HoverFill
+        OnSelect: |-
+            =ForAll(
+                AttachmentControl.Attachments As FILE,
+                DocumentAutomationCanvasAppFileImporter.Run(
+                    Text('AI Model ComboBox'.Selected.'Document Automation Configuration'),
+                    "application/" & Last(
+                        Split(
+                            FILE.Name,
+                            "."
+                        )
+                    ).Value,
+                    'ServiceNumber TextInput'.Text,
+                    {
+                        file: {
+                            contentBytes: FILE.Value,
+                            name: FILE.Name
+                        }
+                    }
+                )
+            );
+            Reset(AttachmentControl);
+            Notify(
+                "Upload successfull",
+                NotificationType.Success,
+                3000
+            );
+            Navigate('Document List Screen')
+        PaddingRight: =5.00
+        PaddingTop: =5.00
+        PressedBorderColor: =ButtonStandard.PressedBorderColor
+        PressedColor: =ButtonStandard.PressedColor
+        PressedFill: =ButtonStandard.PressedFill
+        RadiusBottomLeft: =ButtonStandard.BorderRadius
+        RadiusBottomRight: =ButtonStandard.BorderRadius
+        RadiusTopLeft: =ButtonStandard.BorderRadius
+        RadiusTopRight: =ButtonStandard.BorderRadius
+        Size: =12.00
+        Text: ="Upload document"
+        Width: =198
+        X: =860
+        Y: =140
+        ZIndex: =19
+
+    "'AI Model ComboBox' As combobox":
+        DisplayFields: =["aib_name"]
+        Height: =38
+        HoverBorderColor: =ColorFade('AI Model ComboBox'.BorderColor, 15%)
+        IsSearchable: =false
+        Items: =Filter('Document Automation Configurations', 'Document Automation Configurations (Views)'.'Active Document Automation Configurations')
+        MoreItemsButtonColor: =Self.ChevronBackground
+        PressedBorderColor: ='AI Model ComboBox'.HoverBorderColor
+        SearchFields: =["aib_name"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Width: =1034
+        X: =24
+        Y: =211
+        ZIndex: =20
+
+    "'ServiceNumber Label' As label":
+        Height: =36
+        Text: |-
+            ="Service Number (optional):"
+        Width: =1030
+        X: =26
+        Y: =259
+        ZIndex: =21
+
+    "'ServiceNumber TextInput' As text":
+        Default: =
+        Height: =49
+        HintText: ="Service Number"
+        PressedBorderColor: ='ServiceNumber TextInput'.HoverBorderColor
+        PressedColor: ='ServiceNumber TextInput'.Color
+        PressedFill: ='ServiceNumber TextInput'.Fill
+        Width: =1034
+        X: =24
+        Y: =295
+        ZIndex: =22
+
+    "'AIModel Label' As label":
+        Height: =36
+        Text: |-
+            ="AI Model:"
+        Width: =1034
+        X: =24
+        Y: =175
+        ZIndex: =23
+
