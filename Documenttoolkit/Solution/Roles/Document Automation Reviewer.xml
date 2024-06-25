@@ -9,6 +9,7 @@
     <RolePrivilege name="prvAppendmsdyn_AIOdLabel" level="Global" />
     <RolePrivilege name="prvAppendmsdyn_AIOdTrainingBoundingBox" level="Global" />
     <RolePrivilege name="prvAppendmsdyn_AIOdTrainingImage" level="Global" />
+    <RolePrivilege name="prvAppendtc_ServiceRequest" level="Local" />
     <RolePrivilege name="prvAppendToaib_DocumentAutomationConfiguration" level="Local" />
     <RolePrivilege name="prvAppendToaib_DocumentAutomationProcessing" level="Local" />
     <RolePrivilege name="prvAppendTomsdyn_AIFpTrainingDocument" level="Global" />
@@ -18,6 +19,7 @@
     <RolePrivilege name="prvAppendTomsdyn_AIOdTrainingBoundingBox" level="Global" />
     <RolePrivilege name="prvAppendTomsdyn_AIOdTrainingImage" level="Global" />
     <RolePrivilege name="prvAppendTomsdyn_AITemplate" level="Global" />
+    <RolePrivilege name="prvAppendTotc_ServiceRequest" level="Local" />
     <RolePrivilege name="prvAppendToUser" level="Global" />
     <RolePrivilege name="prvAssignmsdyn_AIFpTrainingDocument" level="Global" />
     <RolePrivilege name="prvAssignmsdyn_AIModel" level="Local" />
@@ -33,6 +35,7 @@
     <RolePrivilege name="prvCreatemsdyn_AIOdTrainingBoundingBox" level="Global" />
     <RolePrivilege name="prvCreatemsdyn_AIOdTrainingImage" level="Global" />
     <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvCreatetc_ServiceRequest" level="Local" />
     <RolePrivilege name="prvDeletemsdyn_AIFpTrainingDocument" level="Global" />
     <RolePrivilege name="prvDeletemsdyn_AIModel" level="Local" />
     <RolePrivilege name="prvDeletemsdyn_AIOdImage" level="Global" />
@@ -61,6 +64,7 @@
     <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
     <RolePrivilege name="prvReadSharePointData" level="Global" />
     <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvReadtc_ServiceRequest" level="Local" />
     <RolePrivilege name="prvReadUser" level="Global" />
     <RolePrivilege name="prvReadUserQuery" level="Basic" />
     <RolePrivilege name="prvReadWorkflow" level="Global" />
