@@ -1348,14 +1348,15 @@
                     )
                 );
                 //Remove(
-                  //  'Document Automation Table Taxonomies',
-                  //  'Document Automation Table Taxonomies'
-                //)
-                //The Remove fuction commented above doesn't work
-                RemoveIf(
+            //  'Document Automation Table Taxonomies',
+            //  'Document Automation Table Taxonomies'
+            //)
+            //The Remove fuction commented above doesn't work
+            RemoveIf(
                     'Document Automation Table Taxonomies',
                     'Document Automation Configuration'.'Document Automation Configuration' = CurrentConfigurationGuid
                 );
+                
             );
             Clear(ModelTableKeysCollection);
             ForAll(

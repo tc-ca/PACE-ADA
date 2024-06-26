@@ -14,22 +14,19 @@
                 <section showlabel="false" showbar="false" IsUserDefined="0" id="{d73e6e2d-4db6-48bb-bbb7-30f2fcb69048}" ordinalvalue="0">
                   <rows>
                     <row>
-                      <cell id="{1304f73d-cf58-4997-84b3-b604698c7a77}" ordinalvalue="10003" solutionaction="Modified" />
+                      <cell id="{1304f73d-cf58-4997-84b3-b604698c7a77}" ordinalvalue="10002" solutionaction="Modified" />
                     </row>
                     <row>
                       <cell id="{65d58d14-ec35-41df-8340-723fe75ad6ff}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10001" solutionaction="Added">
                         <labels>
                           <label description="AI Model" languagecode="1033" />
                         </labels>
-                        <control id="aib_msdyn_aimodel" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="aib_msdyn_aimodel" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{19869a4d-542f-4207-99c1-80d8d1aa7887}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10002" solutionaction="Added">
-                        <labels>
-                          <label description="Configuration Status" languagecode="1033" />
-                        </labels>
-                        <control id="aib_configurationstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="aib_configurationstatus" disabled="false" />
+                        <control id="aib_msdyn_aimodel" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="aib_msdyn_aimodel" disabled="false">
+                          <parameters>
+                            <DefaultViewId>{BA0DE7E0-5D3C-4B73-BA34-36E082DBD9E4}</DefaultViewId>
+                            <AvailableViewIds>{BA0DE7E0-5D3C-4B73-BA34-36E082DBD9E4},{A0B7C73C-0BF0-40CB-817B-05530A567D13},{A22F1A4C-AB82-40F5-8EE0-267196087C97}</AvailableViewIds>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                   </rows>
@@ -40,10 +37,10 @@
         </tab>
       </tabs>
       <header id="{681018ea-9989-4efa-8114-7c0aa7aa3b6f}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows></rows>
+        <rows />
       </header>
       <footer id="{86da8c7c-223b-47e1-a076-dc91a170fb00}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows></rows>
+        <rows />
       </footer>
       <DisplayConditions Order="0" FallbackForm="true" solutionaction="Added">
         <Everyone />
