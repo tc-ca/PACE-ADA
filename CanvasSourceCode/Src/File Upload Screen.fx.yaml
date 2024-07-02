@@ -437,7 +437,7 @@
         MoreItemsButtonColor: =Self.ChevronBackground
         PressedBorderColor: ='AI Model ComboBox'.HoverBorderColor
         SearchFields: =["aib_name"]
-        SearchItems: =Search(Filter('Document Automation Configurations', 'Configuration Status' = 'Document Automation Configuration Status'.Active),'AI Model ComboBox'.SearchText,aib_name)
+        SearchItems: =[]
         SelectMultiple: =false
         Width: =1034
         X: =24

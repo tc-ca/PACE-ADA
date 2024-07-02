@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Role id="{55547ef8-742d-eb11-a813-000d3af77de6}" name="Document Automation Reviewer" isinherited="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Role id="{55547ef8-742d-eb11-a813-000d3af77de6}" name="Document Automation Reviewer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <RolePrivileges>
     <RolePrivilege name="prvAppendaib_DocumentAutomationData" level="Local" />
     <RolePrivilege name="prvAppendaib_DocumentAutomationProcessing" level="Local" />
