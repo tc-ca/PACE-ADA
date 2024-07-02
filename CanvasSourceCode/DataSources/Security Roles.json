@@ -11,13 +11,16 @@
     "NativeCDSDataSourceInfoNameMapping": {
       "application_role": "Applications",
       "applicationuserrole": "ApplicationUsers",
+      "appliesto": "Applies To",
       "appmoduleroles_association": "Model-driven Apps",
       "businessunitid": "Business Unit",
       "componentstate": "Component State",
       "createdby": "Created By",
       "createdon": "Created On",
       "createdonbehalfby": "Created By Impersonator",
+      "description": "Description",
       "importsequencenumber": "Import Sequence Number",
+      "isautoassigned": "Is Auto Assigned",
       "isinherited": "Is Inherited",
       "ismanaged": "State",
       "modifiedby": "Modified By",
@@ -39,6 +42,7 @@
       "roleprivileges_association": "Privileges",
       "roletemplateid": "Role Template",
       "solutionid": "Solution",
+      "summaryofcoretablepermissions": "Summary of Core Table Permissions",
       "systemuserroles_association": "Users",
       "teamroles_association": "Teams",
       "versionnumber": "Version number"
@@ -75,6 +79,26 @@
     },
     "OptionSetTypeKey": "PicklistType",
     "RelatedColumnInvariantName": "isinherited",
+    "RelatedEntityName": "Security Roles",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Is Auto Assigned",
+    "Name": "securityrole_isautoassigned",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "isautoassigned",
+        "OptionSetReferenceEntityName": "Security Roles"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "isautoassigned",
     "RelatedEntityName": "Security Roles",
     "Type": "OptionSetInfo"
   }

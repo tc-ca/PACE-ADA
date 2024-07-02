@@ -347,8 +347,8 @@
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10.00
-            Width: =0.00
-            X: =0.00
+            Width: =RoundDown(Parent.Width * ThisItem.SizeColumn10, 0)
+            X: =RoundDown(Parent.Width * ThisItem.PosColumn10, 0)
             Y: =1
             ZIndex: =1
 
@@ -384,8 +384,8 @@
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10.00
-            Width: =0.00
-            X: =0.00
+            Width: =RoundDown(Parent.Width * ThisItem.SizeColumn9, 0)
+            X: =RoundDown(Parent.Width * ThisItem.PosColumn9, 0)
             Y: =1
             ZIndex: =2
 
@@ -421,8 +421,8 @@
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10.00
-            Width: =0.00
-            X: =0.00
+            Width: =RoundDown(Parent.Width * ThisItem.SizeColumn8, 0)
+            X: =RoundDown(Parent.Width * ThisItem.PosColumn8, 0)
             ZIndex: =3
 
         Data7_TextInput_2 As text:
@@ -457,8 +457,8 @@
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10.00
-            Width: =0.00
-            X: =0.00
+            Width: =RoundDown(Parent.Width * ThisItem.SizeColumn7, 0)
+            X: =RoundDown(Parent.Width * ThisItem.PosColumn7, 0)
             ZIndex: =4
 
         Data6_TextInput_2 As text:
@@ -493,8 +493,8 @@
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10.00
-            Width: =0.00
-            X: =0.00
+            Width: =RoundDown(Parent.Width * ThisItem.SizeColumn6, 0)
+            X: =RoundDown(Parent.Width * ThisItem.PosColumn6, 0)
             ZIndex: =5
 
         Data5_TextInput_2 As text:
@@ -529,8 +529,8 @@
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10.00
-            Width: =0.00
-            X: =0.00
+            Width: =RoundDown(Parent.Width * ThisItem.SizeColumn5, 0)
+            X: =RoundDown(Parent.Width * ThisItem.PosColumn5, 0)
             ZIndex: =6
 
         Data4_TextInput_2 As text:
@@ -565,8 +565,8 @@
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10.00
-            Width: =0.00
-            X: =0.00
+            Width: =RoundDown(Parent.Width * ThisItem.SizeColumn4, 0)
+            X: =RoundDown(Parent.Width * ThisItem.PosColumn4, 0)
             ZIndex: =7
 
         Data3_TextInput_2 As text:
@@ -601,8 +601,8 @@
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10.00
-            Width: =0.00
-            X: =0.00
+            Width: =RoundDown(Parent.Width * ThisItem.SizeColumn3, 0)
+            X: =RoundDown(Parent.Width * ThisItem.PosColumn3, 0)
             ZIndex: =8
 
         Data2_TextInput_2 As text:
@@ -637,8 +637,8 @@
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10.00
-            Width: =0.00
-            X: =0.00
+            Width: =RoundDown(Parent.Width * ThisItem.SizeColumn2, 0)
+            X: =RoundDown(Parent.Width * ThisItem.PosColumn2, 0)
             ZIndex: =9
 
         Data1_TextInput_2 As text:
@@ -673,8 +673,8 @@
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10.00
-            Width: =0.00
-            X: =0.00
+            Width: =RoundDown(Parent.Width * ThisItem.SizeColumn1, 0)
+            X: =RoundDown(Parent.Width * ThisItem.PosColumn1, 0)
             ZIndex: =10
 
     "'Document Header Form_1' As form":
