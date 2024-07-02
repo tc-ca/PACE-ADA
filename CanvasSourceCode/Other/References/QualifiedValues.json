@@ -1,17 +1,6 @@
 {
   "QualifiedValues": [
     {
-      "Kind": "default.cds_systemuser_forms",
-      "Namespace": "Users (Forms)",
-      "Values": {
-        "Application User": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8",
-        "Information": "094fb08a-77bb-49e0-b7ea-8dbddfd01294",
-        "User": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
-        "User form – Business": "c2413504-7eb2-4c59-a087-95d819866114",
-        "User Hierarchy Tile Form": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452"
-      }
-    },
-    {
       "Kind": "default.cds_msdyn_aiconfiguration_forms",
       "Namespace": "AI Configurations (Forms)",
       "Values": {}
@@ -27,24 +16,10 @@
       "Values": {}
     },
     {
-      "Kind": "default.cds_role_forms",
-      "Namespace": "Security Roles (Forms)",
-      "Values": {
-        "Information": "d830b05c-0c90-4dcf-be8b-5d22a856f510"
-      }
-    },
-    {
       "Kind": "default.cds_aib_documentautomationconfiguration_forms",
       "Namespace": "Document Automation Configurations (Forms)",
       "Values": {
         "Information": "daabadb9-afb8-4d11-9609-e7dfd9b09af1"
-      }
-    },
-    {
-      "Kind": "default.cds_aib_documentautomationprocessing_forms",
-      "Namespace": "Document Automation Processings (Forms)",
-      "Values": {
-        "Information": "4e840816-96f3-48ac-a217-a5421e92b49e"
       }
     },
     {
@@ -55,17 +30,10 @@
       }
     },
     {
-      "Kind": "default.cds_aib_documentautomationtaxonomy_forms",
-      "Namespace": "Document Automation Taxonomies (Forms)",
+      "Kind": "default.cds_aib_documentautomationprocessing_forms",
+      "Namespace": "Document Automation Processings (Forms)",
       "Values": {
-        "Information": "7827fe06-6841-4cc6-8b78-fb6a6391b8a3"
-      }
-    },
-    {
-      "Kind": "default.cds_aib_documentautomationtabletaxonomy_forms",
-      "Namespace": "Document Automation Table Taxonomies (Forms)",
-      "Values": {
-        "Information": "5cd10152-94b9-4609-9b26-98012fc58f9e"
+        "Information": "4e840816-96f3-48ac-a217-a5421e92b49e"
       }
     },
     {
@@ -76,9 +44,41 @@
       }
     },
     {
+      "Kind": "default.cds_aib_documentautomationtabletaxonomy_forms",
+      "Namespace": "Document Automation Table Taxonomies (Forms)",
+      "Values": {
+        "Information": "5cd10152-94b9-4609-9b26-98012fc58f9e"
+      }
+    },
+    {
+      "Kind": "default.cds_aib_documentautomationtaxonomy_forms",
+      "Namespace": "Document Automation Taxonomies (Forms)",
+      "Values": {
+        "Information": "7827fe06-6841-4cc6-8b78-fb6a6391b8a3"
+      }
+    },
+    {
       "Kind": "default.cds_roletemplate_forms",
       "Namespace": "Role Templates (Forms)",
       "Values": {}
+    },
+    {
+      "Kind": "default.cds_role_forms",
+      "Namespace": "Security Roles (Forms)",
+      "Values": {
+        "Information": "d830b05c-0c90-4dcf-be8b-5d22a856f510"
+      }
+    },
+    {
+      "Kind": "default.cds_systemuser_forms",
+      "Namespace": "Users (Forms)",
+      "Values": {
+        "Application User": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8",
+        "Information": "094fb08a-77bb-49e0-b7ea-8dbddfd01294",
+        "User": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
+        "User form – Business": "c2413504-7eb2-4c59-a087-95d819866114",
+        "User Hierarchy Tile Form": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452"
+      }
     }
   ]
 }

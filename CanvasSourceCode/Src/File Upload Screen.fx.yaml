@@ -335,7 +335,6 @@
         FocusedBorderColor: ='Upload Tab Button_6'.BorderColor
         FocusedBorderThickness: =0
         Font: =Font.'Segoe UI'
-        FontWeight: =FontWeight.Normal
         Height: =25
         HoverBorderColor: =RGBA(255, 255, 255, 1)
         HoverColor: =RGBA(0, 0, 0, 1)
