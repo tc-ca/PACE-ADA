@@ -19,7 +19,7 @@
                 ConfigurationsCollection,
                 AddColumns(
                     Sort(
-                        'Document Automation Configurations',
+                        Filter('Document Automation Configurations', statecode = 'Status (Document Automation Configurations)'.Active),
                         Name,
                         SortOrder.Ascending
                     ),

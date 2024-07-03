@@ -228,7 +228,7 @@
         HoverBorderColor: =ButtonStandard.HoverBorderColor
         HoverColor: =ButtonStandard.HoverColor
         HoverFill: =ButtonStandard.HoverFill
-        OnSelect: |-
+        OnSelect: |
             =Set(
                 isLoading,
                 true
@@ -240,7 +240,10 @@
             ClearCollect(
                 DocumentsToDisplay,
                 Sort(
-                    'Document Automation Processings',
+                    Filter(
+                        'Document Automation Processings',
+                        statecode = 'Status (Document Automation Processings)'.Active
+                    ),
                     'Created On',
                     SortOrder.Descending
                 )
