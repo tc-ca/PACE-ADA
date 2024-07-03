@@ -1531,6 +1531,7 @@
                 HoverBorderColor: =TextBox.HoverBorderColor
                 HoverFill: =TextBox.HoverFill
                 MaxLength: =Parent.MaxLength
+                Mode: =TextMode.MultiLine
                 PaddingLeft: =5
                 PaddingRight: =5.00
                 PaddingTop: =5.00
@@ -1628,6 +1629,7 @@
                 HoverBorderColor: =TextBox.HoverBorderColor
                 HoverFill: =TextBox.HoverFill
                 MaxLength: =Parent.MaxLength
+                Mode: =TextMode.MultiLine
                 PaddingLeft: =5
                 PaddingRight: =5.00
                 PaddingTop: =5.00
@@ -4436,8 +4438,8 @@
             HoverBorderColor: =ButtonBold.HoverBorderColor
             HoverColor: =ButtonBold.HoverColor
             HoverFill: =ButtonBold.HoverFill
-            OnSelect: |-
-                =RemoveIf(
+            OnSelect: |
+                =/*RemoveIf(
                     'Document Automation Data',
                     'Document Automation Processing'.'Document Automation Processing' = CurrentProcessingGuid
                 );
@@ -4448,8 +4450,34 @@
                 RemoveIf(
                     'Document Automation Processings',
                     'Document Automation Processing' = CurrentProcessingGuid
+                );*/
+                
+                // Replace delete with deactivate
+                Patch(
+                    'Document Automation Data',
+                    LookUp(
+                        'Document Automation Data',
+                        'Document Automation Processing'.'Document Automation Processing' = CurrentProcessingGuid
+                    ),
+                    {Status: 'Status (Document Automation Data)'.Inactive}
                 );
-                Back()
+                Patch(
+                    'Document Automation Table Data',
+                    LookUp(
+                        'Document Automation Table Data',
+                        'Document Automation Processing'.'Document Automation Processing' = CurrentProcessingGuid
+                    ),
+                    {Status: 'Status (Document Automation Table Data)'.Inactive}
+                );
+                Patch(
+                    'Document Automation Processings',
+                    LookUp(
+                        'Document Automation Processings',
+                        'Document Automation Processing' = CurrentProcessingGuid
+                    ),
+                    {statecode: 'Status (Document Automation Processings)'.Inactive}
+                );
+                Back();
             PaddingRight: =5.00
             PaddingTop: =5.00
             PressedBorderColor: =ButtonBold.PressedBorderColor

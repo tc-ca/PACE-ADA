@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{7b209cb4-7afa-4328-9a7f-413da2de88f9}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="aib_name" select="1" icon="1" preview="1">
+        <row name="result" id="aib_documentautomationprocessingid">
+          <cell name="aib_name" width="300" />
+          <cell name="aib_assignedto" width="111" />
+          <cell name="aib_comment" width="100" />
+          <cell name="aib_documentautomationconfigurati" width="251" />
+          <cell name="aib_filedata" width="100" />
+          <cell name="tc_servicerequest" width="131" />
+          <cell name="aib_filemimetype" width="131" />
+          <cell name="aib_filename" width="100" />
+          <cell name="aib_processingstatus" width="139" />
+          <cell name="createdby" width="109" />
+          <cell name="createdon" width="105" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="aib_documentautomationprocessing">
+          <attribute name="aib_documentautomationprocessingid" />
+          <attribute name="aib_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="aib_assignedto" />
+          <attribute name="aib_comment" />
+          <attribute name="aib_documentautomationconfigurati" />
+          <attribute name="aib_filedata" />
+          <attribute name="aib_filemimetype" />
+          <attribute name="aib_filename" />
+          <attribute name="aib_processingstatus" />
+          <attribute name="createdby" />
+          <attribute name="tc_servicerequest" />
+          <order attribute="aib_name" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Document Automation Processings" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{5c91a417-99a1-42e8-a9e6-52d18b4904a9}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="aib_name" select="1" icon="1" preview="1">
+        <row name="result" id="aib_documentautomationdataid">
+          <cell name="aib_name" width="300" />
+          <cell name="aib_documentautomationprocessing" width="233" />
+          <cell name="aib_data1" width="141" />
+          <cell name="aib_metadata1" width="100" />
+          <cell name="aib_data2" width="146" />
+          <cell name="aib_metadata2" width="147" />
+          <cell name="aib_data3" width="139" />
+          <cell name="aib_metadata3" width="146" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="aib_documentautomationdata">
+          <attribute name="aib_documentautomationdataid" />
+          <attribute name="aib_name" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="aib_documentautomationprocessing" />
+          <attribute name="aib_metadata1" />
+          <attribute name="aib_data1" />
+          <attribute name="aib_data2" />
+          <attribute name="aib_metadata2" />
+          <attribute name="aib_data3" />
+          <attribute name="aib_metadata3" />
+          <order attribute="aib_name" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Document Automation Data" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
