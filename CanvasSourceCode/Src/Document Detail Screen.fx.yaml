@@ -4475,7 +4475,7 @@
                         'Document Automation Processings',
                         'Document Automation Processing' = CurrentProcessingGuid
                     ),
-                    {statecode: 'Status (Document Automation Processings)'.Inactive}
+                    {Status: 'Status (Document Automation Processings)'.Inactive}
                 );
                 Back();
             PaddingRight: =5.00

@@ -189,11 +189,28 @@ App As appinfo:
                 )
             ).'Security Roles (systemuserroles_association)'.Name
         );
+        
+        //========Get Team security roles=========================================================
+        Set(currentUser, LookUp(Users, 'Primary Email' = User().Email));
+        
+        // User Teams
+        ClearCollect(UserTeams, currentUser.'Teams (teammembership_association)');
+        ClearCollect(UserTeamsAux, UserTeams);
+        
+        // All Roles (User + Teams)
+        ClearCollect(AllUserRoles, UserRoles);
+        ForAll(
+            UserTeams,
+            Collect(AllUserRoles, (LookUp(UserTeams, 'Team Name' = First(UserTeamsAux).'Team Name').'Security Roles').Name);
+            Remove(UserTeamsAux, First(UserTeamsAux));
+        );
+        //========Get Team security roles=========================================================
+        
         Set(
             IsPowerUser, 
             CountRows(
                 Filter(
-                    UserRoles,
+                    AllUserRoles,
                     Or(
                         Name in AdminRoles,
                         Name = "System Customizer",

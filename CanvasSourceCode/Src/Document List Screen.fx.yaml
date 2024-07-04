@@ -242,7 +242,7 @@
                 Sort(
                     Filter(
                         'Document Automation Processings',
-                        statecode = 'Status (Document Automation Processings)'.Active
+                        Status = 'Status (Document Automation Processings)'.Active
                     ),
                     'Created On',
                     SortOrder.Descending
