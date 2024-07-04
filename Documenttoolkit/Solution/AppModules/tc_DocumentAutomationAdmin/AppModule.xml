@@ -21,7 +21,7 @@
     <AppModuleComponent type="62" schemaName="tc_DocumentAutomationAdmin" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
-    <Role id="{1afb2a9e-c725-ef11-840b-6045bdcd3da1}" />
+    <Role id="{10ea179a-013a-ef11-a316-000d3ae97ee8}" />
     <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
     <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
   </AppModuleRoleMaps>
