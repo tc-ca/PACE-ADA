@@ -2,7 +2,7 @@ App As appinfo:
     BackEnabled: =false
     Formulas: |
         =IsDocumentLocked = Not(IsBlank(CurrentProcessing.'Assigned To')) && Not(CurrentProcessing.'Assigned To'.'User Name' = UserEmail) && Not(CurrentProcessing.'Assigned To'.'Full Name' = "SYSTEM") && Not IsPowerUser;
-    OnStart: |-
+    OnStart: |
         =// Styles
         Set(
             ButtonBold,
@@ -150,7 +150,7 @@ App As appinfo:
         // Invoice Processing Label Definition
         Set(
             InvoiceProcessingModelLabels,
-        """labels"":{""newLabel"":""amountDue"",""newLabel"":""billingAddress"",""newLabel"":""billingAddressRecipient"",""newLabel"":""customerAddress"",""newLabel"":""customerAddressRecipient"",""newLabel"":""customerId"",""newLabel"":""customerName"",""newLabel"":""dueDate"",""newLabel"":""invoiceDate"",""newLabel"":""invoiceId"",""newLabel"":""invoiceTotal"",""newLabel"":""previousUnpaidBalance"",""newLabel"":""purchaseOrder"",""newLabel"":""remittanceAddress"",""newLabel"":""remittanceAddressRecipient"",""newLabel"":""serviceAddress"",""newLabel"":""serviceAddressRecipient"",""newLabel"":""serviceEndDate"",""newLabel"":""serviceStartDate"",""newLabel"":""shippingAddress"",""newLabel"":""shippingAddressRecipient"",""newLabel"":""subTotal"", ""newLabel"":""totalTax"",""newLabel"":""vendorAddress"",""newLabel"":""vendorAddressRecipient"",""newLabel"":""vendorName""}}},""tables"":{""Items"",""columns"":{""amount"":{}}, ""description"":{}}, ""unitPrice"":{}}, ""quantity"":{}}, ""productCode"":{}}, ""unit"":{}}, ""date"":{}}, ""tax"":{}}}}},""layouts"
+            """labels"":{""newLabel"":""amountDue"",""newLabel"":""billingAddress"",""newLabel"":""billingAddressRecipient"",""newLabel"":""customerAddress"",""newLabel"":""customerAddressRecipient"",""newLabel"":""customerId"",""newLabel"":""customerName"",""newLabel"":""dueDate"",""newLabel"":""invoiceDate"",""newLabel"":""invoiceId"",""newLabel"":""invoiceTotal"",""newLabel"":""previousUnpaidBalance"",""newLabel"":""purchaseOrder"",""newLabel"":""remittanceAddress"",""newLabel"":""remittanceAddressRecipient"",""newLabel"":""serviceAddress"",""newLabel"":""serviceAddressRecipient"",""newLabel"":""serviceEndDate"",""newLabel"":""serviceStartDate"",""newLabel"":""shippingAddress"",""newLabel"":""shippingAddressRecipient"",""newLabel"":""subTotal"", ""newLabel"":""totalTax"",""newLabel"":""vendorAddress"",""newLabel"":""vendorAddressRecipient"",""newLabel"":""vendorName""}}},""tables"":{""Items"",""columns"":{""amount"":{}}, ""description"":{}}, ""unitPrice"":{}}, ""quantity"":{}}, ""productCode"":{}}, ""unit"":{}}, ""date"":{}}, ""tax"":{}}}}},""layouts"
         );
         // Security Configuration
         Set(
@@ -173,9 +173,7 @@ App As appinfo:
             ).Name,
             Filter(
                 'Security Roles',
-                Or(
-                    Name = "Document Automation Admin"
-                )
+                Or(Name = "Document Automation Admin")
             ).Name
         );
         // Check that current belongs to these roles
@@ -189,11 +187,53 @@ App As appinfo:
                 )
             ).'Security Roles (systemuserroles_association)'.Name
         );
+        //========Get Team security roles and add Users aned Teams roles in AllUserRoles collection=========================================
         Set(
-            IsPowerUser, 
+            CurrentUser,
+            LookUp(
+                Users,
+                Or(
+                    'Primary Email' = UserEmail,
+                    'User Name' = UserEmail
+                )
+            )
+        );
+        // User Teams
+        ClearCollect(
+            UserTeams,
+            CurrentUser.'Teams (teammembership_association)'
+        );
+        
+        ClearCollect(
+            UserTeamsAux,
+            UserTeams
+        );
+        // All Roles (User + Teams)
+        ClearCollect(
+            AllUserRoles,
+            UserRoles
+        );
+        ForAll(
+            UserTeams,
+            Collect(
+                AllUserRoles,
+                (LookUp(
+                    UserTeams,
+                    'Team Name' = First(UserTeamsAux).'Team Name'
+                ).'Security Roles').Name
+            );
+            Remove(
+                UserTeamsAux,
+                First(UserTeamsAux)
+            );
+            
+        );
+        //========Get Team security roles and add Users aned Teams roles in AllUserRoles collection=========================================
+        Set(
+            IsPowerUser,
             CountRows(
                 Filter(
-                    UserRoles,
+                    AllUserRoles,
                     Or(
                         Name in AdminRoles,
                         Name = "System Customizer",

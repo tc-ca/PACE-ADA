@@ -5030,7 +5030,7 @@
       "MetaDataIDKey": "",
       "Name": "Name_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6410,7 +6410,7 @@
       "MetaDataIDKey": "",
       "Name": "Type_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
