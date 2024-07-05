@@ -386,7 +386,29 @@
         HoverColor: =ButtonStandard.HoverColor
         HoverFill: =ButtonStandard.HoverFill
         OnSelect: |-
-            =ForAll(
+            =If(
+                Not(IsBlank('ServiceNumber TextInput'.Text)),
+                Set(
+                    varServiceRequest,
+                    LookUp(
+                        'Service Requests',
+                        'Service Request Number' = 'ServiceNumber TextInput'.Text
+                    )
+                );
+                If(
+                    IsBlank(varServiceRequest),
+                    Set(
+                        varServiceRequest,
+                        Patch(
+                            'Service Requests',
+                            Defaults('Service Requests'),
+                            {'Service Request Number': 'ServiceNumber TextInput'.Text}
+                        )
+                    )
+                );
+                
+            );
+            ForAll(
                 AttachmentControl.Attachments As FILE,
                 DocumentAutomationCanvasAppFileImporter.Run(
                     Text('AI Model ComboBox'.Selected.'Document Automation Configuration'),
@@ -396,7 +418,7 @@
                             "."
                         )
                     ).Value,
-                    'ServiceNumber TextInput'.Text,
+                    varServiceRequest.'Service Request',
                     {
                         file: {
                             contentBytes: FILE.Value,
