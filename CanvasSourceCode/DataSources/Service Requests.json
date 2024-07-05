@@ -1,0 +1,98 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "tc_servicerequests",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "tc_servicerequest",
+    "Name": "Service Requests",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "tc_aib_documentautomationprocessing_ServiceRequest_tc_servicerequest": "Document Automation Processings",
+      "tc_id": "Service Request Number",
+      "tc_servicerequest_AsyncOperations": "System Jobs",
+      "tc_servicerequest_BulkDeleteFailures": "Bulk Delete Failures",
+      "tc_servicerequest_DuplicateBaseRecord": "Duplicate Records (tc_servicerequest_DuplicateBaseRecord)",
+      "tc_servicerequest_DuplicateMatchingRecord": "Duplicate Records (tc_servicerequest_DuplicateMatchingRecord)",
+      "tc_servicerequest_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "tc_servicerequest_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "tc_servicerequest_ProcessSession": "Process Sessions",
+      "tc_servicerequest_SyncErrors": "Sync Errors",
+      "tc_servicerequestid": "Service Request",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Service Requests",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Service Requests (Views)",
+    "Name": "_tc_servicerequest_views",
+    "RelatedEntityName": "Service Requests",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "4185cc4a-aa7b-4cc3-94e9-4a9e2968a0a7": "Service Request Advanced Find View",
+      "62183ed3-c440-4fe6-b542-4e5ad33061a5": "Active Service Requests",
+      "7081c42e-2df4-4db9-8a31-04758cf61694": "Service Request Lookup View",
+      "8e8189b0-3d32-ef11-8e4e-002248b34c09": "Service Request Number",
+      "b98a8a2c-3469-4358-8ba9-f75175857c3a": "Service Request Associated View",
+      "d26c557c-212b-45b8-b956-8d438d97ab89": "Inactive Service Requests"
+    }
+  },
+  {
+    "DisplayName": "Status (Service Requests)",
+    "Name": "tc_servicerequest_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Service Requests"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Service Requests",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Service Requests)",
+    "Name": "tc_servicerequest_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Service Requests"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Service Requests",
+    "Type": "OptionSetInfo"
+  }
+]

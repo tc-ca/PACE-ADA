@@ -69,7 +69,7 @@
                   }
                 },
                 "text_2": {
-                  "title": "ServiceRequestNumber",
+                  "title": "ServiceRequestIdentifier",
                   "type": "string",
                   "x-ms-dynamically-added": true,
                   "description": "Please enter your input",
@@ -164,7 +164,7 @@
                   "entityName": "aib_documentautomationprocessings",
                   "recordId": "@outputs('Create_a_new_document_processing')?['body/aib_documentautomationprocessingid']",
                   "item/aib_processingstatus": 914700001,
-                  "item/tc_ServiceRequest@odata.bind": "@if(not(empty(variables('varServiceRequest'))), outputs('Service_Request_Lookup'), null)"
+                  "item/tc_ServiceRequest@odata.bind": "@if(not(empty(triggerBody()['text_2'])), outputs('Service_Request_Lookup'), null)"
                 },
                 "authentication": "@parameters('$authentication')"
               }
@@ -193,7 +193,7 @@
                     "entityName": "aib_documentautomationprocessings",
                     "recordId": "@outputs('Create_a_new_document_processing')?['body/aib_documentautomationprocessingid']",
                     "item/aib_processingstatus": 914700005,
-                    "item/tc_ServiceRequest@odata.bind": "@if(not(empty(variables('varServiceRequest'))), outputs('Service_Request_Lookup'), null)"
+                    "item/tc_ServiceRequest@odata.bind": "@if(not(empty(triggerBody()['text_2'])), outputs('Service_Request_Lookup'), null)"
                   },
                   "authentication": "@parameters('$authentication')"
                 }
@@ -234,11 +234,7 @@
           "type": "If"
         },
         "Get_Configuration": {
-          "runAfter": {
-            "Initialize_varServiceRequest": [
-              "Succeeded"
-            ]
-          },
+          "runAfter": {},
           "metadata": {
             "operationMetadataId": "3c03f371-e353-4162-9700-6640b5df6f1c"
           },
@@ -256,141 +252,9 @@
             "authentication": "@parameters('$authentication')"
           }
         },
-        "Initialize_varServiceRequest": {
-          "runAfter": {},
-          "metadata": {
-            "operationMetadataId": "ddb2e6b0-927d-4d18-96b6-540114947968"
-          },
-          "type": "InitializeVariable",
-          "inputs": {
-            "variables": [
-              {
-                "name": "varServiceRequest",
-                "type": "string"
-              }
-            ]
-          }
-        },
-        "Service_Request": {
-          "actions": {
-            "Get_ServiceRequest_by_ServiceRequestNumber": {
-              "runAfter": {},
-              "metadata": {
-                "operationMetadataId": "6940a1a0-1192-4766-8946-a8c06ce5335a"
-              },
-              "type": "OpenApiConnection",
-              "inputs": {
-                "host": {
-                  "connectionName": "shared_commondataserviceforapps_1",
-                  "operationId": "ListRecords",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                },
-                "parameters": {
-                  "entityName": "tc_servicerequests",
-                  "$select": "tc_id",
-                  "$filter": "tc_id eq '@{triggerBody()['text_2']}'"
-                },
-                "authentication": "@parameters('$authentication')"
-              }
-            },
-            "Check_if_Service_Request_Exists": {
-              "actions": {
-                "Apply_to_each": {
-                  "foreach": "@outputs('Get_ServiceRequest_by_ServiceRequestNumber')?['body/value']",
-                  "actions": {
-                    "Set_varServiceRequest": {
-                      "runAfter": {},
-                      "metadata": {
-                        "operationMetadataId": "61fefeaf-e01b-4731-aae0-43f4064cbe00"
-                      },
-                      "type": "SetVariable",
-                      "inputs": {
-                        "name": "varServiceRequest",
-                        "value": "@items('Apply_to_each')?['tc_servicerequestid']"
-                      }
-                    }
-                  },
-                  "runAfter": {},
-                  "metadata": {
-                    "operationMetadataId": "b6392a36-aa2b-4391-94b2-2f77459cd641"
-                  },
-                  "type": "Foreach"
-                }
-              },
-              "runAfter": {
-                "Get_ServiceRequest_by_ServiceRequestNumber": [
-                  "Succeeded"
-                ]
-              },
-              "else": {
-                "actions": {
-                  "Add_a_new_ServiceRequest_row": {
-                    "runAfter": {},
-                    "metadata": {
-                      "operationMetadataId": "0f96bd52-569e-4f94-85f6-732b342a79bf"
-                    },
-                    "type": "OpenApiConnection",
-                    "inputs": {
-                      "host": {
-                        "connectionName": "shared_commondataserviceforapps_1",
-                        "operationId": "CreateRecord",
-                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                      },
-                      "parameters": {
-                        "entityName": "tc_servicerequests",
-                        "item/tc_id": "@triggerBody()['text_2']"
-                      },
-                      "authentication": "@parameters('$authentication')"
-                    }
-                  },
-                  "Set_varServiceRequest_2": {
-                    "runAfter": {
-                      "Add_a_new_ServiceRequest_row": [
-                        "Succeeded"
-                      ]
-                    },
-                    "metadata": {
-                      "operationMetadataId": "6e9df9e2-d567-4ffe-bcf9-125225e11b53"
-                    },
-                    "type": "SetVariable",
-                    "inputs": {
-                      "name": "varServiceRequest",
-                      "value": "@outputs('Add_a_new_ServiceRequest_row')?['body/tc_servicerequestid']"
-                    }
-                  }
-                }
-              },
-              "expression": {
-                "greaterOrEquals": [
-                  "@length(outputs('Get_ServiceRequest_by_ServiceRequestNumber')?['body/value'])",
-                  1
-                ]
-              },
-              "metadata": {
-                "operationMetadataId": "597ea3d9-e8d6-489a-aa39-bdb5d4b861a7"
-              },
-              "type": "If"
-            }
-          },
-          "runAfter": {
-            "Upload_attachment": [
-              "Succeeded"
-            ]
-          },
-          "expression": {
-            "equals": [
-              "@empty(triggerBody()['text_2'])",
-              false
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "4aef41af-25aa-47c0-b9c1-85aa889abc2d"
-          },
-          "type": "If"
-        },
         "Service_Request_Lookup": {
           "runAfter": {
-            "Service_Request": [
+            "Upload_attachment": [
               "Succeeded"
             ]
           },
@@ -398,7 +262,7 @@
             "operationMetadataId": "c22eb425-0ba0-42ee-bf74-7b59b2bda3ec"
           },
           "type": "Compose",
-          "inputs": "tc_servicerequests(@{variables('varServiceRequest')})"
+          "inputs": "tc_servicerequests(@{triggerBody()['text_2']})"
         }
       },
       "outputs": {}
