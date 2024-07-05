@@ -6,7 +6,7 @@
       <LocalizedName description="AI Document toolkit extension" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.14.0.0</Version>
+    <Version>1.15.0.0</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>TransportCanada</UniqueName>
@@ -140,6 +140,7 @@
       <RootComponent type="29" id="{36a0d496-8322-ef11-840b-6045bdcd3da1}" behavior="0" />
       <RootComponent type="29" id="{44b31d34-ef80-eb11-a812-000d3a4f53f6}" behavior="0" />
       <RootComponent type="29" id="{61f6db6c-6a40-eb11-a812-000d3af77de6}" behavior="0" />
+      <RootComponent type="29" id="{70e74789-e03a-ef11-a317-0022483e4989}" behavior="0" />
       <RootComponent type="29" id="{d2ba9fde-2932-ef11-8e4f-0022483e4989}" behavior="0" />
       <RootComponent type="300" schemaName="aib_documentautomationapplication_a3a44" behavior="0" />
       <RootComponent type="60" id="{fecd41e1-4c23-ef11-840b-000d3af4271c}" behavior="0" />

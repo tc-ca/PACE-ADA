@@ -1,0 +1,219 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "tc_sharedcommondataserviceforapps_e3ddf"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "3724faab-32ef-452c-baae-91c0793eb5eb"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "ServiceRequestNumber",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Service_Request": {
+          "actions": {
+            "Get_ServiceRequest_by_ServiceRequestNumber": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "6940a1a0-1192-4766-8946-a8c06ce5335a"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "tc_servicerequests",
+                  "$select": "tc_id",
+                  "$filter": "tc_id eq '@{triggerBody()['text']}'"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Check_if_Service_Request_Exists": {
+              "actions": {
+                "Apply_to_each": {
+                  "foreach": "@outputs('Get_ServiceRequest_by_ServiceRequestNumber')?['body/value']",
+                  "actions": {
+                    "Set_varServiceRequest": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "61fefeaf-e01b-4731-aae0-43f4064cbe00"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "varServiceRequest",
+                        "value": "@items('Apply_to_each')?['tc_servicerequestid']"
+                      }
+                    }
+                  },
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "b6392a36-aa2b-4391-94b2-2f77459cd641"
+                  },
+                  "type": "Foreach"
+                }
+              },
+              "runAfter": {
+                "Get_ServiceRequest_by_ServiceRequestNumber": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Add_a_new_ServiceRequest_row": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "0f96bd52-569e-4f94-85f6-732b342a79bf"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_commondataserviceforapps",
+                        "operationId": "CreateRecord",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                      },
+                      "parameters": {
+                        "entityName": "tc_servicerequests",
+                        "item/tc_id": "@triggerBody()['text']"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  },
+                  "Set_varServiceRequest_2": {
+                    "runAfter": {
+                      "Add_a_new_ServiceRequest_row": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "6e9df9e2-d567-4ffe-bcf9-125225e11b53"
+                    },
+                    "type": "SetVariable",
+                    "inputs": {
+                      "name": "varServiceRequest",
+                      "value": "@outputs('Add_a_new_ServiceRequest_row')?['body/tc_servicerequestid']"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "greaterOrEquals": [
+                  "@length(outputs('Get_ServiceRequest_by_ServiceRequestNumber')?['body/value'])",
+                  1
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "597ea3d9-e8d6-489a-aa39-bdb5d4b861a7"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Initialize_varServiceRequest": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "equals": [
+              "@empty(triggerBody()['text'])",
+              false
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4aef41af-25aa-47c0-b9c1-85aa889abc2d"
+          },
+          "type": "If"
+        },
+        "Respond_to_a_Power_App_or_flow": {
+          "runAfter": {
+            "Service_Request": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c8542204-aa63-42d9-b4f1-9f2feab50ee0"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "servicerequestidentifier": "@variables('varServiceRequest')"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "servicerequestidentifier": {
+                  "title": "ServiceRequestIdentifier",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "Initialize_varServiceRequest": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "ddb2e6b0-927d-4d18-96b6-540114947968"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varServiceRequest",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
