@@ -4,15 +4,16 @@
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
     <isdefault>1</isdefault>
-    <savedqueryid>{7cadb6da-50cd-4ae2-ab82-1a148774a78d}</savedqueryid>
+    <savedqueryid>{cfe23894-6588-43ec-a2ec-a6c95583df75}</savedqueryid>
     <layoutxml>
       <grid name="resultset" jump="aib_name" select="1" icon="1" preview="1">
-        <row name="result" id="aib_documentautomationtaxonomyid">
+        <row name="result" id="aib_documentautomationtabletaxonomyid">
           <cell name="aib_name" width="300" />
           <cell name="aib_index" width="100" />
           <cell name="aib_mappedcolumn" width="135" />
+          <cell name="aib_tablename" width="108" />
           <cell name="aib_documentautomationconfigurati" width="251" />
-          <cell name="createdon" width="105" />
+          <cell name="createdon" width="125" />
           <cell name="createdby" width="104" />
         </row>
       </grid>
@@ -20,17 +21,18 @@
     <querytype>0</querytype>
     <fetchxml>
       <fetch version="1.0" mapping="logical">
-        <entity name="aib_documentautomationtaxonomy">
-          <attribute name="aib_documentautomationtaxonomyid" />
+        <entity name="aib_documentautomationtabletaxonomy">
+          <attribute name="aib_documentautomationtabletaxonomyid" />
           <attribute name="aib_name" />
+          <attribute name="createdon" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
           <attribute name="aib_index" />
           <attribute name="aib_mappedcolumn" />
           <attribute name="aib_documentautomationconfigurati" />
-          <attribute name="createdon" />
           <attribute name="createdby" />
+          <attribute name="aib_tablename" />
           <order attribute="aib_documentautomationconfigurati" descending="false" />
           <order attribute="aib_index" descending="false" />
         </entity>
@@ -38,7 +40,7 @@
     </fetchxml>
     <IntroducedVersion>1.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Active Document Automation Taxonomies" languagecode="1033" />
+      <LocalizedName description="Active Document Automation Table Taxonomies" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
