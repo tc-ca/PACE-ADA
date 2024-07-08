@@ -418,7 +418,7 @@
                             "."
                         )
                     ).Value,
-                    varServiceRequest.'Service Request',
+                    If(IsBlank(varServiceRequest.'Service Request'), "", varServiceRequest.'Service Request'),
                     {
                         file: {
                             contentBytes: FILE.Value,

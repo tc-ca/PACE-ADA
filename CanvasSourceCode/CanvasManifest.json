@@ -67,7 +67,6 @@
       "longlivingcache": false,
       "mobilenativerendering": false,
       "nativecdsexperimental": true,
-      "offlineprofilegenerationemitscolumns": false,
       "onegrid": false,
       "optimizedforteamsmeeting": true,
       "packagemodernruntime": false,

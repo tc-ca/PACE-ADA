@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "6750b50e-8c49-4419-8a7c-7fbaab164771",
+    "Name": "DocumentAutomationCreateServiceRequest",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "70e74789-e03a-ef11-a317-0022483e4989"
+  }
+]
