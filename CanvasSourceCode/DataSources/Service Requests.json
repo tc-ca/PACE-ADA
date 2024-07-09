@@ -6,6 +6,7 @@
     "IsSampleData": false,
     "IsWritable": true,
     "LogicalName": "tc_servicerequest",
+    "MaxGetRowsCount": 500,
     "Name": "Service Requests",
     "NativeCDSDataSourceInfoNameMapping": {
       "_ownerid_value": "Owner",

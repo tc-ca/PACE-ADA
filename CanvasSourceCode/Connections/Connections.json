@@ -1,4 +1,18 @@
 {
+  "181b7ac6-087f-4e61-9135-7a85f411bcf5": {
+    "connectionRef": {
+      "displayName": "Microsoft Dataverse",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1700/1.0.1700.3795/commondataserviceforapps/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "a181ff84-f789-4fa2-a59f-549e4ee4699b"
+    ],
+    "id": "181b7ac6-087f-4e61-9135-7a85f411bcf5"
+  },
   "2c824bd1-9e83-413c-aee8-d7f4255d3532": {
     "appActions": [],
     "connectionRef": {
@@ -65,5 +79,49 @@
     },
     "dependents": [],
     "id": "590bb7c5-7935-431a-8b89-5303848fdd53"
+  },
+  "a181ff84-f789-4fa2-a59f-549e4ee4699b": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "181b7ac6-087f-4e61-9135-7a85f411bcf5": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowDisplayName": {
+          "value": "Document Automation Create Service Request"
+        },
+        "workflowEntityId": {
+          "value": "70e74789-e03a-ef11-a317-0022483e4989"
+        },
+        "workflowName": {
+          "value": "618b9af3-a5d2-520c-0ec8-0db646f6de74"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "181b7ac6-087f-4e61-9135-7a85f411bcf5"
+        },
+        "workflowDisplayName": {
+          "value": "Document Automation Create Service Request"
+        },
+        "workflowEntityId": {
+          "value": "70e74789-e03a-ef11-a317-0022483e4989"
+        },
+        "workflowName": {
+          "value": "618b9af3-a5d2-520c-0ec8-0db646f6de74"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "DocumentAutomationCreateServiceRequest"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "181b7ac6-087f-4e61-9135-7a85f411bcf5"
+    },
+    "dependents": [],
+    "id": "a181ff84-f789-4fa2-a59f-549e4ee4699b"
   }
 }
