@@ -238,6 +238,8 @@
     <RolePrivilege name="prvDeleteAccount" level="Basic" />
     <RolePrivilege name="prvDeleteActionCardUserSettings" level="Basic" />
     <RolePrivilege name="prvDeleteActivity" level="Basic" />
+    <RolePrivilege name="prvDeleteaib_DocumentAutomationTableTaxonomy" level="Local" />
+    <RolePrivilege name="prvDeleteaib_DocumentAutomationTaxonomy" level="Local" />
     <RolePrivilege name="prvDeleteCallbackRegistration" level="Basic" />
     <RolePrivilege name="prvDeleteConnection" level="Basic" />
     <RolePrivilege name="prvDeleteContact" level="Basic" />
