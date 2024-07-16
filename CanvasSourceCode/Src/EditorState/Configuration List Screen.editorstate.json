@@ -553,7 +553,7 @@
       "MetaDataIDKey": "",
       "Name": "Configuration State_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1456,7 +1456,7 @@
       "MetaDataIDKey": "",
       "Name": "Created By_Column",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2532,7 +2532,7 @@
       "MetaDataIDKey": "",
       "Name": "Modified On_Column",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2653,7 +2653,7 @@
       "MetaDataIDKey": "",
       "Name": "Name_Column",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

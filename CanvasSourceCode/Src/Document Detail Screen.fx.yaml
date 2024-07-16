@@ -153,7 +153,47 @@
                     )
                 }
             );
-            Back()
+            //Back()
+            
+            // Start collecting past processing already viewed
+            Collect(
+                RecentProcessingIds,
+                {ProcessingId: CurrentProcessingGuid}
+            );
+            // Get next processing 
+            Set(
+                NextProcessing,
+                First(
+                    Filter(
+                        Sort(
+                            DocumentsToDisplay,
+                            'Created On',
+                            SortOrder.Descending
+                        ),
+                        Not('Document Automation Processing' in RecentProcessingIds) && 'Processing Status' = [@'Document Automation Processing Status'].'Manual Review'
+                    )
+                )
+            );
+            If (
+                IsBlank(NextProcessing),
+                Navigate('Document List Screen'),
+                // Navigate to next available processing
+                Set(
+                    CurrentProcessingGuid,
+                    NextProcessing.'Document Automation Processing'
+                );
+                Set(
+                    CurrentDocumentName,
+                    NextProcessing.'File Name'
+                );
+                Set(
+                    CurrentConfigurationGuid,
+                    NextProcessing.'Document Automation Configuration'.'Document Automation Configuration'
+                );
+                Select('Hidden Initialize Button_1');
+                Reset('Comment TextInput1_1');
+                
+            );
         PaddingRight: =5.00
         PaddingTop: =5.00
         PressedBorderColor: =ButtonBold.PressedBorderColor
