@@ -36,7 +36,7 @@
     <RolePrivilege name="prvAppendMailboxTrackingFolder" level="Basic" />
     <RolePrivilege name="prvAppendMailMergeTemplate" level="Basic" />
     <RolePrivilege name="prvAppendmsdyn_AIBFeedbackLoop" level="Basic" />
-    <RolePrivilege name="prvAppendmsdyn_AIEvent" level="Basic" />
+    <RolePrivilege name="prvAppendmsdyn_AIEvent" level="Local" />
     <RolePrivilege name="prvAppendmsdyn_AIFpTrainingDocument" level="Global" />
     <RolePrivilege name="prvAppendmsdyn_AIModel" level="Local" />
     <RolePrivilege name="prvAppendmsdyn_AIOdImage" level="Global" />
@@ -201,7 +201,7 @@
     <RolePrivilege name="prvCreateMailboxTrackingFolder" level="Basic" />
     <RolePrivilege name="prvCreateMailMergeTemplate" level="Basic" />
     <RolePrivilege name="prvCreatemsdyn_AIBFeedbackLoop" level="Basic" />
-    <RolePrivilege name="prvCreatemsdyn_AIEvent" level="Basic" />
+    <RolePrivilege name="prvCreatemsdyn_AIEvent" level="Local" />
     <RolePrivilege name="prvCreatemsdyn_AIFpTrainingDocument" level="Global" />
     <RolePrivilege name="prvCreatemsdyn_AIModel" level="Local" />
     <RolePrivilege name="prvCreatemsdyn_AIOdImage" level="Global" />
@@ -359,7 +359,7 @@
     <RolePrivilege name="prvReadMobileOfflineProfile" level="Global" />
     <RolePrivilege name="prvReadmsdyn_AIBDatasetsContainer" level="Basic" />
     <RolePrivilege name="prvReadmsdyn_AIBFeedbackLoop" level="Basic" />
-    <RolePrivilege name="prvReadmsdyn_AIEvent" level="Basic" />
+    <RolePrivilege name="prvReadmsdyn_AIEvent" level="Local" />
     <RolePrivilege name="prvReadmsdyn_AIFpTrainingDocument" level="Global" />
     <RolePrivilege name="prvReadmsdyn_AIModel" level="Local" />
     <RolePrivilege name="prvReadmsdyn_AIOdImage" level="Global" />
