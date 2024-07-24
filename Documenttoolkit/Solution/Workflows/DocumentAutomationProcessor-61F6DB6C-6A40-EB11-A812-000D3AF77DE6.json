@@ -164,7 +164,8 @@
               "item/aib_metadata6": "@variables('DataDictionary')?['Data6_confidence']",
               "item/aib_metadata7": "@variables('DataDictionary')?['Data7_confidence']",
               "item/aib_metadata8": "@variables('DataDictionary')?['Data8_confidence']",
-              "item/aib_metadata9": "@variables('DataDictionary')?['Data9_confidence']"
+              "item/aib_metadata9": "@variables('DataDictionary')?['Data9_confidence']",
+              "item/ownerid@odata.bind": "teams(@{triggerOutputs()?['body/_ownerid_value']})"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -722,7 +723,8 @@
                               "item/aib_data7": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][6],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][6]]?['valueText'])",
                               "item/aib_data8": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][7],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][7]]?['valueText'])",
                               "item/aib_data9": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][8],''), \tnull, json(string(items('Extract_table_row_invoice_processing')))['fields']?[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][8]]?['valueText'])",
-                              "item/aib_DocumentAutomationProcessing@odata.bind": "@outputs('Get_document_processing')?['body/@odata.id']"
+                              "item/aib_DocumentAutomationProcessing@odata.bind": "@outputs('Get_document_processing')?['body/@odata.id']",
+                              "item/ownerid@odata.bind": "teams(@{triggerOutputs()?['body/_ownerid_value']})"
                             },
                             "authentication": "@parameters('$authentication')"
                           }
@@ -783,7 +785,8 @@
                             "item/aib_data7": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][6],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][6]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][6]]?['value'], null))",
                             "item/aib_data8": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][7],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][7]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][7]]?['value'], null))",
                             "item/aib_data9": "@if(equals(variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][8],''), null, if(contains(json(string(items('Extract_table_row'))), variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][8]), json(string(items('Extract_table_row')))[variables('TableTaxonomyDictionary')?[items('Extract_tables_data')][8]]?['value'], null))",
-                            "item/aib_DocumentAutomationProcessing@odata.bind": "@outputs('Get_document_processing')?['body/@odata.id']"
+                            "item/aib_DocumentAutomationProcessing@odata.bind": "@outputs('Get_document_processing')?['body/@odata.id']",
+                            "item/ownerid@odata.bind": "teams(@{triggerOutputs()?['body/_ownerid_value']})"
                           },
                           "authentication": "@parameters('$authentication')"
                         }
