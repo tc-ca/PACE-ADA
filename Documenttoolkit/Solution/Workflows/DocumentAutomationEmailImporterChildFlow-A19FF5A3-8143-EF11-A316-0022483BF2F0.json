@@ -36,7 +36,7 @@
               "type": "object",
               "properties": {
                 "text": {
-                  "title": "Attachements",
+                  "title": "Attachments",
                   "type": "string",
                   "x-ms-dynamically-added": true,
                   "description": "Please enter your input",
@@ -48,10 +48,18 @@
                   "type": "string",
                   "x-ms-content-hint": "TEXT",
                   "x-ms-dynamically-added": true
+                },
+                "text_2": {
+                  "title": "Team Name",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
                 }
               },
               "required": [
-                "text_1"
+                "text_1",
+                "text_2"
               ]
             },
             "headersSchema": {
@@ -235,6 +243,7 @@
                           "item/aib_DocumentAutomationConfigurati@odata.bind": "@items('For_each_configuration')?['@odata.id']",
                           "item/aib_filemimetype": "@items('For_each_attachment')?['contentType']",
                           "item/aib_filename": "@items('For_each_attachment')?['name']",
+                          "item/ownerid@odata.bind": "teams(@{first(body('List_Teams')?['value'])?['teamid']})",
                           "item/aib_processingstatus": 914700000
                         },
                         "authentication": {
@@ -245,7 +254,7 @@
                     }
                   },
                   "runAfter": {
-                    "Get_configuration": [
+                    "List_Teams": [
                       "Succeeded"
                     ]
                   },
@@ -253,6 +262,34 @@
                     "operationMetadataId": "bedcd9c7-b864-47e8-865b-c4aa3af537b3"
                   },
                   "type": "Foreach"
+                },
+                "List_Teams": {
+                  "runAfter": {
+                    "Get_configuration": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "250a59e8-9e6e-46ee-9ac3-6cf6f468ae0f"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "teams",
+                      "$select": "teamid",
+                      "$filter": "name eq '@{triggerBody()['text_2']}'",
+                      "$top": 1
+                    },
+                    "authentication": {
+                      "type": "Raw",
+                      "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                    }
+                  }
                 }
               },
               "runAfter": {},

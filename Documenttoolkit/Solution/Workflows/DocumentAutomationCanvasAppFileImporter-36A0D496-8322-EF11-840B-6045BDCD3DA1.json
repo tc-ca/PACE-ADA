@@ -115,7 +115,7 @@
         },
         "Upload_attachment": {
           "runAfter": {
-            "Create_a_new_document_processing": [
+            "Update_Owner": [
               "Succeeded"
             ]
           },
@@ -263,6 +263,80 @@
           },
           "type": "Compose",
           "inputs": "tc_servicerequests(@{triggerBody()['text_2']})"
+        },
+        "Get_Owner_Business_Unit": {
+          "runAfter": {
+            "Create_a_new_document_processing": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4c798a0a-609a-4b15-baa5-10b39e91cb5b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "aib_documentautomationprocessings",
+              "recordId": "@outputs('Create_a_new_document_processing')?['body/aib_documentautomationprocessingid']",
+              "$select": "owningbusinessunit",
+              "$expand": "owningbusinessunit($select=name)"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "List_Teams": {
+          "runAfter": {
+            "Get_Owner_Business_Unit": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e692fa3d-6121-4c26-8252-0375cb181c83"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "teams",
+              "$select": "teamid",
+              "$filter": "name eq '@{outputs('Get_Owner_Business_Unit')?['body/owningbusinessunit/name']}'",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Update_Owner": {
+          "runAfter": {
+            "List_Teams": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e78c353f-a998-4326-b7ce-8f6980c8dbb6"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "aib_documentautomationprocessings",
+              "recordId": "@outputs('Create_a_new_document_processing')?['body/aib_documentautomationprocessingid']",
+              "item/ownerid@odata.bind": "teams(@{first(body('List_Teams')?['value'])?['teamid']})"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
         }
       },
       "outputs": {}
