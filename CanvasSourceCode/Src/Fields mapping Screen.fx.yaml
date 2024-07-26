@@ -354,8 +354,8 @@
         ZIndex: =3
 
         DataCardKey1_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
             BorderThickness: =1
-            Color: =RGBA(0, 0, 0, 1)
             FocusedBorderColor: =RGBA(0, 0, 0, 1)
             FocusedBorderThickness: =1
             Font: =Font.'Segoe UI'
@@ -560,6 +560,7 @@
         Height: =2
         HoverFill: ='Selected Mapping Tab Line'.Fill
         PressedFill: ='Selected Mapping Tab Line'.Fill
+        Visible: =ShowHeaders
         Width: =140.00
         X: =303.00
         Y: =110
@@ -1676,4 +1677,17 @@
         Width: =1366.00
         X: =0.00
         ZIndex: =21
+
+    "'Selected Mapping Tab Line_1' As rectangle":
+        DisabledFill: ='Selected Mapping Tab Line_1'.Fill
+        Fill: =RGBA(116, 39, 116, 1)
+        FocusedBorderColor: ='Selected Mapping Tab Line_1'.BorderColor
+        Height: =2
+        HoverFill: ='Selected Mapping Tab Line_1'.Fill
+        PressedFill: ='Selected Mapping Tab Line_1'.Fill
+        Visible: =Not(ShowHeaders)
+        Width: =140.00
+        X: =475
+        Y: =110
+        ZIndex: =22
 

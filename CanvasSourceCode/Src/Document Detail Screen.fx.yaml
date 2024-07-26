@@ -751,7 +751,7 @@
 
             DataCardKey1_2 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey1_2.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -805,6 +805,7 @@
 
             DataCardConfidence1_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence1_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -851,7 +852,7 @@
 
             DataCardKey2_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey2_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -905,6 +906,7 @@
 
             DataCardConfidence2_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence2_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -949,7 +951,7 @@
 
             DataCardKey3_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey3_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -1003,6 +1005,7 @@
 
             DataCardConfidence3_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence3_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -1047,7 +1050,7 @@
 
             DataCardKey4_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey4_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -1101,6 +1104,7 @@
 
             DataCardConfidence4_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence4_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -1145,7 +1149,7 @@
 
             DataCardKey5_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey5_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -1199,6 +1203,7 @@
 
             DataCardConfidence5_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence5_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -1243,7 +1248,7 @@
 
             DataCardKey6_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey6_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -1297,6 +1302,7 @@
 
             DataCardConfidence6_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence6_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -1341,7 +1347,7 @@
 
             DataCardKey7_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey7_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -1395,6 +1401,7 @@
 
             DataCardConfidence7_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence7_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -1439,7 +1446,7 @@
 
             DataCardKey8_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey8_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -1493,6 +1500,7 @@
 
             DataCardConfidence8_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence8_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -1537,7 +1545,7 @@
 
             DataCardKey9_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey9_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -1591,6 +1599,7 @@
 
             DataCardConfidence9_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence9_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -1635,7 +1644,7 @@
 
             DataCardKey10_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey10_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -1689,6 +1698,7 @@
 
             DataCardConfidence10_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence10_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -1733,7 +1743,7 @@
 
             DataCardKey11_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey11_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -1787,6 +1797,7 @@
 
             DataCardConfidence11_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence11_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -1831,7 +1842,7 @@
 
             DataCardKey12_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey12_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -1885,6 +1896,7 @@
 
             DataCardConfidence12_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence12_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -1929,7 +1941,7 @@
 
             DataCardKey13_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey13_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -1983,6 +1995,7 @@
 
             DataCardConfidence13_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence13_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -2027,7 +2040,7 @@
 
             DataCardKey14_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey14_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -2081,6 +2094,7 @@
 
             DataCardConfidence14_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence14_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -2125,7 +2139,7 @@
 
             DataCardKey15_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey15_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -2179,6 +2193,7 @@
 
             DataCardConfidence15_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence15_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -2223,7 +2238,7 @@
 
             DataCardKey16_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey16_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -2277,6 +2292,7 @@
 
             DataCardConfidence16_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence16_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -2321,7 +2337,7 @@
 
             DataCardKey17_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey17_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -2375,6 +2391,7 @@
 
             DataCardConfidence17_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence17_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -2419,7 +2436,7 @@
 
             DataCardKey18_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey18_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -2473,6 +2490,7 @@
 
             DataCardConfidence18_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence18_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -2517,7 +2535,7 @@
 
             DataCardKey19_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey19_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -2571,6 +2589,7 @@
 
             DataCardConfidence19_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence19_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -2615,7 +2634,7 @@
 
             DataCardKey20_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey20_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -2669,6 +2688,7 @@
 
             DataCardConfidence20_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence20_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -2713,7 +2733,7 @@
 
             DataCardKey21_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey21_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -2767,6 +2787,7 @@
 
             DataCardConfidence21_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence21_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -2811,7 +2832,7 @@
 
             DataCardKey22_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey22_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -2865,6 +2886,7 @@
 
             DataCardConfidence22_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence22_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -2909,7 +2931,7 @@
 
             DataCardKey23_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey23_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -2963,6 +2985,7 @@
 
             DataCardConfidence23_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence23_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -3007,7 +3030,7 @@
 
             DataCardKey24_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey24_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -3061,6 +3084,7 @@
 
             DataCardConfidence24_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence24_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -3105,7 +3129,7 @@
 
             DataCardKey25_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey25_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -3160,6 +3184,7 @@
 
             DataCardConfidence25_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence25_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -3204,7 +3229,7 @@
 
             DataCardKey26_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey26_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -3258,6 +3283,7 @@
 
             DataCardConfidence26_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence26_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -3302,7 +3328,7 @@
 
             DataCardKey27_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey27_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -3356,6 +3382,7 @@
 
             DataCardConfidence27_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence27_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -3399,7 +3426,7 @@
 
             DataCardKey28_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey28_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -3453,6 +3480,7 @@
 
             DataCardConfidence28_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence28_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -3496,7 +3524,7 @@
 
             DataCardKey29_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey29_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -3550,6 +3578,7 @@
 
             DataCardConfidence29_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence29_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -3593,7 +3622,7 @@
 
             DataCardKey30_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey30_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -3647,6 +3676,7 @@
 
             DataCardConfidence30_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence30_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -3690,7 +3720,7 @@
 
             DataCardKey31_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey31_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -3744,6 +3774,7 @@
 
             DataCardConfidence31_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence31_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -3787,7 +3818,7 @@
 
             DataCardKey32_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey32_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -3841,6 +3872,7 @@
 
             DataCardConfidence32_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence32_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -3884,7 +3916,7 @@
 
             DataCardKey33_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey33_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -3938,6 +3970,7 @@
 
             DataCardConfidence33_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence33_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -3981,7 +4014,7 @@
 
             DataCardKey34_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey34_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -4035,6 +4068,7 @@
 
             DataCardConfidence34_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence34_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -4078,7 +4112,7 @@
 
             DataCardKey35_1 As label:
                 AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey35_1.BorderColor
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
@@ -4132,6 +4166,7 @@
 
             DataCardConfidence35_1 As label:
                 Align: =Align.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence35_1.BorderColor
                 Font: =Font.'Segoe UI'
@@ -4160,7 +4195,7 @@
         AutoDisableOnSelect: =false
         BorderColor: =ColorFade('Tables Tab Button_1'.Fill, -15%)
         BorderThickness: =0
-        Color: =RGBA(0, 0, 0, 1)
+        Color: =If(CountRows(CurrentTablesDataWithLengthAndSize) > 0, Color.Red, RGBA(0, 0, 0, 1))
         DisplayMode: =If(ShowHeaders, DisplayMode.Edit, DisplayMode.View)
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderColor: ='Tables Tab Button_1'.BorderColor
@@ -4185,7 +4220,7 @@
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
         Text: ="Tables"
-        Visible: =DocumentFormVisible && Not(HideEveryThing)
+        Visible: =DocumentFormVisible && Not(HideEveryThing) && If(CountRows(CurrentTablesDataWithLengthAndSize) > 0, true, false)
         Width: =140.00
         X: =898
         Y: =6
@@ -4198,7 +4233,7 @@
         Height: =2
         HoverFill: ='Selected Tab Line_2'.Fill
         PressedFill: ='Selected Tab Line_2'.Fill
-        Visible: =DocumentFormVisible && Not(HideEveryThing)
+        Visible: =DocumentFormVisible && Not(HideEveryThing) && ShowHeaders
         Width: =85.01
         X: =790
         Y: =32
@@ -5042,4 +5077,17 @@
         Width: =1366.00
         X: =0.00
         ZIndex: =33
+
+    "'Selected Tab Line_4' As rectangle":
+        DisabledFill: ='Selected Tab Line_4'.Fill
+        Fill: =RGBA(116, 39, 116, 1)
+        FocusedBorderColor: ='Selected Tab Line_4'.BorderColor
+        Height: =2
+        HoverFill: ='Selected Tab Line_4'.Fill
+        PressedFill: ='Selected Tab Line_4'.Fill
+        Visible: =DocumentFormVisible && Not(HideEveryThing) && Not(ShowHeaders)
+        Width: =85.01
+        X: =926
+        Y: =32
+        ZIndex: =34
 

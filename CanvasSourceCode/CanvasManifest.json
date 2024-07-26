@@ -1,7 +1,7 @@
 {
   "FormatVersion": "0.24",
   "Header": {
-    "DocVersion": "1.342",
+    "DocVersion": "1.343",
     "MinVersionToLoad": "1.331",
     "MSAppStructureVersion": "2.0"
   },
@@ -18,7 +18,7 @@
       "blockmovingcontrol": false,
       "cdsdataformatting": false,
       "classiccontrols": false,
-      "commentgeneratedformulas": true,
+      "commentgeneratedformulasv2": false,
       "consistentreturnschemafortabularfunctions": true,
       "copyandmerge": true,
       "dataflowanalysisenabled": false,
