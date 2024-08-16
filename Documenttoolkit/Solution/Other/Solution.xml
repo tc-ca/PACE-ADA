@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.24072.168" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.24073.168" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>Documenttoolkit</UniqueName>
     <LocalizedNames>
       <LocalizedName description="AI Document toolkit extension" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.23.0.0</Version>
+    <Version>1.24.0.0</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>TransportCanada</UniqueName>
@@ -136,6 +136,7 @@
       <RootComponent type="1" schemaName="tc_servicerequest" behavior="0" />
       <RootComponent type="20" id="{10ea179a-013a-ef11-a316-000d3ae97ee8}" behavior="0" />
       <RootComponent type="20" id="{55547ef8-742d-eb11-a813-000d3af77de6}" behavior="0" />
+      <RootComponent type="29" id="{1ebef602-125b-ef11-bfe3-0022483bf2f0}" behavior="0" />
       <RootComponent type="29" id="{2354bb7a-7440-eb11-a812-000d3a06a63e}" behavior="0" />
       <RootComponent type="29" id="{36a0d496-8322-ef11-840b-6045bdcd3da1}" behavior="0" />
       <RootComponent type="29" id="{44b31d34-ef80-eb11-a812-000d3a4f53f6}" behavior="0" />

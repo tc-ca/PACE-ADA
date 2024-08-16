@@ -1,0 +1,163 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aib_currentcommondataserviceconnection"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_an_AI_Event_row_is_added": {
+          "metadata": {
+            "operationMetadataId": "16e693ad-5f96-483a-ab6e-b4dd94cd0e1c"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "msdyn_aievent",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Get_AI_Model_Owner": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "32156243-cd47-45e7-bf1f-8cf7d02a6271"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "msdyn_aimodels",
+              "recordId": "@triggerOutputs()?['body/_msdyn_aimodelid_value']",
+              "$select": "owningbusinessunit",
+              "$expand": "owningbusinessunit($select=businessunitid)"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Owner_Business_Unit": {
+          "runAfter": {
+            "Get_AI_Model_Owner": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "569ef86a-fdb9-4e37-b39f-80da6a2250df"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "businessunits",
+              "recordId": "@outputs('Get_AI_Model_Owner')?['body/owningbusinessunit/businessunitid']",
+              "$select": "name"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "List_Owner_Teams": {
+          "runAfter": {
+            "Get_Owner_Business_Unit": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cb43c342-8ece-4d7f-bc00-68fc1aecb70f"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "teams",
+              "$select": "teamid",
+              "$filter": "name eq '@{outputs('Get_Owner_Business_Unit')?['body/name']}'"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_Team": {
+          "foreach": "@outputs('List_Owner_Teams')?['body/value']",
+          "actions": {
+            "Share_AI_Credits_Consumption_with_Team": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "e83d48bd-cd7c-4a2b-a254-198005d089e4"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "PerformUnboundAction",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "actionName": "GrantAccess",
+                  "item/Target": "msdyn_aievents(@{triggerOutputs()?['body/msdyn_aieventid']})",
+                  "item/PrincipalAccess": {
+                    "AccessMask": "ReadAccess",
+                    "Principal": {
+                      "teamid": "@{items('Apply_to_each_Team')?['teamid']}",
+                      "@@odata.type": "Microsoft.Dynamics.CRM.team"
+                    }
+                  }
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "List_Owner_Teams": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4d979a33-9187-4368-9bd9-36e2665ee792"
+          },
+          "type": "Foreach"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
