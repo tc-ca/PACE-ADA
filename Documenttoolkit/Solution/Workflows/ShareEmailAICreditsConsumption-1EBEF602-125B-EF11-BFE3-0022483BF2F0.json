@@ -46,112 +46,169 @@
         }
       },
       "actions": {
-        "Get_AI_Model_Owner": {
+        "Get_AI_Model_by_Id_from_paceada-dev1-tcd365": {
           "runAfter": {},
           "metadata": {
-            "operationMetadataId": "32156243-cd47-45e7-bf1f-8cf7d02a6271"
+            "operationMetadataId": "da49c199-a2c1-41f7-b3f6-901e08323630"
           },
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "GetItem",
+              "operationId": "GetItemWithOrganization",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
             },
             "parameters": {
+              "organization": "https://paceada-dev1-tcd365.crm3.dynamics.com",
               "entityName": "msdyn_aimodels",
-              "recordId": "@triggerOutputs()?['body/_msdyn_aimodelid_value']",
-              "$select": "owningbusinessunit",
-              "$expand": "owningbusinessunit($select=businessunitid)"
+              "recordId": "@triggerOutputs()?['body/_msdyn_aimodelid_value']"
             },
             "authentication": "@parameters('$authentication')"
           }
         },
-        "Get_Owner_Business_Unit": {
+        "Get_AI_Model_Owner_by_Id_in_paceada-dev1-tcd365": {
           "runAfter": {
-            "Get_AI_Model_Owner": [
+            "Get_AI_Model_by_Id_from_paceada-dev1-tcd365": [
               "Succeeded"
             ]
           },
           "metadata": {
-            "operationMetadataId": "569ef86a-fdb9-4e37-b39f-80da6a2250df"
+            "operationMetadataId": "a2fe125c-5dfc-409f-b9ce-3f58042f0638"
           },
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "GetItem",
+              "operationId": "GetItemWithOrganization",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
             },
             "parameters": {
+              "organization": "https://paceada-dev1-tcd365.crm3.dynamics.com",
+              "entityName": "systemusers",
+              "recordId": "@outputs('Get_AI_Model_by_Id_from_paceada-dev1-tcd365')?['body/_ownerid_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Owner_Business_Unit_in_paceada-dev1-tcd365": {
+          "runAfter": {
+            "Get_AI_Model_Owner_by_Id_in_paceada-dev1-tcd365": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2c6b816d-a7d1-463a-9de9-0c3f94d5400c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItemWithOrganization",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "organization": "https://paceada-dev1-tcd365.crm3.dynamics.com",
               "entityName": "businessunits",
-              "recordId": "@outputs('Get_AI_Model_Owner')?['body/owningbusinessunit/businessunitid']",
-              "$select": "name"
+              "recordId": "@outputs('Get_AI_Model_Owner_by_Id_in_paceada-dev1-tcd365')?['body/_businessunitid_value']"
             },
             "authentication": "@parameters('$authentication')"
           }
         },
-        "List_Owner_Teams": {
+        "List_Owner_Team_in_paceada-dev1-tcd365": {
           "runAfter": {
-            "Get_Owner_Business_Unit": [
+            "Get_Owner_Business_Unit_in_paceada-dev1-tcd365": [
               "Succeeded"
             ]
           },
           "metadata": {
-            "operationMetadataId": "cb43c342-8ece-4d7f-bc00-68fc1aecb70f"
+            "operationMetadataId": "cbbab2cd-4611-495c-8d83-e913b0f95a66"
           },
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "ListRecords",
+              "operationId": "ListRecordsWithOrganization",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
             },
             "parameters": {
+              "organization": "https://paceada-dev1-tcd365.crm3.dynamics.com",
               "entityName": "teams",
-              "$select": "teamid",
-              "$filter": "name eq '@{outputs('Get_Owner_Business_Unit')?['body/name']}'"
+              "$filter": "name eq '@{outputs('Get_Owner_Business_Unit_in_paceada-dev1-tcd365')?['body/name']}'"
             },
             "authentication": "@parameters('$authentication')"
           }
         },
-        "Apply_to_each_Team": {
-          "foreach": "@outputs('List_Owner_Teams')?['body/value']",
+        "Apply_to_each_Team_from_paceada-dev1-tcd365": {
+          "foreach": "@outputs('List_Owner_Team_in_paceada-dev1-tcd365')?['body/value']",
           "actions": {
-            "Share_AI_Credits_Consumption_with_Team": {
+            "List_Owner_Teams": {
               "runAfter": {},
               "metadata": {
-                "operationMetadataId": "e83d48bd-cd7c-4a2b-a254-198005d089e4"
+                "operationMetadataId": "cb43c342-8ece-4d7f-bc00-68fc1aecb70f"
               },
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
                   "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "PerformUnboundAction",
+                  "operationId": "ListRecords",
                   "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                 },
                 "parameters": {
-                  "actionName": "GrantAccess",
-                  "item/Target": "msdyn_aievents(@{triggerOutputs()?['body/msdyn_aieventid']})",
-                  "item/PrincipalAccess": {
-                    "AccessMask": "ReadAccess",
-                    "Principal": {
-                      "teamid": "@{items('Apply_to_each_Team')?['teamid']}",
-                      "@@odata.type": "Microsoft.Dynamics.CRM.team"
-                    }
-                  }
+                  "entityName": "teams",
+                  "$select": "teamid",
+                  "$filter": "name eq '@{items('Apply_to_each_Team_from_paceada-dev1-tcd365')?['name']}'"
                 },
                 "authentication": "@parameters('$authentication')"
               }
+            },
+            "Apply_to_each_Team": {
+              "foreach": "@outputs('List_Owner_Teams')?['body/value']",
+              "actions": {
+                "Share_AI_Credits_Consumption_with_Team": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "e83d48bd-cd7c-4a2b-a254-198005d089e4"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "PerformUnboundAction",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "actionName": "GrantAccess",
+                      "item/Target": "msdyn_aievents(@{triggerOutputs()?['body/msdyn_aieventid']})",
+                      "item/PrincipalAccess": {
+                        "AccessMask": "ReadAccess",
+                        "Principal": {
+                          "teamid": "@{items('Apply_to_each_Team')?['teamid']}",
+                          "@@odata.type": "Microsoft.Dynamics.CRM.team"
+                        }
+                      }
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "List_Owner_Teams": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "4d979a33-9187-4368-9bd9-36e2665ee792"
+              },
+              "type": "Foreach"
             }
           },
           "runAfter": {
-            "List_Owner_Teams": [
+            "List_Owner_Team_in_paceada-dev1-tcd365": [
               "Succeeded"
             ]
           },
           "metadata": {
-            "operationMetadataId": "4d979a33-9187-4368-9bd9-36e2665ee792"
+            "operationMetadataId": "7c3b3d0a-7ce0-41e1-8aa4-1e01e6fc4aa3"
           },
           "type": "Foreach"
         }
