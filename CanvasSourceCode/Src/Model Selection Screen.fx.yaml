@@ -378,6 +378,7 @@
 
     "'Associated Model Label' As htmlViewer":
         Color: =RGBA(96, 94, 92, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
         Font: =Font.'Segoe UI'
         Height: =30
         HoverBorderColor: ='Associated Model Label'.BorderColor
@@ -399,6 +400,7 @@
         ZIndex: =9
 
     "'Invoice Processing Intro' As htmlViewer":
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
         Font: =Font.'Segoe UI'
         Height: =63
         HtmlText: |-

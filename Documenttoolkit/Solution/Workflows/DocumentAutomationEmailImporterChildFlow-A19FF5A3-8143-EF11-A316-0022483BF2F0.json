@@ -1,8 +1,7 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_commondataserviceforapps_1": {
-        "impersonation": {},
+      "shared_commondataserviceforapps": {
         "runtimeSource": "embedded",
         "connection": {
           "connectionReferenceLogicalName": "aib_currentcommondataserviceconnection"
@@ -87,16 +86,19 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                      "connectionName": "shared_commondataserviceforapps_1",
-                      "operationId": "ListRecords"
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                     },
                     "parameters": {
                       "entityName": "aib_documentautomationconfigurations",
                       "$filter": "aib_configurationstatus eq 914700000 and _aib_msdyn_aimodel_value eq '@{triggerBody()?['text_1']}' and statecode eq 0",
                       "$top": 1
                     },
-                    "authentication": "@parameters('$authentication')"
+                    "authentication": {
+                      "type": "Raw",
+                      "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                    }
                   }
                 },
                 "For_each_configuration": {
@@ -114,9 +116,9 @@
                       "type": "OpenApiConnection",
                       "inputs": {
                         "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                          "connectionName": "shared_commondataserviceforapps_1",
-                          "operationId": "UpdateEntityFileImageFieldContent"
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "UpdateEntityFileImageFieldContent",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                         },
                         "parameters": {
                           "entityName": "aib_documentautomationprocessings",
@@ -125,7 +127,10 @@
                           "item": "@base64ToBinary(items('For_each_attachment')?['contentBytes'])",
                           "x-ms-file-name": "Untitled"
                         },
-                        "authentication": "@parameters('$authentication')"
+                        "authentication": {
+                          "type": "Raw",
+                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                        }
                       },
                       "runtimeConfiguration": {
                         "secureData": {
@@ -145,16 +150,19 @@
                           "type": "OpenApiConnection",
                           "inputs": {
                             "host": {
-                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                              "connectionName": "shared_commondataserviceforapps_1",
-                              "operationId": "UpdateRecord"
+                              "connectionName": "shared_commondataserviceforapps",
+                              "operationId": "UpdateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                             },
                             "parameters": {
                               "entityName": "aib_documentautomationprocessings",
                               "recordId": "@outputs('Create_a_new_document_processing')?['body/aib_documentautomationprocessingid']",
                               "item/aib_processingstatus": 914700001
                             },
-                            "authentication": "@parameters('$authentication')"
+                            "authentication": {
+                              "type": "Raw",
+                              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                            }
                           }
                         }
                       },
@@ -173,16 +181,19 @@
                             "type": "OpenApiConnection",
                             "inputs": {
                               "host": {
-                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                "connectionName": "shared_commondataserviceforapps_1",
-                                "operationId": "UpdateRecord"
+                                "connectionName": "shared_commondataserviceforapps",
+                                "operationId": "UpdateRecord",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                               },
                               "parameters": {
                                 "entityName": "aib_documentautomationprocessings",
                                 "recordId": "@outputs('Create_a_new_document_processing')?['body/aib_documentautomationprocessingid']",
                                 "item/aib_processingstatus": 914700005
                               },
-                              "authentication": "@parameters('$authentication')"
+                              "authentication": {
+                                "type": "Raw",
+                                "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                              }
                             }
                           }
                         }
@@ -222,9 +233,9 @@
                       "type": "OpenApiConnection",
                       "inputs": {
                         "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                          "connectionName": "shared_commondataserviceforapps_1",
-                          "operationId": "CreateRecord"
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                         },
                         "parameters": {
                           "entityName": "aib_documentautomationprocessings",
@@ -235,7 +246,10 @@
                           "item/ownerid@odata.bind": "teams(@{first(body('List_Teams')?['value'])?['teamid']})",
                           "item/aib_processingstatus": 914700000
                         },
-                        "authentication": "@parameters('$authentication')"
+                        "authentication": {
+                          "type": "Raw",
+                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                        }
                       }
                     }
                   },
@@ -261,9 +275,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                      "connectionName": "shared_commondataserviceforapps_1",
-                      "operationId": "ListRecords"
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                     },
                     "parameters": {
                       "entityName": "teams",
@@ -271,7 +285,10 @@
                       "$filter": "name eq '@{triggerBody()['text_2']}'",
                       "$top": 1
                     },
-                    "authentication": "@parameters('$authentication')"
+                    "authentication": {
+                      "type": "Raw",
+                      "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                    }
                   }
                 }
               },
@@ -340,7 +357,7 @@
       },
       "outputs": {}
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }
