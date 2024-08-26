@@ -1,4 +1,4 @@
-<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/pdfViewer" name="pdfViewer" jsClass="AppMagic.Controls.WebViewPdfViewer" version="2.3.0" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
+<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/pdfViewer" name="pdfViewer" jsClass="AppMagic.Controls.WebViewPdfViewer" version="2.4.1" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
   <author name="Microsoft AppMagic" />
   <license type="text/html"><![CDATA[<p>TODO:  Need license text here.</p>]]></license>
   <description><![CDATA[PdfViewer
@@ -184,6 +184,8 @@
     <require type="other" src="webViewPdfViewer/viewer/web/cmaps/WP-Symbol.bcmap" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/debugger.css" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/debugger.js" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/altText_add.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/altText_done.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/annotation-check.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/annotation-comment.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/annotation-help.svg" group="pdfViewer" />
@@ -192,30 +194,40 @@
     <require type="other" src="webViewPdfViewer/viewer/web/images/annotation-newparagraph.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/annotation-noicon.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/annotation-note.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/annotation-paperclip.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/annotation-paragraph.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/annotation-pushpin.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/cursor-editorFreeHighlight.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/cursor-editorFreeText.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/cursor-editorInk.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/cursor-editorTextHighlight.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/editor-toolbar-delete.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/findbarButton-next.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/findbarButton-previous.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/loading-dark.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/gv-toolbarButton-download.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/loading-icon.gif" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/loading.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-documentProperties.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-firstPage.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-handTool.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-lastPage.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-rotateCcw.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-rotateCw.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-scrollHorizontal.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-scrollPage.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-scrollVertical.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-scrollWrapped.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-selectTool.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-spreadEven.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-spreadNone.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/secondaryToolbarButton-spreadOdd.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/images/shadow.png" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-documentProperties.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-firstPage.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-handTool.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-lastPage.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-rotateCcw.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-rotateCw.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-scrollHorizontal.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-scrollPage.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-scrollVertical.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-scrollWrapped.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-selectTool.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-spreadEven.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-spreadNone.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/secTbBtn-spreadOdd.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/toolbarButton-bookmark.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/toolbarButton-currentOutlineItem.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/toolbarButton-download.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/toolbarButton-editorFreeText.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/toolbarButton-editorHighlight.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/toolbarButton-editorInk.svg" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/images/toolbarButton-editorStamp.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/toolbarButton-menuArrow.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/toolbarButton-openFile.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/toolbarButton-pageDown.svg" group="pdfViewer" />
@@ -233,125 +245,123 @@
     <require type="other" src="webViewPdfViewer/viewer/web/images/toolbarButton-zoomOut.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/treeitem-collapsed.svg" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/images/treeitem-expanded.svg" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ach/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/af/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/an/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ar/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ast/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/az/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/be/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/bg/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/bn/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/bo/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/br/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/brx/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/bs/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ca/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/cak/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ckb/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/cs/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/cy/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/da/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/de/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/dsb/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/el/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/en-CA/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/en-GB/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/en-US/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/eo/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/es-AR/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/es-CL/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/es-ES/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/es-MX/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/et/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/eu/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/fa/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ff/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/fi/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/fr/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/fy-NL/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ga-IE/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/gd/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/gl/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/gn/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/gu-IN/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/he/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/hi-IN/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/hr/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/hsb/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/hu/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/hy-AM/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/hye/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ia/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/id/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/is/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/it/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ja/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ka/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/kab/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/kk/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/km/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/kn/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ko/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/lij/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/lo/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/locale.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/lt/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ltg/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/lv/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/meh/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/mk/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/mr/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ms/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/my/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/nb-NO/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ne-NP/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/nl/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/nn-NO/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/oc/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/pa-IN/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/pl/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/pt-BR/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/pt-PT/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/rm/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ro/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ru/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/sat/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/sc/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/scn/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/sco/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/si/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/sk/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/sl/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/son/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/sq/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/sr/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/sv-SE/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/szl/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ta/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/te/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/tg/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/th/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/tl/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/tr/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/trs/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/uk/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/ur/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/uz/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/vi/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/wo/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/xh/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/zh-CN/viewer.properties" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/locale/zh-TW/viewer.properties" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ach/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/af/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/an/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ar/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ast/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/az/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/be/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/bg/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/bn/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/bo/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/br/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/brx/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/bs/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ca/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/cak/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ckb/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/cs/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/cy/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/da/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/de/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/dsb/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/el/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/en-CA/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/en-GB/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/en-US/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/eo/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/es-AR/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/es-CL/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/es-ES/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/es-MX/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/et/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/eu/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/fa/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ff/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/fi/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/fr/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/fur/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/fy-NL/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ga-IE/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/gd/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/gl/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/gn/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/gu-IN/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/he/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/hi-IN/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/hr/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/hsb/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/hu/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/hy-AM/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/hye/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ia/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/id/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/is/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/it/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ja/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ka/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/kab/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/kk/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/km/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/kn/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ko/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/lij/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/lo/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/locale.json" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/lt/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ltg/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/lv/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/meh/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/mk/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/mr/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ms/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/my/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/nb-NO/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ne-NP/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/nl/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/nn-NO/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/oc/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/pa-IN/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/pl/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/pt-BR/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/pt-PT/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/rm/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ro/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ru/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/sat/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/sc/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/scn/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/sco/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/si/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/sk/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/skr/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/sl/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/son/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/sq/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/sr/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/sv-SE/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/szl/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ta/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/te/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/tg/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/th/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/tl/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/tr/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/trs/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/uk/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/ur/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/uz/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/vi/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/wo/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/xh/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/zh-CN/viewer.ftl" group="pdfViewer" />
+    <require type="other" src="webViewPdfViewer/viewer/web/locale/zh-TW/viewer.ftl" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/standard_fonts/FoxitDingbats.pfb" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/standard_fonts/FoxitFixed.pfb" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/standard_fonts/FoxitFixedBold.pfb" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/standard_fonts/FoxitFixedBoldItalic.pfb" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/standard_fonts/FoxitFixedItalic.pfb" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/standard_fonts/FoxitSans.pfb" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/standard_fonts/FoxitSansBold.pfb" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/standard_fonts/FoxitSansBoldItalic.pfb" group="pdfViewer" />
-    <require type="other" src="webViewPdfViewer/viewer/web/standard_fonts/FoxitSansItalic.pfb" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/standard_fonts/FoxitSerif.pfb" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/standard_fonts/FoxitSerifBold.pfb" group="pdfViewer" />
     <require type="other" src="webViewPdfViewer/viewer/web/standard_fonts/FoxitSerifBoldItalic.pfb" group="pdfViewer" />
@@ -615,6 +625,12 @@
     <appMagic:conversionAction type="add" name="ContentLanguage" />
   </appMagic:conversion>
   <appMagic:conversion from="2.2.0" to="2.3.0">
-    <!-- Updated control resources to match new PDFjs version. -->
+    <!-- Updated control resources to match new PDFjs version, 2.14.305. -->
+  </appMagic:conversion>
+  <appMagic:conversion from="2.3.0" to="2.4.0">
+    <!-- Updated control resources to match new PDFjs version, 4.3.136. -->
+  </appMagic:conversion>
+  <appMagic:conversion from="2.4.0" to="2.4.1">
+    <!-- Updated control - renamed SVG assets for secondaryToolbarButton. -->
   </appMagic:conversion>
 </widget>

@@ -167,7 +167,7 @@
                 },
                 "parameters": {
                   "entityName": "aib_documentautomationtaxonomies",
-                  "$filter": "_aib_documentautomationconfigurati_value eq '@{triggerOutputs()?['body/_aib_documentautomationconfigurati_value']}'"
+                  "$filter": "_aib_documentautomationconfigurati_value eq '@{triggerOutputs()?['body/_aib_documentautomationconfigurati_value']}' and aib_mappedcolumn ne null"
                 },
                 "authentication": "@parameters('$authentication')"
               }
