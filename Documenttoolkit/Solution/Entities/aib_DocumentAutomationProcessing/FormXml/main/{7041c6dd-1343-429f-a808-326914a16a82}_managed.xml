@@ -75,7 +75,7 @@
                     <row>
                       <cell id="{5773db13-a1b0-446a-98b7-30a52fafd566}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10008" solutionaction="Added">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Service Request" languagecode="1033" />
                         </labels>
                         <control id="tc_servicerequest" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="tc_servicerequest" disabled="false">
                           <parameters>

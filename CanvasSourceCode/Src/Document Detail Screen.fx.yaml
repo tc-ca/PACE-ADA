@@ -22,20 +22,23 @@
         HoverColor: =ButtonStandard.HoverColor
         HoverFill: =ButtonStandard.HoverFill
         OnSelect: |
-            =Patch(
-                'Document Automation Processings',
-                First(
-                    Filter(
-                        'Document Automation Processings',
-                        'Document Automation Processing' = CurrentProcessingGuid
-                    )
-                ),
-                {
-                    'Assigned To': LookUp(
-                        Users,
-                        'Full Name' = "SYSTEM"
-                    )
-                }
+            =Set(
+                currentRecord,
+                Patch(
+                    'Document Automation Processings',
+                    First(
+                        Filter(
+                            'Document Automation Processings',
+                            'Document Automation Processing' = CurrentProcessingGuid
+                        )
+                    ),
+                    {
+                        'Assigned To': LookUp(
+                            Users,
+                            'Full Name' = "SYSTEM"
+                        )
+                    }
+                )
             );
             // Start collecting past processing already viewed
             Collect(
@@ -52,7 +55,7 @@
                             'Created On',
                             SortOrder.Descending
                         ),
-                        Not('Document Automation Processing' in RecentProcessingIds) && (IsPowerUser || 'Processing Status' = [@'Document Automation Processing Status'].'Manual Review')
+                        Not('Document Automation Processing' in RecentProcessingIds) && ThisRecord.'Created On' < currentRecord.'Created On' && (IsPowerUser || 'Processing Status' = [@'Document Automation Processing Status'].'Manual Review')
                     )
                 )
             );
