@@ -1,9 +1,14 @@
 {
   "181b7ac6-087f-4e61-9135-7a85f411bcf5": {
+    "appActions": [],
     "connectionRef": {
+      "apiTier": "Premium",
+      "bypassConsent": true,
       "displayName": "Microsoft Dataverse",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1700/1.0.1700.3795/commondataserviceforapps/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps"
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1711/1.0.1711.3869/commondataserviceforapps/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps",
+      "parameterHints": {},
+      "parameterHintsV2": {}
     },
     "datasets": {},
     "dataSources": [],
@@ -19,7 +24,7 @@
       "apiTier": "Premium",
       "bypassConsent": true,
       "displayName": "Microsoft Dataverse",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3778/commondataserviceforapps/icon.png",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1711/1.0.1711.3869/commondataserviceforapps/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps",
       "parameterHints": {},
       "parameterHintsV2": {}
@@ -52,7 +57,7 @@
           "value": "36a0d496-8322-ef11-840b-6045bdcd3da1"
         },
         "workflowName": {
-          "value": "b4a75ae6-0f7e-c9bb-589a-c00971dd5b11"
+          "value": "c0d5455f-9781-46c5-9f05-1954c321876f"
         }
       },
       "parameterHintsV2": {
@@ -66,7 +71,7 @@
           "value": "36a0d496-8322-ef11-840b-6045bdcd3da1"
         },
         "workflowName": {
-          "value": "b4a75ae6-0f7e-c9bb-589a-c00971dd5b11"
+          "value": "c0d5455f-9781-46c5-9f05-1954c321876f"
         }
       }
     },
@@ -81,7 +86,9 @@
     "id": "590bb7c5-7935-431a-8b89-5303848fdd53"
   },
   "a181ff84-f789-4fa2-a59f-549e4ee4699b": {
+    "appActions": [],
     "connectionRef": {
+      "apiTier": "Standard",
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
@@ -96,7 +103,7 @@
           "value": "70e74789-e03a-ef11-a317-0022483e4989"
         },
         "workflowName": {
-          "value": "618b9af3-a5d2-520c-0ec8-0db646f6de74"
+          "value": "044c4668-13a1-4168-8c23-b746a424e3a5"
         }
       },
       "parameterHintsV2": {
@@ -110,7 +117,7 @@
           "value": "70e74789-e03a-ef11-a317-0022483e4989"
         },
         "workflowName": {
-          "value": "618b9af3-a5d2-520c-0ec8-0db646f6de74"
+          "value": "044c4668-13a1-4168-8c23-b746a424e3a5"
         }
       }
     },
