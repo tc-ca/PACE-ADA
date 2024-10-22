@@ -16,6 +16,13 @@
       "Values": {}
     },
     {
+      "Kind": "default.cds_pace_canvastranslation_forms",
+      "Namespace": "Canvas Translations (Forms)",
+      "Values": {
+        "Information": "32c58442-88bd-4eae-a051-ca2c2754807a"
+      }
+    },
+    {
       "Kind": "default.cds_aib_documentautomationconfiguration_forms",
       "Namespace": "Document Automation Configurations (Forms)",
       "Values": {

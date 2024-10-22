@@ -1,0 +1,97 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "pace_canvastranslations",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "pace_canvastranslation",
+    "MaxGetRowsCount": 500,
+    "Name": "Canvas Translations",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "pace_applicationname": "Application Name",
+      "pace_canvastranslation_AsyncOperations": "System Jobs",
+      "pace_canvastranslation_BulkDeleteFailures": "Bulk Delete Failures",
+      "pace_canvastranslation_DuplicateBaseRecord": "Duplicate Records (pace_canvastranslation_DuplicateBaseRecord)",
+      "pace_canvastranslation_DuplicateMatchingRecord": "Duplicate Records (pace_canvastranslation_DuplicateMatchingRecord)",
+      "pace_canvastranslation_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "pace_canvastranslation_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "pace_canvastranslation_ProcessSession": "Process Sessions",
+      "pace_canvastranslation_SyncErrors": "Sync Errors",
+      "pace_canvastranslationid": "Canvas Translation",
+      "pace_englishlabel": "English Label",
+      "pace_frenchlabel": "French Label",
+      "pace_key": "Key",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Canvas Translations",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Canvas Translations (Views)",
+    "Name": "_pace_canvastranslation_views",
+    "RelatedEntityName": "Canvas Translations",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "082129f9-1db4-48f7-8e35-5c6caacabf60": "Inactive Canvas Translations",
+      "204f6d01-f171-48a6-80c1-ed0bbcf07266": "Canvas Translation Lookup View",
+      "849d1299-79b6-4bc3-b83b-52ee35a2827e": "Canvas Translation Advanced Find View",
+      "93bf2acd-aaad-46a5-a465-9892b2efdec4": "Active Canvas Translations",
+      "ed8d568a-b517-40fd-ab82-28e6ce978d4c": "Canvas Translation Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (Canvas Translations)",
+    "Name": "pace_canvastranslation_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Canvas Translations"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Canvas Translations",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Canvas Translations)",
+    "Name": "pace_canvastranslation_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Canvas Translations"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Canvas Translations",
+    "Type": "OptionSetInfo"
+  }
+]

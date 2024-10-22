@@ -74,6 +74,7 @@
       "pdffunction": false,
       "powerfxdecimal": false,
       "powerfxv1": false,
+      "preferpayamlv3inux": false,
       "primaryoutputpropertycoerciondeprecated": true,
       "proactivecontrolrename": false,
       "projectionmapping": true,

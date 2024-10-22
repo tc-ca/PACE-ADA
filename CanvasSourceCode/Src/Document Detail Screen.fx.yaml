@@ -89,7 +89,7 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
-        Text: ="Next document"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblNextDoc").Label 
         Visible: =Not(HideEveryThing)
         Width: =130.00
         X: =230.00
@@ -207,7 +207,7 @@
         RadiusTopLeft: =ButtonBold.BorderRadius
         RadiusTopRight: =ButtonBold.BorderRadius
         Size: =12.00
-        Text: ="Validate"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblValidate").Label 
         Visible: =Not(HideEveryThing)
         Width: =80.00
         X: =127.00
@@ -260,7 +260,7 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
-        Text: ="Back"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblBack").Label 
         Visible: =Not(HideEveryThing)
         Width: =80.00
         X: =24.00
@@ -336,7 +336,7 @@
         PressedColor: ='Comment Label_1'.Color
         PressedFill: ='Comment Label_1'.Fill
         Size: =12.00
-        Text: ="Comment"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblComment").Label
         Visible: =DocumentFormVisible && Not(HideEveryThing)
         Width: =150.00
         X: =802
@@ -15473,7 +15473,7 @@
         DisplayMode: =If(ShowHeaders, DisplayMode.Edit, DisplayMode.View)
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderColor: ='Tables Tab Button_1'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderThickness: =1
         Font: =Font.'Segoe UI'
         FontWeight: =If(ShowHeaders, FontWeight.Normal, FontWeight.Semibold)
         Height: =25
@@ -15493,7 +15493,7 @@
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
-        Text: ="Tables"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblTables").Label
         Visible: =DocumentFormVisible && Not(HideEveryThing) && If(CountRows(CurrentTablesDataWithLengthAndSize) > 0, true, false)
         Width: =140.00
         X: =898
@@ -15520,8 +15520,8 @@
         Color: =RGBA(0, 0, 0, 1)
         DisplayMode: =If(ShowHeaders, DisplayMode.View, DisplayMode.Edit)
         Fill: =RGBA(255, 255, 255, 1)
-        FocusedBorderColor: ='Headers Tab Button_1'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+        FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
         Font: =Font.'Segoe UI'
         FontWeight: =If(ShowHeaders, FontWeight.Semibold, FontWeight.Normal)
         Height: =25
@@ -15541,7 +15541,7 @@
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
-        Text: ="Fields"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblFields").Label
         Visible: =DocumentFormVisible && Not(HideEveryThing)
         Width: =140.00
         X: =760
@@ -15583,7 +15583,7 @@
         PressedColor: ='Status Value Label_1'.Color
         PressedFill: ='Status Value Label_1'.Fill
         Size: =12.00
-        Text: =CurrentProcessing.'Processing Status'
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = Concatenate("processingStatus_", Text(JSON(CurrentProcessing.'Processing Status')))).Label
         Visible: =Not(HideEveryThing)
         Width: =200.00
         X: =88.00
@@ -15607,7 +15607,7 @@
         PressedFill: ='Status Label_1'.Fill
         Size: =12.00
         Text: |-
-            ="Status:"
+            =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblStatus").Label & ":"
         Visible: =Not(HideEveryThing)
         Width: =60.00
         X: =24.00
@@ -15653,8 +15653,8 @@
                     CurrentProcessing.'Processing Status'='Document Automation Processing Status'.'Uploading Document', 
                     CurrentProcessing.'Processing Status'='Document Automation Processing Status'.'Extracting Data'
                 ), 
-                "Your document is not processed yet. Come back later.", 
-                "Your document was not processed. Please check the 'Document Processor' flow run history."
+                LookUp(cmp_TranslateLabels_1.Labels, Key = "docNotProcessed").Label, 
+                LookUp(cmp_TranslateLabels_1.Labels, Key = "docNotProcessedFlowHistory").Label
             )
         Visible: =!DocumentFormVisible && Not(HideEveryThing)
         Width: =484.00
@@ -15677,7 +15677,7 @@
         PressedColor: =ColorFade('Delete DocumentLabel2_1'.Color, -20%)
         PressedFill: ='Delete DocumentLabel2_1'.Fill
         Size: =12.00
-        Text: ="Delete Document"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDeleteDocument").Label 
         Visible: =And(Not(HideEveryThing),IsPowerUser)
         Width: =130.00
         X: =1222.00
@@ -15685,10 +15685,12 @@
         ZIndex: =18
 
     "'Delete Document Icon2_1' As icon.Trash":
+        AccessibleLabel: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDeleteDocument").Label
         Color: =RGBA(116, 39, 116, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: ='Delete Document Icon2_1'.Fill
-        FocusedBorderColor: ='Delete Document Icon2_1'.BorderColor
+        FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+        FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
         Height: =31
         HoverBorderColor: =ColorFade('Delete Document Icon2_1'.BorderColor, 20%)
         HoverColor: =ColorFade('Delete Document Icon2_1'.Color, 20%)
@@ -15700,6 +15702,7 @@
         PressedBorderColor: =ColorFade('Delete Document Icon2_1'.BorderColor, 20%)
         PressedColor: =ColorFade('Delete Document Icon2_1'.Color, 20%)
         PressedFill: ='Delete Document Icon2_1'.Fill
+        TabIndex: =0
         Visible: =And(Not(HideEveryThing),IsPowerUser)
         Width: =150.00
         X: =1192.00
@@ -15867,6 +15870,7 @@
 
     "'Document Details Title_4' As label":
         FocusedBorderColor: ='Document Details Title_4'.BorderColor
+        FocusedBorderThickness: =1
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Semibold
         Height: =45

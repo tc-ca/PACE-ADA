@@ -25,6 +25,7 @@
       "modifiedonbehalfby": "Modified By (Delegate)",
       "msdyn_AIBDatasetsContainer_msdyn_AIModelI": "AI Builder Datasets Containers",
       "msdyn_AIBFeedbackLoop_msdyn_AIModel": "AI Builder Feedback Loops",
+      "msdyn_aimodel_aiskillconfig_AIModel": "AI Skill Configs",
       "msdyn_aimodel_Annotations": "Notes",
       "msdyn_aimodel_AsyncOperations": "System Jobs",
       "msdyn_aimodel_BulkDeleteFailures": "Bulk Delete Failures",

@@ -2,7 +2,7 @@
     Height: =Max(App.Height, App.DesignHeight)
     LoadingSpinner: =LoadingSpinner.Controls
     OnVisible: |-
-        =Set(
+        =/*Set(
             isLoading,
             true
         );
@@ -56,7 +56,7 @@
         Set(
             isLoading,
             false
-        );
+        );*/
     Orientation: =If('File Upload Screen'.Width < 'File Upload Screen'.Height, Layout.Vertical, Layout.Horizontal)
     Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= 'File Upload Screen'.Width)
     Width: =Max(App.Width, App.DesignWidth)
@@ -113,7 +113,7 @@
         PressedColor: ='Tip Label_1'.Color
         PressedFill: ='Tip Label_1'.Fill
         Size: =12.00
-        Text: ="Attach files the AI Builder model will use to start processing documents automatically."
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblAttachAIBuilder").Label
         Width: =214.00
         X: =1124.00
         Y: =430
@@ -134,7 +134,7 @@
         PressedColor: ='Tip Title_1'.Color
         PressedFill: ='Tip Title_1'.Fill
         Size: =12.00
-        Text: ="Upload files"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblUploadFiles").Label
         Width: =177.00
         X: =1143.01
         Y: =380
@@ -213,7 +213,7 @@
         RadiusTopRight: =
         Size: =12.00
         Text: ="Add configuration"
-        Visible: =CountRows(ConfigurationsCollection)=0
+        Visible: =CountIf(ConfigurationsCollection, true)=0
         Width: =180.00
         X: =874.00
         Y: =140
@@ -238,7 +238,7 @@
         Color: =RGBA(0, 0, 0, 1)
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderColor: ='Invoices Tab Button_2'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderThickness: =1
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Normal
         Height: =25
@@ -254,7 +254,7 @@
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
-        Text: ="Documents"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDocuments").Label 
         Width: =95.00
         X: =24.00
         Y: =84
@@ -276,7 +276,7 @@
         PressedColor: ='Provider List Title_1'.Color
         PressedFill: ='Provider List Title_1'.Fill
         Size: =17.99
-        Text: ="File Upload"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblFileUpload").Label 
         Width: =1000.00
         X: =24.00
         Y: =24
@@ -303,7 +303,7 @@
         Color: =RGBA(0, 0, 0, 1)
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderColor: ='Configuration Tab Button_5'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderThickness: =1
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Normal
         Height: =25
@@ -319,7 +319,7 @@
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
-        Text: ="Configuration"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblConfiguration").Label 
         Visible: =IsPowerUser
         Width: =140.00
         X: =145
@@ -347,19 +347,24 @@
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
-        Text: ="Upload"
+        TabIndex: =-1
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblUpload").Label 
         Width: =121
         X: =290
         Y: =84
         ZIndex: =17
 
     AttachmentControl As attachments:
+        AccessibleLabel: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblAttachFile").Label 
+        AddAttachmentText: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblAttachFile").Label 
         BorderColor: =Color.Black
         DropTargetBackgroundColor: =RGBA(169, 169, 169, 1)
         Height: =357
         IsInDataCard: =true
         Items: =
+        MaxAttachmentsText: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblMaxFiles").Label 
         NoAttachmentsColor: =Self.Color
+        NoAttachmentsText: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblNoAttachment").Label 
         PaddingBottom: =5
         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
         PaddingRight: =5
@@ -429,7 +434,7 @@
             );
             Reset(AttachmentControl);
             Notify(
-                "Upload successfull",
+                LookUp(cmp_TranslateLabels_1.Labels, Key = "uploadSuccessful").Label,
                 NotificationType.Success,
                 3000
             );
@@ -444,13 +449,14 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
-        Text: ="Upload document"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblUploadDoc").Label 
         Width: =198
         X: =860
         Y: =140
         ZIndex: =19
 
     "'AI Model ComboBox' As combobox":
+        AccessibleLabel: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblAiModel").Label 
         DisplayFields: =["aib_name"]
         Height: =38
         HoverBorderColor: =ColorFade('AI Model ComboBox'.BorderColor, 15%)
@@ -464,7 +470,7 @@
         MoreItemsButtonColor: =Self.ChevronBackground
         PressedBorderColor: ='AI Model ComboBox'.HoverBorderColor
         SearchFields: =["aib_name"]
-        SearchItems: =Search(Filter('Document Automation Configurations','Configuration Status'='Document Automation Configuration Status'.Active,statecode='Status (Document Automation Configurations)'.Active),'AI Model ComboBox'.SearchText,aib_name)
+        SearchItems: =[]
         SelectMultiple: =false
         Width: =1034
         X: =24
@@ -473,17 +479,17 @@
 
     "'ServiceNumber Label' As label":
         Height: =36
-        Text: |-
-            ="Service Number (optional):"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblServiceNumber").Label 
         Width: =1030
         X: =26
         Y: =259
         ZIndex: =21
 
     "'ServiceNumber TextInput' As text":
+        AccessibleLabel: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblServiceNumber").Label 
         Default: =
         Height: =49
-        HintText: ="Service Number"
+        HintText: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblServiceNumber").Label 
         PressedBorderColor: ='ServiceNumber TextInput'.HoverBorderColor
         PressedColor: ='ServiceNumber TextInput'.Color
         PressedFill: ='ServiceNumber TextInput'.Fill
@@ -494,10 +500,39 @@
 
     "'AIModel Label' As label":
         Height: =36
-        Text: |-
-            ="AI Model:"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblAiModel").Label 
         Width: =1034
         X: =24
         Y: =175
         ZIndex: =23
+
+    ddlLanguage_2 As dropdown:
+        AccessibleLabel: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblLanguage").Label 
+        BorderThickness: =1
+        Default: =LookUp(varLanguageTable, Value = varLang).Label
+        FocusedBorderThickness: =2
+        Font: =Font.'Segoe UI'
+        Height: =27
+        HoverBorderColor: =ColorFade(ddlLanguage_2.BorderColor, 15%)
+        Items: |-
+            =Table({Label: "English", Value: "en"}, {Label: "Français", Value: "fr"})
+        OnChange: |-
+            =Set(varLang, Self.Selected.Value);
+            cmp_TranslateLabels_1.Language = varLang;
+        PressedBorderColor: =ddlLanguage_2.HoverBorderColor
+        Size: =12
+        Width: =127
+        X: =939
+        Y: =27
+        ZIndex: =24
+
+    lblLanguage_2 As label:
+        Font: =Font.'Segoe UI'
+        Height: =28
+        Size: =12
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblLanguage").Label 
+        Width: =84
+        X: =855
+        Y: =27
+        ZIndex: =25
 

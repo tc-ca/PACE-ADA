@@ -1,0 +1,33 @@
+cmp_TranslateLabels As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =0
+    Labels: =varTranslations
+    Language: ="en"
+    OnReset: |
+        =Set(
+            varTranslations,
+            AddColumns(
+                RenameColumns(
+                    Self.TranslationsTable,
+                    pace_key,
+                    Key,
+                    pace_englishlabel,
+                    'English Label',
+                    pace_frenchlabel,
+                    'French Label'
+                ),
+                Label,
+                If(
+                    Self.Language = "fr",
+                    'French Label',
+                    'English Label'
+                )
+            )
+        );
+    TranslationsTable: |-
+        =Table({pace_key: "SampleText", pace_englishlabel: "label en 1", pace_frenchlabel: "label fr 1"})
+    Width: =0
+    X: =0
+    Y: =0
+    ZIndex: =1
+

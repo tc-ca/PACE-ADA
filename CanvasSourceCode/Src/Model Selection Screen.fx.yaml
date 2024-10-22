@@ -71,7 +71,7 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
-        Text: ="Save"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblSave").Label
         Visible: =Not(HideEveryThing)
         Width: =80.00
         X: =285.00
@@ -107,7 +107,7 @@
         RadiusTopLeft: =ButtonBold.BorderRadius
         RadiusTopRight: =ButtonBold.BorderRadius
         Size: =12.00
-        Text: ="Next"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblNext").Label
         Visible: =Not(HideEveryThing)
         Width: =80.00
         X: =373.00
@@ -141,7 +141,7 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
-        Text: ="Cancel"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblCancel").Label
         Visible: =Not(HideEveryThing)
         Width: =80.00
         X: =1270.00
@@ -177,7 +177,7 @@
         Type_Column1 As dataTableColumn.complexOptionSetColumn:
             AutoWidth: =false
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Prebuilt"
+            FieldDisplayName: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblPrebuilt").Label 
             FieldName: ="statecode"
             FieldVariantName: ="complexOptionSetColumn"
             Height: =Parent.Height
@@ -192,7 +192,7 @@
         "'Modified on_Column2' As dataTableColumn.textualColumn":
             AutoWidth: =false
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Modified on"
+            FieldDisplayName: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblModify").Label 
             FieldName: ="Modified on"
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
@@ -207,7 +207,7 @@
         Name_Column2 As dataTableColumn.textualColumn:
             AutoWidth: =true
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Name"
+            FieldDisplayName: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblName").Label 
             FieldName: ="msdyn_name"
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
@@ -290,7 +290,7 @@
                     'Model name',
                     Name,
                     Type,
-                    "Prebuilt"
+                    LookUp(cmp_TranslateLabels_1.Labels, Key = "prebuilt").Label
                 )
             );
             Collect(
@@ -308,7 +308,7 @@
                     'Model name',
                     Name,
                     Type,
-                    "Custom"
+                    LookUp(cmp_TranslateLabels_1.Labels, Key = "custom").Label
                 )
             );
             Collect(
@@ -326,7 +326,7 @@
                     'Model name',
                     Name,
                     Type,
-                    "Custom"
+                    LookUp(cmp_TranslateLabels_1.Labels, Key = "custom").Label
                 )
             );
             Set(
@@ -347,7 +347,7 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
-        Text: ="Reload models"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblReload").Label
         Width: =150.00
         X: =980.00
         Y: =266
@@ -370,7 +370,7 @@
         PressedColor: ='Model List Label'.Color
         PressedFill: ='Model List Label'.Fill
         Size: =12.00
-        Text: ="Models List"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblModelList").Label
         Width: =150.00
         X: =309.00
         Y: =273
@@ -380,14 +380,16 @@
         Color: =RGBA(96, 94, 92, 1)
         DisabledBorderColor: =RGBA(56, 56, 56, 1)
         Font: =Font.'Segoe UI'
-        Height: =30
+        Height: =28
         HoverBorderColor: ='Associated Model Label'.BorderColor
         HtmlText: |-
-            ="<b>Model associated: </b>" & If(
+            =LookUp(cmp_TranslateLabels_1.Labels, Key = "TB_ModelAssociated").Label & 
+                If(
                 !IsBlank(ConfigurationModelGuid),
                 ConfigurationModelName,
-                "You don't have any model associated to your provider yet. Please select one below."
-            )
+                LookUp(cmp_TranslateLabels_1.Labels, Key = "TB_Do_Not_Have_Model").Label
+            )  
+                
         PaddingBottom: =0
         PaddingLeft: =0
         PaddingRight: =0.00
@@ -396,15 +398,14 @@
         Size: =12.00
         Width: =800.00
         X: =293.00
-        Y: =219
+        Y: =220
         ZIndex: =9
 
     "'Invoice Processing Intro' As htmlViewer":
         DisabledBorderColor: =RGBA(56, 56, 56, 1)
         Font: =Font.'Segoe UI'
         Height: =63
-        HtmlText: |-
-            ="Pick a model on the list or create a " & "<a style='color:#1281DA' href=https://make.powerapps.com/aibuilder/build>new Form Processing model with AI Builder</a>" & ". Once you’ve created and published your model, come back here and refresh the model list."
+        HtmlText: =LookUp(cmp_TranslateLabels_1.Labels, Key = "TB_PickAModel").Label
         PaddingBottom: =0
         PaddingLeft: =0
         PaddingRight: =5.00
@@ -431,7 +432,7 @@
         PressedColor: ='Invoice Processing Title'.Color
         PressedFill: ='Invoice Processing Title'.Fill
         Size: =17.99
-        Text: ="Document automation with AI Builder model"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "TB_Document_Automation").Label
         Width: =600.00
         X: =293.00
         Y: =84
@@ -452,7 +453,7 @@
         PressedColor: ='Fields Mapping Label 2'.Color
         PressedFill: ='Fields Mapping Label 2'.Fill
         Size: =12.00
-        Text: ="Fields mapping"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblFields_Mapping").Label
         Width: =170.00
         X: =51.99
         Y: =147
@@ -500,7 +501,7 @@
         PressedColor: ='Model Selection Label 2'.Color
         PressedFill: ='Model Selection Label 2'.Fill
         Size: =12.00
-        Text: ="Model selection"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblModel_Selection").Label
         Width: =170.00
         X: =51.99
         Y: =91
@@ -570,7 +571,7 @@
         PressedColor: ='Configuration Title Label 2'.Color
         PressedFill: ='Configuration Title Label 2'.Fill
         Size: =17.99
-        Text: ="Configuration " & CurrentConfigurationName
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblConfiguration").Label  & CurrentConfigurationName
         Width: =1000.00
         X: =24.00
         Y: =14

@@ -1,8 +1,7 @@
 App As appinfo:
     BackEnabled: =false
-    Formulas: |
-        =IsDocumentLocked = Not(IsBlank(CurrentProcessing.'Assigned To')) && Not(CurrentProcessing.'Assigned To'.'User Name' = UserEmail) && Not(CurrentProcessing.'Assigned To'.'Full Name' = "SYSTEM") && Not IsPowerUser;
-    OnStart: |
+    Formulas: =IsDocumentLocked = Not(IsBlank(CurrentProcessing.'Assigned To')) && Not(CurrentProcessing.'Assigned To'.'User Name' = UserEmail) && Not(CurrentProcessing.'Assigned To'.'Full Name' = "SYSTEM") && Not IsPowerUser;
+    OnStart: |-
         =// Styles
         Set(
             ButtonBold,
@@ -242,6 +241,10 @@ App As appinfo:
                 )
             ) > 0
         );
+        
+        //====== Set initial language=======
+        Set(varLang, "en");
+        Set(varLanguageTable,Table({Label: "English", Value: "en"}, {Label: "Français", Value: "fr"}));
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

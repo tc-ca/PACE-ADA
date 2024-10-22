@@ -100,7 +100,7 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
-        Text: ="Next document"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblNextDoc").Label 
         Visible: =Not(HideEveryThing)
         Width: =130.00
         X: =230.00
@@ -178,7 +178,7 @@
         RadiusTopLeft: =ButtonBold.BorderRadius
         RadiusTopRight: =ButtonBold.BorderRadius
         Size: =12.00
-        Text: ="Validate"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblValidate").Label 
         Visible: =Not(HideEveryThing)
         Width: =80.00
         X: =127.00
@@ -231,7 +231,7 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
-        Text: ="Back"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblBack").Label 
         Visible: =Not(HideEveryThing)
         Width: =80.00
         X: =24.00
@@ -4302,8 +4302,7 @@
         PressedColor: ='Status Label'.Color
         PressedFill: ='Status Label'.Fill
         Size: =12.00
-        Text: |-
-            ="Status:"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblStatus").Label 
         Visible: =Not(HideEveryThing)
         Width: =60.00
         X: =24.00
@@ -4350,7 +4349,7 @@
                     CurrentProcessing.'Processing Status'='Document Automation Processing Status'.'Extracting Data'
                 ), 
                 "Your document is not processed yet. Come back later.", 
-                "Your document was not processed. Please check the 'Document Processor' flow run history."
+            "Your document was not processed. Please check the 'Document Processor' flow run history"
             )
         Visible: =!DocumentFormVisible && Not(HideEveryThing)
         Width: =484.00
@@ -4373,7 +4372,7 @@
         PressedColor: =ColorFade('Delete DocumentLabel2'.Color, -20%)
         PressedFill: ='Delete DocumentLabel2'.Fill
         Size: =12.00
-        Text: ="Delete Document"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDeleteDocument").Label
         Visible: =And(Not(HideEveryThing),IsPowerUser)
         Width: =130.00
         X: =1222.00
@@ -4381,6 +4380,7 @@
         ZIndex: =18
 
     "'Delete Document Icon2' As icon.Trash":
+        AccessibleLabel: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDeleteDocument").Label
         Color: =RGBA(116, 39, 116, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: ='Delete Document Icon2'.Fill

@@ -57,9 +57,7 @@
         PressedColor: ='Tip Label_2'.Color
         PressedFill: ='Tip Label_2'.Fill
         Size: =12.00
-        Text: |-
-            ="Click on a document to review and edit extracted data.
-            "
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblTipsText").Label
         Width: =214.00
         X: =1124.00
         Y: =430
@@ -80,7 +78,7 @@
         PressedColor: ='Tip Title_2'.Color
         PressedFill: ='Tip Title_2'.Fill
         Size: =12.00
-        Text: ="Review documents"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblTipsReview").Label
         Width: =177.00
         X: =1143.01
         Y: =380
@@ -143,7 +141,7 @@
         createdon_Column1 As dataTableColumn.textualColumn:
             AutoWidth: =false
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Received on"
+            FieldDisplayName: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblReceived").Label 
             FieldName: ="createdon"
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
@@ -158,7 +156,7 @@
         aib_filename_Column1 As dataTableColumn.textualColumn:
             AutoWidth: =false
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Document Name"
+            FieldDisplayName: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDocuments").Label 
             FieldName: ="aib_filename"
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
@@ -188,13 +186,18 @@
         aib_processingstatus_Column1 As dataTableColumn.textualColumn:
             AutoWidth: =false
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Status"
+            FieldDisplayName: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblStatus").Label
             FieldName: ="aib_processingstatus"
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =15
-            Text: =ThisItem.'Processing Status'
+            Text: |-
+                =If(
+                    varLang = "en",
+                    ThisItem.'Processing Status En',
+                    ThisItem.'Processing Status Fr'
+                )
             Width: =173.00
             X: =809.00
             Y: =0
@@ -239,13 +242,31 @@
             Clear(RecentProcessingIds);
             ClearCollect(
                 DocumentsToDisplay,
-                Sort(
-                    Filter(
-                        'Document Automation Processings',
-                        Status = 'Status (Document Automation Processings)'.Active
+                AddColumns(
+                    Sort(
+                        Filter(
+                            'Document Automation Processings',
+                            Status = 'Status (Document Automation Processings)'.Active
+                        ),
+                        'Created On',
+                        SortOrder.Descending
                     ),
-                    'Created On',
-                    SortOrder.Descending
+                    'Processing Status En',
+                    LookUp(
+                        cmp_TranslateLabels_1.Labels,
+                        Key = Concatenate(
+                            "processingStatus_",
+                            Text(JSON('Processing Status'))
+                        )
+                    ).'English Label',
+                    'Processing Status Fr',
+                    LookUp(
+                        cmp_TranslateLabels_1.Labels,
+                        Key = Concatenate(
+                            "processingStatus_",
+                            Text(JSON('Processing Status'))
+                        )
+                    ).'French Label'
                 )
             );
             Set(
@@ -266,7 +287,7 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
-        Text: ="Refresh"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblRefresh").Label 
         Width: =140.00
         X: =921.00
         Y: =175
@@ -285,7 +306,7 @@
         DisabledBorderColor: =RGBA(159, 167, 165, 1)
         DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
         DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
-        DisplayFields: =["Value"]
+        DisplayFields: =["Label"]
         FocusedBorderColor: =RGBA(0, 120, 212, 1)
         FocusedBorderThickness: =1
         Font: =Font.'Segoe UI'
@@ -293,19 +314,19 @@
         HoverBorderColor: =RGBA(50, 49, 48, 1)
         HoverColor: =RGBA(32, 31, 30, 1)
         HoverFill: =RGBA(237, 235, 233, 1)
-        InputTextPlaceholder: ="Status"
+        InputTextPlaceholder: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblStatus").Label
         IsSearchable: =false
-        Items: =Choices('Document Automation Processings'.'Processing Status')
+        Items: =AddColumns(Choices('Document Automation Processings'.'Processing Status'), Label, LookUp(cmp_TranslateLabels_1.Labels, Key = Concatenate("processingStatus_", Text(JSON(Value)))).Label)
         MoreItemsButtonColor: =StatusComboBox.ChevronBackground
-        NoSelectionText: ="Status"
+        NoSelectionText: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblStatus").Label
         OnChange: =
         PaddingRight: =5.00
         PaddingTop: =5.00
         PressedBorderColor: =StatusComboBox.HoverBorderColor
         PressedColor: =RGBA(32, 31, 30, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
-        SearchFields: =["Value"]
-        SearchItems: =Choices('Document Automation Processings'.'Processing Status',StatusComboBox.SearchText)
+        SearchFields: =["Label"]
+        SearchItems: =[]
         SelectionColor: =RGBA(32, 31, 30, 1)
         SelectionFill: =RGBA(237, 235, 233, 1)
         SelectionTagColor: =StatusComboBox.HoverColor
@@ -333,7 +354,7 @@
         PressedColor: ='Document List Label'.Color
         PressedFill: ='Document List Label'.Fill
         Size: =12.00
-        Text: ="Document List"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDocumentList").Label
         Width: =150.00
         X: =53.00
         Y: =169
@@ -346,14 +367,14 @@
         Color: =RGBA(0, 0, 0, 1)
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderColor: ='Configuration Tab Button_2'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderThickness: =1
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Normal
         Height: =25
         HoverBorderColor: =RGBA(255, 255, 255, 1)
         HoverColor: =RGBA(0, 0, 0, 1)
         HoverFill: =
-        OnSelect: =Navigate('Configuration List Screen')
+        OnSelect: =Navigate('Configuration List Screen');
         PaddingBottom: =0
         PaddingLeft: =0
         PaddingRight: =0.00
@@ -362,7 +383,7 @@
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
-        Text: ="Configuration"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblConfiguration").Label 
         Visible: =IsPowerUser
         Width: =140.00
         X: =145.00
@@ -398,7 +419,7 @@
         PressedColor: ='Document Tab Label_2'.Color
         PressedFill: ='Document Tab Label_2'.Fill
         Size: =14.00
-        Text: ="Documents"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDocuments").Label 
         Width: =100.00
         X: =24.00
         Y: =84
@@ -420,7 +441,7 @@
         PressedColor: ='Document List Title Label'.Color
         PressedFill: ='Document List Title Label'.Fill
         Size: =17.99
-        Text: ="Document Automation "
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "DocumentTitle").Label
         Width: =1000.00
         X: =24.00
         Y: =24
@@ -439,7 +460,7 @@
         PressedColor: ='Document List Description Label'.Color
         PressedFill: ='Document List Description Label'.Fill
         Size: =12.00
-        Text: ="Review the processed documents you have received."
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblReview").Label
         Width: =996.00
         X: =31.00
         Y: =140
@@ -466,7 +487,7 @@
         Color: =RGBA(0, 0, 0, 1)
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderColor: ='Configuration Tab Button_3'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderThickness: =1
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Normal
         Height: =27
@@ -482,9 +503,46 @@
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
-        Text: ="Upload"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblUpload").Label 
         Width: =121
         X: =290
         Y: =85
         ZIndex: =17
+
+    lblLanguage As label:
+        Font: =Font.'Segoe UI'
+        Height: =28
+        Size: =12
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblLanguage").Label 
+        Width: =84
+        X: =855
+        Y: =27
+        ZIndex: =18
+
+    ddlLanguage As dropdown:
+        AccessibleLabel: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblLanguage").Label 
+        BorderThickness: =1
+        Default: =LookUp(varLanguageTable, Value = varLang).Label
+        FocusedBorderThickness: =2
+        Font: =Font.'Segoe UI'
+        Height: =27
+        HoverBorderColor: =ColorFade(ddlLanguage.BorderColor, 15%)
+        Items: =varLanguageTable
+        OnChange: |-
+            =Set(varLang, Self.Selected.Value);
+            cmp_TranslateLabels_1.Language = varLang;
+        PressedBorderColor: =ddlLanguage.HoverBorderColor
+        Size: =12
+        Width: =127
+        X: =939
+        Y: =27
+        ZIndex: =19
+
+    cmp_TranslateLabels_1 As cmp_TranslateLabels:
+        Height: =1
+        Language: =varLang
+        TranslationsTable: ='Canvas Translations'
+        Visible: =false
+        Width: =1
+        ZIndex: =20
 
