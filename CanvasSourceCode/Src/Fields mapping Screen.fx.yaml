@@ -37,7 +37,7 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
-        Text: ="Back"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblBack").Label
         Visible: =Not(HideEveryThing)
         Width: =80.00
         X: =285.00
@@ -450,7 +450,7 @@
         RadiusTopLeft: =ButtonBold.BorderRadius
         RadiusTopRight: =ButtonBold.BorderRadius
         Size: =12.00
-        Text: ="Save"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblSave").Label
         Visible: =Not(HideEveryThing)
         Width: =80.00
         X: =373.00
@@ -484,7 +484,7 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
-        Text: ="Cancel"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblCancel").Label
         Visible: =Not(HideEveryThing)
         Width: =80.00
         X: =1270.00
@@ -510,8 +510,8 @@
         Text: |-
             =If(
                 ShowHeaders, 
-                "Here is how the fields value extracted from the model will be stored in Dataverse 'Document Automation Data' table.",
-                "Here is how the tables value extracted from the model will be stored in Dataverse 'Document Automation Table Data' table."
+                    LookUp(cmp_TranslateLabels_1.Labels, Key = "mappingText").Label,
+                LookUp(cmp_TranslateLabels_1.Labels, Key = "mappingTablesText").Label
             )
         Width: =888.00
         X: =293.00
@@ -525,8 +525,8 @@
         Color: =RGBA(0, 0, 0, 1)
         DisplayMode: =If(ShowHeaders, DisplayMode.Edit, DisplayMode.View)
         Fill: =RGBA(255, 255, 255, 1)
-        FocusedBorderColor: ='Tables Fields Tab Button'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+        FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
         Font: =Font.'Segoe UI'
         FontWeight: =If(ShowHeaders, FontWeight.Normal, FontWeight.Semibold)
         Height: =25
@@ -546,7 +546,7 @@
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
-        Text: ="Tables Mapping"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblTablesMapping").Label
         Visible: =IsPowerUser
         Width: =140.00
         X: =472.00
@@ -573,8 +573,8 @@
         Color: =RGBA(0, 0, 0, 1)
         DisplayMode: =If(ShowHeaders, DisplayMode.View, DisplayMode.Edit)
         Fill: =RGBA(255, 255, 255, 1)
-        FocusedBorderColor: ='Fields Mapping Tab Button'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+        FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
         Font: =Font.'Segoe UI'
         FontWeight: =If(ShowHeaders, FontWeight.Semibold, FontWeight.Normal)
         Height: =25
@@ -594,7 +594,7 @@
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
-        Text: ="Fields Mapping"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblFieldsMapping").Label
         Visible: =IsPowerUser
         Width: =140.00
         X: =302.00
@@ -617,7 +617,7 @@
         PressedColor: ='Fields Mapping Label'.Color
         PressedFill: ='Fields Mapping Label'.Fill
         Size: =12.00
-        Text: ="Fields mapping"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblFieldsMapping").Label
         Width: =150.00
         X: =51.99
         Y: =147
@@ -662,7 +662,7 @@
         PressedColor: ='Model Selection Label 3'.Color
         PressedFill: ='Model Selection Label 3'.Fill
         Size: =12.00
-        Text: ="Model selection"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblModelSelection").Label
         Width: =150.00
         X: =51.99
         Y: =91
@@ -732,7 +732,7 @@
         PressedColor: ='Provider Title Label 3_1'.Color
         PressedFill: ='Provider Title Label 3_1'.Fill
         Size: =17.99
-        Text: ="Configuration " & CurrentConfigurationName
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblConfiguration").Label & CurrentConfigurationName
         Width: =1000.00
         X: =24.00
         Y: =14
@@ -768,7 +768,7 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
-        Text: ="Refresh"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblRefresh").Label
         Width: =140.00
         X: =1076.99
         Y: =82
@@ -800,7 +800,15 @@
                 Set(
                     FieldsJson,
                     LookUp(
-                        'AI Configurations',
+                        Sort(
+                            Sort(
+                                'AI Configurations',
+                                'MajorIterationNumber',
+                                SortOrder.Descending
+                            ),
+                            'MinorIterationNumber',
+                            SortOrder.Descending
+                        ),
                         AIModel.AIModel = ConfigurationModelGuid && Type = 'Type (AI Configurations)'.RunConfiguration && Status = 'Status (AI Configurations)'.Done
                     ).CustomConfiguration
                 )

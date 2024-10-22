@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "HasLibraryLogicalName": true,
+    "InstanceCount": 1,
+    "LibraryId": "b085fca2-52e0-4b3e-82dc-a8ab76b10ab6",
+    "LibraryLogicalName": "pace_translations_7c91d",
+    "LibraryVersion": "2024-10-04T15:25:52Z",
+    "OriginalComponentDefinitionTemplateId": "02209e2277264bcb83684d4f43d85ef7",
+    "RefusedSourceLastTimeSaved": "0001-01-01T00:00:00",
+    "SourceLastTimeSaved": "2024-10-04T15:25:52.541+00:00"
+  }
+]

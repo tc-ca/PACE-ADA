@@ -1,0 +1,181 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentDefinitionInfo": {
+    "AllowAccessToGlobals": false,
+    "Children": [],
+    "ControlPropertyState": [
+      "Fill",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "",
+        "InvariantPropertyName": "Height",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "",
+        "InvariantPropertyName": "Width",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      "X",
+      "Y",
+      "ZIndex",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "\"Text\"",
+        "InvariantPropertyName": "Language",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "LookUp(\r\n    varTranslations,\r\n    Language = Lower(\r\n        Coalesce(\r\n            Self.Language,\r\n            Language()\r\n        )\r\n    )).KeyValuePairs",
+        "InvariantPropertyName": "Labels",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "",
+        "InvariantPropertyName": "OnReset",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "Table({Key: \"SampleText\", 'English Label': \"label en 1\", 'French Label': \"label fr 1\"})",
+        "InvariantPropertyName": "TranslationsTable",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      }
+    ],
+    "LastModifiedTimestamp": "638651363569432700",
+    "Name": "cmp_TranslateLabels",
+    "Rules": [
+      {
+        "Category": "Data",
+        "InvariantScript": "Table({pace_key: \"SampleText\", pace_englishlabel: \"label en 1\", pace_frenchlabel: \"label fr 1\"})",
+        "Property": "TranslationsTable",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "\"en\"",
+        "Property": "Language",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "varTranslations",
+        "Property": "Labels",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "Width",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "Height",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "X",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "Y",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "1",
+        "Property": "ZIndex",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "RGBA(0, 0, 0, 0)",
+        "Property": "Fill",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Behavior",
+        "InvariantScript": "Set(\n    varTranslations,\n    AddColumns(\n        RenameColumns(\n            Self.TranslationsTable,\n            pace_key,\n            Key,\n            pace_englishlabel,\n            'English Label',\n            pace_frenchlabel,\n            'French Label'\n        ),\n        Label,\n        If(\n            Self.Language = \"fr\",\n            'French Label',\n            'English Label'\n        )\n    )\n);\n",
+        "Property": "OnReset",
+        "RuleProviderType": "System"
+      }
+    ]
+  },
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "cmp_TranslateLabels",
+    "TemplateGuid": "03e1b4513172425f9a3056d8fdb51dce"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "Language",
+      "Hidden": false,
+      "IsResettable": true,
+      "Name": "Language",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "The language to transalte text into",
+      "Type": "{\"Version\":\"1.343\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Labels",
+      "Hidden": true,
+      "Name": "Labels",
+      "PropertyDataTypeKey": "Table",
+      "Tooltip": "Translated labels",
+      "Type": "{\"Version\":\"1.343\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Key\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Label\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Translations Table",
+      "Hidden": false,
+      "IsResettable": true,
+      "Name": "TranslationsTable",
+      "PropertyDataTypeKey": "Table",
+      "Tooltip": "The table containing all translations data",
+      "Type": "{\"Version\":\"1.343\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"pace_englishlabel\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"pace_frenchlabel\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"pace_key\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": true,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638651363569432700",
+  "Name": "03e1b4513172425f9a3056d8fdb51dce",
+  "OverridableProperties": {},
+  "SourceLibraryId": "b085fca2-52e0-4b3e-82dc-a8ab76b10ab6",
+  "SourceLibraryLogicalName": "pace_translations_7c91d",
+  "TemplateOriginalName": "02209e2277264bcb83684d4f43d85ef7",
+  "Version": "1.0"
+}

@@ -11,7 +11,7 @@
             IsEmpty(ConfigurationsCollection) || MustRefreshConfigurations;
         );
         If(
-            MustRefreshConfigurations,
+            true,
             // Fill-in the in-memory collection for providers
             // Using in-memory collection is needed to perform reading of lookup fields
             Refresh ('Document Automation Configurations');
@@ -25,6 +25,10 @@
                     ),
                     'Configuration State',
                     'Configuration Status',
+                    'Configuration State En',
+                    LookUp(cmp_TranslateLabels_1.Labels, Key = Concatenate("configurationStatus_", Text(JSON('Configuration Status')))).'English Label',
+                    'Configuration State Fr',
+                    LookUp(cmp_TranslateLabels_1.Labels, Key = Concatenate("configurationStatus_", Text(JSON('Configuration Status')))).'French Label',
                     Modified,
                     'Modified On'
                 )
@@ -113,9 +117,7 @@
         PressedColor: ='Tip Label'.Color
         PressedFill: ='Tip Label'.Fill
         Size: =12.00
-        Text: |-
-            ="Choose the AI Builder model to use to start processing documents automatically.
-            "
+        Text: =LookUp (cmp_TranslateLabels_1.Labels, Key = "lblChooseAi").Label
         Width: =214.00
         X: =1124.00
         Y: =430
@@ -136,7 +138,7 @@
         PressedColor: ='Tip Title'.Color
         PressedFill: ='Tip Title'.Fill
         Size: =12.00
-        Text: ="Create a configuration"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblCreateConfig").Label
         Width: =177.00
         X: =1143.01
         Y: =380
@@ -173,7 +175,7 @@
         HoverColor: =RGBA(96, 94, 92, 1)
         HoverFill: =RGBA(237, 235, 233, 1)
         Items: =ConfigurationsCollection
-        NoDataText: ="We didn't find any data to show at this time. Create a Forms Processing model first."
+        NoDataText: =LookUp(cmp_TranslateLabels_1.Labels, Key = "noDataText").Label
         SelectedColor: =RGBA(96, 94, 92, 1)
         SelectedFill: =RGBA(225, 223, 221, 1)
         Size: =12.00
@@ -186,7 +188,7 @@
         "'Modified On_Column' As dataTableColumn.dateTimeColumn":
             AutoWidth: =false
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Modified on"
+            FieldDisplayName: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblModify").Label 
             FieldName: ="modifiedon"
             FieldVariantName: ="dateTimeColumn"
             Height: =Parent.Height
@@ -202,7 +204,7 @@
         "'Created By_Column' As dataTableColumn.complexTypeColumn":
             AutoWidth: =false
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Created By"
+            FieldDisplayName: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblCreatedBy").Label 
             FieldName: ="createdby"
             FieldVariantName: ="complexTypeColumn"
             Height: =Parent.Height
@@ -217,7 +219,7 @@
         Name_Column As dataTableColumn.textualColumn:
             AutoWidth: =false
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Name"
+            FieldDisplayName: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblName").Label 
             FieldName: ="aib_name"
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
@@ -242,13 +244,16 @@
 
         "'Configuration State_Column1' As dataTableColumn.textualColumn":
             DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Status"
+            FieldDisplayName: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblStatus").Label
             FieldName: ="Configuration State"
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =17
-            Text: =ThisItem.'Configuration State'
+            Text: |-
+                =If(varLang = "en",
+                ThisItem.'Configuration State En',
+                ThisItem.'Configuration State Fr')
             Width: =100.00
             X: =0.00
             Y: =0
@@ -311,8 +316,8 @@
         RadiusTopLeft: =ButtonStandard.BorderRadius
         RadiusTopRight: =
         Size: =12.00
-        Text: ="Add configuration"
-        Visible: =CountRows(ConfigurationsCollection)=0
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblAddConfiguration").Label 
+        Visible: =CountIf(ConfigurationsCollection, true)=0
         Width: =180.00
         X: =874.00
         Y: =140
@@ -347,7 +352,7 @@
         PressedColor: ='Providers Tab Label_1'.Color
         PressedFill: ='Providers Tab Label_1'.Fill
         Size: =14.00
-        Text: ="Configuration"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblConfiguration").Label 
         Width: =140.00
         X: =145.00
         Y: =84
@@ -360,7 +365,7 @@
         Color: =RGBA(0, 0, 0, 1)
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderColor: ='Invoices Tab Button_1'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderThickness: =1
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Normal
         Height: =25
@@ -376,7 +381,7 @@
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
-        Text: ="Documents"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDocuments").Label 
         Width: =95.00
         X: =24.00
         Y: =84
@@ -398,7 +403,7 @@
         PressedColor: ='Provider List Title'.Color
         PressedFill: ='Provider List Title'.Fill
         Size: =17.99
-        Text: ="Document Processing"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDocumentProcessing").Label 
         Width: =1000.00
         X: =24.00
         Y: =24
@@ -425,7 +430,7 @@
         Color: =RGBA(0, 0, 0, 1)
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderColor: ='Configuration Tab Button_4'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderThickness: =1
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Normal
         Height: =27
@@ -441,10 +446,39 @@
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
-        Text: ="Upload"
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblUpload").Label 
         Visible: =IsPowerUser
         Width: =121
         X: =290
         Y: =85
         ZIndex: =16
+
+    ddlLanguage_1 As dropdown:
+        AccessibleLabel: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblLanguage").Label 
+        BorderThickness: =1
+        Default: =LookUp(varLanguageTable, Value = varLang).Label
+        FocusedBorderThickness: =2
+        Font: =Font.'Segoe UI'
+        Height: =27
+        HoverBorderColor: =ColorFade(ddlLanguage_1.BorderColor, 15%)
+        Items: =varLanguageTable
+        OnChange: |-
+            =Set(varLang, Self.Selected.Value);
+            cmp_TranslateLabels_1.Language = varLang;
+        PressedBorderColor: =ddlLanguage_1.HoverBorderColor
+        Size: =12
+        Width: =127
+        X: =939
+        Y: =27
+        ZIndex: =17
+
+    lblLanguage_1 As label:
+        Font: =Font.'Segoe UI'
+        Height: =28
+        Size: =12
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblLanguage").Label 
+        Width: =84
+        X: =855
+        Y: =27
+        ZIndex: =18
 

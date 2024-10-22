@@ -287,7 +287,7 @@
         {
           "Category": "Data",
           "PropertyName": "HtmlText",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -676,7 +676,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -1148,7 +1148,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -1494,7 +1494,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -1992,7 +1992,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -2766,7 +2766,7 @@
         {
           "Category": "Data",
           "PropertyName": "HtmlText",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -3020,7 +3020,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -3560,7 +3560,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -4210,7 +4210,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -4863,7 +4863,14 @@
           "NameMapSourceSchema": "?"
         },
         "FieldVariantName",
-        "FieldDisplayName",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"Modified on\"",
+          "InvariantPropertyName": "FieldDisplayName",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "LayoutHeight",
         "X",
         "Y",
@@ -4920,7 +4927,7 @@
         {
           "Category": "Data",
           "PropertyName": "FieldDisplayName",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -4984,7 +4991,14 @@
           "NameMapSourceSchema": "?"
         },
         "FieldVariantName",
-        "FieldDisplayName",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"Name\"",
+          "InvariantPropertyName": "FieldDisplayName",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "LayoutHeight",
         "X",
         "Y",
@@ -5030,7 +5044,7 @@
       "MetaDataIDKey": "",
       "Name": "Name_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5051,7 +5065,7 @@
         {
           "Category": "Data",
           "PropertyName": "FieldDisplayName",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -5388,7 +5402,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -5838,7 +5852,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -6028,7 +6042,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultButtonStyle",
@@ -6410,7 +6424,7 @@
       "MetaDataIDKey": "",
       "Name": "Type_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6431,7 +6445,7 @@
         {
           "Category": "Data",
           "PropertyName": "FieldDisplayName",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
