@@ -467,6 +467,7 @@
             cmp_TranslateLabels_1.Language = varLang;
         PressedBorderColor: =ddlLanguage_1.HoverBorderColor
         Size: =12
+        Visible: =IsPowerUser
         Width: =127
         X: =939
         Y: =27

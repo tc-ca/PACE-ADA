@@ -732,7 +732,7 @@
         PressedColor: ='Provider Title Label 3_1'.Color
         PressedFill: ='Provider Title Label 3_1'.Fill
         Size: =17.99
-        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblConfiguration").Label & CurrentConfigurationName
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblConfiguration").Label & " " & CurrentConfigurationName
         Width: =1000.00
         X: =24.00
         Y: =14
@@ -800,13 +800,14 @@
                 Set(
                     FieldsJson,
                     LookUp(
+                        //get the most recent published version of the model configuration
                         Sort(
                             Sort(
                                 'AI Configurations',
-                                'MajorIterationNumber',
+                                MajorIterationNumber,
                                 SortOrder.Descending
                             ),
-                            'MinorIterationNumber',
+                            MinorIterationNumber,
                             SortOrder.Descending
                         ),
                         AIModel.AIModel = ConfigurationModelGuid && Type = 'Type (AI Configurations)'.RunConfiguration && Status = 'Status (AI Configurations)'.Done

@@ -974,7 +974,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "10/21/2024 20:18:05",
+  "HeaderLastSavedDateTimeUTC": "10/22/2024 18:45:04",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "2c824bd1-9e83-413c-aee8-d7f4255d3532": "\"/providers/microsoft.powerapps/apis/shared_commondataserviceforapps/connections/00f2d394b1c64a6ebbaf375827a0ce75\"",
@@ -985,7 +985,7 @@
     "CreateProvider": "0001.jpg"
   },
   "LocalResourceRootPaths": {
-    "CreateProvider": "https://docserverpwaprodcca.blob.core.windows.net/461c4b97-5ebe-4622-b706-9f3564e26040-1/resource/Assets0Images00001.jpg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-10-21T19%3A39%3A15Z&ske=2024-10-22T19%3A54%3A15Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-10-22T19%3A54%3A15Z&sr=b&sp=r&sig=%2FtsSBhPlsz2l%2B%2Bds9nZCYKwLIWkN1Xd%2B1mtdrObeJfo%3D"
+    "CreateProvider": "https://docserverpwaprodcca.blob.core.windows.net/3b5230c8-0b4b-47c6-b0fe-4718e3f984d0-1/resource/Assets0Images00001.jpg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-10-22T17%3A33%3A18Z&ske=2024-10-23T17%3A48%3A18Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-10-23T17%3A48%3A18Z&sr=b&sp=r&sig=KjSsL9Exl6%2BXWppdbLwvE1pC3lF5LPiUj5zQCBSDJZU%3D"
   },
   "OldLogoFileName": "logo.jpg",
   "OrderComponentMetadata": {
@@ -3035,7 +3035,7 @@
     "Modified On_Column": 222,
     "Modified on_Column2": 267,
     "Name_Column": 221,
-    "Name_Column2": 266,
+    "Name_Column2": 268,
     "Next Button_2": 272,
     "Next Document Button": 207,
     "Next Document Button_1": 955,
@@ -3087,7 +3087,7 @@
     "Tip Title_2": 20,
     "Title Split Line 2": 252,
     "Title Split Line 3": 276,
-    "Type_Column1": 268,
+    "Type_Column1": 266,
     "Upload Button": 239,
     "Upload Tab Button_6": 236,
     "Validate Button": 206,
@@ -3103,7 +3103,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 12.948941599999999,
+    "AnalysisLoadTime": 12.016920499999999,
     "ControlCount": {
       "03e1b4513172425f9a3056d8fdb51dce": 2,
       "attachments": 1,
@@ -3127,7 +3127,7 @@
       "text": 219,
       "typedDataCard": 185
     },
-    "DeserializationLoadTime": 9.7190122999999993
+    "DeserializationLoadTime": 6.7126497000000001
   },
   "WasLocalDatabaseReferencesEmpty": false
 }
