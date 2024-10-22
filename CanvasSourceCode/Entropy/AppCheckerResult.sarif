@@ -20324,36 +20324,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Document List Screen'.StatusComboBox.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Document List Screen'.StatusComboBox.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Document List Screen",
-                "type": "'Document List Screen'.StatusComboBox"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Fields mapping Screen'.'Table Mapping Gallery'.AccessibleLabel"
                 }
               ],
