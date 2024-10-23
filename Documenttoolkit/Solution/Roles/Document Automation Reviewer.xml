@@ -55,6 +55,7 @@
     <RolePrivilege name="prvReadmsdyn_AIOdTrainingBoundingBox" level="Global" />
     <RolePrivilege name="prvReadmsdyn_AIOdTrainingImage" level="Global" />
     <RolePrivilege name="prvReadmsdyn_AITemplate" level="Global" />
+    <RolePrivilege name="prvReadpace_CanvasTranslation" level="Global" />
     <RolePrivilege name="prvReadPluginAssembly" level="Global" />
     <RolePrivilege name="prvReadPluginType" level="Global" />
     <RolePrivilege name="prvReadQuery" level="Global" />
