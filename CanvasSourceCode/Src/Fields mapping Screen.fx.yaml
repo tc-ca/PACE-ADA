@@ -452,7 +452,7 @@
         Size: =12.00
         Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblSave").Label
         Visible: =Not(HideEveryThing)
-        Width: =80.00
+        Width: =95
         X: =373.00
         Y: =716
         ZIndex: =4
@@ -495,7 +495,7 @@
         Color: =RGBA(96, 94, 92, 1)
         FocusedBorderColor: ='Fields Mapping Intro_1'.BorderColor
         Font: =Font.'Segoe UI'
-        Height: =26
+        Height: =36
         HoverBorderColor: ='Fields Mapping Intro_1'.BorderColor
         HoverColor: ='Fields Mapping Intro_1'.Color
         HoverFill: ='Fields Mapping Intro_1'.Fill
@@ -515,7 +515,7 @@
             )
         Width: =888.00
         X: =293.00
-        Y: =124
+        Y: =104
         ZIndex: =6
 
     "'Tables Fields Tab Button' As button":
@@ -548,9 +548,9 @@
         Size: =14.00
         Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblTablesMapping").Label
         Visible: =IsPowerUser
-        Width: =140.00
-        X: =472.00
-        Y: =84
+        Width: =200
+        X: =522
+        Y: =75
         ZIndex: =7
 
     "'Selected Mapping Tab Line' As rectangle":
@@ -561,9 +561,9 @@
         HoverFill: ='Selected Mapping Tab Line'.Fill
         PressedFill: ='Selected Mapping Tab Line'.Fill
         Visible: =ShowHeaders
-        Width: =140.00
+        Width: =200
         X: =303.00
-        Y: =110
+        Y: =100
         ZIndex: =8
 
     "'Fields Mapping Tab Button' As button":
@@ -596,16 +596,16 @@
         Size: =14.00
         Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblFieldsMapping").Label
         Visible: =IsPowerUser
-        Width: =140.00
+        Width: =200
         X: =302.00
-        Y: =85
+        Y: =75
         ZIndex: =9
 
     "'Fields Mapping Label' As label":
         FocusedBorderColor: ='Fields Mapping Label'.BorderColor
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Semibold
-        Height: =24
+        Height: =38
         HoverBorderColor: ='Fields Mapping Label'.BorderColor
         HoverColor: ='Fields Mapping Label'.Color
         HoverFill: ='Fields Mapping Label'.Fill
@@ -618,9 +618,9 @@
         PressedFill: ='Fields Mapping Label'.Fill
         Size: =12.00
         Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblFieldsMapping").Label
-        Width: =150.00
+        Width: =170
         X: =51.99
-        Y: =147
+        Y: =140
         ZIndex: =10
 
     "'Fields Mapping Circle 3' As circle":
@@ -771,7 +771,7 @@
         Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblRefresh").Label
         Width: =140.00
         X: =1076.99
-        Y: =82
+        Y: =72
         ZIndex: =19
 
     "'Hidden Mapping Refresh Button' As button":
@@ -3305,8 +3305,8 @@
         HoverFill: ='Selected Mapping Tab Line_1'.Fill
         PressedFill: ='Selected Mapping Tab Line_1'.Fill
         Visible: =Not(ShowHeaders)
-        Width: =140.00
-        X: =475
-        Y: =110
+        Width: =200
+        X: =525
+        Y: =100
         ZIndex: =22
 

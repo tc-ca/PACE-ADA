@@ -264,7 +264,7 @@
         FocusedBorderColor: ='Provider List Title_1'.BorderColor
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Semibold
-        Height: =30
+        Height: =32
         HoverBorderColor: ='Provider List Title_1'.BorderColor
         HoverColor: ='Provider List Title_1'.Color
         HoverFill: ='Provider List Title_1'.Fill

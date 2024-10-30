@@ -73,8 +73,8 @@
         Size: =12.00
         Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblSave").Label
         Visible: =Not(HideEveryThing)
-        Width: =80.00
-        X: =285.00
+        Width: =95
+        X: =270
         Y: =719
         ZIndex: =2
 
@@ -259,7 +259,7 @@
         FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Normal
-        Height: =32
+        Height: =27
         HoverBorderColor: =ButtonStandard.HoverBorderColor
         HoverColor: =ButtonStandard.HoverColor
         HoverFill: =ButtonStandard.HoverFill
@@ -348,8 +348,8 @@
         RadiusTopRight: =ButtonStandard.BorderRadius
         Size: =12.00
         Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblReload").Label
-        Width: =150.00
-        X: =980.00
+        Width: =159
+        X: =971
         Y: =266
         ZIndex: =7
 
@@ -420,7 +420,7 @@
         FocusedBorderColor: ='Invoice Processing Title'.BorderColor
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Semibold
-        Height: =37
+        Height: =61
         HoverBorderColor: ='Invoice Processing Title'.BorderColor
         HoverColor: ='Invoice Processing Title'.Color
         HoverFill: ='Invoice Processing Title'.Fill
@@ -435,7 +435,7 @@
         Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "TB_Document_Automation").Label
         Width: =600.00
         X: =293.00
-        Y: =84
+        Y: =60
         ZIndex: =11
 
     "'Fields Mapping Label 2' As label":
@@ -571,7 +571,7 @@
         PressedColor: ='Configuration Title Label 2'.Color
         PressedFill: ='Configuration Title Label 2'.Fill
         Size: =17.99
-        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblConfiguration").Label  & CurrentConfigurationName
+        Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblConfiguration").Label & " " & CurrentConfigurationName
         Width: =1000.00
         X: =24.00
         Y: =14
