@@ -974,7 +974,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "10/22/2024 20:38:44",
+  "HeaderLastSavedDateTimeUTC": "10/30/2024 14:21:37",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "2c824bd1-9e83-413c-aee8-d7f4255d3532": "\"/providers/microsoft.powerapps/apis/shared_commondataserviceforapps/connections/00f2d394b1c64a6ebbaf375827a0ce75\"",
@@ -985,7 +985,7 @@
     "CreateProvider": "0001.jpg"
   },
   "LocalResourceRootPaths": {
-    "CreateProvider": "https://docserverpwaprodeca.blob.core.windows.net/96944e18-8fb1-4135-87e1-29c148c26c0e-1/resource/Assets0Images00001.jpg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-10-22T19%3A27%3A30Z&ske=2024-10-23T19%3A42%3A30Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-10-23T19%3A42%3A30Z&sr=b&sp=r&sig=Dc3dstElSFewDfYc6Ul%2BHnxeTBvXKjxh%2FGYfRcUa6n4%3D"
+    "CreateProvider": "https://docserverpwaprodeca.blob.core.windows.net/26973760-1610-469e-82f3-574002b3563b-1/resource/Assets0Images00001.jpg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-10-30T13%3A59%3A32Z&ske=2024-10-31T14%3A14%3A32Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-10-31T14%3A14%3A32Z&sr=b&sp=r&sig=bligkFI0vEUL2%2F89vBZnW1cxFdj4Q6vRRZ19Zein5%2BY%3D"
   },
   "OldLogoFileName": "logo.jpg",
   "OrderComponentMetadata": {
@@ -2166,7 +2166,7 @@
     "Data1_DataCard1_1": 338,
     "Data1_TextInput": 46,
     "Data1_TextInput_1": 294,
-    "Data1_TextInput_2": 334,
+    "Data1_TextInput_2": 327,
     "Data10_DataCard1": 86,
     "Data10_DataCard1_1": 374,
     "Data10_TextInput": 47,
@@ -2245,7 +2245,7 @@
     "Data2_DataCard1_1": 342,
     "Data2_TextInput": 45,
     "Data2_TextInput_1": 293,
-    "Data2_TextInput_2": 333,
+    "Data2_TextInput_2": 328,
     "Data20_DataCard1": 126,
     "Data20_DataCard1_1": 414,
     "Data21_DataCard1": 130,
@@ -2270,7 +2270,7 @@
     "Data3_DataCard1_1": 346,
     "Data3_TextInput": 44,
     "Data3_TextInput_1": 292,
-    "Data3_TextInput_2": 332,
+    "Data3_TextInput_2": 329,
     "Data30_DataCard1": 166,
     "Data30_DataCard1_1": 454,
     "Data31_DataCard1": 170,
@@ -2291,7 +2291,7 @@
     "Data4_DataCard1_1": 350,
     "Data4_TextInput": 43,
     "Data4_TextInput_1": 291,
-    "Data4_TextInput_2": 331,
+    "Data4_TextInput_2": 334,
     "Data40_DataCard1_1": 494,
     "Data41_DataCard1_1": 498,
     "Data42_DataCard1_1": 502,
@@ -2306,7 +2306,7 @@
     "Data5_DataCard1_1": 354,
     "Data5_TextInput": 42,
     "Data5_TextInput_1": 300,
-    "Data5_TextInput_2": 330,
+    "Data5_TextInput_2": 333,
     "Data50_DataCard1_1": 534,
     "Data51_DataCard1_1": 538,
     "Data52_DataCard1_1": 542,
@@ -2321,7 +2321,7 @@
     "Data6_DataCard1_1": 358,
     "Data6_TextInput": 41,
     "Data6_TextInput_1": 299,
-    "Data6_TextInput_2": 329,
+    "Data6_TextInput_2": 332,
     "Data60_DataCard1_1": 574,
     "Data61_DataCard1_1": 578,
     "Data62_DataCard1_1": 582,
@@ -2336,7 +2336,7 @@
     "Data7_DataCard1_1": 362,
     "Data7_TextInput": 40,
     "Data7_TextInput_1": 298,
-    "Data7_TextInput_2": 328,
+    "Data7_TextInput_2": 331,
     "Data70_DataCard1_1": 614,
     "Data71_DataCard1_1": 618,
     "Data72_DataCard1_1": 622,
@@ -2351,7 +2351,7 @@
     "Data8_DataCard1_1": 366,
     "Data8_TextInput": 39,
     "Data8_TextInput_1": 297,
-    "Data8_TextInput_2": 327,
+    "Data8_TextInput_2": 330,
     "Data80_DataCard1_1": 654,
     "Data81_DataCard1_1": 658,
     "Data82_DataCard1_1": 662,
@@ -2977,11 +2977,11 @@
     "Field Mapping Gallery": 301,
     "Fields Mapping Circle 2": 260,
     "Fields Mapping Circle 3": 288,
-    "Fields Mapping Intro_1": 286,
+    "Fields Mapping Intro_1": 285,
     "Fields Mapping Label": 287,
     "Fields Mapping Label 2": 259,
     "Fields mapping Screen": 884,
-    "Fields Mapping Tab Button": 280,
+    "Fields Mapping Tab Button": 279,
     "Fields Split Line_4": 201,
     "Fields Split Line_5": 949,
     "File Upload Screen": 921,
@@ -3068,9 +3068,9 @@
     "Status Value Label_1": 323,
     "StatusComboBox": 13,
     "Step 2 Line 2": 257,
-    "Step 2 Line 3": 285,
+    "Step 2 Line 3": 286,
     "Table Mapping Gallery": 289,
-    "Tables Fields Tab Button": 279,
+    "Tables Fields Tab Button": 280,
     "Tables Tab Button": 27,
     "Tables Tab Button_1": 316,
     "Tip Image": 225,
@@ -3103,7 +3103,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 12.8320992,
+    "AnalysisLoadTime": 11.011004700000001,
     "ControlCount": {
       "03e1b4513172425f9a3056d8fdb51dce": 2,
       "attachments": 1,
@@ -3127,7 +3127,7 @@
       "text": 219,
       "typedDataCard": 185
     },
-    "DeserializationLoadTime": 6.8855243000000002
+    "DeserializationLoadTime": 6.6473357999999996
   },
   "WasLocalDatabaseReferencesEmpty": false
 }

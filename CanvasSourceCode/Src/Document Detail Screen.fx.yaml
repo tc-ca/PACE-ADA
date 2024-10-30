@@ -91,7 +91,7 @@
         Size: =12.00
         Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblNextDoc").Label 
         Visible: =Not(HideEveryThing)
-        Width: =130.00
+        Width: =150
         X: =230.00
         Y: =719
         ZIndex: =1
@@ -15585,7 +15585,7 @@
         Size: =12.00
         Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = Concatenate("processingStatus_", Text(JSON(CurrentProcessing.'Processing Status')))).Label
         Visible: =Not(HideEveryThing)
-        Width: =200.00
+        Width: =250
         X: =88.00
         Y: =39
         ZIndex: =14
@@ -15679,8 +15679,8 @@
         Size: =12.00
         Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDeleteDocument").Label 
         Visible: =And(Not(HideEveryThing),IsPowerUser)
-        Width: =130.00
-        X: =1222.00
+        Width: =170
+        X: =1172
         Y: =14
         ZIndex: =18
 
@@ -15704,8 +15704,8 @@
         PressedFill: ='Delete Document Icon2_1'.Fill
         TabIndex: =0
         Visible: =And(Not(HideEveryThing),IsPowerUser)
-        Width: =150.00
-        X: =1192.00
+        Width: =150
+        X: =1142
         Y: =9
         ZIndex: =19
 
