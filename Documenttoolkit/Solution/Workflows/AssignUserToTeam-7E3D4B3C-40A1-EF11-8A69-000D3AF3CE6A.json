@@ -1,0 +1,415 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "tc_sharedcommondataserviceforapps_9d50b"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_office365users": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "tc_sharedoffice365users_25cbe"
+        },
+        "api": {
+          "name": "shared_office365users"
+        }
+      },
+      "shared_office365groups": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "tc_sharedoffice365groups_eb78b"
+        },
+        "api": {
+          "name": "shared_office365groups"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "fab3ae01-b0b2-4226-aaf9-7768bece1c04"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "User ID",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_1": {
+                  "title": "Team ID",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text",
+                "text_1"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Has_Error": {
+          "runAfter": {
+            "Scope": [
+              "Failed",
+              "Skipped",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "bc88608f-bf06-4289-9ecc-6b8f8e2fcc6f"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "success": "@false"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "title": "success",
+                  "x-ms-dynamically-added": true,
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "Scope": {
+          "actions": {
+            "Get_User": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "88c4a8b8-4952-41c7-b241-a8946b3f3488"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "systemusers",
+                  "$filter": "systemuserid eq '@{triggerBody()['text']}'"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "User": {
+              "runAfter": {
+                "Get_User": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "bc2a26a8-cb05-4064-8aae-6f3d1ac3bd23"
+              },
+              "type": "Compose",
+              "inputs": "@first(outputs('Get_User')?['body/value'])"
+            },
+            "User_email": {
+              "runAfter": {
+                "User": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e7f1ad2a-6296-44bb-bbef-fe420be3c4c9"
+              },
+              "type": "Compose",
+              "inputs": "@outputs('User')?['domainname']"
+            },
+            "Get_user_profile_(V2)": {
+              "runAfter": {
+                "User_email": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "1dc6ccb6-355d-4989-9f93-03489f00c187"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_office365users",
+                  "operationId": "UserProfile_V2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365users"
+                },
+                "parameters": {
+                  "id": "@outputs('User_email')",
+                  "$select": "Id"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "User_Object_ID": {
+              "runAfter": {
+                "Get_user_profile_(V2)": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "67e65af9-2097-4c3b-8a63-e168b8f94542"
+              },
+              "type": "Compose",
+              "inputs": "@outputs('Get_user_profile_(V2)')?['body/id']"
+            },
+            "Get_Team": {
+              "runAfter": {
+                "User_Object_ID": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "beb894b0-4762-426e-9744-9df2d7982f5c"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "teams",
+                  "$filter": "teamid eq '@{triggerBody()['text_1']}'"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Team": {
+              "runAfter": {
+                "Get_Team": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "87d2dfc8-ba7a-4e37-80d4-a4f921b15ba7"
+              },
+              "type": "Compose",
+              "inputs": "@first(outputs('Get_Team')?['body/value'])"
+            },
+            "Security_Group_ID": {
+              "runAfter": {
+                "Team": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "45d471d5-2d12-4ee4-9f82-d3a2b9baebc0"
+              },
+              "type": "Compose",
+              "inputs": "@outputs('Team')?['azureactivedirectoryobjectid']"
+            },
+            "Team_Membership_Type": {
+              "runAfter": {
+                "Security_Group_ID": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "ab0dd24a-d94e-4301-a551-41cd7f1c05dd"
+              },
+              "type": "Compose",
+              "inputs": "@outputs('Team')?['membershiptype']"
+            },
+            "Get_Business_Unit": {
+              "runAfter": {
+                "Team_Membership_Type": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "887551e5-0084-4789-b923-f3dfd3d8d15f"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "businessunits",
+                  "$filter": "businessunitid eq '@{outputs('Team')?['_businessunitid_value']}'"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Business_Unit": {
+              "runAfter": {
+                "Get_Business_Unit": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "67aa1ea8-4682-40c3-ab37-4e69e2d02889"
+              },
+              "type": "Compose",
+              "inputs": "@first(outputs('Get_Business_Unit')?['body/value'])"
+            },
+            "Upsert_a_row": {
+              "runAfter": {
+                "Business_Unit": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "6c8b03bd-e283-4e81-9750-344991871c1e"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "systemusers",
+                  "recordId": "@outputs('User')?['systemuserid']",
+                  "item/businessunitid@odata.bind": "businessunits(@{outputs('Business_Unit')?['businessunitid']})",
+                  "item/title": "PACE Test Account"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Switch_on_Team_Membership_type": {
+              "runAfter": {
+                "Upsert_a_row": [
+                  "Succeeded"
+                ]
+              },
+              "cases": {
+                "Case_Owners": {
+                  "case": 2,
+                  "actions": {
+                    "Send_an_HTTP_request_V2_-_Add_User_as_Owner_of_Security_Group": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "db192ca2-50e8-4d7d-893a-55b72131b847"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_office365groups",
+                          "operationId": "HttpRequestV2",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365groups"
+                        },
+                        "parameters": {
+                          "Uri": "https://graph.microsoft.com/v1.0/groups/@{outputs('Security_Group_ID')}/owners/$ref",
+                          "Method": "POST",
+                          "Body": "{\n  \"@odata.id\": \"https://graph.microsoft.com/v1.0/users/@{outputs('User_Object_ID')}\"\n}",
+                          "ContentType": "application/json"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  }
+                }
+              },
+              "default": {
+                "actions": {}
+              },
+              "expression": "@outputs('Team_Membership_Type')",
+              "metadata": {
+                "operationMetadataId": "7cf73756-b9ce-43b7-825a-3fe58f6b764c"
+              },
+              "type": "Switch"
+            },
+            "Add_member_to_group": {
+              "runAfter": {
+                "Switch_on_Team_Membership_type": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "9419f215-8e59-4f5d-b294-2eb4cf88a90e"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_office365groups",
+                  "operationId": "AddMemberToGroup",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365groups"
+                },
+                "parameters": {
+                  "groupId": "@outputs('Security_Group_ID')",
+                  "userUpn": "@outputs('User_email')"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "b222f90a-99b7-401c-9626-8ecf2973e321"
+          },
+          "type": "Scope"
+        },
+        "Is_Success": {
+          "runAfter": {
+            "Scope": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "be51ddbf-067d-41e2-b242-76eb2c36d822"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "success": "@true"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "title": "success",
+                  "x-ms-dynamically-added": true,
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

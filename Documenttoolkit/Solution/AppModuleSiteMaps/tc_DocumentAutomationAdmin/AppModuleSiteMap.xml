@@ -30,11 +30,6 @@
             <Title LCID="1033" Title="Processings" />
           </Titles>
         </SubArea>
-        <SubArea Id="subarea_716dd68d" VectorIcon="/WebResources/cat_dataverse_icon" Icon="/WebResources/cat_dataverse_icon" Entity="aib_documentautomationdata" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
-          <Titles>
-            <Title LCID="1033" Title="Data" />
-          </Titles>
-        </SubArea>
         <SubArea Id="subarea_f856b627" VectorIcon="/WebResources/msdyncrm_/KnowledgeSearch/Link.svg" Icon="/WebResources/msdyncrm_/KnowledgeSearch/Link.svg" Entity="aib_documentautomationtaxonomy" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
           <Titles>
             <Title LCID="1033" Title="Taxonomies" />
@@ -49,6 +44,12 @@
           <Titles>
             <Title LCID="1033" Title="AI Credits Consumption" />
           </Titles>
+        </SubArea>
+        <SubArea Id="subarea_486ad3c5" VectorIcon="/WebResources/Administration.svg" Icon="/WebResources/Administration.svg" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" Page="aida_assignuser_35955">
+          <Titles>
+            <Title LCID="1033" Title="Manage My Teams" />
+          </Titles>
+          <Privilege Entity="aib_documentautomationconfiguration" Privilege="Delete" />
         </SubArea>
       </Group>
     </Area>
