@@ -300,8 +300,7 @@
                 "parameters": {
                   "entityName": "systemusers",
                   "recordId": "@outputs('User')?['systemuserid']",
-                  "item/businessunitid@odata.bind": "businessunits(@{outputs('Business_Unit')?['businessunitid']})",
-                  "item/title": "PACE Test Account"
+                  "item/businessunitid@odata.bind": "businessunits(@{outputs('Business_Unit')?['businessunitid']})"
                 },
                 "authentication": "@parameters('$authentication')"
               }
