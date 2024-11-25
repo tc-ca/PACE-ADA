@@ -28,6 +28,15 @@
   <LocalizedNames>
     <LocalizedName description="Document Automation Admin" languagecode="1033" />
   </LocalizedNames>
+  <appelements>
+    <appelement uniquename="tc_tc_DocumentAutomationAdmin_canvasappid_aida_assignuser_35955">
+      <canvasappid>
+        <name>aida_assignuser_35955</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>tc_tc_DocumentAutomationAdmin_canvasappid_aida_assignuser_35955</name>
+    </appelement>
+  </appelements>
   <appsettings>
     <appsetting settingdefinitionid.uniquename="AppChannel">
       <iscustomizable>1</iscustomizable>

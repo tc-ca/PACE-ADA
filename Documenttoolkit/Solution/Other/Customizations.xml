@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24102.154" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24102.00154">
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24111.180" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24111.00180">
   <Entities />
   <Roles />
   <Workflows />
@@ -19,6 +19,30 @@
     <connectionreference connectionreferencelogicalname="tc_DataverseLegacy">
       <connectionreferencedisplayname>Dataverse Legacy</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataservice</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="tc_sharedcommondataserviceforapps_9d50b">
+      <connectionreferencedisplayname>Microsoft Dataverse Documenttoolkit-9d50b</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="tc_sharedoffice365groups_eb78b">
+      <connectionreferencedisplayname>Office 365 Groups Documenttoolkit-eb78b</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365groups</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="tc_sharedoffice365users_25cbe">
+      <connectionreferencedisplayname>Office 365 Users Documenttoolkit-25cbe</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365users</connectorid>
       <iscustomizable>1</iscustomizable>
       <promptingbehavior>0</promptingbehavior>
       <statecode>0</statecode>
