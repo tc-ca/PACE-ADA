@@ -49,7 +49,6 @@
           <Titles>
             <Title LCID="1033" Title="Manage My Teams" />
           </Titles>
-          <Privilege Entity="aib_documentautomationconfiguration" Privilege="Delete" />
         </SubArea>
       </Group>
     </Area>
