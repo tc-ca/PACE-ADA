@@ -348,28 +348,80 @@
               },
               "type": "Switch"
             },
-            "Add_member_to_group": {
+            "Check_is_member_of_group_true": {
+              "actions": {
+                "Add_member_to_group": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "9419f215-8e59-4f5d-b294-2eb4cf88a90e"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_office365groups",
+                      "operationId": "AddMemberToGroup",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365groups"
+                    },
+                    "parameters": {
+                      "groupId": "@outputs('Security_Group_ID')",
+                      "userUpn": "@outputs('User_email')"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Is_member_of_group": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "equals": [
+                  "@outputs('Is_member_of_group')",
+                  "@false"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "241b99a8-da52-4ef8-8cb5-02494865e758"
+              },
+              "type": "If"
+            },
+            "Check_is_member_of_group": {
               "runAfter": {
                 "Switch_on_Team_Membership_type": [
                   "Succeeded"
                 ]
               },
               "metadata": {
-                "operationMetadataId": "9419f215-8e59-4f5d-b294-2eb4cf88a90e"
+                "operationMetadataId": "63ea5186-a08b-45c1-8070-16ce0e040476"
               },
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "connectionName": "shared_office365groups",
-                  "operationId": "AddMemberToGroup",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365groups"
+                  "connectionName": "shared_office365users",
+                  "operationId": "HttpRequest",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365users"
                 },
                 "parameters": {
-                  "groupId": "@outputs('Security_Group_ID')",
-                  "userUpn": "@outputs('User_email')"
+                  "Uri": "https://graph.microsoft.com/v1.0/users/@{outputs('User_Object_ID')}/checkMemberGroups",
+                  "Method": "POST",
+                  "Body": "{\n    \"groupIds\": [\n        \"@{outputs('Security_Group_ID')}\"\n    ]\n}",
+                  "ContentType": "application/json"
                 },
                 "authentication": "@parameters('$authentication')"
               }
+            },
+            "Is_member_of_group": {
+              "runAfter": {
+                "Check_is_member_of_group": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a38c2ebf-6212-4ae4-89be-39ffd01a5a88"
+              },
+              "type": "Compose",
+              "inputs": "@if(greater(length(body('Check_is_member_of_group')?['value']), 0), true, false)"
             }
           },
           "runAfter": {},
