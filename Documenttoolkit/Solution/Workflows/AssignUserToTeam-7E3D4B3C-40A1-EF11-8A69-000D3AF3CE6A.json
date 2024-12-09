@@ -123,7 +123,8 @@
                 },
                 "parameters": {
                   "entityName": "systemusers",
-                  "$filter": "systemuserid eq '@{triggerBody()['text']}'"
+                  "$filter": "systemuserid eq '@{triggerBody()['text']}'",
+                  "$expand": "systemuserroles_association"
                 },
                 "authentication": "@parameters('$authentication')"
               }
@@ -142,7 +143,7 @@
             },
             "User_email": {
               "runAfter": {
-                "User": [
+                "Is_User_System_Administrator": [
                   "Succeeded"
                 ]
               },
@@ -246,68 +247,9 @@
               "type": "Compose",
               "inputs": "@outputs('Team')?['membershiptype']"
             },
-            "Get_Business_Unit": {
-              "runAfter": {
-                "Team_Membership_Type": [
-                  "Succeeded"
-                ]
-              },
-              "metadata": {
-                "operationMetadataId": "887551e5-0084-4789-b923-f3dfd3d8d15f"
-              },
-              "type": "OpenApiConnection",
-              "inputs": {
-                "host": {
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "ListRecords",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                },
-                "parameters": {
-                  "entityName": "businessunits",
-                  "$filter": "businessunitid eq '@{outputs('Team')?['_businessunitid_value']}'"
-                },
-                "authentication": "@parameters('$authentication')"
-              }
-            },
-            "Business_Unit": {
-              "runAfter": {
-                "Get_Business_Unit": [
-                  "Succeeded"
-                ]
-              },
-              "metadata": {
-                "operationMetadataId": "67aa1ea8-4682-40c3-ab37-4e69e2d02889"
-              },
-              "type": "Compose",
-              "inputs": "@first(outputs('Get_Business_Unit')?['body/value'])"
-            },
-            "Upsert_a_row": {
-              "runAfter": {
-                "Business_Unit": [
-                  "Succeeded"
-                ]
-              },
-              "metadata": {
-                "operationMetadataId": "6c8b03bd-e283-4e81-9750-344991871c1e"
-              },
-              "type": "OpenApiConnection",
-              "inputs": {
-                "host": {
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "UpdateRecord",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                },
-                "parameters": {
-                  "entityName": "systemusers",
-                  "recordId": "@outputs('User')?['systemuserid']",
-                  "item/businessunitid@odata.bind": "businessunits(@{outputs('Business_Unit')?['businessunitid']})"
-                },
-                "authentication": "@parameters('$authentication')"
-              }
-            },
             "Switch_on_Team_Membership_type": {
               "runAfter": {
-                "Upsert_a_row": [
+                "Update_business_unit_(if_not_sys_admin)": [
                   "Succeeded"
                 ]
               },
@@ -422,6 +364,107 @@
               },
               "type": "Compose",
               "inputs": "@if(greater(length(body('Check_is_member_of_group')?['value']), 0), true, false)"
+            },
+            "Is_User_System_Administrator": {
+              "runAfter": {
+                "Select_roles": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "39eabfe2-21d7-4e75-ad5d-4879ee9caf6d"
+              },
+              "type": "Compose",
+              "inputs": "@contains(string(outputs('Select_roles')), 'System Administrator')"
+            },
+            "Select_roles": {
+              "runAfter": {
+                "User": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "f4b3108f-3faf-4ef9-8613-2c79835f4b98"
+              },
+              "type": "Select",
+              "inputs": {
+                "from": "@outputs('User')?['systemuserroles_association']",
+                "select": "@item()?['name']"
+              }
+            },
+            "Update_business_unit_(if_not_sys_admin)": {
+              "actions": {
+                "Get_Business_Unit": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "887551e5-0084-4789-b923-f3dfd3d8d15f"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "businessunits",
+                      "$filter": "businessunitid eq '@{outputs('Team')?['_businessunitid_value']}'"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Business_Unit": {
+                  "runAfter": {
+                    "Get_Business_Unit": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "67aa1ea8-4682-40c3-ab37-4e69e2d02889"
+                  },
+                  "type": "Compose",
+                  "inputs": "@first(outputs('Get_Business_Unit')?['body/value'])"
+                },
+                "Upsert_a_row": {
+                  "runAfter": {
+                    "Business_Unit": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6c8b03bd-e283-4e81-9750-344991871c1e"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "systemusers",
+                      "recordId": "@outputs('User')?['systemuserid']",
+                      "item/businessunitid@odata.bind": "businessunits(@{outputs('Business_Unit')?['businessunitid']})"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Team_Membership_Type": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "equals": [
+                  "@outputs('Is_User_System_Administrator')",
+                  "@false"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "41645fde-7e1c-499a-8452-0441e6859e19"
+              },
+              "type": "If"
             }
           },
           "runAfter": {},
