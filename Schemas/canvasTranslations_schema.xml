@@ -1,0 +1,19 @@
+<entities >
+  <entity name="pace_canvastranslation" displayname="Canvas Translation" etc="11148" primaryidfield="pace_canvastranslationid" primarynamefield="pace_key" disableplugins="false">
+    <fields>
+      <field displayname="Key" name="pace_key" type="string" customfield="true" />
+      <field displayname="French Label" name="pace_frenchlabel" type="string" customfield="true" />
+      <field displayname="English Label" name="pace_englishlabel" type="string" customfield="true" />
+      <field displayname="Canvas Translation" name="pace_canvastranslationid" type="guid" primaryKey="true" />
+      <field displayname="Application Name" name="pace_applicationname" type="string" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+    </fields>
+    <filter>&lt;fetch&gt;
+  &lt;entity name="pace_canvastranslation"&gt;
+    &lt;filter&gt;
+      &lt;condition attribute="pace_applicationname" operator="eq" value="ADA" /&gt;
+    &lt;/filter&gt;
+  &lt;/entity&gt;
+&lt;/fetch&gt;</filter>
+  </entity>
+</entities>
