@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{60a60338-6db2-ef11-b8e8-6045bd5c8c66}" Name="Remove User from Team" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/RemoveUserfromTeam-60A60338-6DB2-EF11-B8E8-6045BD5C8C66.json</JsonFileName>
+<Workflow WorkflowId="{158e6a88-d0cd-ef11-8ee9-6045bd5b9fb3}" Name="Remove User from Team" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/RemoveUserfromTeam-158E6A88-D0CD-EF11-8EE9-6045BD5B9FB3.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
@@ -11,13 +11,12 @@
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-  <StateCode>0</StateCode>
-  <StatusCode>1</StatusCode>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
   <RunAs>1</RunAs>
   <IsTransacted>1</IsTransacted>
-  <IntroducedVersion>1.34.0.0</IntroducedVersion>
+  <IntroducedVersion>1.41.0.0</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
-  <RendererObjectTypeCode>0</RendererObjectTypeCode>
   <BusinessProcessType>0</BusinessProcessType>
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>none</PrimaryEntity>
