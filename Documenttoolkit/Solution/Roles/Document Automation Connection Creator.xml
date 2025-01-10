@@ -5,6 +5,7 @@
   <RolePrivileges>
     <RolePrivilege name="prvCreateSharePointData" level="Global" />
     <RolePrivilege name="prvReadconnectionreference" level="Global" />
+    <RolePrivilege name="prvReadEntity" level="Global" />
     <RolePrivilege name="prvReadmsdyn_solutioncomponentcountsummary" level="Global" />
     <RolePrivilege name="prvReadmsdyn_solutioncomponentsummary" level="Global" />
     <RolePrivilege name="prvReadPluginAssembly" level="Global" />
