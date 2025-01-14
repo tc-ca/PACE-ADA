@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{44b31d34-ef80-eb11-a812-000d3a4f53f6}" Name="Document Automation Email Importer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/DocumentAutomationEmailImporter-44B31D34-EF80-EB11-A812-000D3A4F53F6.json</JsonFileName>
+<Workflow WorkflowId="{a19ff5a3-8143-ef11-a316-0022483bf2f0}" Name="Document Automation Importer Child Flow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/DocumentAutomationImporterChildFlow-A19FF5A3-8143-EF11-A316-0022483BF2F0.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
@@ -11,15 +11,17 @@
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-  <StateCode>0</StateCode>
-  <StatusCode>1</StatusCode>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
   <RunAs>1</RunAs>
   <IsTransacted>1</IsTransacted>
-  <IntroducedVersion>2102.3.15.1</IntroducedVersion>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <BillingContext>[{"id":"aib_documentautomationapplication_a3a44","type":"UnifiedApp","metadata":{"displayName":"Document Automation Application"}}]</BillingContext>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Document Automation Email Importer" />
+    <LocalizedName languagecode="1033" description="Document Automation Importer Child Flow" />
   </LocalizedNames>
 </Workflow>
