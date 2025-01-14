@@ -19,5 +19,6 @@
     <RolePrivilege name="prvReadSolution" level="Global" />
     <RolePrivilege name="prvWriteconnectionreference" level="Global" />
     <RolePrivilege name="prvWriteSharePointData" level="Global" />
+    <RolePrivilege name="prvWriteWorkflow" level="Global" />
   </RolePrivileges>
 </Role>
