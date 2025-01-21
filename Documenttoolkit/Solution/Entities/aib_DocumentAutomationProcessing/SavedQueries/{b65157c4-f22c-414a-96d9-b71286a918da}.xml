@@ -11,14 +11,14 @@
           <cell name="aib_name" width="300" />
           <cell name="aib_assignedto" width="111" />
           <cell name="aib_comment" width="100" />
-          <cell name="aib_documentautomationconfigurati" width="251" />
+          <cell name="aib_documentautomationconfigurati" width="288" />
           <cell name="aib_filedata" width="100" />
           <cell name="tc_servicerequest" width="131" />
-          <cell name="aib_filemimetype" width="131" />
-          <cell name="aib_filename" width="100" />
-          <cell name="aib_processingstatus" width="139" />
-          <cell name="createdby" width="109" />
-          <cell name="createdon" width="105" />
+          <cell name="aib_filemimetype" width="157" />
+          <cell name="aib_filename" width="174" />
+          <cell name="aib_processingstatus" width="179" />
+          <cell name="createdon" width="154" />
+          <cell name="owningbusinessunit" width="217" />
         </row>
       </grid>
     </layoutxml>
@@ -40,8 +40,8 @@
           <attribute name="aib_filename" />
           <attribute name="aib_processingstatus" />
           <attribute name="createdon" />
-          <attribute name="createdby" />
           <attribute name="tc_servicerequest" />
+          <attribute name="owningbusinessunit" />
         </entity>
       </fetch>
     </fetchxml>
