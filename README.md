@@ -10,7 +10,7 @@ AI Document Automation
 
 ### How to Install
 1) Install the Document automation base kit solution into your environment
-2) Import the CanvasTranslations/CanvasTranslations_1_0_0_3.zip solution into your environment
+2) Import the CanvasTranslations/CanvasTranslations_1_0_0_3_managed.zip solution into your environment
 3) Import the CanvasTranslations/ADATranslationsData.xlsx data into the pace_canvastranslation table
 4) Create a DevOps pipeline with this repository as a source, and $(System.DefaultWorkingDirectory)/Documenttoolkit/Solution as the Solution Input File
 
