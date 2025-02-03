@@ -265,6 +265,7 @@
         ZIndex: =5
 
     "'Comment TextInput1' As text":
+        AccessibleLabel: ="Comment"
         BorderColor: =RGBA(225, 223, 221, 1)
         BorderThickness: =TextBox.BorderThickness
         Default: =LookUp(DocumentsToDisplay, 'Document Automation Processing'=CurrentProcessingGuid).Comment
@@ -316,11 +317,13 @@
 
     "'Document Table Gallery' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
         '#CopilotOverlayLabel': ="Filtered"
+        AccessibleLabel: ="Field Gallary"
         DelayItemLoading: =true
         Height: =584
         Items: =CurrentTablesDataWithLengthAndSize
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
+        TabIndex: =0
         TemplatePadding: =0
         TemplateSize: =41
         Visible: =DocumentFormVisible && Not(HideEveryThing) && Not(ShowHeaders)
@@ -330,6 +333,7 @@
         ZIndex: =8
 
         Data10_TextInput As text:
+            AccessibleLabel: ="Table"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data10_TextInput.Text) && Not(ThisItem.MaxLength10 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data10
@@ -367,6 +371,7 @@
             ZIndex: =1
 
         Data9_TextInput As text:
+            AccessibleLabel: ="Table"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data9_TextInput.Text) && Not(ThisItem.MaxLength9 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data9
@@ -404,6 +409,7 @@
             ZIndex: =2
 
         Data8_TextInput As text:
+            AccessibleLabel: ="Name"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data8_TextInput.Text) && Not(ThisItem.MaxLength8 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data8
@@ -440,6 +446,7 @@
             ZIndex: =3
 
         Data7_TextInput As text:
+            AccessibleLabel: ="Table"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data7_TextInput.Text) && Not(ThisItem.MaxLength7 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data7
@@ -476,6 +483,7 @@
             ZIndex: =4
 
         Data6_TextInput As text:
+            AccessibleLabel: ="Table"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data6_TextInput.Text) && Not(ThisItem.MaxLength6 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data6
@@ -512,6 +520,7 @@
             ZIndex: =5
 
         Data5_TextInput As text:
+            AccessibleLabel: ="Table"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data5_TextInput.Text) && Not(ThisItem.MaxLength5 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data5
@@ -548,6 +557,7 @@
             ZIndex: =6
 
         Data4_TextInput As text:
+            AccessibleLabel: ="Table"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data4_TextInput.Text) && Not(ThisItem.MaxLength4 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data4
@@ -584,6 +594,7 @@
             ZIndex: =7
 
         Data3_TextInput As text:
+            AccessibleLabel: ="Table"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data3_TextInput.Text) && Not(ThisItem.MaxLength3 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data3
@@ -620,6 +631,7 @@
             ZIndex: =8
 
         Data2_TextInput As text:
+            AccessibleLabel: ="Table"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data2_TextInput.Text) && Not(ThisItem.MaxLength2 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data2
@@ -656,6 +668,7 @@
             ZIndex: =9
 
         Data1_TextInput As text:
+            AccessibleLabel: ="Table"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data1_TextInput.Text) && Not(ThisItem.MaxLength1 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data1
@@ -4169,7 +4182,7 @@
         DisplayMode: =If(ShowHeaders, DisplayMode.Edit, DisplayMode.View)
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderColor: ='Tables Tab Button'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderThickness: =1
         Font: =Font.'Segoe UI'
         FontWeight: =If(ShowHeaders, FontWeight.Normal, FontWeight.Semibold)
         Height: =25
@@ -4217,7 +4230,7 @@
         DisplayMode: =If(ShowHeaders, DisplayMode.View, DisplayMode.Edit)
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderColor: ='Headers Tab Button'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderThickness: =1
         Font: =Font.'Segoe UI'
         FontWeight: =If(ShowHeaders, FontWeight.Semibold, FontWeight.Normal)
         Height: =25
@@ -4396,6 +4409,7 @@
         PressedBorderColor: =ColorFade('Delete Document Icon2'.BorderColor, 20%)
         PressedColor: =ColorFade('Delete Document Icon2'.Color, 20%)
         PressedFill: ='Delete Document Icon2'.Fill
+        TabIndex: =1
         Visible: =And(Not(HideEveryThing),IsPowerUser)
         Width: =150.00
         X: =1192.00
@@ -4537,6 +4551,7 @@
 
     "'Document Details Title_3' As label":
         FocusedBorderColor: ='Document Details Title_3'.BorderColor
+        FocusedBorderThickness: =1
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Semibold
         Height: =45
@@ -4554,6 +4569,7 @@
         PressedColor: ='Document Details Title_3'.Color
         PressedFill: ='Document Details Title_3'.Fill
         Size: =16.01
+        TabIndex: =0  
         Text: =CurrentDocumentName
         Width: =500.00
         X: =24

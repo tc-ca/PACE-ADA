@@ -294,6 +294,7 @@
         ZIndex: =5
 
     "'Comment TextInput1_1' As text":
+        AccessibleLabel: ="Comment"
         BorderColor: =RGBA(225, 223, 221, 1)
         BorderThickness: =TextBox.BorderThickness
         Default: =LookUp(DocumentsToDisplay, 'Document Automation Processing'=CurrentProcessingGuid).Comment
@@ -345,11 +346,14 @@
 
     "'Document Table Gallery_1' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
         '#CopilotOverlayLabel': ="Filtered"
+        AccessibleLabel: ="text"
         DelayItemLoading: =true
         Height: =584
         Items: =CurrentTablesDataWithLengthAndSize
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
+        TabIndex: |
+            =0
         TemplatePadding: =0
         TemplateSize: =41
         Visible: =DocumentFormVisible && Not(HideEveryThing) && Not(ShowHeaders)
@@ -359,6 +363,7 @@
         ZIndex: =8
 
         Data10_TextInput_2 As text:
+            AccessibleLabel: ="Row"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data10_TextInput_2.Text) && Not(ThisItem.MaxLength10 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data10
@@ -396,6 +401,7 @@
             ZIndex: =1
 
         Data9_TextInput_2 As text:
+            AccessibleLabel: ="Row"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data9_TextInput_2.Text) && Not(ThisItem.MaxLength9 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data9
@@ -433,6 +439,7 @@
             ZIndex: =2
 
         Data8_TextInput_2 As text:
+            AccessibleLabel: ="tb"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data8_TextInput_2.Text) && Not(ThisItem.MaxLength8 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data8
@@ -469,6 +476,7 @@
             ZIndex: =3
 
         Data7_TextInput_2 As text:
+            AccessibleLabel: ="tb"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data7_TextInput_2.Text) && Not(ThisItem.MaxLength7 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data7
@@ -505,6 +513,7 @@
             ZIndex: =4
 
         Data6_TextInput_2 As text:
+            AccessibleLabel: ="tb"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data6_TextInput_2.Text) && Not(ThisItem.MaxLength6 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data6
@@ -541,6 +550,7 @@
             ZIndex: =5
 
         Data5_TextInput_2 As text:
+            AccessibleLabel: ="tb"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data5_TextInput_2.Text) && Not(ThisItem.MaxLength5 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data5
@@ -577,6 +587,7 @@
             ZIndex: =6
 
         Data4_TextInput_2 As text:
+            AccessibleLabel: ="Contributor"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data4_TextInput_2.Text) && Not(ThisItem.MaxLength4 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data4
@@ -613,6 +624,7 @@
             ZIndex: =7
 
         Data3_TextInput_2 As text:
+            AccessibleLabel: ="Date"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data3_TextInput_2.Text) && Not(ThisItem.MaxLength3 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data3
@@ -649,6 +661,7 @@
             ZIndex: =8
 
         Data2_TextInput_2 As text:
+            AccessibleLabel: ="Date"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data2_TextInput_2.Text) && Not(ThisItem.MaxLength2 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data2
@@ -685,6 +698,7 @@
             ZIndex: =9
 
         Data1_TextInput_2 As text:
+            AccessibleLabel: ="Contributor"
             BorderColor: =If(ThisItem.isHeader, RGBA(0, 0, 0, 0), If(IsBlank(Data1_TextInput_2.Text) && Not(ThisItem.MaxLength1 = 0), Color.Red, TextBox.BorderColor))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.aib_data1
@@ -800,6 +814,7 @@
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Size: =10.00
+                TabIndex: =1
                 Tooltip: =Parent.DisplayName
                 Width: =250.00
                 X: =0.00
@@ -901,6 +916,7 @@
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Size: =10.00
+                TabIndex: =1
                 Tooltip: =Parent.DisplayName
                 Width: =250.00
                 X: =0.00
@@ -4216,6 +4232,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey36_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4230,6 +4247,7 @@
                 PressedColor: =DataCardKey36_1.Color
                 PressedFill: =DataCardKey36_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -4271,6 +4289,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence36_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4285,6 +4304,7 @@
                 PressedColor: =DataCardConfidence36_1.Color
                 PressedFill: =DataCardConfidence36_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata36
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -4314,6 +4334,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey37_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4328,6 +4349,7 @@
                 PressedColor: =DataCardKey37_1.Color
                 PressedFill: =DataCardKey37_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -4369,6 +4391,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence37_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4383,6 +4406,7 @@
                 PressedColor: =DataCardConfidence37_1.Color
                 PressedFill: =DataCardConfidence37_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata37
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -4412,6 +4436,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey38_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4426,6 +4451,7 @@
                 PressedColor: =DataCardKey38_1.Color
                 PressedFill: =DataCardKey38_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -4467,6 +4493,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence38_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4481,6 +4508,7 @@
                 PressedColor: =DataCardConfidence38_1.Color
                 PressedFill: =DataCardConfidence38_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata38
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -4510,6 +4538,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey39_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4524,6 +4553,7 @@
                 PressedColor: =DataCardKey39_1.Color
                 PressedFill: =DataCardKey39_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -4565,6 +4595,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence39_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4579,6 +4610,8 @@
                 PressedColor: =DataCardConfidence39_1.Color
                 PressedFill: =DataCardConfidence39_1.Fill
                 Size: =12.00
+                TabIndex: |
+                    =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata39
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -4608,6 +4641,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey40_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4622,6 +4656,7 @@
                 PressedColor: =DataCardKey40_1.Color
                 PressedFill: =DataCardKey40_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -4663,6 +4698,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence40_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4677,6 +4713,7 @@
                 PressedColor: =DataCardConfidence40_1.Color
                 PressedFill: =DataCardConfidence40_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata40
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -4706,6 +4743,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey41_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4720,6 +4758,7 @@
                 PressedColor: =DataCardKey41_1.Color
                 PressedFill: =DataCardKey41_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -4761,6 +4800,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence41_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4775,6 +4815,7 @@
                 PressedColor: =DataCardConfidence41_1.Color
                 PressedFill: =DataCardConfidence41_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata41
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -4804,6 +4845,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey42_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4818,6 +4860,7 @@
                 PressedColor: =DataCardKey42_1.Color
                 PressedFill: =DataCardKey42_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -4859,6 +4902,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence42_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4873,6 +4917,7 @@
                 PressedColor: =DataCardConfidence42_1.Color
                 PressedFill: =DataCardConfidence42_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata42
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -4902,6 +4947,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey43_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4916,6 +4962,7 @@
                 PressedColor: =DataCardKey43_1.Color
                 PressedFill: =DataCardKey43_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -4957,6 +5004,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence43_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -4971,6 +5019,7 @@
                 PressedColor: =DataCardConfidence43_1.Color
                 PressedFill: =DataCardConfidence43_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata43
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -5000,6 +5049,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey44_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5014,6 +5064,7 @@
                 PressedColor: =DataCardKey44_1.Color
                 PressedFill: =DataCardKey44_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -5055,6 +5106,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence44_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5069,6 +5121,7 @@
                 PressedColor: =DataCardConfidence44_1.Color
                 PressedFill: =DataCardConfidence44_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata44
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -5098,6 +5151,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey45_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5112,6 +5166,7 @@
                 PressedColor: =DataCardKey45_1.Color
                 PressedFill: =DataCardKey45_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -5153,6 +5208,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence45_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5167,6 +5223,7 @@
                 PressedColor: =DataCardConfidence45_1.Color
                 PressedFill: =DataCardConfidence45_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata45
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -5196,6 +5253,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey46_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5210,6 +5268,7 @@
                 PressedColor: =DataCardKey46_1.Color
                 PressedFill: =DataCardKey46_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -5251,6 +5310,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence46_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5265,6 +5325,7 @@
                 PressedColor: =DataCardConfidence46_1.Color
                 PressedFill: =DataCardConfidence46_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata46
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -5294,6 +5355,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey47_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5308,6 +5370,7 @@
                 PressedColor: =DataCardKey47_1.Color
                 PressedFill: =DataCardKey47_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -5349,6 +5412,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence47_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5363,6 +5427,7 @@
                 PressedColor: =DataCardConfidence47_1.Color
                 PressedFill: =DataCardConfidence47_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata47
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -5392,6 +5457,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey48_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5406,6 +5472,7 @@
                 PressedColor: =DataCardKey48_1.Color
                 PressedFill: =DataCardKey48_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -5447,6 +5514,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence48_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5461,6 +5529,7 @@
                 PressedColor: =DataCardConfidence48_1.Color
                 PressedFill: =DataCardConfidence48_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata48
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -5490,6 +5559,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey49_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5504,6 +5574,7 @@
                 PressedColor: =DataCardKey49_1.Color
                 PressedFill: =DataCardKey49_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -5545,6 +5616,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence49_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5559,6 +5631,7 @@
                 PressedColor: =DataCardConfidence49_1.Color
                 PressedFill: =DataCardConfidence49_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata49
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -5588,6 +5661,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey50_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5602,6 +5676,7 @@
                 PressedColor: =DataCardKey50_1.Color
                 PressedFill: =DataCardKey50_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -5643,6 +5718,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence50_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5657,6 +5733,7 @@
                 PressedColor: =DataCardConfidence50_1.Color
                 PressedFill: =DataCardConfidence50_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata50
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -5686,6 +5763,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey51_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5700,6 +5778,7 @@
                 PressedColor: =DataCardKey51_1.Color
                 PressedFill: =DataCardKey51_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -5741,6 +5820,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence51_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5755,6 +5835,7 @@
                 PressedColor: =DataCardConfidence51_1.Color
                 PressedFill: =DataCardConfidence51_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata51
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -5784,6 +5865,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey52_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5798,6 +5880,7 @@
                 PressedColor: =DataCardKey52_1.Color
                 PressedFill: =DataCardKey52_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -5839,6 +5922,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence52_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5853,6 +5937,7 @@
                 PressedColor: =DataCardConfidence52_1.Color
                 PressedFill: =DataCardConfidence52_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata52
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -5882,6 +5967,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey53_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5896,6 +5982,7 @@
                 PressedColor: =DataCardKey53_1.Color
                 PressedFill: =DataCardKey53_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -5937,6 +6024,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence53_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5951,6 +6039,7 @@
                 PressedColor: =DataCardConfidence53_1.Color
                 PressedFill: =DataCardConfidence53_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata53
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -5980,6 +6069,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey54_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -5994,6 +6084,8 @@
                 PressedColor: =DataCardKey54_1.Color
                 PressedFill: =DataCardKey54_1.Fill
                 Size: =12.00
+                TabIndex: |
+                    =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -6035,6 +6127,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence54_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6049,6 +6142,7 @@
                 PressedColor: =DataCardConfidence54_1.Color
                 PressedFill: =DataCardConfidence54_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata54
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -6078,6 +6172,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey55_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6092,6 +6187,7 @@
                 PressedColor: =DataCardKey55_1.Color
                 PressedFill: =DataCardKey55_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -6133,6 +6229,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence55_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6147,6 +6244,7 @@
                 PressedColor: =DataCardConfidence55_1.Color
                 PressedFill: =DataCardConfidence55_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata55
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -6176,6 +6274,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey56_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6190,6 +6289,7 @@
                 PressedColor: =DataCardKey56_1.Color
                 PressedFill: =DataCardKey56_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -6231,6 +6331,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence56_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6245,6 +6346,7 @@
                 PressedColor: =DataCardConfidence56_1.Color
                 PressedFill: =DataCardConfidence56_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata56
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -6274,6 +6376,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey57_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6288,6 +6391,7 @@
                 PressedColor: =DataCardKey57_1.Color
                 PressedFill: =DataCardKey57_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -6329,6 +6433,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence57_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6343,6 +6448,7 @@
                 PressedColor: =DataCardConfidence57_1.Color
                 PressedFill: =DataCardConfidence57_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata57
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -6372,6 +6478,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey58_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6386,6 +6493,7 @@
                 PressedColor: =DataCardKey58_1.Color
                 PressedFill: =DataCardKey58_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -6427,6 +6535,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence58_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6441,6 +6550,7 @@
                 PressedColor: =DataCardConfidence58_1.Color
                 PressedFill: =DataCardConfidence58_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata58
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -6470,6 +6580,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey59_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6484,6 +6595,7 @@
                 PressedColor: =DataCardKey59_1.Color
                 PressedFill: =DataCardKey59_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -6525,6 +6637,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence59_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6539,6 +6652,7 @@
                 PressedColor: =DataCardConfidence59_1.Color
                 PressedFill: =DataCardConfidence59_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata59
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -6568,6 +6682,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey60_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6582,6 +6697,7 @@
                 PressedColor: =DataCardKey60_1.Color
                 PressedFill: =DataCardKey60_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -6623,6 +6739,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence60_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6637,6 +6754,7 @@
                 PressedColor: =DataCardConfidence60_1.Color
                 PressedFill: =DataCardConfidence60_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata60
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -6666,6 +6784,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey61_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6680,6 +6799,7 @@
                 PressedColor: =DataCardKey61_1.Color
                 PressedFill: =DataCardKey61_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -6721,6 +6841,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence61_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6735,6 +6856,7 @@
                 PressedColor: =DataCardConfidence61_1.Color
                 PressedFill: =DataCardConfidence61_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata61
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -6764,6 +6886,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey62_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6778,6 +6901,7 @@
                 PressedColor: =DataCardKey62_1.Color
                 PressedFill: =DataCardKey62_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -6819,6 +6943,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence62_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6833,6 +6958,7 @@
                 PressedColor: =DataCardConfidence62_1.Color
                 PressedFill: =DataCardConfidence62_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata62
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -6862,6 +6988,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey63_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6876,6 +7003,7 @@
                 PressedColor: =DataCardKey63_1.Color
                 PressedFill: =DataCardKey63_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -6917,6 +7045,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence63_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6931,6 +7060,7 @@
                 PressedColor: =DataCardConfidence63_1.Color
                 PressedFill: =DataCardConfidence63_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata63
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -6960,6 +7090,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey64_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -6974,6 +7105,7 @@
                 PressedColor: =DataCardKey64_1.Color
                 PressedFill: =DataCardKey64_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -7015,6 +7147,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence64_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7029,6 +7162,7 @@
                 PressedColor: =DataCardConfidence64_1.Color
                 PressedFill: =DataCardConfidence64_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata64
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -7058,6 +7192,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey65_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7072,6 +7207,7 @@
                 PressedColor: =DataCardKey65_1.Color
                 PressedFill: =DataCardKey65_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -7113,6 +7249,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence65_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7127,6 +7264,7 @@
                 PressedColor: =DataCardConfidence65_1.Color
                 PressedFill: =DataCardConfidence65_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata65
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -7156,6 +7294,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey66_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7170,6 +7309,7 @@
                 PressedColor: =DataCardKey66_1.Color
                 PressedFill: =DataCardKey66_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -7211,6 +7351,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence66_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7225,6 +7366,7 @@
                 PressedColor: =DataCardConfidence66_1.Color
                 PressedFill: =DataCardConfidence66_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata66
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -7254,6 +7396,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey67_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7268,6 +7411,7 @@
                 PressedColor: =DataCardKey67_1.Color
                 PressedFill: =DataCardKey67_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -7309,6 +7453,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence67_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7323,6 +7468,7 @@
                 PressedColor: =DataCardConfidence67_1.Color
                 PressedFill: =DataCardConfidence67_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata67
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -7352,6 +7498,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey68_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7366,6 +7513,7 @@
                 PressedColor: =DataCardKey68_1.Color
                 PressedFill: =DataCardKey68_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -7407,6 +7555,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence68_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7421,6 +7570,7 @@
                 PressedColor: =DataCardConfidence68_1.Color
                 PressedFill: =DataCardConfidence68_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata68
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -7450,6 +7600,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey69_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7464,6 +7615,7 @@
                 PressedColor: =DataCardKey69_1.Color
                 PressedFill: =DataCardKey69_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -7505,6 +7657,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence69_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7519,6 +7672,7 @@
                 PressedColor: =DataCardConfidence69_1.Color
                 PressedFill: =DataCardConfidence69_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata69
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -7548,6 +7702,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey70_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7562,6 +7717,7 @@
                 PressedColor: =DataCardKey70_1.Color
                 PressedFill: =DataCardKey70_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -7603,6 +7759,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence70_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7617,6 +7774,7 @@
                 PressedColor: =DataCardConfidence70_1.Color
                 PressedFill: =DataCardConfidence70_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata70
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -7646,6 +7804,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey71_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7660,6 +7819,7 @@
                 PressedColor: =DataCardKey71_1.Color
                 PressedFill: =DataCardKey71_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -7701,6 +7861,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence71_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7715,6 +7876,7 @@
                 PressedColor: =DataCardConfidence71_1.Color
                 PressedFill: =DataCardConfidence71_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata71
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -7744,6 +7906,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey72_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7758,6 +7921,7 @@
                 PressedColor: =DataCardKey72_1.Color
                 PressedFill: =DataCardKey72_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -7799,6 +7963,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence72_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7813,6 +7978,7 @@
                 PressedColor: =DataCardConfidence72_1.Color
                 PressedFill: =DataCardConfidence72_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata72
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -7842,6 +8008,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey73_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7856,6 +8023,7 @@
                 PressedColor: =DataCardKey73_1.Color
                 PressedFill: =DataCardKey73_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -7897,6 +8065,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence73_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7911,6 +8080,7 @@
                 PressedColor: =DataCardConfidence73_1.Color
                 PressedFill: =DataCardConfidence73_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata73
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -7940,6 +8110,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey74_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -7954,6 +8125,7 @@
                 PressedColor: =DataCardKey74_1.Color
                 PressedFill: =DataCardKey74_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -7995,6 +8167,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence74_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8009,6 +8182,7 @@
                 PressedColor: =DataCardConfidence74_1.Color
                 PressedFill: =DataCardConfidence74_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata74
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -8038,6 +8212,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey75_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8052,6 +8227,7 @@
                 PressedColor: =DataCardKey75_1.Color
                 PressedFill: =DataCardKey75_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -8093,6 +8269,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence75_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8107,6 +8284,7 @@
                 PressedColor: =DataCardConfidence75_1.Color
                 PressedFill: =DataCardConfidence75_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata75
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -8136,6 +8314,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey76_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8150,6 +8329,7 @@
                 PressedColor: =DataCardKey76_1.Color
                 PressedFill: =DataCardKey76_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -8191,6 +8371,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence76_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8205,6 +8386,7 @@
                 PressedColor: =DataCardConfidence76_1.Color
                 PressedFill: =DataCardConfidence76_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata76
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -8234,6 +8416,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey77_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8248,6 +8431,7 @@
                 PressedColor: =DataCardKey77_1.Color
                 PressedFill: =DataCardKey77_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -8289,6 +8473,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence77_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8303,6 +8488,7 @@
                 PressedColor: =DataCardConfidence77_1.Color
                 PressedFill: =DataCardConfidence77_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata77
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -8332,6 +8518,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey78_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8346,6 +8533,7 @@
                 PressedColor: =DataCardKey78_1.Color
                 PressedFill: =DataCardKey78_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -8387,6 +8575,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence78_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8401,6 +8590,7 @@
                 PressedColor: =DataCardConfidence78_1.Color
                 PressedFill: =DataCardConfidence78_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata78
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -8430,6 +8620,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey79_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8444,6 +8635,7 @@
                 PressedColor: =DataCardKey79_1.Color
                 PressedFill: =DataCardKey79_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -8485,6 +8677,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence79_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8499,6 +8692,7 @@
                 PressedColor: =DataCardConfidence79_1.Color
                 PressedFill: =DataCardConfidence79_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata79
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -8528,6 +8722,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey80_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8542,6 +8737,7 @@
                 PressedColor: =DataCardKey80_1.Color
                 PressedFill: =DataCardKey80_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -8583,6 +8779,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(255, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence80_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8597,6 +8794,7 @@
                 PressedColor: =DataCardConfidence80_1.Color
                 PressedFill: =DataCardConfidence80_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata80
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -8626,6 +8824,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey81_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8640,6 +8839,7 @@
                 PressedColor: =DataCardKey81_1.Color
                 PressedFill: =DataCardKey81_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -8681,6 +8881,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence81_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8695,6 +8896,7 @@
                 PressedColor: =DataCardConfidence81_1.Color
                 PressedFill: =DataCardConfidence81_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata81
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -8724,6 +8926,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey82_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8738,6 +8941,7 @@
                 PressedColor: =DataCardKey82_1.Color
                 PressedFill: =DataCardKey82_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -8779,6 +8983,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence82_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8793,6 +8998,7 @@
                 PressedColor: =DataCardConfidence82_1.Color
                 PressedFill: =DataCardConfidence82_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata82
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -8822,6 +9028,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey83_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8836,6 +9043,7 @@
                 PressedColor: =DataCardKey83_1.Color
                 PressedFill: =DataCardKey83_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -8877,6 +9085,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence83_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8891,6 +9100,7 @@
                 PressedColor: =DataCardConfidence83_1.Color
                 PressedFill: =DataCardConfidence83_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata83
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -8920,6 +9130,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey84_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8934,6 +9145,7 @@
                 PressedColor: =DataCardKey84_1.Color
                 PressedFill: =DataCardKey84_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -8975,6 +9187,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence84_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -8989,6 +9202,7 @@
                 PressedColor: =DataCardConfidence84_1.Color
                 PressedFill: =DataCardConfidence84_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata84
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -9018,6 +9232,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey85_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9032,6 +9247,7 @@
                 PressedColor: =DataCardKey85_1.Color
                 PressedFill: =DataCardKey85_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -9073,6 +9289,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence85_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9087,6 +9304,7 @@
                 PressedColor: =DataCardConfidence85_1.Color
                 PressedFill: =DataCardConfidence85_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata85
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -9116,6 +9334,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey86_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9130,6 +9349,7 @@
                 PressedColor: =DataCardKey86_1.Color
                 PressedFill: =DataCardKey86_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -9171,6 +9391,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence86_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9185,6 +9406,7 @@
                 PressedColor: =DataCardConfidence86_1.Color
                 PressedFill: =DataCardConfidence86_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata86
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -9214,6 +9436,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey87_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9228,6 +9451,7 @@
                 PressedColor: =DataCardKey87_1.Color
                 PressedFill: =DataCardKey87_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -9269,6 +9493,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence87_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9283,6 +9508,7 @@
                 PressedColor: =DataCardConfidence87_1.Color
                 PressedFill: =DataCardConfidence87_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata87
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -9312,6 +9538,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey88_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9326,6 +9553,7 @@
                 PressedColor: =DataCardKey88_1.Color
                 PressedFill: =DataCardKey88_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -9367,6 +9595,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence88_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9381,6 +9610,7 @@
                 PressedColor: =DataCardConfidence88_1.Color
                 PressedFill: =DataCardConfidence88_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata88
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -9410,6 +9640,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey89_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9424,6 +9655,7 @@
                 PressedColor: =DataCardKey89_1.Color
                 PressedFill: =DataCardKey89_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -9465,6 +9697,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence89_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9479,6 +9712,7 @@
                 PressedColor: =DataCardConfidence89_1.Color
                 PressedFill: =DataCardConfidence89_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata89
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -9508,6 +9742,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey90_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9522,6 +9757,7 @@
                 PressedColor: =DataCardKey90_1.Color
                 PressedFill: =DataCardKey90_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -9563,6 +9799,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence90_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9577,6 +9814,7 @@
                 PressedColor: =DataCardConfidence90_1.Color
                 PressedFill: =DataCardConfidence90_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata90
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -9606,6 +9844,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey91_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9620,6 +9859,7 @@
                 PressedColor: =DataCardKey91_1.Color
                 PressedFill: =DataCardKey91_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -9661,6 +9901,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence91_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9675,6 +9916,7 @@
                 PressedColor: =DataCardConfidence91_1.Color
                 PressedFill: =DataCardConfidence91_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata91
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -9704,6 +9946,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey92_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9718,6 +9961,7 @@
                 PressedColor: =DataCardKey92_1.Color
                 PressedFill: =DataCardKey92_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -9759,6 +10003,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence92_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9773,6 +10018,7 @@
                 PressedColor: =DataCardConfidence92_1.Color
                 PressedFill: =DataCardConfidence92_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata92
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -9802,6 +10048,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey93_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9816,6 +10063,7 @@
                 PressedColor: =DataCardKey93_1.Color
                 PressedFill: =DataCardKey93_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -9857,6 +10105,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence93_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9871,6 +10120,7 @@
                 PressedColor: =DataCardConfidence93_1.Color
                 PressedFill: =DataCardConfidence93_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata93
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -9900,6 +10150,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey94_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9914,6 +10165,7 @@
                 PressedColor: =DataCardKey94_1.Color
                 PressedFill: =DataCardKey94_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -9955,6 +10207,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence94_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -9969,6 +10222,7 @@
                 PressedColor: =DataCardConfidence94_1.Color
                 PressedFill: =DataCardConfidence94_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata94
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -9998,6 +10252,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey95_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10012,6 +10267,7 @@
                 PressedColor: =DataCardKey95_1.Color
                 PressedFill: =DataCardKey95_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -10053,6 +10309,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence95_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10067,6 +10324,7 @@
                 PressedColor: =DataCardConfidence95_1.Color
                 PressedFill: =DataCardConfidence95_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata95
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -10096,6 +10354,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey96_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10110,6 +10369,7 @@
                 PressedColor: =DataCardKey96_1.Color
                 PressedFill: =DataCardKey96_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -10151,6 +10411,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence96_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10165,6 +10426,7 @@
                 PressedColor: =DataCardConfidence96_1.Color
                 PressedFill: =DataCardConfidence96_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata96
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -10194,6 +10456,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey97_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10208,6 +10471,7 @@
                 PressedColor: =DataCardKey97_1.Color
                 PressedFill: =DataCardKey97_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -10249,6 +10513,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence97_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10263,6 +10528,7 @@
                 PressedColor: =DataCardConfidence97_1.Color
                 PressedFill: =DataCardConfidence97_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata97
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -10292,6 +10558,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey98_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10306,6 +10573,7 @@
                 PressedColor: =DataCardKey98_1.Color
                 PressedFill: =DataCardKey98_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -10347,6 +10615,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence98_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10361,6 +10630,7 @@
                 PressedColor: =DataCardConfidence98_1.Color
                 PressedFill: =DataCardConfidence98_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata98
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -10390,6 +10660,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey99_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10404,6 +10675,7 @@
                 PressedColor: =DataCardKey99_1.Color
                 PressedFill: =DataCardKey99_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -10445,6 +10717,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence99_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10459,6 +10732,7 @@
                 PressedColor: =DataCardConfidence99_1.Color
                 PressedFill: =DataCardConfidence99_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata99
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -10488,6 +10762,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey100_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10502,6 +10777,7 @@
                 PressedColor: =DataCardKey100_1.Color
                 PressedFill: =DataCardKey100_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -10543,6 +10819,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence100_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10557,6 +10834,7 @@
                 PressedColor: =DataCardConfidence100_1.Color
                 PressedFill: =DataCardConfidence100_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata100
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -10586,6 +10864,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey101_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10600,6 +10879,7 @@
                 PressedColor: =DataCardKey101_1.Color
                 PressedFill: =DataCardKey101_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -10641,6 +10921,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence101_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10655,6 +10936,7 @@
                 PressedColor: =DataCardConfidence101_1.Color
                 PressedFill: =DataCardConfidence101_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata101
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -10684,6 +10966,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey102_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10698,6 +10981,7 @@
                 PressedColor: =DataCardKey102_1.Color
                 PressedFill: =DataCardKey102_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -10739,6 +11023,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence102_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10753,6 +11038,7 @@
                 PressedColor: =DataCardConfidence102_1.Color
                 PressedFill: =DataCardConfidence102_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata102
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -10782,6 +11068,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey103_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10796,6 +11083,7 @@
                 PressedColor: =DataCardKey103_1.Color
                 PressedFill: =DataCardKey103_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -10837,6 +11125,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence103_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10851,6 +11140,7 @@
                 PressedColor: =DataCardConfidence103_1.Color
                 PressedFill: =DataCardConfidence103_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata103
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -10880,6 +11170,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey104_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10894,6 +11185,7 @@
                 PressedColor: =DataCardKey104_1.Color
                 PressedFill: =DataCardKey104_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -10935,6 +11227,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence104_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10949,6 +11242,7 @@
                 PressedColor: =DataCardConfidence104_1.Color
                 PressedFill: =DataCardConfidence104_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata104
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -10978,6 +11272,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey105_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -10992,6 +11287,7 @@
                 PressedColor: =DataCardKey105_1.Color
                 PressedFill: =DataCardKey105_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -11033,6 +11329,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence105_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11047,6 +11344,7 @@
                 PressedColor: =DataCardConfidence105_1.Color
                 PressedFill: =DataCardConfidence105_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata105
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -11076,6 +11374,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey106_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11090,6 +11389,7 @@
                 PressedColor: =DataCardKey106_1.Color
                 PressedFill: =DataCardKey106_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -11131,6 +11431,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence106_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11145,6 +11446,7 @@
                 PressedColor: =DataCardConfidence106_1.Color
                 PressedFill: =DataCardConfidence106_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata106
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -11174,6 +11476,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey107_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11188,6 +11491,7 @@
                 PressedColor: =DataCardKey107_1.Color
                 PressedFill: =DataCardKey107_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -11229,6 +11533,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence107_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11243,6 +11548,7 @@
                 PressedColor: =DataCardConfidence107_1.Color
                 PressedFill: =DataCardConfidence107_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata107
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -11272,6 +11578,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey108_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11286,6 +11593,7 @@
                 PressedColor: =DataCardKey108_1.Color
                 PressedFill: =DataCardKey108_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -11327,6 +11635,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence108_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11341,6 +11650,7 @@
                 PressedColor: =DataCardConfidence108_1.Color
                 PressedFill: =DataCardConfidence108_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata108
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -11370,6 +11680,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey109_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11384,6 +11695,7 @@
                 PressedColor: =DataCardKey109_1.Color
                 PressedFill: =DataCardKey109_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -11425,6 +11737,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence109_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11439,6 +11752,7 @@
                 PressedColor: =DataCardConfidence109_1.Color
                 PressedFill: =DataCardConfidence109_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata109
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -11468,6 +11782,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey110_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11482,6 +11797,7 @@
                 PressedColor: =DataCardKey110_1.Color
                 PressedFill: =DataCardKey110_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -11523,6 +11839,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence110_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11537,6 +11854,7 @@
                 PressedColor: =DataCardConfidence110_1.Color
                 PressedFill: =DataCardConfidence110_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata110
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -11566,6 +11884,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey111_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11580,6 +11899,7 @@
                 PressedColor: =DataCardKey111_1.Color
                 PressedFill: =DataCardKey111_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -11621,6 +11941,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence111_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11635,6 +11956,7 @@
                 PressedColor: =DataCardConfidence111_1.Color
                 PressedFill: =DataCardConfidence111_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata111
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -11664,6 +11986,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey112_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11678,6 +12001,7 @@
                 PressedColor: =DataCardKey112_1.Color
                 PressedFill: =DataCardKey112_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -11719,6 +12043,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence112_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11733,6 +12058,7 @@
                 PressedColor: =DataCardConfidence112_1.Color
                 PressedFill: =DataCardConfidence112_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata112
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -11762,6 +12088,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey113_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11776,6 +12103,7 @@
                 PressedColor: =DataCardKey113_1.Color
                 PressedFill: =DataCardKey113_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -11817,6 +12145,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence113_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11831,6 +12160,7 @@
                 PressedColor: =DataCardConfidence113_1.Color
                 PressedFill: =DataCardConfidence113_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata113
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -11860,6 +12190,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey114_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11874,6 +12205,7 @@
                 PressedColor: =DataCardKey114_1.Color
                 PressedFill: =DataCardKey114_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -11915,6 +12247,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence114_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11929,6 +12262,7 @@
                 PressedColor: =DataCardConfidence114_1.Color
                 PressedFill: =DataCardConfidence114_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata114
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -11958,6 +12292,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey115_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -11972,6 +12307,7 @@
                 PressedColor: =DataCardKey115_1.Color
                 PressedFill: =DataCardKey115_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -12013,6 +12349,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence115_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12027,6 +12364,7 @@
                 PressedColor: =DataCardConfidence115_1.Color
                 PressedFill: =DataCardConfidence115_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata115
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -12056,6 +12394,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey116_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12070,6 +12409,7 @@
                 PressedColor: =DataCardKey116_1.Color
                 PressedFill: =DataCardKey116_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -12111,6 +12451,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence116_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12125,6 +12466,7 @@
                 PressedColor: =DataCardConfidence116_1.Color
                 PressedFill: =DataCardConfidence116_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata116
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -12154,6 +12496,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey117_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12168,6 +12511,7 @@
                 PressedColor: =DataCardKey117_1.Color
                 PressedFill: =DataCardKey117_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -12209,6 +12553,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence117_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12223,6 +12568,7 @@
                 PressedColor: =DataCardConfidence117_1.Color
                 PressedFill: =DataCardConfidence117_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata117
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -12252,6 +12598,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey118_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12266,6 +12613,7 @@
                 PressedColor: =DataCardKey118_1.Color
                 PressedFill: =DataCardKey118_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -12307,6 +12655,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence118_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12321,6 +12670,7 @@
                 PressedColor: =DataCardConfidence118_1.Color
                 PressedFill: =DataCardConfidence118_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata118
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -12350,6 +12700,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey119_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12364,6 +12715,7 @@
                 PressedColor: =DataCardKey119_1.Color
                 PressedFill: =DataCardKey119_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -12405,6 +12757,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence119_1.BorderColor
+                FocusedBorderThickness: =01
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12419,6 +12772,7 @@
                 PressedColor: =DataCardConfidence119_1.Color
                 PressedFill: =DataCardConfidence119_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata119
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -12448,6 +12802,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey120_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12462,6 +12817,7 @@
                 PressedColor: =DataCardKey120_1.Color
                 PressedFill: =DataCardKey120_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -12503,6 +12859,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence120_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12517,6 +12874,7 @@
                 PressedColor: =DataCardConfidence120_1.Color
                 PressedFill: =DataCardConfidence120_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata120
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -12546,6 +12904,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey121_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12560,6 +12919,7 @@
                 PressedColor: =DataCardKey121_1.Color
                 PressedFill: =DataCardKey121_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -12601,6 +12961,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence121_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12615,6 +12976,7 @@
                 PressedColor: =DataCardConfidence121_1.Color
                 PressedFill: =DataCardConfidence121_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata121
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -12644,6 +13006,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey122_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12658,6 +13021,7 @@
                 PressedColor: =DataCardKey122_1.Color
                 PressedFill: =DataCardKey122_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -12699,6 +13063,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence122_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12713,6 +13078,7 @@
                 PressedColor: =DataCardConfidence122_1.Color
                 PressedFill: =DataCardConfidence122_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata122
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -12742,6 +13108,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey123_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12756,6 +13123,7 @@
                 PressedColor: =DataCardKey123_1.Color
                 PressedFill: =DataCardKey123_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -12797,6 +13165,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence123_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12811,6 +13180,7 @@
                 PressedColor: =DataCardConfidence123_1.Color
                 PressedFill: =DataCardConfidence123_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata123
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -12840,6 +13210,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey124_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12854,6 +13225,7 @@
                 PressedColor: =DataCardKey124_1.Color
                 PressedFill: =DataCardKey124_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -12895,6 +13267,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence124_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12909,6 +13282,7 @@
                 PressedColor: =DataCardConfidence124_1.Color
                 PressedFill: =DataCardConfidence124_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata124
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -12938,6 +13312,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey125_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -12952,6 +13327,7 @@
                 PressedColor: =DataCardKey125_1.Color
                 PressedFill: =DataCardKey125_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -12993,6 +13369,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence125_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13007,6 +13384,7 @@
                 PressedColor: =DataCardConfidence125_1.Color
                 PressedFill: =DataCardConfidence125_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata125
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -13036,6 +13414,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey126_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13050,6 +13429,7 @@
                 PressedColor: =DataCardKey126_1.Color
                 PressedFill: =DataCardKey126_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -13091,6 +13471,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence126_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13105,6 +13486,7 @@
                 PressedColor: =DataCardConfidence126_1.Color
                 PressedFill: =DataCardConfidence126_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata126
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -13134,6 +13516,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey127_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13148,6 +13531,7 @@
                 PressedColor: =DataCardKey127_1.Color
                 PressedFill: =DataCardKey127_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -13189,6 +13573,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence127_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13203,6 +13588,7 @@
                 PressedColor: =DataCardConfidence127_1.Color
                 PressedFill: =DataCardConfidence127_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata127
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -13232,6 +13618,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey128_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13246,6 +13633,7 @@
                 PressedColor: =DataCardKey128_1.Color
                 PressedFill: =DataCardKey128_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -13287,6 +13675,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence128_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13301,6 +13690,7 @@
                 PressedColor: =DataCardConfidence128_1.Color
                 PressedFill: =DataCardConfidence128_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata128
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -13330,6 +13720,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey129_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13344,6 +13735,7 @@
                 PressedColor: =DataCardKey129_1.Color
                 PressedFill: =DataCardKey129_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -13385,6 +13777,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence129_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13399,6 +13792,7 @@
                 PressedColor: =DataCardConfidence129_1.Color
                 PressedFill: =DataCardConfidence129_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata129
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -13428,6 +13822,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey130_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13442,6 +13837,7 @@
                 PressedColor: =DataCardKey130_1.Color
                 PressedFill: =DataCardKey130_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -13483,6 +13879,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence130_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13497,6 +13894,7 @@
                 PressedColor: =DataCardConfidence130_1.Color
                 PressedFill: =DataCardConfidence130_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata130
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -13526,6 +13924,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey131_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13540,6 +13939,7 @@
                 PressedColor: =DataCardKey131_1.Color
                 PressedFill: =DataCardKey131_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -13581,6 +13981,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence131_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13595,6 +13996,7 @@
                 PressedColor: =DataCardConfidence131_1.Color
                 PressedFill: =DataCardConfidence131_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata131
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -13624,6 +14026,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey132_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13638,6 +14041,7 @@
                 PressedColor: =DataCardKey132_1.Color
                 PressedFill: =DataCardKey132_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -13679,6 +14083,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence132_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13693,6 +14098,7 @@
                 PressedColor: =DataCardConfidence132_1.Color
                 PressedFill: =DataCardConfidence132_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata132
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -13722,6 +14128,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey133_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13736,6 +14143,7 @@
                 PressedColor: =DataCardKey133_1.Color
                 PressedFill: =DataCardKey133_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -13777,6 +14185,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence133_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13791,6 +14200,7 @@
                 PressedColor: =DataCardConfidence133_1.Color
                 PressedFill: =DataCardConfidence133_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata133
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -13820,6 +14230,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey134_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13834,6 +14245,7 @@
                 PressedColor: =DataCardKey134_1.Color
                 PressedFill: =DataCardKey134_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -13875,6 +14287,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence134_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13889,6 +14302,7 @@
                 PressedColor: =DataCardConfidence134_1.Color
                 PressedFill: =DataCardConfidence134_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata134
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -13918,6 +14332,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey135_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13932,6 +14347,7 @@
                 PressedColor: =DataCardKey135_1.Color
                 PressedFill: =DataCardKey135_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -13973,6 +14389,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence135_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -13987,6 +14404,7 @@
                 PressedColor: =DataCardConfidence135_1.Color
                 PressedFill: =DataCardConfidence135_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata135
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -14016,6 +14434,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey136_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14030,6 +14449,7 @@
                 PressedColor: =DataCardKey136_1.Color
                 PressedFill: =DataCardKey136_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -14071,6 +14491,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence136_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14085,6 +14506,7 @@
                 PressedColor: =DataCardConfidence136_1.Color
                 PressedFill: =DataCardConfidence136_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata136
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -14114,6 +14536,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey137_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14128,6 +14551,7 @@
                 PressedColor: =DataCardKey137_1.Color
                 PressedFill: =DataCardKey137_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -14169,6 +14593,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence137_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14183,6 +14608,7 @@
                 PressedColor: =DataCardConfidence137_1.Color
                 PressedFill: =DataCardConfidence137_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata137
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -14212,6 +14638,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey138_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14226,6 +14653,7 @@
                 PressedColor: =DataCardKey138_1.Color
                 PressedFill: =DataCardKey138_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -14267,6 +14695,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence138_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14281,6 +14710,7 @@
                 PressedColor: =DataCardConfidence138_1.Color
                 PressedFill: =DataCardConfidence138_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata138
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -14310,6 +14740,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey139_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14324,6 +14755,7 @@
                 PressedColor: =DataCardKey139_1.Color
                 PressedFill: =DataCardKey139_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -14365,6 +14797,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence139_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14379,6 +14812,7 @@
                 PressedColor: =DataCardConfidence139_1.Color
                 PressedFill: =DataCardConfidence139_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata139
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -14408,6 +14842,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey140_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14422,6 +14857,7 @@
                 PressedColor: =DataCardKey140_1.Color
                 PressedFill: =DataCardKey140_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -14463,6 +14899,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence140_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14477,6 +14914,7 @@
                 PressedColor: =DataCardConfidence140_1.Color
                 PressedFill: =DataCardConfidence140_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata140
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -14506,6 +14944,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey141_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14520,6 +14959,7 @@
                 PressedColor: =DataCardKey141_1.Color
                 PressedFill: =DataCardKey141_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -14561,6 +15001,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence141_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14575,6 +15016,7 @@
                 PressedColor: =DataCardConfidence141_1.Color
                 PressedFill: =DataCardConfidence141_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata141
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -14604,6 +15046,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey142_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14618,6 +15061,7 @@
                 PressedColor: =DataCardKey142_1.Color
                 PressedFill: =DataCardKey142_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -14659,6 +15103,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence142_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14673,6 +15118,7 @@
                 PressedColor: =DataCardConfidence142_1.Color
                 PressedFill: =DataCardConfidence142_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata142
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -14702,6 +15148,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey143_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14716,6 +15163,7 @@
                 PressedColor: =DataCardKey143_1.Color
                 PressedFill: =DataCardKey143_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -14757,6 +15205,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence143_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14771,6 +15220,7 @@
                 PressedColor: =DataCardConfidence143_1.Color
                 PressedFill: =DataCardConfidence143_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata143
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -14800,6 +15250,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey144_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14814,6 +15265,7 @@
                 PressedColor: =DataCardKey144_1.Color
                 PressedFill: =DataCardKey144_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -14855,6 +15307,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence144_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14869,6 +15322,7 @@
                 PressedColor: =DataCardConfidence144_1.Color
                 PressedFill: =DataCardConfidence144_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata144
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -14898,6 +15352,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey145_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14912,6 +15367,7 @@
                 PressedColor: =DataCardKey145_1.Color
                 PressedFill: =DataCardKey145_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -14953,6 +15409,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence145_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -14967,6 +15424,7 @@
                 PressedColor: =DataCardConfidence145_1.Color
                 PressedFill: =DataCardConfidence145_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata145
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -14996,6 +15454,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey146_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -15010,6 +15469,7 @@
                 PressedColor: =DataCardKey146_1.Color
                 PressedFill: =DataCardKey146_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -15051,6 +15511,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence146_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -15065,6 +15526,7 @@
                 PressedColor: =DataCardConfidence146_1.Color
                 PressedFill: =DataCardConfidence146_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata146
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -15094,6 +15556,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey147_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -15108,6 +15571,7 @@
                 PressedColor: =DataCardKey147_1.Color
                 PressedFill: =DataCardKey147_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -15149,6 +15613,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence147_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -15163,6 +15628,7 @@
                 PressedColor: =DataCardConfidence147_1.Color
                 PressedFill: =DataCardConfidence147_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata147
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -15192,6 +15658,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey148_1.BorderColor
+                FocusedBorderThickness: =1
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -15206,6 +15673,7 @@
                 PressedColor: =DataCardKey148_1.Color
                 PressedFill: =DataCardKey148_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -15247,6 +15715,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence148_1.BorderColor
+                FocusedBorderThickness: =01
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -15261,6 +15730,7 @@
                 PressedColor: =DataCardConfidence148_1.Color
                 PressedFill: =DataCardConfidence148_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata148
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -15290,6 +15760,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey149_1.BorderColor
+                FocusedBorderThickness: =01
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -15304,6 +15775,7 @@
                 PressedColor: =DataCardKey149_1.Color
                 PressedFill: =DataCardKey149_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -15345,6 +15817,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence149_1.BorderColor
+                FocusedBorderThickness: =01
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -15359,6 +15832,7 @@
                 PressedColor: =DataCardConfidence149_1.Color
                 PressedFill: =DataCardConfidence149_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata149
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -15388,6 +15862,7 @@
                 AutoHeight: =true
                 BorderColor: =RGBA(0, 0, 0, 1)
                 FocusedBorderColor: =DataCardKey150_1.BorderColor
+                FocusedBorderThickness: =01
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -15402,6 +15877,7 @@
                 PressedColor: =DataCardKey150_1.Color
                 PressedFill: =DataCardKey150_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Width: =199.00
                 Wrap: =false
@@ -15443,6 +15919,7 @@
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =If(Value(Self.Text) > 0.8, RGBA(0, 0, 0, 1), RGBA(280, 0, 0, 1))
                 FocusedBorderColor: =DataCardConfidence150_1.BorderColor
+                FocusedBorderThickness: =01
                 Font: =Font.'Segoe UI'
                 FontWeight: =FontWeight.Semibold
                 Height: =20
@@ -15457,6 +15934,7 @@
                 PressedColor: =DataCardConfidence150_1.Color
                 PressedFill: =DataCardConfidence150_1.Fill
                 Size: =12.00
+                TabIndex: =0
                 Text: |-
                     =Concatenate(Text(RoundDown(Value(Match(CurrentData.Metadata150
                     , "confidence"":(?<value>.*)\}").value)*100, 0)), "%")
@@ -15888,6 +16366,7 @@
         PressedColor: ='Document Details Title_4'.Color
         PressedFill: ='Document Details Title_4'.Fill
         Size: =16.01
+        TabIndex: =0
         Text: =CurrentDocumentName
         Width: =500.00
         X: =24

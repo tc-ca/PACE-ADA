@@ -333,7 +333,7 @@
         Color: =RGBA(0, 0, 0, 1)
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderColor: ='Upload Tab Button_6'.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderThickness: =01
         Font: =Font.'Segoe UI'
         Height: =25
         HoverBorderColor: =RGBA(255, 255, 255, 1)
@@ -347,7 +347,6 @@
         PressedColor: =RGBA(0, 0, 0, 1)
         PressedFill: =RGBA(255, 255, 255, 1)
         Size: =14.00
-        TabIndex: =-1
         Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblUpload").Label 
         Width: =121
         X: =290

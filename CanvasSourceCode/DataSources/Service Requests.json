@@ -25,6 +25,7 @@
       "statuscode": "Status Reason",
       "tc_aib_documentautomationprocessing_ServiceRequest_tc_servicerequest": "Document Automation Processings",
       "tc_id": "Service Request Number",
+      "tc_rowid": "Row Id",
       "tc_servicerequest_AsyncOperations": "System Jobs",
       "tc_servicerequest_BulkDeleteFailures": "Bulk Delete Failures",
       "tc_servicerequest_DuplicateBaseRecord": "Duplicate Records (tc_servicerequest_DuplicateBaseRecord)",

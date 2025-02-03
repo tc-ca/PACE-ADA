@@ -1,0 +1,873 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Fields mapping Screen:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      Height: =Max(App.Height, App.DesignHeight)
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+      OnVisible: |-
+        =Set(
+            ShowHeaders, 
+            true
+        );
+        //Select('Hidden Mapping Refresh Button');
+      Width: =Max(App.Width, App.DesignWidth)
+    Children:
+      - Back Button_3:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ButtonStandard.BorderColor
+            BorderThickness: =ButtonStandard.BorderThickness
+            Color: =RGBA(32, 31, 30, 1)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            DisabledFill: =RGBA(243, 242, 241, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+            FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            HoverBorderColor: =ButtonStandard.HoverBorderColor
+            HoverColor: =ButtonStandard.HoverColor
+            HoverFill: =ButtonStandard.HoverFill
+            OnSelect: =Back()
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: =ButtonStandard.PressedBorderColor
+            PressedColor: =ButtonStandard.PressedColor
+            PressedFill: =ButtonStandard.PressedFill
+            RadiusBottomLeft: =ButtonStandard.BorderRadius
+            RadiusBottomRight: =ButtonStandard.BorderRadius
+            RadiusTopLeft: =ButtonStandard.BorderRadius
+            RadiusTopRight: =ButtonStandard.BorderRadius
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblBack").Label
+            Visible: =Not(HideEveryThing)
+            Width: =80.00
+            X: =285.00
+            Y: =716
+      - Table Mapping Gallery:
+          Control: Gallery@2.15.0
+          Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+          Properties:
+            AccessibleLabel: ="Gallery"
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisplayMode: =DisplayMode.View
+            Height: =546
+            Items: =TablesColumnsView
+            TabIndex: =0
+            TemplateSize: =41
+            Visible: =Not(ShowHeaders)
+            Width: =1000.00
+            X: =310.00
+            Y: =152
+          Children:
+            - Data10_TextInput_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  AccessibleLabel: ="Field"
+                  BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  BorderThickness: =TextBox.BorderThickness
+                  Default: =ThisItem.Data10
+                  DisplayMode: =If(ThisItem.isHeader, DisplayMode.View, DisplayMode.Edit)
+                  Fill: =Color.White
+                  FocusedBorderColor: =TextBox.FocusedBorderColor
+                  FocusedBorderThickness: =TextBox.FocusedBorderThickness
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.isHeader, FontWeight.Bold, FontWeight.Normal)
+                  HoverBorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  HoverFill: =TextBox.HoverFill
+                  Mode: =TextMode.MultiLine
+                  OnSelect: =Select(Parent)
+                  PaddingRight: =5.00
+                  PaddingTop: =5.00
+                  PressedBorderColor: =Data10_TextInput_1.HoverBorderColor
+                  PressedColor: =Data10_TextInput_1.Color
+                  PressedFill: =Data10_TextInput_1.Fill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Size: =10.00
+                  Width: =0.00
+                  X: =0.00
+                  Y: =1
+            - Data9_TextInput_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  AccessibleLabel: ="Field"
+                  BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  BorderThickness: =TextBox.BorderThickness
+                  Default: =ThisItem.Data9
+                  DisplayMode: =If(ThisItem.isHeader, DisplayMode.View, DisplayMode.Edit)
+                  Fill: =Color.White
+                  FocusedBorderColor: =TextBox.FocusedBorderColor
+                  FocusedBorderThickness: =TextBox.FocusedBorderThickness
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.isHeader, FontWeight.Bold, FontWeight.Normal)
+                  HoverBorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  HoverFill: =TextBox.HoverFill
+                  Mode: =TextMode.MultiLine
+                  OnSelect: =Select(Parent)
+                  PaddingRight: =5.00
+                  PaddingTop: =5.00
+                  PressedBorderColor: =Data9_TextInput_1.HoverBorderColor
+                  PressedColor: =Data9_TextInput_1.Color
+                  PressedFill: =Data9_TextInput_1.Fill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Size: =10.00
+                  Width: =0.00
+                  X: =0.00
+                  Y: =1
+            - Data8_TextInput_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  AccessibleLabel: ="Field"
+                  BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  BorderThickness: =TextBox.BorderThickness
+                  Default: =ThisItem.Data8
+                  DisplayMode: =If(ThisItem.isHeader, DisplayMode.View, DisplayMode.Edit)
+                  Fill: =Color.White
+                  FocusedBorderColor: =TextBox.FocusedBorderColor
+                  FocusedBorderThickness: =TextBox.FocusedBorderThickness
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.isHeader, FontWeight.Bold, FontWeight.Normal)
+                  HoverBorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  HoverFill: =TextBox.HoverFill
+                  Mode: =TextMode.MultiLine
+                  OnSelect: =Select(Parent)
+                  PaddingRight: =5.00
+                  PaddingTop: =5.00
+                  PressedBorderColor: =Data8_TextInput_1.HoverBorderColor
+                  PressedColor: =Data8_TextInput_1.Color
+                  PressedFill: =Data8_TextInput_1.Fill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Size: =10.00
+                  Width: =0.00
+                  X: =0.00
+                  Y: =1
+            - Data7_TextInput_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  AccessibleLabel: ="Field"
+                  BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  BorderThickness: =TextBox.BorderThickness
+                  Default: =ThisItem.Data7
+                  DisplayMode: =If(ThisItem.isHeader, DisplayMode.View, DisplayMode.Edit)
+                  Fill: =Color.White
+                  FocusedBorderColor: =TextBox.FocusedBorderColor
+                  FocusedBorderThickness: =TextBox.FocusedBorderThickness
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.isHeader, FontWeight.Bold, FontWeight.Normal)
+                  HoverBorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  HoverFill: =TextBox.HoverFill
+                  Mode: =TextMode.MultiLine
+                  OnSelect: =Select(Parent)
+                  PaddingRight: =5.00
+                  PaddingTop: =5.00
+                  PressedBorderColor: =Data7_TextInput_1.HoverBorderColor
+                  PressedColor: =Data7_TextInput_1.Color
+                  PressedFill: =Data7_TextInput_1.Fill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Size: =10.00
+                  Width: =0.00
+                  X: =0.00
+                  Y: =1
+            - Data6_TextInput_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  AccessibleLabel: ="Field"
+                  BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  BorderThickness: =TextBox.BorderThickness
+                  Default: =ThisItem.Data6
+                  DisplayMode: =If(ThisItem.isHeader, DisplayMode.View, DisplayMode.Edit)
+                  Fill: =Color.White
+                  FocusedBorderColor: =TextBox.FocusedBorderColor
+                  FocusedBorderThickness: =TextBox.FocusedBorderThickness
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.isHeader, FontWeight.Bold, FontWeight.Normal)
+                  HoverBorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  HoverFill: =TextBox.HoverFill
+                  Mode: =TextMode.MultiLine
+                  OnSelect: =Select(Parent)
+                  PaddingRight: =5.00
+                  PaddingTop: =5.00
+                  PressedBorderColor: =Data6_TextInput_1.HoverBorderColor
+                  PressedColor: =Data6_TextInput_1.Color
+                  PressedFill: =Data6_TextInput_1.Fill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Size: =10.00
+                  Width: =0.00
+                  X: =0.00
+                  Y: =1
+            - Data5_TextInput_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  AccessibleLabel: ="Field"
+                  BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  BorderThickness: =TextBox.BorderThickness
+                  Default: =ThisItem.Data5
+                  DisplayMode: =If(ThisItem.isHeader, DisplayMode.View, DisplayMode.Edit)
+                  Fill: =Color.White
+                  FocusedBorderColor: =TextBox.FocusedBorderColor
+                  FocusedBorderThickness: =TextBox.FocusedBorderThickness
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.isHeader, FontWeight.Bold, FontWeight.Normal)
+                  HoverBorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  HoverFill: =TextBox.HoverFill
+                  Mode: =TextMode.MultiLine
+                  OnSelect: =Select(Parent)
+                  PaddingRight: =5.00
+                  PaddingTop: =5.00
+                  PressedBorderColor: =Data5_TextInput_1.HoverBorderColor
+                  PressedColor: =Data5_TextInput_1.Color
+                  PressedFill: =Data5_TextInput_1.Fill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Size: =10.00
+                  Width: =0.00
+                  X: =0.00
+                  Y: =1
+            - Data4_TextInput_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  AccessibleLabel: ="Name"
+                  BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  BorderThickness: =TextBox.BorderThickness
+                  Default: =ThisItem.Data4
+                  DisplayMode: =If(ThisItem.isHeader, DisplayMode.View, DisplayMode.Edit)
+                  Fill: =Color.White
+                  FocusedBorderColor: =TextBox.FocusedBorderColor
+                  FocusedBorderThickness: =TextBox.FocusedBorderThickness
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.isHeader, FontWeight.Bold, FontWeight.Normal)
+                  HoverBorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  HoverFill: =TextBox.HoverFill
+                  Mode: =TextMode.MultiLine
+                  OnSelect: =Select(Parent)
+                  PaddingRight: =5.00
+                  PaddingTop: =5.00
+                  PressedBorderColor: =Data4_TextInput_1.HoverBorderColor
+                  PressedColor: =Data4_TextInput_1.Color
+                  PressedFill: =Data4_TextInput_1.Fill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Size: =10.00
+                  Width: =0.00
+                  X: =0.00
+            - Data3_TextInput_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  AccessibleLabel: ="Name"
+                  BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  BorderThickness: =TextBox.BorderThickness
+                  Default: =ThisItem.Data3
+                  DisplayMode: =If(ThisItem.isHeader, DisplayMode.View, DisplayMode.Edit)
+                  Fill: =Color.White
+                  FocusedBorderColor: =TextBox.FocusedBorderColor
+                  FocusedBorderThickness: =TextBox.FocusedBorderThickness
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.isHeader, FontWeight.Bold, FontWeight.Normal)
+                  HoverBorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  HoverFill: =TextBox.HoverFill
+                  Mode: =TextMode.MultiLine
+                  OnSelect: =Select(Parent)
+                  PaddingRight: =5.00
+                  PaddingTop: =5.00
+                  PressedBorderColor: =Data3_TextInput_1.HoverBorderColor
+                  PressedColor: =Data3_TextInput_1.Color
+                  PressedFill: =Data3_TextInput_1.Fill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Size: =10.00
+                  Width: =0.00
+                  X: =0.00
+            - Data2_TextInput_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  AccessibleLabel: ="Field"
+                  BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  BorderThickness: =TextBox.BorderThickness
+                  Default: =ThisItem.Data2
+                  DisplayMode: =If(ThisItem.isHeader, DisplayMode.View, DisplayMode.Edit)
+                  Fill: =Color.White
+                  FocusedBorderColor: =TextBox.FocusedBorderColor
+                  FocusedBorderThickness: =TextBox.FocusedBorderThickness
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.isHeader, FontWeight.Bold, FontWeight.Normal)
+                  HoverBorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  HoverFill: =TextBox.HoverFill
+                  Mode: =TextMode.MultiLine
+                  OnSelect: =Select(Parent)
+                  PaddingRight: =5.00
+                  PaddingTop: =5.00
+                  PressedBorderColor: =Data2_TextInput_1.HoverBorderColor
+                  PressedColor: =Data2_TextInput_1.Color
+                  PressedFill: =Data2_TextInput_1.Fill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Size: =10.00
+                  Width: =0.00
+                  X: =0.00
+            - Data1_TextInput_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  AccessibleLabel: ="Field"
+                  BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  BorderThickness: =TextBox.BorderThickness
+                  Default: =ThisItem.Data1
+                  DisplayMode: =If(ThisItem.isHeader, DisplayMode.View, DisplayMode.Edit)
+                  Fill: =Color.White
+                  FocusedBorderColor: =TextBox.FocusedBorderColor
+                  FocusedBorderThickness: =TextBox.FocusedBorderThickness
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.isHeader, FontWeight.Bold, FontWeight.Normal)
+                  HoverBorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
+                  HoverFill: =TextBox.HoverFill
+                  Mode: =TextMode.MultiLine
+                  OnSelect: =Select(Parent)
+                  PaddingRight: =5.00
+                  PaddingTop: =5.00
+                  PressedBorderColor: =Data1_TextInput_1.HoverBorderColor
+                  PressedColor: =Data1_TextInput_1.Color
+                  PressedFill: =Data1_TextInput_1.Fill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Size: =10.00
+                  Width: =0.00
+                  X: =0.00
+      - Field Mapping Gallery:
+          Control: Gallery@2.15.0
+          Variant: BrowseLayout_Vertical_OneImageThreeColumnVariant_ver5.0
+          Properties:
+            AccessibleLabel: ="Field Mapping Gallery"
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DelayItemLoading: =true
+            DisplayMode: =DisplayMode.View
+            Height: =546
+            Items: =Filter(Sort('Document Automation Taxonomies', Index, SortOrder.Ascending),'Document Automation Configuration'.'Document Automation Configuration' = CurrentConfiguration.'Document Automation Configuration')
+            LoadingSpinner: =LoadingSpinner.Data
+            TabIndex: =0
+            TemplateSize: =55
+            Visible: =ShowHeaders
+            Width: =1000.00
+            X: =310.00
+            Y: =152
+          Children:
+            - DataCardKey1_1:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  BorderThickness: =1
+                  FocusedBorderColor: =RGBA(0, 0, 0, 1)
+                  FocusedBorderThickness: =1
+                  Font: =Font.'Segoe UI'
+                  Height: =20
+                  HoverBorderColor: =RGBA(0, 0, 0, 1)
+                  HoverColor: =DataCardKey1_1.Color
+                  HoverFill: =DataCardKey1_1.Fill
+                  PaddingBottom: =0
+                  PaddingRight: =0.00
+                  PaddingTop: =0.00
+                  PressedBorderColor: =RGBA(0, 0, 0, 1)
+                  PressedColor: =DataCardKey1_1.Color
+                  PressedFill: =DataCardKey1_1.Fill
+                  Size: =11.00
+                  Text: =ThisItem.Name
+                  VerticalAlign: =VerticalAlign.Top
+                  Visible: =Not(IsBlank(ThisItem.'Mapped Column'))
+                  Width: =250.00
+                  Wrap: =false
+                  X: =0.00
+                  Y: =29
+            - DataCardValue1_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =TextBox.BorderColor
+                  BorderThickness: =TextBox.BorderThickness
+                  Default: =ThisItem.'Mapped Column'
+                  DelayOutput: =true
+                  DisplayMode: =Parent.DisplayMode
+                  FocusedBorderColor: =TextBox.FocusedBorderColor
+                  FocusedBorderThickness: =TextBox.FocusedBorderThickness
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =29
+                  HoverBorderColor: =TextBox.HoverBorderColor
+                  HoverFill: =TextBox.HoverFill
+                  PaddingLeft: =5
+                  PaddingRight: =5.00
+                  PaddingTop: =5.00
+                  PressedBorderColor: =DataCardValue1_1.HoverBorderColor
+                  PressedColor: =DataCardValue1_1.Color
+                  PressedFill: =DataCardValue1_1.Fill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Size: =12.00
+                  Tooltip: =
+                  Visible: =Not(IsBlank(ThisItem.'Mapped Column'))
+                  Width: =250.00
+                  X: =0.00
+      - Save Button_3:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ButtonBold.BorderColor
+            BorderThickness: =ButtonBold.BorderThickness
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            DisabledFill: =RGBA(243, 242, 241, 1)
+            DisplayMode: =If (!IsBlank(ConfigurationModelGuid), DisplayMode.Edit, DisplayMode.Disabled)
+            Fill: =RGBA(114, 39, 116, 1)
+            FocusedBorderColor: =ButtonBold.FocusedBorderColor
+            FocusedBorderThickness: =ButtonBold.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            HoverBorderColor: =ButtonBold.HoverBorderColor
+            HoverColor: =ButtonBold.HoverColor
+            HoverFill: =ButtonBold.HoverFill
+            OnSelect: |-
+              =// Set the configuration in active status
+              Patch(
+                  'Document Automation Configurations',
+                  LookUp(
+                      'Document Automation Configurations',
+                      'Document Automation Configuration' = CurrentConfigurationGuid
+                  ),
+                  {'Configuration Status': 'Document Automation Configuration Status'.Active}
+              );
+              Set(
+                  MustRefreshConfigurations,
+                  true
+              );
+              Navigate('Configuration List Screen')
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: =ButtonBold.PressedBorderColor
+            PressedColor: =ButtonBold.PressedColor
+            PressedFill: =ButtonBold.PressedFill
+            RadiusBottomLeft: =ButtonBold.BorderRadius
+            RadiusBottomRight: =ButtonBold.BorderRadius
+            RadiusTopLeft: =ButtonBold.BorderRadius
+            RadiusTopRight: =ButtonBold.BorderRadius
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblSave").Label
+            Visible: =Not(HideEveryThing)
+            Width: =95
+            X: =373.00
+            Y: =716
+      - Cancel Button_3:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ButtonStandard.BorderColor
+            BorderThickness: =ButtonStandard.BorderThickness
+            Color: =RGBA(32, 31, 30, 1)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            DisabledFill: =RGBA(243, 242, 241, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+            FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            HoverBorderColor: =ButtonStandard.HoverBorderColor
+            HoverColor: =ButtonStandard.HoverColor
+            HoverFill: =ButtonStandard.HoverFill
+            OnSelect: =Navigate('Configuration List Screen')
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: =ButtonStandard.PressedBorderColor
+            PressedColor: =ButtonStandard.PressedColor
+            PressedFill: =ButtonStandard.PressedFill
+            RadiusBottomLeft: =ButtonStandard.BorderRadius
+            RadiusBottomRight: =ButtonStandard.BorderRadius
+            RadiusTopLeft: =ButtonStandard.BorderRadius
+            RadiusTopRight: =ButtonStandard.BorderRadius
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblCancel").Label
+            Visible: =Not(HideEveryThing)
+            Width: =80.00
+            X: =1270.00
+            Y: =716
+      - Fields Mapping Intro_1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(96, 94, 92, 1)
+            FocusedBorderColor: ='Fields Mapping Intro_1'.BorderColor
+            Font: =Font.'Segoe UI'
+            Height: =36
+            HoverBorderColor: ='Fields Mapping Intro_1'.BorderColor
+            HoverColor: ='Fields Mapping Intro_1'.Color
+            HoverFill: ='Fields Mapping Intro_1'.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: ='Fields Mapping Intro_1'.BorderColor
+            PressedColor: ='Fields Mapping Intro_1'.Color
+            PressedFill: ='Fields Mapping Intro_1'.Fill
+            Size: =12.00
+            Text: |-
+              =If(
+                  ShowHeaders, 
+                      LookUp(cmp_TranslateLabels_1.Labels, Key = "mappingText").Label,
+                  LookUp(cmp_TranslateLabels_1.Labels, Key = "mappingTablesText").Label
+              )
+            Width: =888.00
+            X: =293.00
+            Y: =104
+      - Tables Fields Tab Button:
+          Control: Classic/Button@2.2.0
+          Properties:
+            AutoDisableOnSelect: =false
+            BorderColor: =ColorFade('Tables Fields Tab Button'.Fill, -15%)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =If(ShowHeaders, DisplayMode.Edit, DisplayMode.View)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+            FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =If(ShowHeaders, FontWeight.Normal, FontWeight.Semibold)
+            Height: =25
+            HoverBorderColor: =RGBA(255, 255, 255, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =
+            OnSelect: |
+              =Set(
+                  ShowHeaders,
+                  false
+              );
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedColor: =RGBA(0, 0, 0, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            Size: =14.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblTablesMapping").Label
+            Visible: =IsPowerUser
+            Width: =200
+            X: =522
+            Y: =75
+      - Selected Mapping Tab Line:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Selected Mapping Tab Line'.Fill
+            Fill: =RGBA(116, 39, 116, 1)
+            FocusedBorderColor: ='Selected Mapping Tab Line'.BorderColor
+            Height: =2
+            HoverFill: ='Selected Mapping Tab Line'.Fill
+            PressedFill: ='Selected Mapping Tab Line'.Fill
+            Visible: =ShowHeaders
+            Width: =200
+            X: =303.00
+            Y: =100
+      - Fields Mapping Tab Button:
+          Control: Classic/Button@2.2.0
+          Properties:
+            AutoDisableOnSelect: =false
+            BorderColor: =ColorFade('Fields Mapping Tab Button'.Fill, -15%)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =If(ShowHeaders, DisplayMode.View, DisplayMode.Edit)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+            FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =If(ShowHeaders, FontWeight.Semibold, FontWeight.Normal)
+            Height: =25
+            HoverBorderColor: =RGBA(255, 255, 255, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =
+            OnSelect: |-
+              =Set(
+                  ShowHeaders,
+                  true
+              );
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedColor: =RGBA(0, 0, 0, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            Size: =14.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblFieldsMapping").Label
+            Visible: =IsPowerUser
+            Width: =200
+            X: =302.00
+            Y: =75
+      - Fields Mapping Label:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            FocusedBorderColor: ='Fields Mapping Label'.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =38
+            HoverBorderColor: ='Fields Mapping Label'.BorderColor
+            HoverColor: ='Fields Mapping Label'.Color
+            HoverFill: ='Fields Mapping Label'.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: ='Fields Mapping Label'.BorderColor
+            PressedColor: ='Fields Mapping Label'.Color
+            PressedFill: ='Fields Mapping Label'.Fill
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblFieldsMapping").Label
+            Width: =170
+            X: =51.99
+            Y: =140
+      - Fields Mapping Circle 3:
+          Control: Circle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Fields Mapping Circle 3'.Fill
+            Fill: =RGBA(217, 143, 217, 1)
+            FocusedBorderColor: ='Fields Mapping Circle 3'.BorderColor
+            Height: =16.01
+            HoverFill: ='Fields Mapping Circle 3'.Fill
+            PressedFill: ='Fields Mapping Circle 3'.Fill
+            Width: =16.01
+            X: =24.00
+            Y: =152
+      - Step 2 Line 3:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Step 2 Line 3'.Fill
+            Fill: =RGBA(116, 39, 116, 1)
+            FocusedBorderColor: ='Step 2 Line 3'.BorderColor
+            Height: =32
+            HoverFill: ='Step 2 Line 3'.Fill
+            PressedFill: ='Step 2 Line 3'.Fill
+            Width: =2.00
+            X: =31.00
+            Y: =116
+      - Model Selection Label 3:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            FocusedBorderColor: ='Model Selection Label 3'.BorderColor
+            Font: =Font.'Segoe UI'
+            Height: =20
+            HoverBorderColor: ='Model Selection Label 3'.BorderColor
+            HoverColor: ='Model Selection Label 3'.Color
+            HoverFill: ='Model Selection Label 3'.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: ='Model Selection Label 3'.BorderColor
+            PressedColor: ='Model Selection Label 3'.Color
+            PressedFill: ='Model Selection Label 3'.Fill
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblModelSelection").Label
+            Width: =150.00
+            X: =51.99
+            Y: =91
+      - Model Selection Circle 3:
+          Control: Circle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Model Selection Circle 3'.Fill
+            Fill: =RGBA(116, 39, 116, 1)
+            FocusedBorderColor: ='Model Selection Circle 3'.BorderColor
+            Height: =16.01
+            HoverFill: ='Model Selection Circle 3'.Fill
+            PressedFill: ='Model Selection Circle 3'.Fill
+            Width: =16.01
+            X: =24.00
+            Y: =96
+      - Action Split Line 3:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Action Split Line 3'.Fill
+            Fill: =RGBA(237, 235, 233, 1)
+            FocusedBorderColor: ='Action Split Line 3'.BorderColor
+            Height: =1
+            HoverFill: ='Action Split Line 3'.Fill
+            PressedFill: ='Action Split Line 3'.Fill
+            Width: =1097.00
+            X: =269.00
+            Y: =698
+      - Vertical Split Line 3:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Vertical Split Line 3'.Fill
+            Fill: =RGBA(237, 235, 233, 1)
+            FocusedBorderColor: ='Vertical Split Line 3'.BorderColor
+            Height: =696
+            HoverFill: ='Vertical Split Line 3'.Fill
+            PressedFill: ='Vertical Split Line 3'.Fill
+            Width: =1.00
+            X: =269.00
+            Y: =59
+      - Title Split Line 3:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Title Split Line 3'.Fill
+            Fill: =RGBA(237, 235, 233, 1)
+            FocusedBorderColor: ='Title Split Line 3'.BorderColor
+            Height: =1
+            HoverFill: ='Title Split Line 3'.Fill
+            PressedFill: ='Title Split Line 3'.Fill
+            Width: =1366.00
+            X: =0.00
+            Y: =59
+      - Provider Title Label 3_1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            FocusedBorderColor: ='Provider Title Label 3_1'.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            HoverBorderColor: ='Provider Title Label 3_1'.BorderColor
+            HoverColor: ='Provider Title Label 3_1'.Color
+            HoverFill: ='Provider Title Label 3_1'.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: ='Provider Title Label 3_1'.BorderColor
+            PressedColor: ='Provider Title Label 3_1'.Color
+            PressedFill: ='Provider Title Label 3_1'.Fill
+            Size: =17.99
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblConfiguration").Label & " " & CurrentConfigurationName
+            Width: =1000.00
+            X: =24.00
+            Y: =14
+      - Refresh Button_1:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ButtonStandard.BorderColor
+            BorderThickness: =ButtonStandard.BorderThickness
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(243, 242, 241, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+            FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            HoverBorderColor: =ButtonStandard.HoverBorderColor
+            HoverColor: =ButtonStandard.HoverColor
+            HoverFill: =ButtonStandard.HoverFill
+            OnSelect: |-
+              =Set(
+                  HasModelChanged,
+                  true
+              );
+              Select('Hidden Mapping Refresh Button');
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: =ButtonStandard.PressedBorderColor
+            PressedColor: =ButtonStandard.PressedColor
+            PressedFill: =ButtonStandard.PressedFill
+            RadiusBottomLeft: =ButtonStandard.BorderRadius
+            RadiusBottomRight: =ButtonStandard.BorderRadius
+            RadiusTopLeft: =ButtonStandard.BorderRadius
+            RadiusTopRight: =ButtonStandard.BorderRadius
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblRefresh").Label
+            Width: =140.00
+            X: =1076.99
+            Y: =72
+      - Hidden Mapping Refresh Button:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade('Hidden Mapping Refresh Button'.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(56, 96, 178, 1)
+            Font: =Font.'Open Sans'
+            HoverBorderColor: =ColorFade('Hidden Mapping Refresh Button'.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: "=Set(\n    isLoading,\n    true\n);\n// Get the outputs keys of the new model from its configuration (JSON format)\nSet(\n    CurrentConfiguration,\n    LookUp(\n        'Document Automation Configurations',\n        'Document Automation Configuration' = CurrentConfigurationGuid\n    )\n);\n// Retrieve model configuration\nIf(\n    CurrentConfiguration.'AI Model'.Name = \"Invoice Processing Model\",\n    Set(\n        FieldsJson,\n        InvoiceProcessingModelLabels\n    ),\n    Set(\n        FieldsJson,\n        LookUp(\n            //get the most recent published version of the model configuration\n            Sort(\n                Sort(\n                    'AI Configurations',\n                    MajorIterationNumber,\n                    SortOrder.Descending\n                ),\n                MinorIterationNumber,\n                SortOrder.Descending\n            ),\n            AIModel.AIModel = ConfigurationModelGuid && Type = 'Type (AI Configurations)'.RunConfiguration && Status = 'Status (AI Configurations)'.Done\n        ).CustomConfiguration\n    )\n);\n// We load in memory the list of output fields and table fields for this provider's model\nSet(\n    LabelsDefinition,\n    Match(\n        FieldsJson,\n        \"\"\"labels\"\":(?<labels>.*\\}\\}\\}),\"\"tables\"\n    ).labels\n);\nSet(\n    TablesDefinition,\n    Match(\n        FieldsJson,\n        \"\"\"tables\"\":(?<tables>.*\\}\\}\\}),\"\"layouts\"\n    ).tables\n);\nSet(\n    ModelKeysCollection,\n    If(\n        IsMatch(\n            FieldsJson,\n            \".*DocumentScanning-2.*\"\n        ),\n        MatchAll(\n            LabelsDefinition,\n            \"\"\"(?<label>[^\"\"]*)\"\":\\{\"\"defaultId\"\n        ).label,\n        MatchAll(\n            LabelsDefinition,\n            \"newLabel\"\":\"\"(?<label>[^\"\"]*)\"\n        ).label\n    )\n);\nIf(\n    HasModelChanged,\n    Set(\n        NbLabels,\n        CountRows(ModelKeysCollection)\n    );\n    //Remove(\n//  'Document Automation Taxonomies',\n//'Document Automation Taxonomies'\n//);\n//The Remove fuction commented above doesn't work\nRemoveIf(\n        'Document Automation Taxonomies',\n        'Document Automation Configuration'.'Document Automation Configuration' = CurrentConfigurationGuid\n    );\n    // Update the taxonomies\nPatch(\n        'Document Automation Taxonomies',\n        Table(\n            {\n                Name: \"Data1\",\n                Index: 1,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 1,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            1\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data2\",\n                Index: 2,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 2,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            2\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data3\",\n                Index: 3,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 3,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            3\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data4\",\n                Index: 4,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 4,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            4\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data5\",\n                Index: 5,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 5,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            5\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data6\",\n                Index: 6,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 6,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            6\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data7\",\n                Index: 7,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 7,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            7\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data8\",\n                Index: 8,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 8,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            8\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data9\",\n                Index: 9,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 9,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            9\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data10\",\n                Index: 10,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 10,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            10\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data11\",\n                Index: 11,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 11,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            11\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data12\",\n                Index: 12,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 12,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            12\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data13\",\n                Index: 13,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 13,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            13\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data14\",\n                Index: 14,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 14,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            14\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data15\",\n                Index: 15,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 15,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            15\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data16\",\n                Index: 16,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 16,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            16\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data17\",\n                Index: 17,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 17,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            17\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data18\",\n                Index: 18,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 18,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            18\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data19\",\n                Index: 19,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 19,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            19\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data20\",\n                Index: 20,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 20,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            20\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data21\",\n                Index: 21,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 21,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            21\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data22\",\n                Index: 22,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 22,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            22\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data23\",\n                Index: 23,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 23,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            23\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data24\",\n                Index: 24,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 24,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            24\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data25\",\n                Index: 25,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 25,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            25\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data26\",\n                Index: 26,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 26,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            26\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data27\",\n                Index: 27,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 27,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            27\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data28\",\n                Index: 28,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 28,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            28\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data29\",\n                Index: 29,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 29,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            29\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data30\",\n                Index: 30,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 30,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            30\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data31\",\n                Index: 31,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 31,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            31\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data32\",\n                Index: 32,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 32,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            32\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data33\",\n                Index: 33,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 33,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            33\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data34\",\n                Index: 34,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 34,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            34\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data35\",\n                Index: 35,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 35,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            35\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data36\",\n                Index: 36,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 36,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            36\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data37\",\n                Index: 37,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 37,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            37\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data38\",\n                Index: 38,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 38,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            38\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data39\",\n                Index: 39,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 39,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            39\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data40\",\n                Index: 40,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 40,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            40\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data41\",\n                Index: 41,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 41,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            41\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data42\",\n                Index: 42,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 42,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            42\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data43\",\n                Index: 43,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 43,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            43\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data44\",\n                Index: 44,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 44,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            44\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data45\",\n                Index: 45,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 45,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            45\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data46\",\n                Index: 46,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 46,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            46\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data47\",\n                Index: 47,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 47,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            47\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data48\",\n                Index: 48,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 48,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            48\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data49\",\n                Index: 49,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 49,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            49\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data50\",\n                Index: 50,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 50,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            50\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data51\",\n                Index: 51,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 51,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            51\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data52\",\n                Index: 52,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 52,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            52\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data53\",\n                Index: 53,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 53,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            53\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data54\",\n                Index: 54,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 54,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            54\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data55\",\n                Index: 55,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 55,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            55\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data56\",\n                Index: 56,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 56,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            56\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data57\",\n                Index: 57,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 57,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            57\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data58\",\n                Index: 58,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 58,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            58\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data59\",\n                Index: 59,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 59,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            59\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data60\",\n                Index: 60,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 60,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            60\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data61\",\n                Index: 61,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 61,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            61\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data62\",\n                Index: 62,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 62,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            62\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data63\",\n                Index: 63,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 63,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            63\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data64\",\n                Index: 64,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 64,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            64\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data65\",\n                Index: 65,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 65,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            65\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data66\",\n                Index: 66,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 66,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            66\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data67\",\n                Index: 67,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 67,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            67\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data68\",\n                Index: 68,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 68,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            68\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data69\",\n                Index: 69,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 69,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            69\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data70\",\n                Index: 70,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 70,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            70\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data71\",\n                Index: 71,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 71,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            71\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data72\",\n                Index: 72,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 72,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            72\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data73\",\n                Index: 73,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 73,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            73\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data74\",\n                Index: 74,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 74,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            74\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data75\",\n                Index: 75,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 75,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            75\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data76\",\n                Index: 76,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 76,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            76\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data77\",\n                Index: 77,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 77,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            77\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data78\",\n                Index: 78,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 78,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            78\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data79\",\n                Index: 79,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 79,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            79\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data80\",\n                Index: 80,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 80,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            80\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data81\",\n                Index: 81,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 81,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            81\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data82\",\n                Index: 82,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 82,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            82\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data83\",\n                Index: 83,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 83,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            83\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data84\",\n                Index: 84,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 84,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            84\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data85\",\n                Index: 85,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 85,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            85\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data86\",\n                Index: 86,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 86,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            86\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data87\",\n                Index: 87,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 87,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            87\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data88\",\n                Index: 88,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 88,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            88\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data89\",\n                Index: 89,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 89,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            89\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data90\",\n                Index: 90,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 90,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            90\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data91\",\n                Index: 91,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 91,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            91\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data92\",\n                Index: 92,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 92,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            92\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data93\",\n                Index: 93,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 93,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            93\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data94\",\n                Index: 94,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 94,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            94\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data95\",\n                Index: 95,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 95,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            95\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data96\",\n                Index: 96,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 96,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            96\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data97\",\n                Index: 97,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 97,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            97\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data98\",\n                Index: 98,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 98,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            98\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data99\",\n                Index: 99,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 99,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            99\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data100\",\n                Index: 100,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 100,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            100\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data101\",\n                Index: 101,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 101,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            101\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data102\",\n                Index: 102,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 102,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            102\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data103\",\n                Index: 103,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 103,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            103\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data104\",\n                Index: 104,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 104,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            104\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data105\",\n                Index: 105,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 105,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            105\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data106\",\n                Index: 106,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 106,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            106\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data107\",\n                Index: 107,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 107,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            107\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data108\",\n                Index: 108,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 108,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            108\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data109\",\n                Index: 109,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 109,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            109\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data110\",\n                Index: 110,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 110,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            110\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data111\",\n                Index: 111,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 111,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            111\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data112\",\n                Index: 112,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 112,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            112\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data113\",\n                Index: 113,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 113,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            113\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data114\",\n                Index: 114,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 114,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            114\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data115\",\n                Index: 115,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 115,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            115\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data116\",\n                Index: 116,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 116,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            116\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data117\",\n                Index: 117,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 117,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            117\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data118\",\n                Index: 118,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 118,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            118\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data119\",\n                Index: 119,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 119,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            119\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data120\",\n                Index: 120,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 120,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            120\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data121\",\n                Index: 121,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 121,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            121\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data122\",\n                Index: 122,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 122,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            122\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data123\",\n                Index: 123,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 123,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            123\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data124\",\n                Index: 124,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 124,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            124\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data125\",\n                Index: 125,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 125,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            125\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data126\",\n                Index: 126,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 126,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            126\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data127\",\n                Index: 127,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 127,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            127\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data128\",\n                Index: 128,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 128,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            128\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data129\",\n                Index: 129,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 129,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            129\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data130\",\n                Index: 130,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 130,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            130\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data131\",\n                Index: 131,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 131,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            131\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data132\",\n                Index: 132,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 132,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            132\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data133\",\n                Index: 133,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 133,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            133\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data134\",\n                Index: 134,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 134,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            134\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data135\",\n                Index: 135,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 135,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            135\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data136\",\n                Index: 136,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 136,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            136\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data137\",\n                Index: 137,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 137,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            137\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data138\",\n                Index: 138,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 138,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            138\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data139\",\n                Index: 139,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 139,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            139\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data140\",\n                Index: 140,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 140,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            140\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data141\",\n                Index: 141,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 141,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            141\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data142\",\n                Index: 142,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 142,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            142\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data143\",\n                Index: 143,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 143,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            143\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data144\",\n                Index: 144,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 144,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            144\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data145\",\n                Index: 145,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 145,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            145\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data146\",\n                Index: 146,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 146,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            146\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data147\",\n                Index: 147,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 147,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            147\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data148\",\n                Index: 148,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 148,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            148\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data149\",\n                Index: 149,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 149,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            149\n                        )\n                    ).label\n                )\n            },\n            {\n                Name: \"Data150\",\n                Index: 150,\n                'Document Automation Configuration': CurrentConfiguration,\n                'Mapped Column': If(\n                    NbLabels >= 150,\n                    Last(\n                        FirstN(\n                            ModelKeysCollection,\n                            150\n                        )\n                    ).label\n                )\n            }\n        )\n    );\n    //Remove(\n//  'Document Automation Table Taxonomies',\n//  'Document Automation Table Taxonomies'\n//)\n//The Remove fuction commented above doesn't work\nRemoveIf(\n        'Document Automation Table Taxonomies',\n        'Document Automation Configuration'.'Document Automation Configuration' = CurrentConfigurationGuid\n    );\n    \n);\nClear(ModelTableKeysCollection);\nForAll(\n    MatchAll(\n        TablesDefinition,\n        \"(?:\"\"(?<table>[^\"\"]*)\"\".*?\"\"columns\"\":(?<columns>{(?:\"\"(?:[^\"\"]+)\"\":{.*?},?)*})}(?:,|}))\"\n        //\"(?:\"\"(?<table>[^\"\"]*)\"\":{.*?\"\"columns\"\":(?<columns>{(?:\"\"(?:[^\"\"]+)\"\":{.*?},?)*})}(?:,|}))\"\n    ) As Tables,\n    Collect(\n        ModelTableKeysCollection,\n        {\n            TableName: Tables.table,\n            Columns: MatchAll(\n                Tables.columns,\n                \"(?:\"\"(?<label>[^\"\"]+)\"\":{.*?}(?:,|}))\"\n            ).label\n        }\n    );\n    \n);\nClearCollect(\n    ModelTableKeysCollectionWithCount,\n    AddColumns(\n        ModelTableKeysCollection,\n        NbColumns,\n        CountRows(Columns)\n    )\n);\nClear(TablesColumnsView);\nForAll(\n    ModelTableKeysCollectionWithCount As TableColumns,\n    Collect(\n        TablesColumnsView,\n        {\n            isHeader: true,\n            NbColumns: TableColumns.NbColumns,\n            Data1: Last(\n                FirstN(\n                    TableColumns.Columns,\n                    1\n                )\n            ).label,\n            Data2: Last(\n                FirstN(\n                    TableColumns.Columns,\n                    2\n                )\n            ).label,\n            Data3: Last(\n                FirstN(\n                    TableColumns.Columns,\n                    3\n                )\n            ).label,\n            Data4: Last(\n                FirstN(\n                    TableColumns.Columns,\n                    4\n                )\n            ).label,\n            Data5: Last(\n                FirstN(\n                    TableColumns.Columns,\n                    5\n                )\n            ).label,\n            Data6: Last(\n                FirstN(\n                    TableColumns.Columns,\n                    6\n                )\n            ).label,\n            Data7: Last(\n                FirstN(\n                    TableColumns.Columns,\n                    7\n                )\n            ).label,\n            Data8: Last(\n                FirstN(\n                    TableColumns.Columns,\n                    8\n                )\n            ).label,\n            Data9: Last(\n                FirstN(\n                    TableColumns.Columns,\n                    9\n                )\n            ).label,\n            Data10: Last(\n                FirstN(\n                    TableColumns.Columns,\n                    10\n                )\n            ).label\n        },\n        {\n            isHeader: false,\n            NbColumns: TableColumns.NbColumns,\n            Data1: \"Data1\",\n            Data2: \"Data2\",\n            Data3: \"Data3\",\n            Data4: \"Data4\",\n            Data5: \"Data5\",\n            Data6: \"Data6\",\n            Data7: \"Data7\",\n            Data8: \"Data8\",\n            Data9: \"Data9\",\n            Data10: \"Data10\"\n        },\n        {\n            isHeader: true,\n            NbColumns: TableColumns.NbColumns,\n            Data1: \"\",\n            Data2: \"\",\n            Data3: \"\",\n            Data4: \"\",\n            Data5: \"\",\n            Data6: \"\",\n            Data7: \"\",\n            Data8: \"\",\n            Data9: \"\",\n            Data10: \"\"\n        }\n    );\n    If(\n        HasModelChanged,\n        Patch(\n            'Document Automation Table Taxonomies',\n            Table(\n                {\n                    Name: \"Data1\",\n                    Index: 1,\n                    'Table Name': TableColumns.TableName,\n                    'Document Automation Configuration': CurrentConfiguration,\n                    'Mapped Column': If(\n                        TableColumns.NbColumns >= 1,\n                        Last(\n                            FirstN(\n                                TableColumns.Columns,\n                                1\n                            )\n                        ).label\n                    )\n                },\n                {\n                    Name: \"Data2\",\n                    Index: 2,\n                    'Table Name': TableColumns.TableName,\n                    'Document Automation Configuration': CurrentConfiguration,\n                    'Mapped Column': If(\n                        TableColumns.NbColumns >= 2,\n                        Last(\n                            FirstN(\n                                TableColumns.Columns,\n                                2\n                            )\n                        ).label\n                    )\n                },\n                {\n                    Name: \"Data3\",\n                    Index: 3,\n                    'Table Name': TableColumns.TableName,\n                    'Document Automation Configuration': CurrentConfiguration,\n                    'Mapped Column': If(\n                        TableColumns.NbColumns >= 3,\n                        Last(\n                            FirstN(\n                                TableColumns.Columns,\n                                3\n                            )\n                        ).label\n                    )\n                },\n                {\n                    Name: \"Data4\",\n                    Index: 4,\n                    'Table Name': TableColumns.TableName,\n                    'Document Automation Configuration': CurrentConfiguration,\n                    'Mapped Column': If(\n                        TableColumns.NbColumns >= 4,\n                        Last(\n                            FirstN(\n                                TableColumns.Columns,\n                                4\n                            )\n                        ).label\n                    )\n                },\n                {\n                    Name: \"Data5\",\n                    Index: 5,\n                    'Table Name': TableColumns.TableName,\n                    'Document Automation Configuration': CurrentConfiguration,\n                    'Mapped Column': If(\n                        TableColumns.NbColumns >= 5,\n                        Last(\n                            FirstN(\n                                TableColumns.Columns,\n                                5\n                            )\n                        ).label\n                    )\n                },\n                {\n                    Name: \"Data6\",\n                    Index: 6,\n                    'Table Name': TableColumns.TableName,\n                    'Document Automation Configuration': CurrentConfiguration,\n                    'Mapped Column': If(\n                        TableColumns.NbColumns >= 6,\n                        Last(\n                            FirstN(\n                                TableColumns.Columns,\n                                6\n                            )\n                        ).label\n                    )\n                },\n                {\n                    Name: \"Data7\",\n                    Index: 7,\n                    'Table Name': TableColumns.TableName,\n                    'Document Automation Configuration': CurrentConfiguration,\n                    'Mapped Column': If(\n                        TableColumns.NbColumns >= 7,\n                        Last(\n                            FirstN(\n                                TableColumns.Columns,\n                                7\n                            )\n                        ).label\n                    )\n                },\n                {\n                    Name: \"Data8\",\n                    Index: 8,\n                    'Table Name': TableColumns.TableName,\n                    'Document Automation Configuration': CurrentConfiguration,\n                    'Mapped Column': If(\n                        TableColumns.NbColumns >= 8,\n                        Last(\n                            FirstN(\n                                TableColumns.Columns,\n                                8\n                            )\n                        ).label\n                    )\n                },\n                {\n                    Name: \"Data9\",\n                    Index: 9,\n                    'Table Name': TableColumns.TableName,\n                    'Document Automation Configuration': CurrentConfiguration,\n                    'Mapped Column': If(\n                        TableColumns.NbColumns >= 9,\n                        Last(\n                            FirstN(\n                                TableColumns.Columns,\n                                9\n                            )\n                        ).label\n                    )\n                },\n                {\n                    Name: \"Data10\",\n                    Index: 10,\n                    'Table Name': TableColumns.TableName,\n                    'Document Automation Configuration': CurrentConfiguration,\n                    'Mapped Column': If(\n                        TableColumns.NbColumns >= 10,\n                        Last(\n                            FirstN(\n                                TableColumns.Columns,\n                                10\n                            )\n                        ).label\n                    )\n                }\n            )\n        )\n    )\n);\nSet(\n    HasModelChanged,\n    false\n);\nSet(\n    isLoading,\n    false\n);\n"
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: ='Hidden Mapping Refresh Button'.Fill
+            PressedColor: ='Hidden Mapping Refresh Button'.Fill
+            PressedFill: ='Hidden Mapping Refresh Button'.Color
+            Size: =15.00
+            Visible: =false
+            Width: =160.00
+            X: =33.00
+            Y: =708
+      - Loading Glass Pane_4:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderThickness: =1
+            DisabledFill: ='Loading Glass Pane_4'.Fill
+            Fill: =RGBA(0, 0, 0, 0.02)
+            FocusedBorderColor: ='Loading Glass Pane_4'.BorderColor
+            Height: =768
+            HoverFill: ='Loading Glass Pane_4'.Fill
+            PressedFill: ='Loading Glass Pane_4'.Fill
+            Visible: =isLoading
+            Width: =1366.00
+            X: =0.00
+      - Selected Mapping Tab Line_1:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Selected Mapping Tab Line_1'.Fill
+            Fill: =RGBA(116, 39, 116, 1)
+            FocusedBorderColor: ='Selected Mapping Tab Line_1'.BorderColor
+            Height: =2
+            HoverFill: ='Selected Mapping Tab Line_1'.Fill
+            PressedFill: ='Selected Mapping Tab Line_1'.Fill
+            Visible: =Not(ShowHeaders)
+            Width: =200
+            X: =525
+            Y: =100

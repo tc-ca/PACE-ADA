@@ -1,0 +1,547 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  File Upload Screen:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      Height: =Max(App.Height, App.DesignHeight)
+      LoadingSpinner: =LoadingSpinner.Controls
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+      OnVisible: |-
+        =/*Set(
+            isLoading,
+            true
+        );
+        Set (
+            MustRefreshConfigurations,
+            IsEmpty(ConfigurationsCollection) || MustRefreshConfigurations;
+        );
+        If(
+            MustRefreshConfigurations,
+            // Fill-in the in-memory collection for providers
+            // Using in-memory collection is needed to perform reading of lookup fields
+            Refresh ('Document Automation Configurations');
+            ClearCollect(
+                ConfigurationsCollection,
+                AddColumns(
+                    Sort(
+                        'Document Automation Configurations',
+                        Name,
+                        SortOrder.Ascending
+                    ),
+                    'Configuration State',
+                    'Configuration Status',
+                    Modified,
+                    'Modified On'
+                )
+            );
+            Refresh ('Document Automation Taxonomies');
+            Refresh ('Document Automation Table Taxonomies');    
+        );
+        Set(
+            MustRefreshConfigurations,
+            false
+        );
+        // By Default, no configuration selected
+        Set (
+            CurrentConfiguration,
+            Blank()
+        );
+        Set (
+            CurrentConfigurationGuid,
+            Blank()
+        );
+        Set(
+            CurrentConfigurationName,
+            ""
+        );
+        Set(
+            RefreshModels,
+            true
+        );
+        Set(
+            isLoading,
+            false
+        );*/
+      Width: =Max(App.Width, App.DesignWidth)
+    Children:
+      - Tip Rectangle_3:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderThickness: =1
+            DisabledFill: ='Tip Rectangle_3'.Fill
+            Fill: =RGBA(250, 249, 248, 1)
+            FocusedBorderColor: ='Tip Rectangle_3'.BorderColor
+            Height: =768
+            HoverFill: ='Tip Rectangle_3'.Fill
+            PressedFill: ='Tip Rectangle_3'.Fill
+            Width: =269.00
+            X: =1090
+      - Documentation Button_2:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade('Documentation Button_2'.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(116, 39, 116, 1)
+            FocusedBorderColor: ='Documentation Button_2'.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            HoverBorderColor: =ColorFade('Documentation Button_2'.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: ='Documentation Button_2'.Fill
+            PressedColor: ='Documentation Button_2'.Fill
+            PressedFill: ='Documentation Button_2'.Color
+            RadiusBottomLeft: =1
+            RadiusBottomRight: =1
+            RadiusTopLeft: =1
+            RadiusTopRight: =1
+            Size: =12.00
+            Text: ="Learn more"
+            Visible: =false
+            Width: =140.00
+            X: =1161.00
+            Y: =693
+      - Tip Label_1:
+          Control: Label@2.5.1
+          Properties:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            FocusedBorderColor: ='Tip Label_1'.BorderColor
+            Font: =Font.'Segoe UI'
+            Height: =99
+            HoverBorderColor: ='Tip Label_1'.BorderColor
+            HoverColor: ='Tip Label_1'.Color
+            HoverFill: ='Tip Label_1'.Fill
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: ='Tip Label_1'.BorderColor
+            PressedColor: ='Tip Label_1'.Color
+            PressedFill: ='Tip Label_1'.Fill
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblAttachAIBuilder").Label
+            Width: =214.00
+            X: =1124.00
+            Y: =430
+      - Tip Title_1:
+          Control: Label@2.5.1
+          Properties:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            FocusedBorderColor: ='Tip Title_1'.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =51
+            HoverBorderColor: ='Tip Title_1'.BorderColor
+            HoverColor: ='Tip Title_1'.Color
+            HoverFill: ='Tip Title_1'.Fill
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: ='Tip Title_1'.BorderColor
+            PressedColor: ='Tip Title_1'.Color
+            PressedFill: ='Tip Title_1'.Fill
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblUploadFiles").Label
+            Width: =177.00
+            X: =1143.01
+            Y: =380
+      - Tip Image_1:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            FocusedBorderColor: ='Tip Image_1'.BorderColor
+            Height: =128
+            HoverBorderColor: =ColorFade('Tip Image_1'.BorderColor, 20%)
+            HoverFill: =ColorFade('Tip Image_1'.Fill, 20%)
+            Image: =CreateProvider
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =ColorFade('Tip Image_1'.BorderColor, -20%)
+            PressedFill: =ColorFade('Tip Image_1'.Fill, -20%)
+            Width: =166.00
+            X: =1142.00
+            Y: =271
+      - Provider List Rectangle_1:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderThickness: =0.2
+            DisabledFill: ='Provider List Rectangle_1'.Fill
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: ='Provider List Rectangle_1'.BorderColor
+            Height: =40
+            HoverFill: ='Provider List Rectangle_1'.Fill
+            PressedFill: ='Provider List Rectangle_1'.Fill
+            Width: =1034.00
+            X: =24.00
+            Y: =135
+      - Add Provider Button_1:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ButtonStandard.BorderColor
+            BorderThickness: =ButtonStandard.BorderThickness
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+            FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            HoverBorderColor: =ButtonStandard.HoverBorderColor
+            HoverColor: =ButtonStandard.HoverColor
+            HoverFill: =ButtonStandard.HoverFill
+            OnSelect: |-
+              =// Remove provider data in memory
+              Set (
+                  CurrentConfigurationGuid,
+                  Blank()
+              );
+              Set(
+                  CurrentConfigurationName,
+                  ""
+              );
+              Set(
+                  ConfigurationModelGuid,
+                  Blank()
+              );
+              Set(
+                  ConfigurationModelName,
+                  ""
+              );
+              // Go to wizard
+              Navigate('Model Selection Screen')
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: =ButtonStandard.PressedBorderColor
+            PressedColor: =ButtonStandard.PressedColor
+            PressedFill: =ButtonStandard.PressedFill
+            RadiusBottomLeft: =ButtonStandard.BorderRadius
+            RadiusBottomRight: =
+            RadiusTopLeft: =ButtonStandard.BorderRadius
+            RadiusTopRight: =
+            Size: =12.00
+            Text: ="Add configuration"
+            Visible: =CountIf(ConfigurationsCollection, true)=0
+            Width: =180.00
+            X: =874.00
+            Y: =140
+      - Selected Tab Line_3:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Selected Tab Line_3'.Fill
+            Fill: =RGBA(116, 39, 116, 1)
+            FocusedBorderColor: ='Selected Tab Line_3'.BorderColor
+            Height: =2
+            HoverFill: ='Selected Tab Line_3'.Fill
+            PressedFill: ='Selected Tab Line_3'.Fill
+            Width: =119.99
+            X: =294
+            Y: =110
+      - Invoices Tab Button_2:
+          Control: Classic/Button@2.2.0
+          Properties:
+            AutoDisableOnSelect: =false
+            BorderColor: =ColorFade('Invoices Tab Button_2'.Fill, -15%)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: ='Invoices Tab Button_2'.BorderColor
+            FocusedBorderThickness: =1
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =25
+            HoverBorderColor: =RGBA(255, 255, 255, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =
+            OnSelect: =Navigate('Document List Screen')
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedColor: =RGBA(0, 0, 0, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            Size: =14.00
+            Text: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDocuments").Label '
+            Width: =95.00
+            X: =24.00
+            Y: =84
+      - Provider List Title_1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            FocusedBorderColor: ='Provider List Title_1'.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            HoverBorderColor: ='Provider List Title_1'.BorderColor
+            HoverColor: ='Provider List Title_1'.Color
+            HoverFill: ='Provider List Title_1'.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: ='Provider List Title_1'.BorderColor
+            PressedColor: ='Provider List Title_1'.Color
+            PressedFill: ='Provider List Title_1'.Fill
+            Size: =17.99
+            Text: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblFileUpload").Label '
+            Width: =1000.00
+            X: =24.00
+            Y: =24
+      - Loading Glass Pane_6:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderThickness: =1
+            DisabledFill: ='Loading Glass Pane_6'.Fill
+            Fill: =RGBA(0, 0, 0, 0.02)
+            FocusedBorderColor: ='Loading Glass Pane_6'.BorderColor
+            Height: =768
+            HoverFill: ='Loading Glass Pane_6'.Fill
+            PressedFill: ='Loading Glass Pane_6'.Fill
+            Visible: =isLoading
+            Width: =1366.00
+            X: =0.00
+      - Configuration Tab Button_5:
+          Control: Classic/Button@2.2.0
+          Properties:
+            AutoDisableOnSelect: =false
+            BorderColor: =ColorFade('Configuration Tab Button_5'.Fill, -15%)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: ='Configuration Tab Button_5'.BorderColor
+            FocusedBorderThickness: =1
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =25
+            HoverBorderColor: =RGBA(255, 255, 255, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =
+            OnSelect: =Navigate('Configuration List Screen')
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedColor: =RGBA(0, 0, 0, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            Size: =14.00
+            Text: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblConfiguration").Label '
+            Visible: =IsPowerUser
+            Width: =140.00
+            X: =145
+            Y: =84
+      - Upload Tab Button_6:
+          Control: Classic/Button@2.2.0
+          Properties:
+            AutoDisableOnSelect: =false
+            BorderColor: =ColorFade('Upload Tab Button_6'.Fill, -15%)
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: ='Upload Tab Button_6'.BorderColor
+            FocusedBorderThickness: =01
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HoverBorderColor: =RGBA(255, 255, 255, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: =
+            PressedColor: =RGBA(0, 0, 0, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            Size: =14.00
+            Text: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblUpload").Label '
+            Width: =121
+            X: =290
+            Y: =84
+      - AttachmentControl:
+          Control: Attachments@2.3.0
+          Properties:
+            AccessibleLabel: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblAttachFile").Label '
+            AddAttachmentText: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblAttachFile").Label '
+            BorderColor: =Color.Black
+            DropTargetBackgroundColor: =RGBA(169, 169, 169, 1)
+            Font: =Font.'Open Sans'
+            Height: =357
+            HoverFill: =RGBA(186, 202, 226, 1)
+            ItemColor: =RGBA(255, 255, 255, 1)
+            ItemFill: =RGBA(56, 96, 178, 1)
+            ItemHoverFill: =RGBA(186, 202, 226, 1)
+            MaxAttachmentsText: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblMaxFiles").Label '
+            NoAttachmentsText: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblNoAttachment").Label '
+            PaddingBottom: =5
+            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            Tooltip: =
+            Width: =1034
+            X: =24
+            Y: =366
+      - Upload Button:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ButtonStandard.BorderColor
+            BorderThickness: =ButtonStandard.BorderThickness
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(243, 242, 241, 1)
+            DisplayMode: =If(IsBlank('AI Model ComboBox'.Selected) Or CountRows(AttachmentControl.Attachments) = 0 , DisplayMode.Disabled, DisplayMode.Edit)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+            FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            HoverBorderColor: =ButtonStandard.HoverBorderColor
+            HoverColor: =ButtonStandard.HoverColor
+            HoverFill: =ButtonStandard.HoverFill
+            OnSelect: "=If(\n    Not(IsBlank('ServiceNumber TextInput'.Text)),\n    Set(\n        varServiceRequest,\n        LookUp(\n            'Service Requests',\n            'Service Request Number' = 'ServiceNumber TextInput'.Text\n        )\n    );\n    If(\n        IsBlank(varServiceRequest),\n        Set(\n            varServiceRequest,\n            Patch(\n                'Service Requests',\n                Defaults('Service Requests'),\n                {'Service Request Number': 'ServiceNumber TextInput'.Text}\n            )\n        )\n    );\n    \n);\nForAll(\n    AttachmentControl.Attachments As FILE,\n    DocumentAutomationCanvasAppFileImporter.Run(\n        Text('AI Model ComboBox'.Selected.'Document Automation Configuration'),\n        \"application/\" & Last(\n            Split(\n                FILE.Name,\n                \".\"\n            )\n        ).Value,\n        If(IsBlank(varServiceRequest.'Service Request'), \"\", varServiceRequest.'Service Request'),\n        {\n            file: {\n                contentBytes: FILE.Value,\n                name: FILE.Name\n            }\n        }\n    )\n);\nReset(AttachmentControl);\nNotify(\n    LookUp(cmp_TranslateLabels_1.Labels, Key = \"uploadSuccessful\").Label,\n    NotificationType.Success,\n    3000\n);\nNavigate('Document List Screen')"
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: =ButtonStandard.PressedBorderColor
+            PressedColor: =ButtonStandard.PressedColor
+            PressedFill: =ButtonStandard.PressedFill
+            RadiusBottomLeft: =ButtonStandard.BorderRadius
+            RadiusBottomRight: =ButtonStandard.BorderRadius
+            RadiusTopLeft: =ButtonStandard.BorderRadius
+            RadiusTopRight: =ButtonStandard.BorderRadius
+            Size: =12.00
+            Text: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblUploadDoc").Label '
+            Width: =198
+            X: =860
+            Y: =140
+      - AI Model ComboBox:
+          Control: Classic/ComboBox@2.4.0
+          Properties:
+            AccessibleLabel: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblAiModel").Label '
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            DisplayFields: =["aib_name"]
+            Font: =Font.'Open Sans'
+            Height: =38
+            HoverBorderColor: =ColorFade('AI Model ComboBox'.BorderColor, 15%)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            IsSearchable: =false
+            Items: |-
+              =Filter(
+                  'Document Automation Configurations',
+                  'Configuration Status' = 'Document Automation Configuration Status'.Active,
+                  statecode = 'Status (Document Automation Configurations)'.Active
+              )
+            PressedBorderColor: ='AI Model ComboBox'.HoverBorderColor
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SearchFields: =["aib_name"]
+            SelectMultiple: =false
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Width: =1034
+            X: =24
+            Y: =211
+      - ServiceNumber Label:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            Height: =36
+            Text: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblServiceNumber").Label '
+            Width: =1030
+            X: =26
+            Y: =259
+      - ServiceNumber TextInput:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            AccessibleLabel: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblServiceNumber").Label '
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =
+            Font: =Font.'Open Sans'
+            Height: =49
+            HintText: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblServiceNumber").Label '
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            PressedBorderColor: ='ServiceNumber TextInput'.HoverBorderColor
+            PressedColor: ='ServiceNumber TextInput'.Color
+            PressedFill: ='ServiceNumber TextInput'.Fill
+            Width: =1034
+            X: =24
+            Y: =295
+      - AIModel Label:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            Height: =36
+            Text: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblAiModel").Label '
+            Width: =1034
+            X: =24
+            Y: =175
+      - ddlLanguage_2:
+          Control: Classic/DropDown@2.3.1
+          Properties:
+            AccessibleLabel: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblLanguage").Label '
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =1
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            Default: =LookUp(varLanguageTable, Value = varLang).Label
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            Height: =27
+            HoverBorderColor: =ColorFade(ddlLanguage_2.BorderColor, 15%)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Items: |-
+              =Table({Label: "English", Value: "en"}, {Label: "Français", Value: "fr"})
+            Items.Value: =Label
+            OnChange: |-
+              =Set(varLang, Self.Selected.Value);
+              cmp_TranslateLabels_1.Language = varLang;
+            PressedBorderColor: =ddlLanguage_2.HoverBorderColor
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Size: =12
+            Width: =127
+            X: =939
+            Y: =27
+      - lblLanguage_2:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =28
+            Size: =12
+            Text: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblLanguage").Label '
+            Width: =84
+            X: =855
+            Y: =27
