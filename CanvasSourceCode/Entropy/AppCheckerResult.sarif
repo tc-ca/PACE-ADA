@@ -500,6 +500,87 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Document List Screen'.ProcessedDocumentsDataTable.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Document List Screen'.ProcessedDocumentsDataTable.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 10,
+                  "charOffset": 336,
+                  "snippet": {
+                    "text": ".Validated"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "Document List Screen",
+                "type": "'Document List Screen'.ProcessedDocumentsDataTable"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Validated"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Document List Screen'.ProcessedDocumentsDataTable.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Document List Screen'.ProcessedDocumentsDataTable.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 291,
+                  "snippet": {
+                    "text": "<>"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "Document List Screen",
+                "type": "'Document List Screen'.ProcessedDocumentsDataTable"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "OptionSetValue (Document Automation Processing Status)",
+              "Error"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrIncompatibleTypesForEquality-Left-Right",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Document Detail Screen'.'Document Header Form_1'.Data1_DataCard1_1.DataCardValue1_2.AccessibleLabel"
                 }
               ],
