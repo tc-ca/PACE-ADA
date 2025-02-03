@@ -1,0 +1,664 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Model Selection Screen:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      Height: =Max(App.Height, App.DesignHeight)
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+      OnVisible: |-
+        =Set(
+            isLoading,
+            true
+        );
+        Set(
+            ModelsVisible,
+            true
+        );
+        If(
+            Not(IsBlank(CurrentConfigurationGuid)),
+            // Fetch the model currently associated to the provider
+            Set(
+                CurrentConfiguration,
+                LookUp(
+                    ConfigurationsCollection,
+                    'Document Automation Configuration' = CurrentConfigurationGuid
+                )
+            );
+            Set(
+                ConfigurationModelGuid,
+                GUID(CurrentConfiguration.'AI Model'.AIModel)
+            );
+            Set(
+                ConfigurationModelName,
+                CurrentConfiguration.'AI Model'.Name
+            );
+        );
+        If (
+            RefreshModels,
+            Select('Reload Button');
+            Select('Hidden Save Button');
+        );
+        Set(
+            isLoading,
+            false
+        );
+      Width: =Max(App.Width, App.DesignWidth)
+    Children:
+      - Back Button_2:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ButtonStandard.BorderColor
+            BorderThickness: =ButtonStandard.BorderThickness
+            Color: =RGBA(32, 31, 30, 1)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            DisabledFill: =RGBA(243, 242, 241, 1)
+            DisplayMode: =If (!IsBlank(ConfigurationModelGuid), DisplayMode.Edit, DisplayMode.Disabled)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+            FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            HoverBorderColor: =ButtonStandard.HoverBorderColor
+            HoverColor: =ButtonStandard.HoverColor
+            HoverFill: =ButtonStandard.HoverFill
+            OnSelect: |-
+              =Select('Hidden Save Button');
+              Back();
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: =ButtonStandard.PressedBorderColor
+            PressedColor: =ButtonStandard.PressedColor
+            PressedFill: =ButtonStandard.PressedFill
+            RadiusBottomLeft: =ButtonStandard.BorderRadius
+            RadiusBottomRight: =ButtonStandard.BorderRadius
+            RadiusTopLeft: =ButtonStandard.BorderRadius
+            RadiusTopRight: =ButtonStandard.BorderRadius
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblSave").Label
+            Visible: =Not(HideEveryThing)
+            Width: =95
+            X: =270
+            Y: =719
+      - Next Button_2:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ButtonBold.BorderColor
+            BorderThickness: =ButtonBold.BorderThickness
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            DisabledFill: =RGBA(243, 242, 241, 1)
+            DisplayMode: =If (!IsBlank(ConfigurationModelGuid), DisplayMode.Edit, DisplayMode.Disabled)
+            Fill: =RGBA(114, 39, 116, 1)
+            FocusedBorderColor: =ButtonBold.FocusedBorderColor
+            FocusedBorderThickness: =ButtonBold.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            HoverBorderColor: =ButtonBold.HoverBorderColor
+            HoverColor: =ButtonBold.HoverColor
+            HoverFill: =ButtonBold.HoverFill
+            OnSelect: |-
+              =Select('Hidden Save Button');
+              Navigate('Fields mapping Screen');
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: =ButtonBold.PressedBorderColor
+            PressedColor: =ButtonBold.PressedColor
+            PressedFill: =ButtonBold.PressedFill
+            RadiusBottomLeft: =ButtonBold.BorderRadius
+            RadiusBottomRight: =ButtonBold.BorderRadius
+            RadiusTopLeft: =ButtonBold.BorderRadius
+            RadiusTopRight: =ButtonBold.BorderRadius
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblNext").Label
+            Visible: =Not(HideEveryThing)
+            Width: =80.00
+            X: =373.00
+            Y: =719
+      - Cancel Button_2:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ButtonStandard.BorderColor
+            BorderThickness: =ButtonStandard.BorderThickness
+            Color: =RGBA(32, 31, 30, 1)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            DisabledFill: =RGBA(243, 242, 241, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+            FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            HoverBorderColor: =ButtonStandard.HoverBorderColor
+            HoverColor: =ButtonStandard.HoverColor
+            HoverFill: =ButtonStandard.HoverFill
+            OnSelect: =Navigate('Configuration List Screen')
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: =ButtonStandard.PressedBorderColor
+            PressedColor: =ButtonStandard.PressedColor
+            PressedFill: =ButtonStandard.PressedFill
+            RadiusBottomLeft: =ButtonStandard.BorderRadius
+            RadiusBottomRight: =ButtonStandard.BorderRadius
+            RadiusTopLeft: =ButtonStandard.BorderRadius
+            RadiusTopRight: =ButtonStandard.BorderRadius
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblCancel").Label
+            Visible: =Not(HideEveryThing)
+            Width: =80.00
+            X: =1270.00
+            Y: =719
+      - Models list:
+          Control: DataTable@1.0.3
+          Variant: DataTable
+          Properties:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderThickness: =1
+            Color: =RGBA(96, 94, 92, 1)
+            Font: =Font.'Segoe UI'
+            HeadingColor: =RGBA(50, 49, 48, 1)
+            HeadingFill: =RGBA(255, 255, 255, 1)
+            HeadingFont: =Font.'Segoe UI'
+            HeadingSize: =12
+            Height: =229
+            HoverColor: =RGBA(96, 94, 92, 1)
+            HoverFill: =RGBA(237, 235, 233, 1)
+            Items: =AIModelCollection
+            NoDataText: ="We didn't find any data to show at this time. Create a Forms Processing model first and publish it."
+            SelectedColor: =RGBA(96, 94, 92, 1)
+            SelectedFill: =RGBA(225, 223, 221, 1)
+            Size: =12.00
+            Visible: =ModelsVisible
+            Width: =850.00
+            X: =293.00
+            Y: =304
+          Children:
+            - Type_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: ComplexOptionSet
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblPrebuilt").Label '
+                  FieldName: ="statecode"
+                  Order: =3
+                  Text: =ThisItem.Type
+                  Width: =119.99
+            - Modified on_Column2:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblModify").Label '
+                  FieldName: ="Modified on"
+                  Order: =2
+                  Text: =ThisItem.'Modified on'
+                  Width: =119.99
+            - Name_Column2:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                Properties:
+                  FieldDisplayName: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblName").Label '
+                  FieldName: ="msdyn_name"
+                  IsHyperlink: =true
+                  OnSelect: |
+                    =Set(
+                        ConfigurationModelGuid,
+                        'Models list'.Selected.AIModel
+                    );
+                    Set(
+                        ConfigurationModelName,
+                        'Models list'.Selected.Name
+                    );
+                    Set(
+                        HasModelChanged,
+                        true
+                    );
+                  Order: =1
+                  Text: =ThisItem.'Model name'
+                  Width: =420.00
+      - Model List Rectangle:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderThickness: =1
+            DisabledFill: ='Model List Rectangle'.Fill
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: ='Model List Rectangle'.BorderColor
+            Height: =43
+            HoverFill: ='Model List Rectangle'.Fill
+            PressedFill: ='Model List Rectangle'.Fill
+            Width: =850.00
+            X: =293.00
+            Y: =261
+      - Reload Button:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ButtonStandard.BorderColor
+            BorderThickness: =ButtonStandard.BorderThickness
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            DisabledFill: =RGBA(243, 242, 241, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ButtonStandard.FocusedBorderColor
+            FocusedBorderThickness: =ButtonStandard.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =27
+            HoverBorderColor: =ButtonStandard.HoverBorderColor
+            HoverColor: =ButtonStandard.HoverColor
+            HoverFill: =ButtonStandard.HoverFill
+            OnSelect: |-
+              =Set(
+                  isLoading,
+                  true
+              );
+              Refresh('AI Models');
+              // AI Models Models to display
+              ClearCollect(
+                  AIModelCollection,
+                  AddColumns(
+                      Filter(
+                          'AI Models',
+                          Status = 'Status (AI Models)'.Active && (
+                              Template.UniqueName = "InvoiceProcessing" /*|| 
+                              Template.msdyn_uniquename = "ReceiptScanning" || 
+                              Template.msdyn_uniquename = "BusinessCard" || 
+                              Template.msdyn_uniquename = "IdentityDocument"*/
+                          ) 
+                      ),
+                      'Modified on',
+                      Text(
+                          'Modified On',
+                          DateTimeFormat.ShortDate
+                      ),
+                      'Model name',
+                      Name,
+                      Type,
+                      LookUp(cmp_TranslateLabels_1.Labels, Key = "prebuilt").Label
+                  )
+              );
+              Collect(
+                  AIModelCollection,
+                  AddColumns(
+                      Filter(
+                          'AI Models',
+                          Status = 'Status (AI Models)'.Active && Template.UniqueName = "DocumentScanning" && Name = ConfigurationModelName
+                      ),
+                      'Modified on',
+                      Text(
+                          'Modified On',
+                          DateTimeFormat.ShortDate
+                      ),
+                      'Model name',
+                      Name,
+                      Type,
+                      LookUp(cmp_TranslateLabels_1.Labels, Key = "custom").Label
+                  )
+              );
+              Collect(
+                  AIModelCollection,
+                  AddColumns(
+                      Filter(
+                          'AI Models',
+                          Status = 'Status (AI Models)'.Active && Template.UniqueName = "DocumentScanning" && Not(Name = ConfigurationModelName)
+                      ),
+                      'Modified on',
+                      Text(
+                          'Modified On',
+                          DateTimeFormat.ShortDate
+                      ),
+                      'Model name',
+                      Name,
+                      Type,
+                      LookUp(cmp_TranslateLabels_1.Labels, Key = "custom").Label
+                  )
+              );
+              Set(
+                  RefreshModels,
+                  false
+              );
+              Set(
+                  isLoading,
+                  false
+              );
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: =ButtonStandard.PressedBorderColor
+            PressedColor: =ButtonStandard.PressedColor
+            PressedFill: =ButtonStandard.PressedFill
+            RadiusBottomLeft: =ButtonStandard.BorderRadius
+            RadiusBottomRight: =ButtonStandard.BorderRadius
+            RadiusTopLeft: =ButtonStandard.BorderRadius
+            RadiusTopRight: =ButtonStandard.BorderRadius
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblReload").Label
+            Width: =159
+            X: =971
+            Y: =266
+      - Model List Label:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            FocusedBorderColor: ='Model List Label'.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            HoverBorderColor: ='Model List Label'.BorderColor
+            HoverColor: ='Model List Label'.Color
+            HoverFill: ='Model List Label'.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: ='Model List Label'.BorderColor
+            PressedColor: ='Model List Label'.Color
+            PressedFill: ='Model List Label'.Fill
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblModelList").Label
+            Width: =150.00
+            X: =309.00
+            Y: =273
+      - Associated Model Label:
+          Control: HtmlViewer@2.1.0
+          Properties:
+            Color: =RGBA(96, 94, 92, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            Font: =Font.'Segoe UI'
+            Height: =28
+            HoverBorderColor: ='Associated Model Label'.BorderColor
+            HtmlText: "=LookUp(cmp_TranslateLabels_1.Labels, Key = \"TB_ModelAssociated\").Label & \n    If(\n    !IsBlank(ConfigurationModelGuid),\n    ConfigurationModelName,\n    LookUp(cmp_TranslateLabels_1.Labels, Key = \"TB_Do_Not_Have_Model\").Label\n)  \n    "
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            Size: =12.00
+            Width: =800.00
+            X: =293.00
+            Y: =220
+      - Invoice Processing Intro:
+          Control: HtmlViewer@2.1.0
+          Properties:
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            Font: =Font.'Segoe UI'
+            Height: =63
+            HtmlText: =LookUp(cmp_TranslateLabels_1.Labels, Key = "TB_PickAModel").Label
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =5.00
+            PaddingTop: =0.00
+            Size: =12.00
+            Width: =800.00
+            X: =293.00
+            Y: =128
+      - Invoice Processing Title:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            FocusedBorderColor: ='Invoice Processing Title'.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =61
+            HoverBorderColor: ='Invoice Processing Title'.BorderColor
+            HoverColor: ='Invoice Processing Title'.Color
+            HoverFill: ='Invoice Processing Title'.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: ='Invoice Processing Title'.BorderColor
+            PressedColor: ='Invoice Processing Title'.Color
+            PressedFill: ='Invoice Processing Title'.Fill
+            Size: =17.99
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "TB_Document_Automation").Label
+            Width: =600.00
+            X: =293.00
+            Y: =60
+      - Fields Mapping Label 2:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            FocusedBorderColor: ='Fields Mapping Label 2'.BorderColor
+            Font: =Font.'Segoe UI'
+            Height: =24
+            HoverBorderColor: ='Fields Mapping Label 2'.BorderColor
+            HoverColor: ='Fields Mapping Label 2'.Color
+            HoverFill: ='Fields Mapping Label 2'.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: ='Fields Mapping Label 2'.BorderColor
+            PressedColor: ='Fields Mapping Label 2'.Color
+            PressedFill: ='Fields Mapping Label 2'.Fill
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblFields_Mapping").Label
+            Width: =170.00
+            X: =51.99
+            Y: =147
+      - Fields Mapping Circle 2:
+          Control: Circle@2.3.0
+          Properties:
+            BorderColor: =RGBA(225, 225, 225, 1)
+            BorderThickness: =2
+            DisabledFill: ='Fields Mapping Circle 2'.Fill
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: ='Fields Mapping Circle 2'.BorderColor
+            Height: =16.01
+            HoverFill: ='Fields Mapping Circle 2'.Fill
+            PressedFill: ='Fields Mapping Circle 2'.Fill
+            Width: =16.01
+            X: =24.00
+            Y: =152
+      - Step 2 Line 2:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Step 2 Line 2'.Fill
+            Fill: =RGBA(237, 235, 233, 1)
+            FocusedBorderColor: ='Step 2 Line 2'.BorderColor
+            Height: =32
+            HoverFill: ='Step 2 Line 2'.Fill
+            PressedFill: ='Step 2 Line 2'.Fill
+            Width: =2.00
+            X: =31.00
+            Y: =116
+      - Model Selection Label 2:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            FocusedBorderColor: ='Model Selection Label 2'.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            HoverBorderColor: ='Model Selection Label 2'.BorderColor
+            HoverColor: ='Model Selection Label 2'.Color
+            HoverFill: ='Model Selection Label 2'.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: ='Model Selection Label 2'.BorderColor
+            PressedColor: ='Model Selection Label 2'.Color
+            PressedFill: ='Model Selection Label 2'.Fill
+            Size: =12.00
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblModel_Selection").Label
+            Width: =170.00
+            X: =51.99
+            Y: =91
+      - Model Selection Circle 2:
+          Control: Circle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Model Selection Circle 2'.Fill
+            Fill: =RGBA(217, 143, 217, 1)
+            FocusedBorderColor: ='Model Selection Circle 2'.BorderColor
+            Height: =16.01
+            HoverFill: ='Model Selection Circle 2'.Fill
+            PressedFill: ='Model Selection Circle 2'.Fill
+            Width: =16.01
+            X: =24.00
+            Y: =96
+      - Action Split Line 2:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Action Split Line 2'.Fill
+            Fill: =RGBA(237, 235, 233, 1)
+            FocusedBorderColor: ='Action Split Line 2'.BorderColor
+            Height: =1
+            HoverFill: ='Action Split Line 2'.Fill
+            PressedFill: ='Action Split Line 2'.Fill
+            Width: =1097.00
+            X: =269.00
+            Y: =698
+      - Vertical Split Line 2:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Vertical Split Line 2'.Fill
+            Fill: =RGBA(237, 235, 233, 1)
+            FocusedBorderColor: ='Vertical Split Line 2'.BorderColor
+            Height: =708
+            HoverFill: ='Vertical Split Line 2'.Fill
+            PressedFill: ='Vertical Split Line 2'.Fill
+            Width: =1.00
+            X: =269.00
+            Y: =59
+      - Title Split Line 2:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledFill: ='Title Split Line 2'.Fill
+            Fill: =RGBA(237, 235, 233, 1)
+            FocusedBorderColor: ='Title Split Line 2'.BorderColor
+            Height: =1
+            HoverFill: ='Title Split Line 2'.Fill
+            PressedFill: ='Title Split Line 2'.Fill
+            Width: =1366.00
+            X: =0.00
+            Y: =59
+      - Configuration Title Label 2:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            FocusedBorderColor: ='Configuration Title Label 2'.BorderColor
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            HoverBorderColor: ='Configuration Title Label 2'.BorderColor
+            HoverColor: ='Configuration Title Label 2'.Color
+            HoverFill: ='Configuration Title Label 2'.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            PressedBorderColor: ='Configuration Title Label 2'.BorderColor
+            PressedColor: ='Configuration Title Label 2'.Color
+            PressedFill: ='Configuration Title Label 2'.Fill
+            Size: =17.99
+            Text: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblConfiguration").Label & " " & CurrentConfigurationName
+            Width: =1000.00
+            X: =24.00
+            Y: =14
+      - Hidden Save Button:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ButtonBold.BorderColor
+            BorderThickness: =ButtonBold.BorderThickness
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            DisabledFill: =RGBA(243, 242, 241, 1)
+            DisplayMode: =If (!IsBlank(ConfigurationModelGuid), DisplayMode.Edit, DisplayMode.Disabled)
+            Fill: =RGBA(114, 39, 116, 1)
+            FocusedBorderColor: =ButtonBold.FocusedBorderColor
+            FocusedBorderThickness: =ButtonBold.FocusedBorderThickness
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            HoverBorderColor: =ButtonBold.HoverBorderColor
+            HoverColor: =ButtonBold.HoverColor
+            HoverFill: =ButtonBold.HoverFill
+            OnSelect: |
+              =If (
+                  IsBlank(CurrentConfigurationGuid),
+                  // Create new configuration
+                  Set(
+                      CurrentConfigurationGuid,
+                      GUID()
+                  );
+                  Patch(
+                      'Document Automation Configurations',
+                      {
+                          Name: "Default",
+                          'Configuration Status': 'Document Automation Configuration Status'.Draft,
+                          'Document Automation Configuration': CurrentConfigurationGuid
+                      }
+                  );
+                  Set(
+                      CurrentConfiguration,
+                      LookUp(
+                          'Document Automation Configurations',
+                          'Document Automation Configuration' = CurrentConfigurationGuid
+                      )
+                  );
+              );
+              // Associate model with configuration in CDS
+              UpdateIf(
+                  'Document Automation Configurations',
+                  'Document Automation Configuration' = CurrentConfigurationGuid,
+                  {
+                      'AI Model': First(
+                          Filter(
+                              'AI Models',
+                              AIModel = ConfigurationModelGuid
+                          )
+                      )
+                  }
+              );
+              Set(
+                  MustRefreshConfigurations,
+                  true
+              );
+            PaddingRight: =5.00
+            PaddingTop: =5.00
+            PressedBorderColor: =ButtonBold.PressedBorderColor
+            PressedColor: =ButtonBold.PressedColor
+            PressedFill: =ButtonBold.PressedFill
+            RadiusBottomLeft: =ButtonBold.BorderRadius
+            RadiusBottomRight: =ButtonBold.BorderRadius
+            RadiusTopLeft: =ButtonBold.BorderRadius
+            RadiusTopRight: =ButtonBold.BorderRadius
+            Size: =12.00
+            Text: ="Next"
+            Visible: =false
+            Width: =80.00
+            X: =31.00
+            Y: =719
+      - Loading Glass Pane_3:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderThickness: =1
+            DisabledFill: ='Loading Glass Pane_3'.Fill
+            Fill: =RGBA(0, 0, 0, 0.02)
+            FocusedBorderColor: ='Loading Glass Pane_3'.BorderColor
+            Height: =768
+            HoverFill: ='Loading Glass Pane_3'.Fill
+            PressedFill: ='Loading Glass Pane_3'.Fill
+            Visible: =isLoading
+            Width: =1366.00
+            X: =0.00

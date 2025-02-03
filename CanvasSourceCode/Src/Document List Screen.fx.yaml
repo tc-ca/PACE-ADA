@@ -194,9 +194,9 @@
             Order: =15
             Text: |-
                 =If(
-                    varLang = "en",
-                    ThisItem.'Processing Status En',
-                    ThisItem.'Processing Status Fr'
+                    varLang = "fr",
+                    ThisItem.'Processing Status Fr',
+                    ThisItem.'Processing Status En'
                 )
             Width: =173.00
             X: =809.00

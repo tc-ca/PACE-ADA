@@ -44,6 +44,7 @@
       "statecode": "Status",
       "statuscode": "Status Reason",
       "tc_fileurl": "File Url",
+      "tc_id": "Id",
       "tc_ServiceRequest": "Service Request",
       "timezoneruleversionnumber": "Time Zone Rule Version Number",
       "utcconversiontimezonecode": "UTC Conversion Time Zone Code",

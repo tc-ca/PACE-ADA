@@ -10,6 +10,7 @@
     "Name": "Security Roles",
     "NativeCDSDataSourceInfoNameMapping": {
       "application_role": "Applications",
+      "applicationid": "Application Id",
       "applicationuserrole": "ApplicationUsers",
       "appliesto": "Applies To",
       "appmoduleroles_association": "Model-driven Apps",
@@ -23,6 +24,7 @@
       "isautoassigned": "Is Auto Assigned",
       "isinherited": "Is Inherited",
       "ismanaged": "State",
+      "issytemgenerated": "Is System Generated",
       "modifiedby": "Modified By",
       "modifiedon": "Modified On",
       "modifiedonbehalfby": "Modified By (Delegate)",
@@ -79,6 +81,26 @@
     },
     "OptionSetTypeKey": "PicklistType",
     "RelatedColumnInvariantName": "isinherited",
+    "RelatedEntityName": "Security Roles",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Is System Generated (Security Roles)",
+    "Name": "role_issytemgenerated",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "issytemgenerated",
+        "OptionSetReferenceEntityName": "Security Roles"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "issytemgenerated",
     "RelatedEntityName": "Security Roles",
     "Type": "OptionSetInfo"
   },

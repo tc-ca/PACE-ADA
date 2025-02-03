@@ -46,12 +46,14 @@
 
     "'Table Mapping Gallery' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
         '#CopilotOverlayLabel': ="Filtered"
+        AccessibleLabel: ="Gallery"
         DelayItemLoading: =true
         DisplayMode: =DisplayMode.View
         Height: =546
         Items: =TablesColumnsView
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
+        TabIndex: =0
         TemplatePadding: =0
         TemplateSize: =41
         Visible: =Not(ShowHeaders)
@@ -61,6 +63,7 @@
         ZIndex: =2
 
         Data10_TextInput_1 As text:
+            AccessibleLabel: ="Field"
             BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.Data10
@@ -89,6 +92,7 @@
             ZIndex: =1
 
         Data9_TextInput_1 As text:
+            AccessibleLabel: ="Field"
             BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.Data9
@@ -117,6 +121,7 @@
             ZIndex: =2
 
         Data8_TextInput_1 As text:
+            AccessibleLabel: ="Field"
             BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.Data8
@@ -145,6 +150,7 @@
             ZIndex: =3
 
         Data7_TextInput_1 As text:
+            AccessibleLabel: ="Field"
             BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.Data7
@@ -173,6 +179,7 @@
             ZIndex: =4
 
         Data6_TextInput_1 As text:
+            AccessibleLabel: ="Field"
             BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.Data6
@@ -201,6 +208,7 @@
             ZIndex: =5
 
         Data5_TextInput_1 As text:
+            AccessibleLabel: ="Field"
             BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.Data5
@@ -229,6 +237,7 @@
             ZIndex: =6
 
         Data4_TextInput_1 As text:
+            AccessibleLabel: ="Name"
             BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.Data4
@@ -256,6 +265,7 @@
             ZIndex: =7
 
         Data3_TextInput_1 As text:
+            AccessibleLabel: ="Name"
             BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.Data3
@@ -283,6 +293,7 @@
             ZIndex: =8
 
         Data2_TextInput_1 As text:
+            AccessibleLabel: ="Field"
             BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.Data2
@@ -310,6 +321,7 @@
             ZIndex: =9
 
         Data1_TextInput_1 As text:
+            AccessibleLabel: ="Field"
             BorderColor: =If(ThisItem.isHeader, Color.White, RGBA(0, 0, 0, 1))
             BorderThickness: =TextBox.BorderThickness
             Default: =ThisItem.Data1
@@ -338,12 +350,14 @@
 
     "'Field Mapping Gallery' As gallery.'BrowseLayout_Vertical_OneImageThreeColumnVariant_ver5.0'":
         '#CopilotOverlayLabel': ="Filtered"
+        AccessibleLabel: ="Field Mapping Gallery"
         DelayItemLoading: =true
         DisplayMode: =DisplayMode.View
         Height: =546
         Items: =Filter(Sort('Document Automation Taxonomies', Index, SortOrder.Ascending),'Document Automation Configuration'.'Document Automation Configuration' = CurrentConfiguration.'Document Automation Configuration')
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
+        TabIndex: =0
         TemplatePadding: =4
         TemplateSize: =55
         Visible: =ShowHeaders

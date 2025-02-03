@@ -146,6 +146,11 @@ App As appinfo:
                 )
             }
         );
+        
+        //====== Set initial language=======
+        Set(varLang, "en");
+        Set(varLanguageTable,Table({Label: "English", Value: "en"}, {Label: "Français", Value: "fr"}));
+        
         // Invoice Processing Label Definition
         Set(
             InvoiceProcessingModelLabels,
@@ -241,10 +246,6 @@ App As appinfo:
                 )
             ) > 0
         );
-        
-        //====== Set initial language=======
-        Set(varLang, "en");
-        Set(varLanguageTable,Table({Label: "English", Value: "en"}, {Label: "Français", Value: "fr"}));
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

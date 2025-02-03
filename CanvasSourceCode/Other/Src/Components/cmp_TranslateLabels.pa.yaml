@@ -1,0 +1,35 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  cmp_TranslateLabels:
+    CustomProperties:
+      Labels:
+        DataType: Table
+        PropertyKind: Output
+        DisplayName: Labels
+        Description: Translated labels
+      Language:
+        DataType: Text
+        RaiseOnReset: true
+        PropertyKind: Input
+        DisplayName: Language
+        Description: The language to transalte text into
+      TranslationsTable:
+        DataType: Table
+        RaiseOnReset: true
+        PropertyKind: Input
+        DisplayName: Translations Table
+        Description: The table containing all translations data
+    Properties:
+      Height: =0
+      Language: ="en"
+      TranslationsTable: |-
+        =Table({pace_key: "SampleText", pace_englishlabel: "label en 1", pace_frenchlabel: "label fr 1"})
+      Width: =0
