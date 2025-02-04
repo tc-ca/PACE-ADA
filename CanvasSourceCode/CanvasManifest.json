@@ -2,7 +2,7 @@
   "FormatVersion": "0.24",
   "Header": {
     "AnalysisOptions": {
-      "DataflowAnalysisEnabled": true,
+      "DataflowAnalysisEnabled": false,
       "DataflowAnalysisFlagStateToggledByUser": true
     },
     "DocVersion": "1.345",
@@ -25,7 +25,7 @@
       "commentgeneratedformulasv2": false,
       "consistentreturnschemafortabularfunctions": true,
       "copyandmerge": true,
-      "dataflowanalysisenabled": true,
+      "dataflowanalysisenabled": false,
       "datatablev2control": true,
       "dataverseactionsenabled": false,
       "delaycontrolrendering": false,
@@ -106,7 +106,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 14,
+    "BindingErrorCount": 0,
     "ConnectionString": "",
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,

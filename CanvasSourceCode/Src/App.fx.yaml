@@ -2,7 +2,8 @@ App As appinfo:
     BackEnabled: =false
     Formulas: =IsDocumentLocked = Not(IsBlank(CurrentProcessing.'Assigned To')) && Not(CurrentProcessing.'Assigned To'.'User Name' = UserEmail) && Not(CurrentProcessing.'Assigned To'.'Full Name' = "SYSTEM") && Not IsPowerUser;
     OnStart: |
-        =// Styles
+        =
+        // Styles
         Set(
             ButtonBold,
             {
@@ -207,7 +208,6 @@ App As appinfo:
             UserTeams,
             CurrentUser.'Teams (teammembership_association)'
         );
-        
         ClearCollect(
             UserTeamsAux,
             UserTeams
@@ -217,6 +217,7 @@ App As appinfo:
             AllUserRoles,
             UserRoles
         );
+        
         ForAll(
             UserTeams,
             Collect(
@@ -232,6 +233,8 @@ App As appinfo:
             );
             
         );
+        
+        
         //========Get Team security roles and add Users aned Teams roles in AllUserRoles collection=========================================
         Set(
             IsPowerUser,

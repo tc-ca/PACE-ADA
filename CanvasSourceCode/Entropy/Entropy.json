@@ -974,7 +974,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "02/03/2025 20:05:54",
+  "HeaderLastSavedDateTimeUTC": "02/04/2025 15:12:57",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "2c824bd1-9e83-413c-aee8-d7f4255d3532": "\"/providers/microsoft.powerapps/apis/shared_commondataserviceforapps/connections/07bc9331d6dd44139260a79d90dc5b27\"",
@@ -985,7 +985,7 @@
     "CreateProvider": "0001.jpg"
   },
   "LocalResourceRootPaths": {
-    "CreateProvider": "https://dsprdil101cca.blob.core.windows.net/85a50e26-0984-477f-a5a5-f8a89212efb6-1/resource/Assets0Images00001.jpg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-03T20%3A03%3A37Z&ske=2025-02-04T20%3A18%3A37Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-04T20%3A18%3A37Z&sr=b&sp=r&sig=4uLgSWrzoxFNa%2B6mdJJ8bmP6j%2FOpdqPu4ehMmpT2Ttk%3D"
+    "CreateProvider": "https://dsprdil101eca.blob.core.windows.net/31511296-bfe6-4e7f-9885-8f4ec30ddaef-1/resource/Assets0Images00001.jpg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-04T14%3A46%3A48Z&ske=2025-02-05T15%3A01%3A48Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-05T15%3A01%3A48Z&sr=b&sp=r&sig=1QuPf9i0H6A1t0BRPN9Xj5YTssx%2BXgvFxuJPxc7sjpI%3D"
   },
   "OldLogoFileName": "logo.jpg",
   "OrderComponentMetadata": {
@@ -995,6 +995,7 @@
     "03e1b4513172425f9a3056d8fdb51dce": 0
   },
   "OrderDataSource": {
+    "AdminRoles": 97,
     "AI Configurations": 82,
     "AI Configurations\\componentstate": 2,
     "AI Configurations\\default.cds_msdyn_aiconfiguration_views": 64,
@@ -1012,11 +1013,19 @@
     "AI Templates\\msdyn_aitemplate_msdyn_istrainable": 9,
     "AI Templates\\msdyn_aitemplate_statecode": 10,
     "AI Templates\\msdyn_aitemplate_statuscode": 11,
+    "AIModelCollection": 114,
+    "AllUserRoles": 101,
     "Canvas Translations": 85,
     "Canvas Translations\\default.cds_pace_canvastranslation_views": 67,
     "Canvas Translations\\pace_canvastranslation_statecode": 12,
     "Canvas Translations\\pace_canvastranslation_statuscode": 13,
     "ComboBoxSample": 79,
+    "ConfigurationsCollection": 109,
+    "CurrentTablesDataByTable": 106,
+    "CurrentTablesDataWithLength": 107,
+    "CurrentTablesDataWithLengthAndSize": 108,
+    "CurrentTablesTaxonomy": 104,
+    "CurrentTaxonomy": 102,
     "CustomGallerySample": 80,
     "Document Automation Configurations": 86,
     "Document Automation Configurations\\aib_documentautomationconfiguration_statecode": 15,
@@ -1045,7 +1054,12 @@
     "Document Automation Taxonomies\\aib_documentautomationtaxonomy_statuscode": 27,
     "Document Automation Taxonomies\\default.cds_aib_documentautomationtaxonomy_views": 73,
     "DocumentAutomationCanvasAppFileImporter": 0,
+    "DocumentsToDisplay": 110,
     "DropDownSample": 81,
+    "HeaderColumns": 105,
+    "ModelTableKeysCollection": 111,
+    "ModelTableKeysCollectionWithCount": 112,
+    "RecentProcessingIds": 103,
     "Role Templates": 92,
     "Role Templates\\default.cds_roletemplate_views": 74,
     "Role Templates\\roletemplate_upgrading": 28,
@@ -1058,6 +1072,7 @@
     "Service Requests\\default.cds_tc_servicerequest_views": 76,
     "Service Requests\\tc_servicerequest_statecode": 32,
     "Service Requests\\tc_servicerequest_statuscode": 33,
+    "TablesColumnsView": 113,
     "Teams": 95,
     "Teams\\default.cds_team_views": 77,
     "Teams\\isencryptedattributevalueset": 35,
@@ -1065,6 +1080,7 @@
     "Teams\\team_membershiptype": 37,
     "Teams\\team_systemmanaged": 36,
     "Teams\\team_type": 38,
+    "UserRoles": 98,
     "Users": 96,
     "Users\\default.cds_systemuser_views": 78,
     "Users\\systemuser_accessmode": 48,
@@ -1091,7 +1107,9 @@
     "Users\\systemuser_preferredemailcode": 61,
     "Users\\systemuser_preferredphonecode": 62,
     "Users\\systemuser_setupuser": 47,
-    "Users\\systemuser_systemmanagedusertype": 63
+    "Users\\systemuser_systemmanagedusertype": 63,
+    "UserTeams": 99,
+    "UserTeamsAux": 100
   },
   "OrderGroupControls": {
     "DeleteDialog2": {
@@ -3087,7 +3105,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 7.5921399999999997,
+    "AnalysisLoadTime": 13.224402599999999,
     "ControlCount": {
       "03e1b4513172425f9a3056d8fdb51dce": 2,
       "attachments": 1,
@@ -3111,7 +3129,7 @@
       "text": 219,
       "typedDataCard": 185
     },
-    "DeserializationLoadTime": 3.8475793999999999
+    "DeserializationLoadTime": 4.2824499999999999
   },
   "WasLocalDatabaseReferencesEmpty": false
 }
