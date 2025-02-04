@@ -11,22 +11,22 @@ ComponentDefinitions:
   cmp_TranslateLabels:
     CustomProperties:
       Labels:
-        DataType: Table
         PropertyKind: Output
         DisplayName: Labels
         Description: Translated labels
+        DataType: Table
       Language:
-        DataType: Text
-        RaiseOnReset: true
         PropertyKind: Input
         DisplayName: Language
         Description: The language to transalte text into
-      TranslationsTable:
-        DataType: Table
         RaiseOnReset: true
+        DataType: Text
+      TranslationsTable:
         PropertyKind: Input
         DisplayName: Translations Table
         Description: The table containing all translations data
+        RaiseOnReset: true
+        DataType: Table
     Properties:
       Height: =0
       Language: ="en"
