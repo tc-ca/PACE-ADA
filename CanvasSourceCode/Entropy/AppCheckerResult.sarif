@@ -6253,6 +6253,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Configuration List Screen'.lblLanguage_1.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Configuration List Screen'.lblLanguage_1.Text",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "Configuration List Screen",
+                "type": "'Configuration List Screen'.lblLanguage_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Configuration List Screen'.ddlLanguage_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Configuration List Screen'.ddlLanguage_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Configuration List Screen",
+                "type": "'Configuration List Screen'.ddlLanguage_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Configuration List Screen'.'Invoices Tab Button_1'.Text"
                 }
               ],
@@ -6403,36 +6463,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.Name_Column.FieldDisplayName"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.Name_Column.FieldDisplayName",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FieldDisplayName",
-                "module": "Configuration List Screen",
-                "type": "'Configuration List Screen'.'Configurations List'.Name_Column"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Modified On_Column'.FieldDisplayName"
                 }
               ],
@@ -6463,19 +6493,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Created By_Column'.FieldDisplayName"
+                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.Name_Column.FieldDisplayName"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Created By_Column'.FieldDisplayName",
+                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.Name_Column.FieldDisplayName",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FieldDisplayName",
                 "module": "Configuration List Screen",
-                "type": "'Configuration List Screen'.'Configurations List'.'Created By_Column'"
+                "type": "'Configuration List Screen'.'Configurations List'.Name_Column"
               }
             }
           ],
@@ -6506,6 +6536,36 @@
                 "member": "FieldDisplayName",
                 "module": "Configuration List Screen",
                 "type": "'Configuration List Screen'.'Configurations List'.'Configuration State_Column1'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Created By_Column'.FieldDisplayName"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Created By_Column'.FieldDisplayName",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FieldDisplayName",
+                "module": "Configuration List Screen",
+                "type": "'Configuration List Screen'.'Configurations List'.'Created By_Column'"
               }
             }
           ],
@@ -6583,66 +6643,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Configuration List Screen'.lblLanguage_1.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Configuration List Screen'.lblLanguage_1.Text",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "Configuration List Screen",
-                "type": "'Configuration List Screen'.lblLanguage_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Configuration List Screen'.ddlLanguage_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Configuration List Screen'.ddlLanguage_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Configuration List Screen",
-                "type": "'Configuration List Screen'.ddlLanguage_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Fields mapping Screen'.'Provider Title Label 3_1'.Text"
                 }
               ],
@@ -6703,19 +6703,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Fields mapping Screen'.'Tables Fields Tab Button'.Text"
+                  "fullyQualifiedName": "'Fields mapping Screen'.'Fields Mapping Tab Button'.Text"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Fields mapping Screen'.'Tables Fields Tab Button'.Text",
+                  "fullyQualifiedName": "'Fields mapping Screen'.'Fields Mapping Tab Button'.Text",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "Text",
                 "module": "Fields mapping Screen",
-                "type": "'Fields mapping Screen'.'Tables Fields Tab Button'"
+                "type": "'Fields mapping Screen'.'Fields Mapping Tab Button'"
               }
             }
           ],
@@ -6733,19 +6733,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Fields mapping Screen'.'Fields Mapping Tab Button'.Text"
+                  "fullyQualifiedName": "'Fields mapping Screen'.'Tables Fields Tab Button'.Text"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Fields mapping Screen'.'Fields Mapping Tab Button'.Text",
+                  "fullyQualifiedName": "'Fields mapping Screen'.'Tables Fields Tab Button'.Text",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "Text",
                 "module": "Fields mapping Screen",
-                "type": "'Fields mapping Screen'.'Fields Mapping Tab Button'"
+                "type": "'Fields mapping Screen'.'Tables Fields Tab Button'"
               }
             }
           ],
@@ -6943,6 +6943,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'File Upload Screen'.'Provider List Title_1'.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'File Upload Screen'.'Provider List Title_1'.Text",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "File Upload Screen",
+                "type": "'File Upload Screen'.'Provider List Title_1'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'File Upload Screen'.lblLanguage_2.Text"
                 }
               ],
@@ -6986,36 +7016,6 @@
                 "member": "AccessibleLabel",
                 "module": "File Upload Screen",
                 "type": "'File Upload Screen'.ddlLanguage_2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'File Upload Screen'.'Provider List Title_1'.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'File Upload Screen'.'Provider List Title_1'.Text",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "File Upload Screen",
-                "type": "'File Upload Screen'.'Provider List Title_1'"
               }
             }
           ],
@@ -7723,19 +7723,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Model Selection Screen'.'Models list'.Name_Column2.FieldDisplayName"
+                  "fullyQualifiedName": "'Model Selection Screen'.'Models list'.Type_Column1.FieldDisplayName"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Model Selection Screen'.'Models list'.Name_Column2.FieldDisplayName",
+                  "fullyQualifiedName": "'Model Selection Screen'.'Models list'.Type_Column1.FieldDisplayName",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FieldDisplayName",
                 "module": "Model Selection Screen",
-                "type": "'Model Selection Screen'.'Models list'.Name_Column2"
+                "type": "'Model Selection Screen'.'Models list'.Type_Column1"
               }
             }
           ],
@@ -7783,19 +7783,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Model Selection Screen'.'Models list'.Type_Column1.FieldDisplayName"
+                  "fullyQualifiedName": "'Model Selection Screen'.'Models list'.Name_Column2.FieldDisplayName"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Model Selection Screen'.'Models list'.Type_Column1.FieldDisplayName",
+                  "fullyQualifiedName": "'Model Selection Screen'.'Models list'.Name_Column2.FieldDisplayName",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FieldDisplayName",
                 "module": "Model Selection Screen",
-                "type": "'Model Selection Screen'.'Models list'.Type_Column1"
+                "type": "'Model Selection Screen'.'Models list'.Name_Column2"
               }
             }
           ],
