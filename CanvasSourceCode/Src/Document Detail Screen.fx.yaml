@@ -46,6 +46,7 @@
                 {ProcessingId: CurrentProcessingGuid}
             );
             // Get next processing 
+            Set(processingStatus, CurrentProcessing.'Processing Status');
             Set(
                 NextProcessing,
                 First(
@@ -55,7 +56,7 @@
                             'Created On',
                             SortOrder.Descending
                         ),
-                        Not('Document Automation Processing' in RecentProcessingIds) && ThisRecord.'Created On' < currentRecord.'Created On' && (IsPowerUser || 'Processing Status' = [@'Document Automation Processing Status'].'Manual Review')
+                        Not('Document Automation Processing' in RecentProcessingIds) && ThisRecord.'Created On' <= currentRecord.'Created On' && (IsPowerUser || 'Processing Status' = processingStatus)
                     )
                 )
             );
@@ -102,7 +103,18 @@
         DisabledBorderColor: =RGBA(243, 242, 241, 1)
         DisabledColor: =RGBA(161, 159, 157, 1)
         DisabledFill: =RGBA(243, 242, 241, 1)
-        DisplayMode: =If(And(DocumentFormVisible, CurrentProcessing.'Processing Status'='Document Automation Processing Status'.'Manual Review'), DisplayMode.Edit, DisplayMode.Disabled)
+        DisplayMode: |-
+            =If(
+                And(
+                    DocumentFormVisible,
+                    Or(
+                        CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.'Manual Review',
+                        CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.'Invalid Input'
+                    )
+                ),
+                DisplayMode.Edit,
+                DisplayMode.Disabled
+            )
         Fill: =RGBA(114, 39, 116, 1)
         FocusedBorderColor: =ButtonBold.FocusedBorderColor
         FocusedBorderThickness: =ButtonBold.FocusedBorderThickness
@@ -163,7 +175,9 @@
                 RecentProcessingIds,
                 {ProcessingId: CurrentProcessingGuid}
             );
+            
             // Get next processing 
+            Set(processingStatus, CurrentProcessing.'Processing Status');
             Set(
                 NextProcessing,
                 First(
@@ -173,7 +187,7 @@
                             'Created On',
                             SortOrder.Descending
                         ),
-                        Not('Document Automation Processing' in RecentProcessingIds) && 'Processing Status' = [@'Document Automation Processing Status'].'Manual Review'
+                        Not('Document Automation Processing' in RecentProcessingIds) && 'Processing Status' = processingStatus
                     )
                 )
             );
@@ -232,7 +246,10 @@
         HoverFill: =ButtonStandard.HoverFill
         OnSelect: |-
             =If(
-                CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.'Manual Review',
+                Or(
+                    CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.'Manual Review',
+                    CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.'Invalid Input'
+                ),
                 Patch(
                     'Document Automation Processings',
                     First(
@@ -16588,7 +16605,10 @@
                 ,
                 // Document is not locked
                 If(
-                    CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.'Manual Review',
+                    Or(
+                        CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.'Manual Review',
+                        CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.'Invalid Input'
+                    ),
                     Patch(
                         'Document Automation Processings',
                         First(
@@ -16688,7 +16708,8 @@
                     Or(
                         CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.'Manual Review',
                         CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.'Validating Data',
-                        CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.Validated
+                        CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.Validated,
+                        CurrentProcessing.'Processing Status' = 'Document Automation Processing Status'.'Invalid Input'
                     )
                 );
                 Set(

@@ -98,8 +98,8 @@ Screens:
                   RadiusTopLeft: =0
                   RadiusTopRight: =0
                   Size: =10.00
-                  Width: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns - 1, 0))
-                  X: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns * 9, 0))
+                  Width: =0.00
+                  X: =0.00
                   Y: =1
             - Data9_TextInput_1:
                 Control: Classic/TextInput@2.3.2
@@ -128,8 +128,8 @@ Screens:
                   RadiusTopLeft: =0
                   RadiusTopRight: =0
                   Size: =10.00
-                  Width: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns - 1, 0))
-                  X: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns * 8, 0))
+                  Width: =0.00
+                  X: =0.00
                   Y: =1
             - Data8_TextInput_1:
                 Control: Classic/TextInput@2.3.2
@@ -158,8 +158,8 @@ Screens:
                   RadiusTopLeft: =0
                   RadiusTopRight: =0
                   Size: =10.00
-                  Width: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns - 1, 0))
-                  X: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns * 7, 0))
+                  Width: =0.00
+                  X: =0.00
                   Y: =1
             - Data7_TextInput_1:
                 Control: Classic/TextInput@2.3.2
@@ -188,8 +188,8 @@ Screens:
                   RadiusTopLeft: =0
                   RadiusTopRight: =0
                   Size: =10.00
-                  Width: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns - 1, 0))
-                  X: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns * 6, 0))
+                  Width: =0.00
+                  X: =0.00
                   Y: =1
             - Data6_TextInput_1:
                 Control: Classic/TextInput@2.3.2
@@ -218,8 +218,8 @@ Screens:
                   RadiusTopLeft: =0
                   RadiusTopRight: =0
                   Size: =10.00
-                  Width: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns - 1, 0))
-                  X: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns * 5, 0))
+                  Width: =0.00
+                  X: =0.00
                   Y: =1
             - Data5_TextInput_1:
                 Control: Classic/TextInput@2.3.2
@@ -248,8 +248,8 @@ Screens:
                   RadiusTopLeft: =0
                   RadiusTopRight: =0
                   Size: =10.00
-                  Width: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns - 1, 0))
-                  X: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns * 4, 0))
+                  Width: =0.00
+                  X: =0.00
                   Y: =1
             - Data4_TextInput_1:
                 Control: Classic/TextInput@2.3.2
@@ -278,8 +278,8 @@ Screens:
                   RadiusTopLeft: =0
                   RadiusTopRight: =0
                   Size: =10.00
-                  Width: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns - 1, 0))
-                  X: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns * 3, 0))
+                  Width: =0.00
+                  X: =0.00
             - Data3_TextInput_1:
                 Control: Classic/TextInput@2.3.2
                 Properties:
@@ -307,8 +307,8 @@ Screens:
                   RadiusTopLeft: =0
                   RadiusTopRight: =0
                   Size: =10.00
-                  Width: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns - 1, 0))
-                  X: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns * 2, 0))
+                  Width: =0.00
+                  X: =0.00
             - Data2_TextInput_1:
                 Control: Classic/TextInput@2.3.2
                 Properties:
@@ -336,8 +336,8 @@ Screens:
                   RadiusTopLeft: =0
                   RadiusTopRight: =0
                   Size: =10.00
-                  Width: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns - 1, 0))
-                  X: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns, 0))
+                  Width: =0.00
+                  X: =0.00
             - Data1_TextInput_1:
                 Control: Classic/TextInput@2.3.2
                 Properties:
@@ -365,7 +365,7 @@ Screens:
                   RadiusTopLeft: =0
                   RadiusTopRight: =0
                   Size: =10.00
-                  Width: =If(IsBlank(ThisItem.NbColumns), 0, Round(Parent.Width / ThisItem.NbColumns - 1, 0))
+                  Width: =0.00
                   X: =0.00
       - Field Mapping Gallery:
           Control: Gallery@2.15.0

@@ -111,6 +111,7 @@
     "DisplayName": "Document Automation Processing Status",
     "Name": "aib_documentautomationprocessingtatus",
     "OptionSetInfoNameMapping": {
+      "100000001": "Invalid Input",
       "914700000": "Uploading Document",
       "914700001": "Extracting Data",
       "914700002": "Validating Data",
