@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25013.172" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25013.172" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25013.00172">
+<ImportExportXml version="9.2.25014.180" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25014.180" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25014.00180">
   <SolutionManifest>
     <UniqueName>Documenttoolkit</UniqueName>
     <LocalizedNames>
       <LocalizedName description="AI Document toolkit extension" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.53.0.0</Version>
+    <Version>1.54.0.0</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>TransportCanada</UniqueName>
@@ -152,6 +152,7 @@
       <RootComponent type="62" schemaName="tc_DocumentAutomationAdmin" behavior="0" />
       <RootComponent type="80" schemaName="tc_DocumentAutomationAdmin" behavior="0" />
       <RootComponent type="9" schemaName="aib_documentautomationconfigurationstatus" behavior="0" />
+      <RootComponent type="9" schemaName="aib_documentautomationprocessingtatus" behavior="0" />
     </RootComponents>
     <MissingDependencies>
     </MissingDependencies>

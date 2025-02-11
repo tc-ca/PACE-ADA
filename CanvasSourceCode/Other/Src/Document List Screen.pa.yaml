@@ -569,3 +569,24 @@ Screens:
             TranslationsTable: ='Canvas Translations'
             Visible: =false
             Width: =1
+      - AppLoadTimer:
+          Control: Timer@2.1.0
+          Properties:
+            AutoStart: =true
+            BorderColor: =ColorFade(AppLoadTimer.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =ColorFade(AppLoadTimer.BorderColor, 70%)
+            DisabledColor: =ColorFade(AppLoadTimer.Fill, 90%)
+            DisabledFill: =ColorFade(AppLoadTimer.Fill, 70%)
+            Duration: =100
+            Fill: =RGBA(56, 96, 178, 1)
+            Font: =Font.'Open Sans'
+            HoverBorderColor: =ColorFade(AppLoadTimer.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnTimerEnd: =If(CountRows(Filter(cmp_TranslateLabels_1.Labels, Find("processingStatus_", Key) > 0)) = CountRows(Choices('Document Automation Processings'.'Processing Status')), Select('Refresh Button'))
+            PressedBorderColor: =AppLoadTimer.Fill
+            PressedColor: =AppLoadTimer.Fill
+            PressedFill: =AppLoadTimer.Color
+            Repeat: =CountRows(Filter(cmp_TranslateLabels_1.Labels, Find("processingStatus_", Key) > 0)) < CountRows(Choices('Document Automation Processings'.'Processing Status'))
+            Visible: =false
