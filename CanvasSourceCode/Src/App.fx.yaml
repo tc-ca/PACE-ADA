@@ -1,7 +1,7 @@
 App As appinfo:
     BackEnabled: =false
     Formulas: =IsDocumentLocked = Not(IsBlank(CurrentProcessing.'Assigned To')) && Not(CurrentProcessing.'Assigned To'.'User Name' = UserEmail) && Not(CurrentProcessing.'Assigned To'.'Full Name' = "SYSTEM") && Not IsPowerUser;
-    OnStart: |
+    OnStart: |-
         =
         // Styles
         Set(

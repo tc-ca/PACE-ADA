@@ -548,3 +548,19 @@
         Width: =1
         ZIndex: =20
 
+    AppLoadTimer As timer:
+        AutoStart: =true
+        BorderColor: =ColorFade(AppLoadTimer.Fill, -15%)
+        DisabledBorderColor: =ColorFade(AppLoadTimer.BorderColor, 70%)
+        DisabledColor: =ColorFade(AppLoadTimer.Fill, 90%)
+        DisabledFill: =ColorFade(AppLoadTimer.Fill, 70%)
+        Duration: =100
+        HoverBorderColor: =ColorFade(AppLoadTimer.BorderColor, 20%)
+        OnTimerEnd: =If(CountRows(Filter(cmp_TranslateLabels_1.Labels, Find("processingStatus_", Key) > 0)) = CountRows(Choices('Document Automation Processings'.'Processing Status')), Select('Refresh Button'))
+        PressedBorderColor: =AppLoadTimer.Fill
+        PressedColor: =AppLoadTimer.Fill
+        PressedFill: =AppLoadTimer.Color
+        Repeat: =CountRows(Filter(cmp_TranslateLabels_1.Labels, Find("processingStatus_", Key) > 0)) < CountRows(Choices('Document Automation Processings'.'Processing Status'))
+        Visible: =false
+        ZIndex: =21
+

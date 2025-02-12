@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="aib_documentautomationprocessingtatus" localizedName="Document Automation Processing Status" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.2.0.0</IntroducedVersion>
+  <displaynames>
+    <displayname description="Document Automation Processing Status" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="914700000" IsHidden="0">
+      <labels>
+        <label description="Uploading Document" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="914700001" IsHidden="0">
+      <labels>
+        <label description="Extracting Data" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="914700002" IsHidden="0">
+      <labels>
+        <label description="Validating Data" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="914700003" IsHidden="0">
+      <labels>
+        <label description="Manual Review" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="914700004" IsHidden="0">
+      <labels>
+        <label description="Validated" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="914700005" IsHidden="0">
+      <labels>
+        <label description="Invalid Document" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="914700006" IsHidden="0">
+      <labels>
+        <label description="Error" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="100000001" IsHidden="0">
+      <labels>
+        <label description="Invalid Input" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>
