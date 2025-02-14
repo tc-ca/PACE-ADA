@@ -556,11 +556,11 @@
         DisabledFill: =ColorFade(AppLoadTimer.Fill, 70%)
         Duration: =100
         HoverBorderColor: =ColorFade(AppLoadTimer.BorderColor, 20%)
-        OnTimerEnd: =If(CountRows(Filter(cmp_TranslateLabels_1.Labels, Find("processingStatus_", Key) > 0)) = CountRows(Choices('Document Automation Processings'.'Processing Status')), Select('Refresh Button'))
+        OnTimerEnd: =If(cmp_TranslateLabels_1.HasLoaded = true, Select('Refresh Button'))
         PressedBorderColor: =AppLoadTimer.Fill
         PressedColor: =AppLoadTimer.Fill
         PressedFill: =AppLoadTimer.Color
-        Repeat: =CountRows(Filter(cmp_TranslateLabels_1.Labels, Find("processingStatus_", Key) > 0)) < CountRows(Choices('Document Automation Processings'.'Processing Status'))
+        Repeat: =cmp_TranslateLabels_1.HasLoaded = false
         Visible: =false
         ZIndex: =21
 

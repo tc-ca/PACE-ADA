@@ -204,6 +204,7 @@ Screens:
             - Modified On_Column:
                 Control: DataTableColumn@1.0.1
                 Variant: DateTime
+                IsLocked: true
                 Properties:
                   AutoWidth: =false
                   FieldDisplayName: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblModify").Label '
@@ -215,6 +216,7 @@ Screens:
             - Created By_Column:
                 Control: DataTableColumn@1.0.1
                 Variant: ComplexType
+                IsLocked: true
                 Properties:
                   AutoWidth: =false
                   FieldDisplayName: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblCreatedBy").Label '
@@ -225,6 +227,7 @@ Screens:
             - Name_Column:
                 Control: DataTableColumn@1.0.1
                 Variant: Textual
+                IsLocked: true
                 Properties:
                   AutoWidth: =false
                   FieldDisplayName: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblName").Label '
@@ -246,6 +249,7 @@ Screens:
             - Configuration State_Column1:
                 Control: DataTableColumn@1.0.1
                 Variant: Textual
+                IsLocked: true
                 Properties:
                   FieldDisplayName: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblStatus").Label
                   FieldName: ="Configuration State"

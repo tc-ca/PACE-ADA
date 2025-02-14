@@ -25,14 +25,7 @@
       "X",
       "Y",
       "ZIndex",
-      {
-        "AFDDataSourceName": "",
-        "AutoRuleBindingEnabled": false,
-        "AutoRuleBindingString": "\"Text\"",
-        "InvariantPropertyName": "Language",
-        "IsLockable": false,
-        "NameMapSourceSchema": "?"
-      },
+      "Language",
       {
         "AFDDataSourceName": "",
         "AutoRuleBindingEnabled": false,
@@ -56,9 +49,10 @@
         "InvariantPropertyName": "TranslationsTable",
         "IsLockable": false,
         "NameMapSourceSchema": "?"
-      }
+      },
+      "HasLoaded"
     ],
-    "LastModifiedTimestamp": "638749045067105324",
+    "LastModifiedTimestamp": "638751590807048704",
     "Name": "cmp_TranslateLabels",
     "Rules": [
       {
@@ -77,6 +71,12 @@
         "Category": "Data",
         "InvariantScript": "varTranslations",
         "Property": "Labels",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "varHasLoaded",
+        "Property": "HasLoaded",
         "RuleProviderType": "System"
       },
       {
@@ -117,7 +117,7 @@
       },
       {
         "Category": "Behavior",
-        "InvariantScript": "Set(\n    varTranslations,\n    AddColumns(\n        RenameColumns(\n            Self.TranslationsTable,\n            pace_key,\n            Key,\n            pace_englishlabel,\n            'English Label',\n            pace_frenchlabel,\n            'French Label'\n        ),\n        Label,\n        If(\n            Self.Language = \"fr\",\n            'French Label',\n            'English Label'\n        )\n    )\n);\n",
+        "InvariantScript": "Set(varHasLoaded, false);\nSet(\n    varTranslations,\n    AddColumns(\n        RenameColumns(\n            Self.TranslationsTable,\n            pace_key,\n            Key,\n            pace_englishlabel,\n            'English Label',\n            pace_frenchlabel,\n            'French Label'\n        ),\n        Label,\n        If(\n            Self.Language = \"fr\",\n            'French Label',\n            'English Label'\n        )\n    )\n);\nSet(varHasLoaded, true);",
         "Property": "OnReset",
         "RuleProviderType": "System"
       }
@@ -150,7 +150,7 @@
       "Name": "Labels",
       "PropertyDataTypeKey": "Table",
       "Tooltip": "Translated labels",
-      "Type": "{\"Version\":\"1.345\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"English Label\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"French Label\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Key\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Label\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
+      "Type": "{\"Version\":\"1.345\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"English Label\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"French Label\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Key\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Label\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"createdby\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"systemuser\",\"EntityInfoName\":\"createdby\",\"EntityInfoIsTable\":false,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"createdon\",\"Kind\":\"DateTime\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"createdonbehalfby\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"systemuser\",\"EntityInfoName\":\"createdonbehalfby\",\"EntityInfoIsTable\":false,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"importsequencenumber\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"modifiedby\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"systemuser\",\"EntityInfoName\":\"modifiedby\",\"EntityInfoIsTable\":false,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"modifiedon\",\"Kind\":\"DateTime\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"modifiedonbehalfby\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"systemuser\",\"EntityInfoName\":\"modifiedonbehalfby\",\"EntityInfoIsTable\":false,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"organizationid\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"organization\",\"EntityInfoName\":\"organizationid\",\"EntityInfoIsTable\":false,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"overriddencreatedon\",\"Kind\":\"DateTime\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"pace_applicationname\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"pace_canvastranslation_AsyncOperations\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"asyncoperation\",\"EntityInfoName\":\"pace_canvastranslation_AsyncOperations\",\"EntityInfoIsTable\":true,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"pace_canvastranslation_BulkDeleteFailures\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"bulkdeletefailure\",\"EntityInfoName\":\"pace_canvastranslation_BulkDeleteFailures\",\"EntityInfoIsTable\":true,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"pace_canvastranslation_DuplicateBaseRecord\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"duplicaterecord\",\"EntityInfoName\":\"pace_canvastranslation_DuplicateBaseRecord\",\"EntityInfoIsTable\":true,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"pace_canvastranslation_DuplicateMatchingRecord\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"duplicaterecord\",\"EntityInfoName\":\"pace_canvastranslation_DuplicateMatchingRecord\",\"EntityInfoIsTable\":true,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"pace_canvastranslation_MailboxTrackingFolders\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"mailboxtrackingfolder\",\"EntityInfoName\":\"pace_canvastranslation_MailboxTrackingFolders\",\"EntityInfoIsTable\":true,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"pace_canvastranslation_PrincipalObjectAttributeAccesses\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"principalobjectattributeaccess\",\"EntityInfoName\":\"pace_canvastranslation_PrincipalObjectAttributeAccesses\",\"EntityInfoIsTable\":true,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"pace_canvastranslation_ProcessSession\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"processsession\",\"EntityInfoName\":\"pace_canvastranslation_ProcessSession\",\"EntityInfoIsTable\":true,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"pace_canvastranslation_SyncErrors\",\"Kind\":\"DataEntity\",\"EnumString\":\"\",\"DataEntity\":{\"EntityInfoIdentity\":\"syncerror\",\"EntityInfoName\":\"pace_canvastranslation_SyncErrors\",\"EntityInfoIsTable\":true,\"EntityInfoParentDSName\":\"Canvas Translations\",\"EntityInfoRelatedEntityPath\":\"\"}},{\"Name\":\"pace_canvastranslationid\",\"Kind\":\"Guid\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"statecode\",\"Kind\":\"OptionSetValue\",\"EnumString\":\"\",\"OptionSet\":{\"OptionSetIsValue\":true,\"OptionSetName\":\"Status (Canvas Translations)\"}},{\"Name\":\"statuscode\",\"Kind\":\"OptionSetValue\",\"EnumString\":\"\",\"OptionSet\":{\"OptionSetIsValue\":true,\"OptionSetName\":\"Status Reason (Canvas Translations)\"}},{\"Name\":\"timezoneruleversionnumber\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"utcconversiontimezonecode\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"versionnumber\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}]}}"
     },
     {
       "Category": 0,
@@ -161,6 +161,15 @@
       "PropertyDataTypeKey": "Table",
       "Tooltip": "The table containing all translations data",
       "Type": "{\"Version\":\"1.345\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"pace_englishlabel\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"pace_frenchlabel\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"pace_key\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "HasLoaded",
+      "Hidden": true,
+      "Name": "HasLoaded",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "Set to False and changes to True when the component has completed loading all translations.",
+      "Type": "{\"Version\":\"1.345\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -171,7 +180,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638749045067105324",
+  "LastModifiedTimestamp": "638751590807048704",
   "Name": "03e1b4513172425f9a3056d8fdb51dce",
   "OverridableProperties": {},
   "SourceLibraryId": "b085fca2-52e0-4b3e-82dc-a8ab76b10ab6",

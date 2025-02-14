@@ -198,6 +198,7 @@ Screens:
             - Modified on_Column2:
                 Control: DataTableColumn@1.0.1
                 Variant: Textual
+                IsLocked: true
                 Properties:
                   AutoWidth: =false
                   FieldDisplayName: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblModify").Label '
