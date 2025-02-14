@@ -158,6 +158,7 @@ Screens:
             - createdon_Column1:
                 Control: DataTableColumn@1.0.1
                 Variant: Textual
+                IsLocked: true
                 Properties:
                   AutoWidth: =false
                   FieldDisplayName: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblReceived").Label '
@@ -168,6 +169,7 @@ Screens:
             - aib_filename_Column1:
                 Control: DataTableColumn@1.0.1
                 Variant: Textual
+                IsLocked: true
                 Properties:
                   AutoWidth: =false
                   FieldDisplayName: '=LookUp(cmp_TranslateLabels_1.Labels, Key = "lblDocuments").Label '
@@ -193,6 +195,7 @@ Screens:
             - aib_processingstatus_Column1:
                 Control: DataTableColumn@1.0.1
                 Variant: Textual
+                IsLocked: true
                 Properties:
                   AutoWidth: =false
                   FieldDisplayName: =LookUp(cmp_TranslateLabels_1.Labels, Key = "lblStatus").Label
@@ -560,15 +563,6 @@ Screens:
             Width: =127
             X: =939
             Y: =27
-      - cmp_TranslateLabels_1:
-          Control: CanvasComponent
-          ComponentName: cmp_TranslateLabels
-          Properties:
-            Height: =1
-            Language: =varLang
-            TranslationsTable: ='Canvas Translations'
-            Visible: =false
-            Width: =1
       - AppLoadTimer:
           Control: Timer@2.1.0
           Properties:
@@ -584,9 +578,9 @@ Screens:
             HoverBorderColor: =ColorFade(AppLoadTimer.BorderColor, 20%)
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-            OnTimerEnd: =If(CountRows(Filter(cmp_TranslateLabels_1.Labels, Find("processingStatus_", Key) > 0)) = CountRows(Choices('Document Automation Processings'.'Processing Status')), Select('Refresh Button'))
+            OnTimerEnd: =If(cmp_TranslateLabels_1.HasLoaded = true, Select('Refresh Button'))
             PressedBorderColor: =AppLoadTimer.Fill
             PressedColor: =AppLoadTimer.Fill
             PressedFill: =AppLoadTimer.Color
-            Repeat: =CountRows(Filter(cmp_TranslateLabels_1.Labels, Find("processingStatus_", Key) > 0)) < CountRows(Choices('Document Automation Processings'.'Processing Status'))
+            Repeat: =cmp_TranslateLabels_1.HasLoaded = false
             Visible: =false

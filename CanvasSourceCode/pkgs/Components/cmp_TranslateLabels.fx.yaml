@@ -1,10 +1,12 @@
 cmp_TranslateLabels As CanvasComponent:
     Fill: =RGBA(0, 0, 0, 0)
+    HasLoaded: =varHasLoaded
     Height: =0
     Labels: =varTranslations
     Language: ="en"
-    OnReset: |
-        =Set(
+    OnReset: |-
+        =Set(varHasLoaded, false);
+        Set(
             varTranslations,
             AddColumns(
                 RenameColumns(
@@ -24,6 +26,7 @@ cmp_TranslateLabels As CanvasComponent:
                 )
             )
         );
+        Set(varHasLoaded, true);
     TranslationsTable: |-
         =Table({pace_key: "SampleText", pace_englishlabel: "label en 1", pace_frenchlabel: "label fr 1"})
     Width: =0
