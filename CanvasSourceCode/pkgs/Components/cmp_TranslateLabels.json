@@ -52,7 +52,7 @@
       },
       "HasLoaded"
     ],
-    "LastModifiedTimestamp": "638751590807048704",
+    "LastModifiedTimestamp": "638786985162724932",
     "Name": "cmp_TranslateLabels",
     "Rules": [
       {
@@ -180,7 +180,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638751590807048704",
+  "LastModifiedTimestamp": "638786985162724932",
   "Name": "03e1b4513172425f9a3056d8fdb51dce",
   "OverridableProperties": {},
   "SourceLibraryId": "b085fca2-52e0-4b3e-82dc-a8ab76b10ab6",

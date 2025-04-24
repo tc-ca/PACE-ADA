@@ -13,6 +13,7 @@
     "AppCreationSource": "AppFromScratch",
     "AppDescription": "",
     "AppPreviewFlagsMap": {
+      "adaptivepaging": false,
       "aibuilderserviceenrollment": false,
       "allowmultiplescreensincanvaspages": false,
       "appinsightserrortracing": false,
@@ -49,6 +50,7 @@
       "enableeditinmcs": false,
       "enableexcelonlinebusinessv2connector": false,
       "enableideaspanel": true,
+      "enableideaspanelbyexample": false,
       "enablelegacybarcodescanner": false,
       "enablelegacydatatable": false,
       "enableonstart": true,

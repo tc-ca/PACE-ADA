@@ -1,0 +1,713 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "tc_sharedoffice365_83552"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      },
+      "shared_office365groups": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "tc_sharedoffice365groups_eb78b"
+        },
+        "api": {
+          "name": "shared_office365groups"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "tc_sharedcommondataserviceforapps_9d50b"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "586b61e4-46eb-457c-a159-9cf3e2305a1c"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "msdyn_aievent",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filterexpression": "msdyn_creditconsumed gt 0"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Check_if_Business_Unit_has_allocated_credits_record": {
+          "actions": {
+            "Get_Consumed_Credits_for_Current_Month_for_Business_Unit": {
+              "actions": {
+                "Compose_first_Allocated_Credit_object": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "4d3b86e1-b518-4dec-ba88-b954e3b5f946"
+                  },
+                  "type": "Compose",
+                  "inputs": "@first(outputs('List_AI_Credit_Allocations')?['body/value'])"
+                },
+                "Compose_Allocated_Credits": {
+                  "runAfter": {
+                    "Compose_first_Allocated_Credit_object": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "ca73050d-591d-42c2-b43b-cbe619d169f5"
+                  },
+                  "type": "Compose",
+                  "inputs": "@outputs('Compose_first_Allocated_Credit_object')?['tc_allocatedcredits']"
+                },
+                "Run_a_Child_Flow": {
+                  "runAfter": {
+                    "Compose_Warning_Credits_Limit": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "25e04b6d-5a3c-41d4-9556-6e4c10b0ff6a"
+                  },
+                  "type": "Workflow",
+                  "inputs": {
+                    "host": {
+                      "workflowReferenceName": "c11e0a3f-6ef8-ef11-bae1-0022483dd18b"
+                    },
+                    "body": {
+                      "text": "@outputs('Compose_business_unit_id')"
+                    }
+                  }
+                },
+                "Compose_Warning_Credits_Limit": {
+                  "runAfter": {
+                    "Compose_Allocated_Credits": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "45781623-8b89-4781-a107-fbe903d44691"
+                  },
+                  "type": "Compose",
+                  "inputs": "@outputs('Compose_first_Allocated_Credit_object')?['tc_aicreditwarninglimit']"
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "ebfbe6a1-5569-47c3-8550-0b8a300f9ada"
+              },
+              "type": "Scope"
+            },
+            "If_over_warning_and_no_email_sent_this_month_-_send_email": {
+              "actions": {
+                "Send_an_email_(V2)": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "be0d242f-4423-4e8e-bdfa-702e4af71161"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_office365",
+                      "operationId": "SendEmailV2",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                    },
+                    "parameters": {
+                      "emailMessage/To": "@outputs('Compose_Email_Recipients')",
+                      "emailMessage/Subject": "AI Credits Warning: @{outputs('Compose_Business_Unit_Name')}",
+                      "emailMessage/Body": "<p><span style=\"font-size: 14px\">Your AI credit usage</span><span style=\"font-size: 14px\"><strong> is approaching</strong></span><span style=\"font-size: 14px\"> the credit limit assigned to your business unit for the environment.<br>\n<br>\n</span><span style=\"font-size: 14px\"><strong>Environment: </strong></span><span style=\"font-size: 14px\"></span><span style=\"font-size: 14px\">@{outputs('Compose_Environment')}</span><span style=\"font-size: 14px\"><br>\n</span><span style=\"font-size: 14px\"><strong>Business Unit: </strong></span><span style=\"font-size: 14px\"></span><span style=\"font-size: 14px\">@{outputs('Compose_Business_Unit_Name')}</span><span style=\"font-size: 14px\"><br>\n</span><span style=\"font-size: 14px\"><strong>Credit Limit: </strong></span><span style=\"font-size: 14px\"></span><span style=\"font-size: 14px\">@{outputs('Compose_Allocated_Credits')}</span><span style=\"font-size: 14px\"><br>\n</span><span style=\"font-size: 14px\"><strong>Consumed Credits: </strong></span><span style=\"font-size: 14px\"></span><span style=\"font-size: 14px\">@{outputs('Run_a_Child_Flow')?['Body']?['credits_consumed']}</span><span style=\"font-size: 14px\"></span><br>\n<br>\nIf your consumed credits for the month exceeds the credit limit, your access to your AI models will be restricted and you will be unable to continue processing documents. If you expect that you will require more credits this month due to a surge in processing volumes, please contact PACE and we will work with you to adjust the credit limit in order to avoid any interuption in service for you.<br>\n<br>\nThe consumed credits for this environment will be reset back to 0 on the 1st day of each month.</p>",
+                      "emailMessage/Cc": "jesse.niekraszewicz@tc.gc.ca;Ivan.Taskov@tc.gc.ca",
+                      "emailMessage/Importance": "Normal"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Set_variable": {
+                  "runAfter": {
+                    "Send_an_email_(V2)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "1a7d0f01-7adf-4384-bc95-5668033688b4"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "boolUpdateWarningEmailSentDate",
+                    "value": "@true"
+                  }
+                }
+              },
+              "runAfter": {
+                "If_over_warning_or_allocated_-_Compose_data": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "and": [
+                  {
+                    "equals": [
+                      "@variables('boolOverWarningCredits')",
+                      "@true"
+                    ]
+                  },
+                  {
+                    "lessOrEquals": [
+                      "@coalesce(outputs('Compose_first_Allocated_Credit_object')?['tc_emailwarningsentdate'], startOfMonth(utcNow()))",
+                      "@startOfMonth(utcNow())"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "2eb34727-f13d-4eaa-887f-027113b8e1a9"
+              },
+              "type": "If"
+            },
+            "Check_if_over_warning_credits": {
+              "actions": {
+                "Set_variable_boolOverWarningCredits": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "73e059d3-8969-473a-9e27-a0446cff8f87"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "boolOverWarningCredits",
+                    "value": "@true"
+                  }
+                }
+              },
+              "runAfter": {
+                "Get_Consumed_Credits_for_Current_Month_for_Business_Unit": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "and": [
+                  {
+                    "not": {
+                      "equals": [
+                        "@outputs('Compose_Warning_Credits_Limit')",
+                        "@null"
+                      ]
+                    }
+                  },
+                  {
+                    "greaterOrEquals": [
+                      "@int(outputs('Run_a_Child_Flow')?['Body']?['credits_consumed'])",
+                      "@outputs('Compose_Warning_Credits_Limit')"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e994108d-c52f-4401-b7e5-e5351b4866ad"
+              },
+              "type": "If"
+            },
+            "If_over_allocated_credits_-_send_email": {
+              "actions": {
+                "Send_an_email_(V2)_2": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "be0d242f-4423-4e8e-bdfa-702e4af71161"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_office365",
+                      "operationId": "SendEmailV2",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                    },
+                    "parameters": {
+                      "emailMessage/To": "@outputs('Compose_Email_Recipients')",
+                      "emailMessage/Subject": "AI Credits Overage: @{outputs('Compose_Business_Unit_Name')}",
+                      "emailMessage/Body": "<p><span style=\"font-size: 14px\">Your AI credit usage is </span><span style=\"font-size: 14px\"><strong>over the allocated credits </strong></span><span style=\"font-size: 14px\">assigned to your business unit for the environment.<br>\n<br>\n</span><span style=\"font-size: 14px\"><strong>Environment: </strong></span><span style=\"font-size: 14px\"></span><span style=\"font-size: 14px\">@{outputs('Compose_Environment')}</span><span style=\"font-size: 14px\"><br>\n</span><span style=\"font-size: 14px\"><strong>Business Unit: </strong></span><span style=\"font-size: 14px\"></span><span style=\"font-size: 14px\">@{outputs('Compose_Business_Unit_Name')}</span><span style=\"font-size: 14px\"><br>\n</span><span style=\"font-size: 14px\"><strong>Credit Limit: </strong></span><span style=\"font-size: 14px\"></span><span style=\"font-size: 14px\">@{outputs('Compose_Allocated_Credits')}</span><span style=\"font-size: 14px\"><br>\n</span><span style=\"font-size: 14px\"><strong>Consumed Credits: </strong></span><span style=\"font-size: 14px\"></span><span style=\"font-size: 14px\">@{outputs('Run_a_Child_Flow')?['Body']?['credits_consumed']}</span><span style=\"font-size: 14px\"></span><br>\n<br>\n<span style=\"font-size: 14px\"><strong>Your access to your AI models has been restricted and you will be unable to process any documents</strong></span><span style=\"font-size: 12px\">. Please contact PACE to have your service restored and we will work with you to determine whether the assigned credit limit is appropriate for your use case or if it should be adjusted.</span></p>",
+                      "emailMessage/Cc": "jesse.niekraszewicz@tc.gc.ca;Ivan.Taskov@tc.gc.ca",
+                      "emailMessage/Importance": "Normal"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "If_over_warning_and_no_email_sent_this_month_-_send_email": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "equals": [
+                  "@variables('boolOverAllocatedCredits')",
+                  "@true"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "c58656bb-183b-4eec-930a-e93dcc515af9"
+              },
+              "type": "If"
+            },
+            "Check_if_over_allocated_credits": {
+              "actions": {
+                "Set_variable_boolOverAllocatedCredits": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "0db65136-c577-447d-97ac-b1b02f606201"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "boolOverAllocatedCredits",
+                    "value": "@true"
+                  }
+                }
+              },
+              "runAfter": {
+                "Check_if_over_warning_credits": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "and": [
+                  {
+                    "not": {
+                      "equals": [
+                        "@outputs('Compose_Allocated_Credits')",
+                        "@null"
+                      ]
+                    }
+                  },
+                  {
+                    "greaterOrEquals": [
+                      "@int(outputs('Run_a_Child_Flow')?['Body']?['credits_consumed'])",
+                      "@outputs('Compose_Allocated_Credits')"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e994108d-c52f-4401-b7e5-e5351b4866ad"
+              },
+              "type": "If"
+            },
+            "If_over_warning_or_allocated_-_Compose_data": {
+              "actions": {
+                "Compose_Environment": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "46e62235-bd85-4911-8675-4aab462a54d4"
+                  },
+                  "type": "Compose",
+                  "inputs": "@uriHost(outputs('Compose_first_Allocated_Credit_object')?['@odata.id'])"
+                },
+                "Compose_Business_Unit_Name": {
+                  "runAfter": {
+                    "Compose_Environment": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "5845907a-c369-49bf-a223-969d91c151ee"
+                  },
+                  "type": "Compose",
+                  "inputs": "@outputs('Compose_first_Allocated_Credit_object')?['_tc_businessunit_value@OData.Community.Display.V1.FormattedValue']"
+                },
+                "Get_Email_Recipients": {
+                  "actions": {
+                    "Apply_to_each_-_Add_User_Principal_Name_to_array": {
+                      "foreach": "@outputs('Send_an_HTTP_request_V2_-_Get_Security_Group_Owners')?['body']?['value']",
+                      "actions": {
+                        "Append_to_array_variable": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "d298d55a-ca54-448d-be64-7032ff52bca3"
+                          },
+                          "type": "AppendToArrayVariable",
+                          "inputs": {
+                            "name": "arrEmailRecipients",
+                            "value": "@items('Apply_to_each_-_Add_User_Principal_Name_to_array')['userPrincipalName']"
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Send_an_HTTP_request_V2_-_Get_Security_Group_Owners": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "2d130ecd-e328-408d-a380-74fd733c4d3f"
+                      },
+                      "type": "Foreach"
+                    },
+                    "Send_an_HTTP_request_V2_-_Get_Security_Group_Owners": {
+                      "runAfter": {
+                        "Compose_Security_Group_Id": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "6e4c9f6f-669a-4940-8808-5220867a426e"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_office365groups",
+                          "operationId": "HttpRequestV2",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365groups"
+                        },
+                        "parameters": {
+                          "Uri": "https://graph.microsoft.com/v1.0/groups/@{outputs('Compose_Security_Group_Id')}/owners",
+                          "Method": "GET",
+                          "ContentType": "application/json"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Compose_Security_Group_Id": {
+                      "runAfter": {
+                        "List_Team": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "ebed8b0e-a403-4804-adb7-c9b0a1e5caf9"
+                      },
+                      "type": "Compose",
+                      "inputs": "@first(outputs('List_Team')?['body/value'])?['azureactivedirectoryobjectid']"
+                    },
+                    "List_Team": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "3b896a73-ec52-478f-838f-5ece31f26e67"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "teams",
+                          "$filter": "name eq '@{outputs('Compose_Business_Unit_Name')} User'"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Compose_Business_Unit_Name": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "d5a44a13-be11-463a-9ae9-37a598d3fe7f"
+                  },
+                  "type": "Scope"
+                },
+                "Compose_Email_Recipients": {
+                  "runAfter": {
+                    "Get_Email_Recipients": [
+                      "Succeeded",
+                      "Failed"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "a8d87ce9-c75b-4bde-8da7-eac3b2f0f1c6"
+                  },
+                  "type": "Compose",
+                  "inputs": "@join(variables('arrEmailRecipients'), ';')"
+                }
+              },
+              "runAfter": {
+                "Check_if_over_allocated_credits": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "or": [
+                  {
+                    "equals": [
+                      "@variables('boolOverWarningCredits')",
+                      "@true"
+                    ]
+                  },
+                  {
+                    "equals": [
+                      "@variables('boolOverAllocatedCredits')",
+                      "@true"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "394e0f96-fd8b-4450-b8de-0cd022a3bd9b"
+              },
+              "type": "If"
+            },
+            "If_over_allocated_or_sent_warning_email_-_update_Allocated_Credits_table": {
+              "actions": {
+                "Update_a_row": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "82f24f9c-ca1d-447e-abd1-9387c8bb3856"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "tc_aicreditallocations",
+                      "recordId": "@outputs('Compose_first_Allocated_Credit_object')?['tc_aicreditallocationid']",
+                      "item/tc_accessrestricted": "@if(variables('boolOverAllocatedCredits'), true,item()?['ExistingFieldValue'])",
+                      "item/tc_emailwarningsentdate": "@if(variables('boolUpdateWarningEmailSentDate'), utcNow(),item()?['ExistingFieldValue'])"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "If_over_allocated_credits_-_send_email": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "or": [
+                  {
+                    "equals": [
+                      "@variables('boolOverAllocatedCredits')",
+                      "@true"
+                    ]
+                  },
+                  {
+                    "equals": [
+                      "@variables('boolUpdateWarningEmailSentDate')",
+                      "@true"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "8ba8bd65-fd0f-4f90-a09d-0973b2e6db76"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Get_Allocated_Credits_for_Business_Unit": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "equals": [
+              "@greater(length(outputs('List_AI_Credit_Allocations')?['body/value']), 0)",
+              "@true"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d9060a94-5899-4b97-b132-9f6f87e5fa11"
+          },
+          "type": "If"
+        },
+        "Get_Allocated_Credits_for_Business_Unit": {
+          "actions": {
+            "List_AI_Credit_Allocations": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "658528d8-506f-422f-8ae5-510fd98be7a4"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "tc_aicreditallocations",
+                  "$filter": "_tc_businessunit_value eq '@{outputs('Compose_business_unit_id')}'"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Compose_response": {
+              "runAfter": {
+                "List_AI_Credit_Allocations": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "2bfa9e3b-55fc-441a-8b74-c690cb91c968"
+              },
+              "type": "Compose",
+              "inputs": "@outputs('List_AI_Credit_Allocations')?['body/value']"
+            }
+          },
+          "runAfter": {
+            "Get_business_unit": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ca1efe73-f102-4819-bf26-b5a59cda9da2"
+          },
+          "type": "Scope"
+        },
+        "Get_business_unit": {
+          "actions": {
+            "List_AI_Model_Owners": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "f3f25dec-f0d0-4870-a919-0eda244af906"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "tc_aimodelowners",
+                  "$select": "_tc_businessunit_value",
+                  "$filter": "_tc_aimodel_value eq '@{triggerOutputs()?['body/_msdyn_aimodelid_value']}'",
+                  "$top": 1
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Compose_business_unit_id": {
+              "runAfter": {
+                "List_AI_Model_Owners": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "8b826d44-1dc7-4946-a47c-3a7c3e3c62b2"
+              },
+              "type": "Compose",
+              "inputs": "@first(outputs('List_AI_Model_Owners')?['body/value'])['_tc_businessunit_value']"
+            }
+          },
+          "runAfter": {
+            "Initialize_variable_boolOverAllocatedCredits": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "30c0677a-a438-4118-903c-bd7cdfe596e7"
+          },
+          "type": "Scope"
+        },
+        "Initialize_variable_arrEmailRecipients": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "e27b6f00-8d7f-4247-b4ae-0370dc156153"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "arrEmailRecipients",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_boolOverWarningCredits": {
+          "runAfter": {
+            "Initialize_variable_arrEmailRecipients": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ccfafb59-7106-41a0-bab3-1ab6c8d83bd7"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "boolOverWarningCredits",
+                "type": "boolean",
+                "value": "@false"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_boolOverAllocatedCredits": {
+          "runAfter": {
+            "Initialize_variable_boolUpdateWarningEmailSentDate": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6947c8cb-f4ab-40ab-8e70-28d0ef41b593"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "boolOverAllocatedCredits",
+                "type": "boolean",
+                "value": "@false"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_boolUpdateWarningEmailSentDate": {
+          "runAfter": {
+            "Initialize_variable_boolOverWarningCredits": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e026ac49-b9be-4632-9d84-66dcd3a673ec"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "boolUpdateWarningEmailSentDate",
+                "type": "boolean",
+                "value": "@false"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

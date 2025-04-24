@@ -249,6 +249,7 @@ App As appinfo:
                 )
             ) > 0
         );
+        Set(varAppLoading, true);
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

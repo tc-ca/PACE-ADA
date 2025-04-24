@@ -13,7 +13,7 @@ Screens:
       Fill: =RGBA(255, 255, 255, 1)
       Height: =Max(App.Height, App.DesignHeight)
       LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
-      OnVisible: =Select('Refresh Button');
+      OnVisible: =If(!varAppLoading, Select('Refresh Button'))
       Width: =Max(App.Width, App.DesignWidth)
     Children:
       - Tip Rectangle_2:
@@ -261,7 +261,7 @@ Screens:
                       ),
                       'Processing Status En',
                       LookUp(
-                          cmp_TranslateLabels_1.Labels,
+                          colProcessingStatuses,
                           Key = Concatenate(
                               "processingStatus_",
                               Text(JSON('Processing Status'))
@@ -269,7 +269,7 @@ Screens:
                       ).'English Label',
                       'Processing Status Fr',
                       LookUp(
-                          cmp_TranslateLabels_1.Labels,
+                          colProcessingStatuses,
                           Key = Concatenate(
                               "processingStatus_",
                               Text(JSON('Processing Status'))
@@ -563,10 +563,20 @@ Screens:
             Width: =127
             X: =939
             Y: =27
+      - cmp_TranslateLabels_1:
+          Control: CanvasComponent
+          ComponentName: cmp_TranslateLabels
+          ComponentLibraryUniqueName: pace_translations_7c91d
+          Properties:
+            Height: =1
+            Language: =varLang
+            TranslationsTable: ='Canvas Translations'
+            Visible: =false
+            Width: =1
       - AppLoadTimer:
           Control: Timer@2.1.0
           Properties:
-            AutoStart: =true
+            AutoStart: =varAppLoading
             BorderColor: =ColorFade(AppLoadTimer.Fill, -15%)
             Color: =RGBA(255, 255, 255, 1)
             DisabledBorderColor: =ColorFade(AppLoadTimer.BorderColor, 70%)
@@ -578,7 +588,25 @@ Screens:
             HoverBorderColor: =ColorFade(AppLoadTimer.BorderColor, 20%)
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-            OnTimerEnd: =If(cmp_TranslateLabels_1.HasLoaded = true, Select('Refresh Button'))
+            OnTimerEnd: |-
+              =If(
+                  cmp_TranslateLabels_1.HasLoaded = true,
+                  Set(
+                      colProcessingStatuses,
+                      Filter(
+                          'Canvas Translations',
+                          StartsWith(
+                              Key,
+                              "processingStatus_"
+                          )
+                      )
+                  );
+                  Select('Refresh Button');
+                  Set(
+                      varAppLoading,
+                      false
+                  )
+              )
             PressedBorderColor: =AppLoadTimer.Fill
             PressedColor: =AppLoadTimer.Fill
             PressedFill: =AppLoadTimer.Color
