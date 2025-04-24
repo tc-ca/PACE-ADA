@@ -52,6 +52,7 @@
       "solutionid": "Solution",
       "statecode": "Status",
       "statuscode": "Status Reason",
+      "tc_aimodelowner_AIModel_msdyn_aimodel": "AI Model Owners",
       "timezoneruleversionnumber": "Time Zone Rule Version Number",
       "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
       "versionnumber": "Version Number"

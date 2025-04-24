@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{7165d022-0163-4e2d-baa4-952597c5ae00}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="tc_name" select="1" icon="1" preview="1">
+        <row name="result" id="tc_aicreditallocationid">
+          <cell name="tc_businessunit" width="119" />
+          <cell name="tc_allocatedcredits" width="139" />
+          <cell name="tc_aicreditwarninglimit" width="180" />
+          <cell name="tc_emailwarningsentdate" width="184" />
+          <cell name="tc_accessrestricted" width="140" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="tc_aicreditallocation">
+          <attribute name="tc_aicreditallocationid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="tc_businessunit" />
+          <attribute name="tc_allocatedcredits" />
+          <attribute name="tc_emailwarningsentdate" />
+          <attribute name="tc_aicreditwarninglimit" />
+          <attribute name="tc_accessrestricted" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active AI Credit Allocations" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

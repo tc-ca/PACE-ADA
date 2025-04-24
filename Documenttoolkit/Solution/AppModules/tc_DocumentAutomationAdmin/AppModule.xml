@@ -16,8 +16,11 @@
     <AppModuleComponent type="1" schemaName="aib_documentautomationtabletaxonomy" />
     <AppModuleComponent type="1" schemaName="aib_documentautomationtaxonomy" />
     <AppModuleComponent type="1" schemaName="msdyn_aievent" />
+    <AppModuleComponent type="1" schemaName="tc_aicreditallocation" />
+    <AppModuleComponent type="1" schemaName="tc_aimodelowner" />
     <AppModuleComponent type="26" id="{b9d2657a-92e7-45a1-9dc2-f38bcf170c5f}" />
     <AppModuleComponent type="60" id="{fecd41e1-4c23-ef11-840b-000d3af4271c}" />
+    <AppModuleComponent type="60" id="{5a3a26a9-61fb-ef11-bae1-0022483dd18b}" />
     <AppModuleComponent type="62" schemaName="tc_DocumentAutomationAdmin" />
   </AppModuleComponents>
   <AppModuleRoleMaps>

@@ -13,6 +13,8 @@
   <EntityRelationship Name="business_unit_aib_documentautomationtabledata" />
   <EntityRelationship Name="business_unit_aib_documentautomationtabletaxonomy" />
   <EntityRelationship Name="business_unit_aib_documentautomationtaxonomy" />
+  <EntityRelationship Name="business_unit_tc_aicreditallocation" />
+  <EntityRelationship Name="business_unit_tc_aimodelowner" />
   <EntityRelationship Name="business_unit_tc_servicerequest" />
   <EntityRelationship Name="FileAttachment_aib_DocumentAutomationProcessing_aib_FileData" />
   <EntityRelationship Name="lk_aib_documentautomationconfiguration_createdby" />
@@ -27,6 +29,10 @@
   <EntityRelationship Name="lk_aib_documentautomationtabletaxonomy_modifiedby" />
   <EntityRelationship Name="lk_aib_documentautomationtaxonomy_createdby" />
   <EntityRelationship Name="lk_aib_documentautomationtaxonomy_modifiedby" />
+  <EntityRelationship Name="lk_tc_aicreditallocation_createdby" />
+  <EntityRelationship Name="lk_tc_aicreditallocation_modifiedby" />
+  <EntityRelationship Name="lk_tc_aimodelowner_createdby" />
+  <EntityRelationship Name="lk_tc_aimodelowner_modifiedby" />
   <EntityRelationship Name="lk_tc_servicerequest_createdby" />
   <EntityRelationship Name="lk_tc_servicerequest_modifiedby" />
   <EntityRelationship Name="owner_aib_documentautomationconfiguration" />
@@ -35,14 +41,21 @@
   <EntityRelationship Name="owner_aib_documentautomationtabledata" />
   <EntityRelationship Name="owner_aib_documentautomationtabletaxonomy" />
   <EntityRelationship Name="owner_aib_documentautomationtaxonomy" />
+  <EntityRelationship Name="owner_tc_aicreditallocation" />
+  <EntityRelationship Name="owner_tc_aimodelowner" />
   <EntityRelationship Name="owner_tc_servicerequest" />
   <EntityRelationship Name="tc_aib_documentautomationprocessing_ServiceRequest_tc_servicerequest" />
+  <EntityRelationship Name="tc_aicreditallocation_BusinessUnit_businessunit" />
+  <EntityRelationship Name="tc_aimodelowner_AIModel_msdyn_aimodel" />
+  <EntityRelationship Name="tc_aimodelowner_BusinessUnit_businessunit" />
   <EntityRelationship Name="team_aib_documentautomationconfiguration" />
   <EntityRelationship Name="team_aib_documentautomationdata" />
   <EntityRelationship Name="team_aib_documentautomationprocessing" />
   <EntityRelationship Name="team_aib_documentautomationtabledata" />
   <EntityRelationship Name="team_aib_documentautomationtabletaxonomy" />
   <EntityRelationship Name="team_aib_documentautomationtaxonomy" />
+  <EntityRelationship Name="team_tc_aicreditallocation" />
+  <EntityRelationship Name="team_tc_aimodelowner" />
   <EntityRelationship Name="team_tc_servicerequest" />
   <EntityRelationship Name="user_aib_documentautomationconfiguration" />
   <EntityRelationship Name="user_aib_documentautomationdata" />
@@ -50,5 +63,7 @@
   <EntityRelationship Name="user_aib_documentautomationtabledata" />
   <EntityRelationship Name="user_aib_documentautomationtabletaxonomy" />
   <EntityRelationship Name="user_aib_documentautomationtaxonomy" />
+  <EntityRelationship Name="user_tc_aicreditallocation" />
+  <EntityRelationship Name="user_tc_aimodelowner" />
   <EntityRelationship Name="user_tc_servicerequest" />
 </EntityRelationships>

@@ -1,0 +1,133 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "tc_sharedcommondataserviceforapps_9d50b"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "ea8b045a-f324-43f3-bd4e-31191c571062"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "Business Unit Id",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Compose_FetchXML_Query": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "d555cd13-a390-4356-a808-7bef843781d5"
+          },
+          "type": "Compose",
+          "inputs": "<fetch aggregate=\"true\">\n  <entity name=\"msdyn_aievent\">\n    <attribute name=\"msdyn_creditconsumed\" alias=\"totalCreditsConsumed\" aggregate=\"sum\" />\n    <link-entity name=\"tc_aimodelowner\" from=\"tc_aimodel\" to=\"msdyn_aimodelid\" alias=\"aimodelowner\" link-type=\"outer\">\n      <attribute name=\"tc_businessunit\" alias=\"businessUnit\" groupby=\"true\" />\n    </link-entity>\n    <filter>\n      <condition attribute=\"createdon\" operator=\"this-month\" />\n      <condition entityname=\"aimodelowner\" attribute=\"tc_businessunit\" operator=\"eq\" value=\"@{triggerBody()['text']}\" uitype=\"businessunit\" />\n    </filter>\n  </entity>\n</fetch>"
+        },
+        "List_AI_Events": {
+          "runAfter": {
+            "Compose_FetchXML_Query": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c84705c1-7f21-4233-9fd7-17ce75b202c1"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "msdyn_aievents",
+              "fetchXml": "@outputs('Compose_FetchXML_Query')"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Compose_Total_Consumed_Credits": {
+          "runAfter": {
+            "List_AI_Events": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d90953a9-f6e2-401b-a104-0581c3e5ba5b"
+          },
+          "type": "Compose",
+          "inputs": "@first(outputs('List_AI_Events')?['body/value'])?['totalCreditsConsumed']"
+        },
+        "Respond_to_a_Power_App_or_flow": {
+          "runAfter": {
+            "Compose_Total_Consumed_Credits": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1a6c5549-767c-4911-b7e5-a0554db7bf42"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "credits_consumed": "@{outputs('Compose_Total_Consumed_Credits')}"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "credits_consumed": {
+                  "title": "Credits Consumed",
+                  "x-ms-dynamically-added": true,
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
