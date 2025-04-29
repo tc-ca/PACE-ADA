@@ -1,9 +1,8 @@
 # ************************************************************************************************
-# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
-# Content may be incomplete and subject to change.
-# This file is read-only and should only be used to review changes made within Power Apps Studio.
-# This file isn't used when loading the app. External editing, merging and conflict resolution are
-# not supported.
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
 # 
 # For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
 # ************************************************************************************************
@@ -11,5 +10,261 @@ App:
   Properties:
     BackEnabled: =false
     Formulas: =IsDocumentLocked = Not(IsBlank(CurrentProcessing.'Assigned To')) && Not(CurrentProcessing.'Assigned To'.'User Name' = UserEmail) && Not(CurrentProcessing.'Assigned To'.'Full Name' = "SYSTEM") && Not IsPowerUser;
-    OnStart: "=\n// Styles\nSet(\n    ButtonBold,\n    {\n        BorderColor: RGBA(\n            116,\n            39,\n            116,\n            1\n        ),\n        BorderThickness: 1,\n        FocusedBorderColor: RGBA(\n            114,\n            39,\n            116,\n            1\n        ),\n        FocusedBorderThickness: 2,\n        HoverBorderColor: RGBA(\n            103,\n            35,\n            103,\n            1\n        ),\n        HoverColor: RGBA(\n            255,\n            255,\n            255,\n            1\n        ),\n        HoverFill: RGBA(\n            103,\n            35,\n            103,\n            1\n        ),\n        PressedBorderColor: RGBA(\n            80,\n            27,\n            80,\n            1\n        ),\n        PressedColor: RGBA(\n            255,\n            255,\n            255,\n            1\n        ),\n        PressedFill: RGBA(\n            80,\n            27,\n            80,\n            1\n        ),\n        BorderRadius: 2\n    }\n);\nSet(\n    ButtonStandard,\n    {\n        BorderColor: RGBA(\n            96,\n            94,\n            92,\n            1\n        ),\n        BorderThickness: 1,\n        FocusedBorderColor: RGBA(\n            161,\n            159,\n            157,\n            1\n        ),\n        FocusedBorderThickness: 2,\n        HoverBorderColor: RGBA(\n            96,\n            94,\n            92,\n            1\n        ),\n        HoverColor: RGBA(\n            32,\n            31,\n            30,\n            1\n        ),\n        HoverFill: RGBA(\n            237,\n            235,\n            233,\n            1\n        ),\n        PressedBorderColor: RGBA(\n            96,\n            94,\n            92,\n            1\n        ),\n        PressedColor: RGBA(\n            32,\n            31,\n            30,\n            1\n        ),\n        PressedFill: RGBA(\n            225,\n            223,\n            221,\n            1\n        ),\n        BorderRadius: 2\n    }\n);\nSet(\n    TextBox,\n    {\n        BorderColor: RGBA(\n            225,\n            223,\n            221,\n            1\n        ),\n        BorderThickness: 1,\n        FocusedBorderColor: RGBA(\n            116,\n            39,\n            116,\n            1\n        ),\n        FocusedBorderThickness: 1,\n        HoverBorderColor: RGBA(\n            50,\n            49,\n            48,\n            1\n        ),\n        HoverFill: RGBA(\n            255,\n            255,\n            255,\n            1\n        )\n    }\n);\n\n//====== Set initial language=======\nSet(varLang, \"en\");\nSet(varLanguageTable,Table({Label: \"English\", Value: \"en\"}, {Label: \"Français\", Value: \"fr\"}));\n\n// Invoice Processing Label Definition\nSet(\n    InvoiceProcessingModelLabels,\n    \"\"\"labels\"\":{\"\"newLabel\"\":\"\"amountDue\"\",\"\"newLabel\"\":\"\"billingAddress\"\",\"\"newLabel\"\":\"\"billingAddressRecipient\"\",\"\"newLabel\"\":\"\"customerAddress\"\",\"\"newLabel\"\":\"\"customerAddressRecipient\"\",\"\"newLabel\"\":\"\"customerId\"\",\"\"newLabel\"\":\"\"customerName\"\",\"\"newLabel\"\":\"\"dueDate\"\",\"\"newLabel\"\":\"\"invoiceDate\"\",\"\"newLabel\"\":\"\"invoiceId\"\",\"\"newLabel\"\":\"\"invoiceTotal\"\",\"\"newLabel\"\":\"\"previousUnpaidBalance\"\",\"\"newLabel\"\":\"\"purchaseOrder\"\",\"\"newLabel\"\":\"\"remittanceAddress\"\",\"\"newLabel\"\":\"\"remittanceAddressRecipient\"\",\"\"newLabel\"\":\"\"serviceAddress\"\",\"\"newLabel\"\":\"\"serviceAddressRecipient\"\",\"\"newLabel\"\":\"\"serviceEndDate\"\",\"\"newLabel\"\":\"\"serviceStartDate\"\",\"\"newLabel\"\":\"\"shippingAddress\"\",\"\"newLabel\"\":\"\"shippingAddressRecipient\"\",\"\"newLabel\"\":\"\"subTotal\"\", \"\"newLabel\"\":\"\"totalTax\"\",\"\"newLabel\"\":\"\"vendorAddress\"\",\"\"newLabel\"\":\"\"vendorAddressRecipient\"\",\"\"newLabel\"\":\"\"vendorName\"\"}}},\"\"tables\"\":{\"\"Items\"\",\"\"columns\"\":{\"\"amount\"\":{}}, \"\"description\"\":{}}, \"\"unitPrice\"\":{}}, \"\"quantity\"\":{}}, \"\"productCode\"\":{}}, \"\"unit\"\":{}}, \"\"date\"\":{}}, \"\"tax\"\":{}}}}},\"\"layouts\"\n);\n// Security Configuration\nSet(\n    FullName,\n    User().FullName\n);\nSet(\n    UserEmail,\n    User().Email\n);\n// Get System administrator and System customizer local name\nClearCollect(\n    AdminRoles,\n    Filter(\n        'Role Templates',\n        Or(\n            RoleTemplateId = GUID(\"627090ff-40a3-4053-8790-584edc5be201\"),\n            RoleTemplateId = GUID(\"119f245c-3cc8-4b62-b31c-d1a046ced15d\")\n        )\n    ).Name,\n    Filter(\n        'Security Roles',\n        Or(Name = \"Document Automation Admin\")\n    ).Name\n);\n// Check that current belongs to these roles\nClearCollect(\n    UserRoles,\n    LookUp(\n        Users,\n        Or(\n            'Primary Email' = UserEmail,\n            'User Name' = UserEmail\n        )\n    ).'Security Roles (systemuserroles_association)'.Name\n);\n//========Get Team security roles and add Users aned Teams roles in AllUserRoles collection=========================================\nSet(\n    CurrentUser,\n    LookUp(\n        Users,\n        Or(\n            'Primary Email' = UserEmail,\n            'User Name' = UserEmail\n        )\n    )\n);\n// User Teams\nClearCollect(\n    UserTeams,\n    CurrentUser.'Teams (teammembership_association)'\n);\nClearCollect(\n    UserTeamsAux,\n    UserTeams\n);\n// All Roles (User + Teams)\nClearCollect(\n    AllUserRoles,\n    UserRoles\n);\n\nForAll(\n    UserTeams,\n    Collect(\n        AllUserRoles,\n        (LookUp(\n            UserTeams,\n            'Team Name' = First(UserTeamsAux).'Team Name'\n        ).'Security Roles').Name\n    );\n    Remove(\n        UserTeamsAux,\n        First(UserTeamsAux)\n    );\n    \n);\n\n\n//========Get Team security roles and add Users aned Teams roles in AllUserRoles collection=========================================\nSet(\n    IsPowerUser,\n    CountRows(\n        Filter(\n            AllUserRoles,\n            Or(\n                Name in AdminRoles,\n                Name = \"System Customizer\",\n                Name = \"System Administrator\"\n            )\n        )\n    ) > 0\n);\nSet(varAppLoading, true);"
+    OnStart: |-
+      =
+      // Styles
+      Set(
+          ButtonBold,
+          {
+              BorderColor: RGBA(
+                  116,
+                  39,
+                  116,
+                  1
+              ),
+              BorderThickness: 1,
+              FocusedBorderColor: RGBA(
+                  114,
+                  39,
+                  116,
+                  1
+              ),
+              FocusedBorderThickness: 2,
+              HoverBorderColor: RGBA(
+                  103,
+                  35,
+                  103,
+                  1
+              ),
+              HoverColor: RGBA(
+                  255,
+                  255,
+                  255,
+                  1
+              ),
+              HoverFill: RGBA(
+                  103,
+                  35,
+                  103,
+                  1
+              ),
+              PressedBorderColor: RGBA(
+                  80,
+                  27,
+                  80,
+                  1
+              ),
+              PressedColor: RGBA(
+                  255,
+                  255,
+                  255,
+                  1
+              ),
+              PressedFill: RGBA(
+                  80,
+                  27,
+                  80,
+                  1
+              ),
+              BorderRadius: 2
+          }
+      );
+      Set(
+          ButtonStandard,
+          {
+              BorderColor: RGBA(
+                  96,
+                  94,
+                  92,
+                  1
+              ),
+              BorderThickness: 1,
+              FocusedBorderColor: RGBA(
+                  161,
+                  159,
+                  157,
+                  1
+              ),
+              FocusedBorderThickness: 2,
+              HoverBorderColor: RGBA(
+                  96,
+                  94,
+                  92,
+                  1
+              ),
+              HoverColor: RGBA(
+                  32,
+                  31,
+                  30,
+                  1
+              ),
+              HoverFill: RGBA(
+                  237,
+                  235,
+                  233,
+                  1
+              ),
+              PressedBorderColor: RGBA(
+                  96,
+                  94,
+                  92,
+                  1
+              ),
+              PressedColor: RGBA(
+                  32,
+                  31,
+                  30,
+                  1
+              ),
+              PressedFill: RGBA(
+                  225,
+                  223,
+                  221,
+                  1
+              ),
+              BorderRadius: 2
+          }
+      );
+      Set(
+          TextBox,
+          {
+              BorderColor: RGBA(
+                  225,
+                  223,
+                  221,
+                  1
+              ),
+              BorderThickness: 1,
+              FocusedBorderColor: RGBA(
+                  116,
+                  39,
+                  116,
+                  1
+              ),
+              FocusedBorderThickness: 1,
+              HoverBorderColor: RGBA(
+                  50,
+                  49,
+                  48,
+                  1
+              ),
+              HoverFill: RGBA(
+                  255,
+                  255,
+                  255,
+                  1
+              )
+          }
+      );
+      //====== Set initial language=======
+      Set(
+          varLang,
+          "en"
+      );
+      Set(
+          varLanguageTable,
+          Table(
+              {
+                  Label: "English",
+                  Value: "en"
+              },
+              {
+                  Label: "Français",
+                  Value: "fr"
+              }
+          )
+      );
+      // Invoice Processing Label Definition
+      Set(
+          InvoiceProcessingModelLabels,
+          """labels"":{""newLabel"":""amountDue"",""newLabel"":""billingAddress"",""newLabel"":""billingAddressRecipient"",""newLabel"":""customerAddress"",""newLabel"":""customerAddressRecipient"",""newLabel"":""customerId"",""newLabel"":""customerName"",""newLabel"":""dueDate"",""newLabel"":""invoiceDate"",""newLabel"":""invoiceId"",""newLabel"":""invoiceTotal"",""newLabel"":""previousUnpaidBalance"",""newLabel"":""purchaseOrder"",""newLabel"":""remittanceAddress"",""newLabel"":""remittanceAddressRecipient"",""newLabel"":""serviceAddress"",""newLabel"":""serviceAddressRecipient"",""newLabel"":""serviceEndDate"",""newLabel"":""serviceStartDate"",""newLabel"":""shippingAddress"",""newLabel"":""shippingAddressRecipient"",""newLabel"":""subTotal"", ""newLabel"":""totalTax"",""newLabel"":""vendorAddress"",""newLabel"":""vendorAddressRecipient"",""newLabel"":""vendorName""}}},""tables"":{""Items"",""columns"":{""amount"":{}}, ""description"":{}}, ""unitPrice"":{}}, ""quantity"":{}}, ""productCode"":{}}, ""unit"":{}}, ""date"":{}}, ""tax"":{}}}}},""layouts"
+      );
+      // Security Configuration
+      Set(
+          FullName,
+          User().FullName
+      );
+      Set(
+          UserEmail,
+          User().Email
+      );
+      // Get System administrator and System customizer local name
+      ClearCollect(
+          AdminRoles,
+          Filter(
+              'Role Templates',
+              Or(
+                  RoleTemplateId = GUID("627090ff-40a3-4053-8790-584edc5be201"),
+                  RoleTemplateId = GUID("119f245c-3cc8-4b62-b31c-d1a046ced15d")
+              )
+          ).Name,
+          Filter(
+              'Security Roles',
+              Or(Name = "Document Automation Admin")
+          ).Name
+      );
+      // Check that current belongs to these roles
+      ClearCollect(
+          UserRoles,
+          LookUp(
+              Users,
+              Or(
+                  'Primary Email' = UserEmail,
+                  'User Name' = UserEmail
+              )
+          ).'Security Roles (systemuserroles_association)'.Name
+      );
+      //========Get Team security roles and add Users aned Teams roles in AllUserRoles collection=========================================
+      Set(
+          CurrentUser,
+          LookUp(
+              Users,
+              Or(
+                  'Primary Email' = UserEmail,
+                  'User Name' = UserEmail
+              )
+          )
+      );
+      // User Teams
+      ClearCollect(
+          UserTeams,
+          CurrentUser.'Teams (teammembership_association)'
+      );
+      ClearCollect(
+          UserTeamsAux,
+          UserTeams
+      );
+      // All Roles (User + Teams)
+      ClearCollect(
+          AllUserRoles,
+          UserRoles
+      );
+      ForAll(
+          UserTeams,
+          ForAll(
+              LookUp(
+                  'Teams',
+                  'Team Name' = ThisRecord.'Team Name'
+              ).'Security Roles',
+              Collect(
+                  AllUserRoles,
+                  ThisRecord
+              )
+          )
+      );
+      //========Get Team security roles and add Users aned Teams roles in AllUserRoles collection=========================================
+      Set(
+          IsPowerUser,
+          CountRows(
+              Filter(
+                  AllUserRoles,
+                  Or(
+                      Name in AdminRoles,
+                      Name = "System Customizer",
+                      Name = "System Administrator"
+                  )
+              )
+          ) > 0
+      );
+      Set(varAppLoading, true);
     Theme: =PowerAppsTheme

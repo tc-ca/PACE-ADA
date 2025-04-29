@@ -147,11 +147,24 @@ App As appinfo:
                 )
             }
         );
-        
         //====== Set initial language=======
-        Set(varLang, "en");
-        Set(varLanguageTable,Table({Label: "English", Value: "en"}, {Label: "Français", Value: "fr"}));
-        
+        Set(
+            varLang,
+            "en"
+        );
+        Set(
+            varLanguageTable,
+            Table(
+                {
+                    Label: "English",
+                    Value: "en"
+                },
+                {
+                    Label: "Français",
+                    Value: "fr"
+                }
+            )
+        );
         // Invoice Processing Label Definition
         Set(
             InvoiceProcessingModelLabels,
@@ -217,24 +230,19 @@ App As appinfo:
             AllUserRoles,
             UserRoles
         );
-        
         ForAll(
             UserTeams,
-            Collect(
-                AllUserRoles,
-                (LookUp(
-                    UserTeams,
-                    'Team Name' = First(UserTeamsAux).'Team Name'
-                ).'Security Roles').Name
-            );
-            Remove(
-                UserTeamsAux,
-                First(UserTeamsAux)
-            );
-            
+            ForAll(
+                LookUp(
+                    'Teams',
+                    'Team Name' = ThisRecord.'Team Name'
+                ).'Security Roles',
+                Collect(
+                    AllUserRoles,
+                    ThisRecord
+                )
+            )
         );
-        
-        
         //========Get Team security roles and add Users aned Teams roles in AllUserRoles collection=========================================
         Set(
             IsPowerUser,
