@@ -1,6 +1,6 @@
 "'Document List Screen' As screen":
     Height: =Max(App.Height, App.DesignHeight)
-    OnVisible: =If(!varAppLoading, Select('Refresh Button'))
+    OnVisible: =Select('Refresh Button');
     Orientation: =If('Document List Screen'.Width < 'Document List Screen'.Height, Layout.Vertical, Layout.Horizontal)
     Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= 'Document List Screen'.Width)
     Width: =Max(App.Width, App.DesignWidth)
@@ -253,7 +253,7 @@
                     ),
                     'Processing Status En',
                     LookUp(
-                        colProcessingStatuses,
+                        cmp_TranslateLabels_1.Labels,
                         Key = Concatenate(
                             "processingStatus_",
                             Text(JSON('Processing Status'))
@@ -261,7 +261,7 @@
                     ).'English Label',
                     'Processing Status Fr',
                     LookUp(
-                        colProcessingStatuses,
+                        cmp_TranslateLabels_1.Labels,
                         Key = Concatenate(
                             "processingStatus_",
                             Text(JSON('Processing Status'))
@@ -549,32 +549,14 @@
         ZIndex: =20
 
     AppLoadTimer As timer:
-        AutoStart: =varAppLoading
+        AutoStart: =true
         BorderColor: =ColorFade(AppLoadTimer.Fill, -15%)
         DisabledBorderColor: =ColorFade(AppLoadTimer.BorderColor, 70%)
         DisabledColor: =ColorFade(AppLoadTimer.Fill, 90%)
         DisabledFill: =ColorFade(AppLoadTimer.Fill, 70%)
         Duration: =100
         HoverBorderColor: =ColorFade(AppLoadTimer.BorderColor, 20%)
-        OnTimerEnd: |-
-            =If(
-                cmp_TranslateLabels_1.HasLoaded = true,
-                Set(
-                    colProcessingStatuses,
-                    Filter(
-                        'Canvas Translations',
-                        StartsWith(
-                            Key,
-                            "processingStatus_"
-                        )
-                    )
-                );
-                Select('Refresh Button');
-                Set(
-                    varAppLoading,
-                    false
-                )
-            )
+        OnTimerEnd: =If(cmp_TranslateLabels_1.HasLoaded = true, Select('Refresh Button'))
         PressedBorderColor: =AppLoadTimer.Fill
         PressedColor: =AppLoadTimer.Fill
         PressedFill: =AppLoadTimer.Color

@@ -1,7 +1,7 @@
 App As appinfo:
     BackEnabled: =false
     Formulas: =IsDocumentLocked = Not(IsBlank(CurrentProcessing.'Assigned To')) && Not(CurrentProcessing.'Assigned To'.'User Name' = UserEmail) && Not(CurrentProcessing.'Assigned To'.'Full Name' = "SYSTEM") && Not IsPowerUser;
-    OnStart: |-
+    OnStart: |
         =
         // Styles
         Set(
@@ -147,11 +147,24 @@ App As appinfo:
                 )
             }
         );
-        
         //====== Set initial language=======
-        Set(varLang, "en");
-        Set(varLanguageTable,Table({Label: "English", Value: "en"}, {Label: "Français", Value: "fr"}));
-        
+        Set(
+            varLang,
+            "en"
+        );
+        Set(
+            varLanguageTable,
+            Table(
+                {
+                    Label: "English",
+                    Value: "en"
+                },
+                {
+                    Label: "Français",
+                    Value: "fr"
+                }
+            )
+        );
         // Invoice Processing Label Definition
         Set(
             InvoiceProcessingModelLabels,
@@ -208,33 +221,24 @@ App As appinfo:
             UserTeams,
             CurrentUser.'Teams (teammembership_association)'
         );
-        ClearCollect(
-            UserTeamsAux,
-            UserTeams
-        );
         // All Roles (User + Teams)
         ClearCollect(
             AllUserRoles,
             UserRoles
         );
-        
         ForAll(
             UserTeams,
-            Collect(
-                AllUserRoles,
-                (LookUp(
-                    UserTeams,
-                    'Team Name' = First(UserTeamsAux).'Team Name'
-                ).'Security Roles').Name
-            );
-            Remove(
-                UserTeamsAux,
-                First(UserTeamsAux)
-            );
-            
+            ForAll(
+                LookUp(
+                    'Teams',
+                    'Team Name' = ThisRecord.'Team Name'
+                ).'Security Roles',
+                Collect(
+                    AllUserRoles,
+                    ThisRecord
+                )
+            )
         );
-        
-        
         //========Get Team security roles and add Users aned Teams roles in AllUserRoles collection=========================================
         Set(
             IsPowerUser,
@@ -249,7 +253,6 @@ App As appinfo:
                 )
             ) > 0
         );
-        Set(varAppLoading, true);
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
