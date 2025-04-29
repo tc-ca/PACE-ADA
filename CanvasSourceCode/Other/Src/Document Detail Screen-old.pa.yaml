@@ -1,9 +1,8 @@
 # ************************************************************************************************
-# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
-# Content may be incomplete and subject to change.
-# This file is read-only and should only be used to review changes made within Power Apps Studio.
-# This file isn't used when loading the app. External editing, merging and conflict resolution are
-# not supported.
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
 # 
 # For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
 # ************************************************************************************************
@@ -727,7 +726,7 @@ Screens:
                   Width: =0.00
                   X: =0.00
       - Document Header Form:
-          Control: Form@2.4.2
+          Control: Form@2.4.3
           Variant: Classic
           Layout: Vertical
           Properties:
@@ -735,13 +734,14 @@ Screens:
             DataSource: ='Document Automation Data'
             Height: =589
             Item: =CurrentData
+            SnapToColumns: =false
             Visible: =DocumentFormVisible && Not(HideEveryThing) && ShowHeaders
             Width: =823.00
             X: =507.00
             Y: =45
           Children:
             - Data1_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -756,6 +756,7 @@ Screens:
                     =//Not(IsBlank(Last(FirstN(CurrentTaxonomy, 1)).'Mapped Column'))
                     Not(IsBlank(Index(CurrentTaxonomy, 1).'Mapped Column'))
                   Width: =274
+                  X: =0
                   Y: =0
                 Children:
                   - DataCardKey1:
@@ -839,7 +840,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data2_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -937,7 +938,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data3_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -1035,7 +1036,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data4_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -1050,6 +1051,7 @@ Screens:
                     =//Not(IsBlank(Last(FirstN(CurrentTaxonomy, 4)).'Mapped Column'))
                     Not(IsBlank(Index(CurrentTaxonomy, 4).'Mapped Column'))
                   Width: =274
+                  X: =0
                   Y: =1
                 Children:
                   - DataCardKey4:
@@ -1132,7 +1134,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data5_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -1230,7 +1232,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data6_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -1328,7 +1330,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data7_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -1343,6 +1345,7 @@ Screens:
                     =//Not(IsBlank(Last(FirstN(CurrentTaxonomy, 7)).'Mapped Column'))
                     Not(IsBlank(Index(CurrentTaxonomy, 7).'Mapped Column'))
                   Width: =274
+                  X: =0
                   Y: =2
                 Children:
                   - DataCardKey7:
@@ -1425,7 +1428,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data8_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -1523,7 +1526,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data9_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -1620,7 +1623,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data10_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -1635,6 +1638,7 @@ Screens:
                     =//Not(IsBlank(Last(FirstN(CurrentTaxonomy, 10)).'Mapped Column'))
                     Not(IsBlank(Index(CurrentTaxonomy, 10).'Mapped Column'))
                   Width: =274
+                  X: =0
                   Y: =3
                 Children:
                   - DataCardKey10:
@@ -1716,7 +1720,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data11_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -1814,7 +1818,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data12_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -1912,7 +1916,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data13_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -1927,6 +1931,7 @@ Screens:
                     =//Not(IsBlank(Last(FirstN(CurrentTaxonomy, 13)).'Mapped Column'))
                     Not(IsBlank(Index(CurrentTaxonomy, 13).'Mapped Column'))
                   Width: =274
+                  X: =0
                   Y: =4
                 Children:
                   - DataCardKey13:
@@ -2009,7 +2014,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data14_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -2107,7 +2112,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data15_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -2205,7 +2210,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data16_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -2220,6 +2225,7 @@ Screens:
                     =//Not(IsBlank(Last(FirstN(CurrentTaxonomy, 16)).'Mapped Column'))
                     Not(IsBlank(Index(CurrentTaxonomy, 16).'Mapped Column'))
                   Width: =274
+                  X: =0
                   Y: =5
                 Children:
                   - DataCardKey16:
@@ -2302,7 +2308,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data17_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -2400,7 +2406,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data18_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -2498,7 +2504,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data19_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -2513,6 +2519,7 @@ Screens:
                     =//Not(IsBlank(Last(FirstN(CurrentTaxonomy, 19)).'Mapped Column'))
                     Not(IsBlank(Index(CurrentTaxonomy, 19).'Mapped Column'))
                   Width: =274
+                  X: =0
                   Y: =6
                 Children:
                   - DataCardKey19:
@@ -2595,7 +2602,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data20_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -2693,7 +2700,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data21_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -2791,7 +2798,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data22_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -2806,6 +2813,7 @@ Screens:
                     =//Not(IsBlank(Last(FirstN(CurrentTaxonomy, 22)).'Mapped Column'))
                     Not(IsBlank(Index(CurrentTaxonomy, 22).'Mapped Column'))
                   Width: =274
+                  X: =0
                   Y: =7
                 Children:
                   - DataCardKey22:
@@ -2888,7 +2896,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data23_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -2986,7 +2994,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data24_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -3084,7 +3092,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data25_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -3099,6 +3107,7 @@ Screens:
                     =//Not(IsBlank(Last(FirstN(CurrentTaxonomy, 25)).'Mapped Column'))
                     Not(IsBlank(Index(CurrentTaxonomy, 25).'Mapped Column'))
                   Width: =274
+                  X: =0
                   Y: =8
                 Children:
                   - DataCardKey25:
@@ -3182,7 +3191,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data26_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -3280,7 +3289,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data27_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -3380,7 +3389,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data28_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -3393,6 +3402,7 @@ Screens:
                   Update: =DataCardValue28.Text
                   Visible: =Not(IsBlank(Index(CurrentTaxonomy, 28).'Mapped Column'))
                   Width: =274
+                  X: =0
                   Y: =9
                 Children:
                   - DataCardKey28:
@@ -3477,7 +3487,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data29_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -3574,7 +3584,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data30_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -3671,7 +3681,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data31_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -3683,6 +3693,7 @@ Screens:
                   Update: =DataCardValue31.Text
                   Visible: =Not(IsBlank(Index(CurrentTaxonomy, 31).'Mapped Column'))
                   Width: =274
+                  X: =0
                   Y: =10
                 Children:
                   - DataCardKey31:
@@ -3767,7 +3778,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data32_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -3864,7 +3875,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data33_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -3961,7 +3972,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data34_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)
@@ -3973,6 +3984,7 @@ Screens:
                   Update: =DataCardValue34.Text
                   Visible: =Not(IsBlank(Index(CurrentTaxonomy, 34).'Mapped Column'))
                   Width: =274
+                  X: =0
                   Y: =11
                 Children:
                   - DataCardKey34:
@@ -4057,7 +4069,7 @@ Screens:
                         Wrap: =false
                         X: =200.00
             - Data35_DataCard1:
-                Control: TypedDataCard@1.0.6
+                Control: TypedDataCard@1.0.7
                 Variant: ClassicTextualEdit
                 Properties:
                   BorderColor: =RGBA(0, 18, 107, 1)

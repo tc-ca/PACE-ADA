@@ -16117,9 +16117,8 @@
         Fill: =RGBA(0, 0, 0, 0)
         Height: =647
         HoverBorderColor: ='PDF Viewer_1'.BorderColor
-        OnStateChange: |-
+        OnStateChange: |
             =//The ShowControls property in the PDF Viewer control of Power Apps has been known to have issues where the controls (like zoom, page navigation, etc.) do not display as expected. This problem can occur even if the property is set correctly. You can use a variable to toggle the ShowControls property.
-            
             If(
                 PDFVisible,
                 UpdateContext({showPdfControls: false});
@@ -16597,10 +16596,9 @@
                     'Document Automation Processing'.'Document Automation Processing' = CurrentProcessingGuid
                 )
             );
-            If (
-                IsDocumentLocked,
+            If (IsDocumentLocked,
                 //Not(IsBlank(CurrentProcessing.'Assigned To')) && Not(CurrentProcessing.'Assigned To'.'User Name' = UserEmail) && Not(CurrentProcessing.'Assigned To'.'Full Name' = "SYSTEM") && Not IsPowerUser,
-            // Document is locked
+                // Document is locked
                 Set(
                     ShowLockedDialog,
                     true
