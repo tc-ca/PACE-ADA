@@ -240,17 +240,19 @@ App:
           UserRoles
       );
       ForAll(
-          UserTeams,
+          UserTeams As ut,
+          Collect(tName, ut.'Team Name');
           ForAll(
-              LookUp(
+              ShowColumns(LookUp(
                   'Teams',
-                  'Team Name' = ThisRecord.'Team Name'
-              ).'Security Roles',
+                  'Team Name' = First(tName).Value
+              ).'Security Roles', Name, Role) As s,
               Collect(
                   AllUserRoles,
-                  ThisRecord
+                  s
               )
-          )
+          );
+          Remove(tName, First(tName));
       );
       //========Get Team security roles and add Users aned Teams roles in AllUserRoles collection=========================================
       Set(

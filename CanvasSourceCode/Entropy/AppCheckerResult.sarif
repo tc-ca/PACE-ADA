@@ -6463,36 +6463,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Modified On_Column'.FieldDisplayName"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Modified On_Column'.FieldDisplayName",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FieldDisplayName",
-                "module": "Configuration List Screen",
-                "type": "'Configuration List Screen'.'Configurations List'.'Modified On_Column'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.Name_Column.FieldDisplayName"
                 }
               ],
@@ -6523,19 +6493,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Configuration State_Column1'.FieldDisplayName"
+                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Modified On_Column'.FieldDisplayName"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Configuration State_Column1'.FieldDisplayName",
+                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Modified On_Column'.FieldDisplayName",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FieldDisplayName",
                 "module": "Configuration List Screen",
-                "type": "'Configuration List Screen'.'Configurations List'.'Configuration State_Column1'"
+                "type": "'Configuration List Screen'.'Configurations List'.'Modified On_Column'"
               }
             }
           ],
@@ -6566,6 +6536,36 @@
                 "member": "FieldDisplayName",
                 "module": "Configuration List Screen",
                 "type": "'Configuration List Screen'.'Configurations List'.'Created By_Column'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Configuration State_Column1'.FieldDisplayName"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Configuration List Screen'.'Configurations List'.'Configuration State_Column1'.FieldDisplayName",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FieldDisplayName",
+                "module": "Configuration List Screen",
+                "type": "'Configuration List Screen'.'Configurations List'.'Configuration State_Column1'"
               }
             }
           ],
