@@ -178,7 +178,6 @@ Screens:
             Y: =271
       - Configurations List:
           Control: DataTable@1.0.3
-          Variant: DataTable
           Properties:
             BorderColor: =RGBA(237, 237, 237, 1)
             BorderThickness: =1

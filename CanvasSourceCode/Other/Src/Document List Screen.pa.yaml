@@ -118,7 +118,6 @@ Screens:
             Y: =270
       - ProcessedDocumentsDataTable:
           Control: DataTable@1.0.3
-          Variant: DataTable
           Properties:
             BorderColor: =RGBA(237, 237, 237, 1)
             BorderThickness: =1

@@ -629,7 +629,7 @@ Screens:
                   Width: =RoundDown(Parent.Width * ThisItem.SizeColumn1, 0)
                   X: =RoundDown(Parent.Width * ThisItem.PosColumn1, 0)
       - Document Header Form_1:
-          Control: Form@2.4.3
+          Control: Form@2.4.4
           Variant: Classic
           Layout: Vertical
           Properties:
@@ -16017,6 +16017,7 @@ Screens:
       - Image Viewer_1:
           Control: Image@2.2.3
           Properties:
+            ApplyEXIFOrientation: =false
             BorderColor: =RGBA(0, 18, 107, 1)
             FocusedBorderColor: ='Image Viewer_1'.BorderColor
             Height: =594
