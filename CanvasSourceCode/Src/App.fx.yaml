@@ -232,17 +232,20 @@ App As appinfo:
         );
         ForAll(
             UserTeams,
-            ForAll(
-                LookUp(
-                    'Teams',
-                    'Team Name' = ThisRecord.'Team Name'
-                ).'Security Roles',
-                Collect(
-                    AllUserRoles,
-                    ThisRecord
-                )
-            )
+            Collect(
+                AllUserRoles,
+                (LookUp(
+                    UserTeams,
+                    'Team Name' = First(UserTeamsAux).'Team Name'
+                ).'Security Roles').Name
+            );
+            Remove(
+                UserTeamsAux,
+                First(UserTeamsAux)
+            );
+            
         );
+        
         //========Get Team security roles and add Users aned Teams roles in AllUserRoles collection=========================================
         Set(
             IsPowerUser,

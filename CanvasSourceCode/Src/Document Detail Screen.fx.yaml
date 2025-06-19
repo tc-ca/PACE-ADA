@@ -16044,6 +16044,7 @@
         ZIndex: =12
 
     "'Image Viewer_1' As image":
+        ApplyEXIFOrientation: =false
         FocusedBorderColor: ='Image Viewer_1'.BorderColor
         Height: =594
         HoverBorderColor: =ColorFade('Image Viewer_1'.BorderColor, 20%)

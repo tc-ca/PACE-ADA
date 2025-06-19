@@ -19,7 +19,7 @@
     "StateOptionSetAttribute": "{\"@odata.context\":\"https://paceada-dev-tcd365.crm3.dynamics.com/api/data/v9.0/$metadata#EntityDefinitions('roletemplate')/Attributes/Microsoft.Dynamics.CRM.StateAttributeMetadata(MetadataId,LogicalName,SchemaName,DisplayName,OptionSet())\",\"value\":[]}",
     "StatusOptionSetAttribute": "{\"@odata.context\":\"https://paceada-dev-tcd365.crm3.dynamics.com/api/data/v9.0/$metadata#EntityDefinitions('roletemplate')/Attributes/Microsoft.Dynamics.CRM.StatusAttributeMetadata(MetadataId,LogicalName,SchemaName,DisplayName,OptionSet())\",\"value\":[]}",
     "TableName": "roletemplate",
-    "Views": "{\"@odata.context\":\"https://paceada-dev-tcd365.crm3.dynamics.com/api/data/v9.0/$metadata#savedqueries(savedqueryid,name,querytype)\",\"value\":[{\"@odata.etag\":\"W/\\\"1744309\\\"\",\"name\":\"All Role Templates\",\"savedqueryid\":\"9dcc2d8e-9768-dd11-b1b0-00155d869f00\",\"querytype\":0}]}"
+    "Views": "{\"@odata.context\":\"https://paceada-dev-tcd365.crm3.dynamics.com/api/data/v9.0/$metadata#savedqueries(savedqueryid,name,querytype)\",\"value\":[{\"@odata.etag\":\"W/\\\"1744309\\\"\",\"querytype\":0,\"name\":\"All Role Templates\",\"savedqueryid\":\"9dcc2d8e-9768-dd11-b1b0-00155d869f00\"}]}"
   },
   "UnusedDataSources": {},
   "webApiVersion": "v9.0"

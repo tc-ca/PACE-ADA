@@ -2,10 +2,10 @@
   "FormatVersion": "0.24",
   "Header": {
     "AnalysisOptions": {
-      "DataflowAnalysisEnabled": true,
+      "DataflowAnalysisEnabled": false,
       "DataflowAnalysisFlagStateToggledByUser": true
     },
-    "DocVersion": "1.345",
+    "DocVersion": "1.346",
     "MinVersionToLoad": "1.331",
     "MSAppStructureVersion": "2.4.0"
   },
@@ -26,14 +26,13 @@
       "commentgeneratedformulasv2": false,
       "consistentreturnschemafortabularfunctions": true,
       "copyandmerge": true,
-      "dataflowanalysisenabled": true,
+      "dataflowanalysisenabled": false,
       "datatablev2control": true,
       "dataverseactionsenabled": false,
       "delaycontrolrendering": false,
       "delayloadscreens": true,
       "disablebehaviorreturntypecheck": false,
       "disablecdsfileandlargeimage": false,
-      "disabledeferloadingunusedscreenswithstartscreen": false,
       "disablefallbacktopayamlv2": false,
       "disableloadcomponentdefinitionsondemand": false,
       "disableruntimepolicies": false,
@@ -79,6 +78,7 @@
       "offlineprofilegenerationemitscolumns": false,
       "onegrid": false,
       "optimizedforteamsmeeting": true,
+      "optimizestartscreenpublishedappload": true,
       "packagemodernruntime": false,
       "pdffunction": false,
       "powerfxdecimal": false,
