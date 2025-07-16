@@ -40,14 +40,15 @@
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
             },
             "parameters": {
-              "subscriptionRequest/message": 4,
+              "subscriptionRequest/message": 3,
               "subscriptionRequest/entityname": "aib_documentautomationprocessing",
               "subscriptionRequest/scope": 4,
               "subscriptionRequest/filteringattributes": "aib_processingstatus",
               "subscriptionRequest/filterexpression": "aib_processingstatus eq 914700001"
             },
             "authentication": "@parameters('$authentication')"
-          }
+          },
+          "conditions": []
         }
       },
       "actions": {
