@@ -125,7 +125,7 @@
                           "recordId": "@outputs('Create_a_new_document_processing')?['body/aib_documentautomationprocessingid']",
                           "fileImageFieldName": "aib_filedata",
                           "item": "@base64ToBinary(items('For_each_attachment')?['contentBytes'])",
-                          "x-ms-file-name": "Untitled"
+                          "x-ms-file-name": "@items('For_each_attachment')?['name']"
                         },
                         "authentication": {
                           "type": "Raw",

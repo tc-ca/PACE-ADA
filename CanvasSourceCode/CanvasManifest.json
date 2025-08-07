@@ -5,7 +5,7 @@
       "DataflowAnalysisEnabled": false,
       "DataflowAnalysisFlagStateToggledByUser": true
     },
-    "DocVersion": "1.345",
+    "DocVersion": "1.346",
     "MinVersionToLoad": "1.331",
     "MSAppStructureVersion": "2.4.0"
   },
@@ -13,6 +13,7 @@
     "AppCreationSource": "AppFromScratch",
     "AppDescription": "",
     "AppPreviewFlagsMap": {
+      "adaptivepaging": false,
       "aibuilderserviceenrollment": false,
       "allowmultiplescreensincanvaspages": false,
       "appinsightserrortracing": false,
@@ -32,7 +33,6 @@
       "delayloadscreens": true,
       "disablebehaviorreturntypecheck": false,
       "disablecdsfileandlargeimage": false,
-      "disabledeferloadingunusedscreenswithstartscreen": false,
       "disablefallbacktopayamlv2": false,
       "disableloadcomponentdefinitionsondemand": false,
       "disableruntimepolicies": false,
@@ -49,6 +49,7 @@
       "enableeditinmcs": false,
       "enableexcelonlinebusinessv2connector": false,
       "enableideaspanel": true,
+      "enableideaspanelbyexample": false,
       "enablelegacybarcodescanner": false,
       "enablelegacydatatable": false,
       "enableonstart": true,
@@ -77,6 +78,7 @@
       "offlineprofilegenerationemitscolumns": false,
       "onegrid": false,
       "optimizedforteamsmeeting": true,
+      "optimizestartscreenpublishedappload": true,
       "packagemodernruntime": false,
       "pdffunction": false,
       "powerfxdecimal": false,

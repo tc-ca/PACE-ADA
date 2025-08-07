@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_powerbi": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "tc_sharedpowerbi_3ceb8"
+        },
+        "api": {
+          "name": "shared_powerbi"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "splitOn": "@triggerBody()['rows']",
+          "metadata": {
+            "operationMetadataId": "b195e290-064a-4267-98e4-7f58ef07d31a"
+          },
+          "type": "Request",
+          "kind": "ApiConnection",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            },
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['shared_powerbi']['connectionId']"
+              }
+            },
+            "operationId": "PowerBiButtonClicked",
+            "parameters": {
+              "inputsPowerBiData": "{}",
+              "pbi_source": "powerAutomate"
+            }
+          }
+        }
+      },
+      "actions": {
+        "Refresh_a_dataset": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "6f8c3610-2986-4658-b6ab-f304568b181b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_powerbi",
+              "operationId": "RefreshDataset",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerbi"
+            },
+            "parameters": {
+              "groupid": "410a12e2-8457-4cd1-b982-40c330084f5c",
+              "datasetid": "67318862-58c0-4271-80ba-fb60c4a74fec"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

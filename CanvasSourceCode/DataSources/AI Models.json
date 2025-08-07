@@ -35,6 +35,7 @@
       "msdyn_aimodel_PrincipalObjectAttributeAccesses": "Field Sharing",
       "msdyn_aimodel_ProcessSession": "Process Sessions",
       "msdyn_aimodel_SyncErrors": "Sync Errors",
+      "msdyn_AIModelCatalog": "AI Model Catalog",
       "msdyn_aimodelid": "AIModel",
       "msdyn_aimodelidunique": "msdyn_AIModelIdUnique",
       "msdyn_AIPluginOperation_AIModel": "AIPluginOperations",
@@ -52,6 +53,7 @@
       "solutionid": "Solution",
       "statecode": "Status",
       "statuscode": "Status Reason",
+      "tc_aimodelowner_AIModel_msdyn_aimodel": "AI Model Owners",
       "timezoneruleversionnumber": "Time Zone Rule Version Number",
       "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
       "versionnumber": "Version Number"

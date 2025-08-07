@@ -3,6 +3,7 @@
   <RolePrivileges>
     <RolePrivilege name="prvAppendaib_DocumentAutomationData" level="Local" />
     <RolePrivilege name="prvAppendaib_DocumentAutomationProcessing" level="Local" />
+    <RolePrivilege name="prvAppendaib_DocumentAutomationTableData" level="Local" />
     <RolePrivilege name="prvAppendmsdyn_AIFpTrainingDocument" level="Global" />
     <RolePrivilege name="prvAppendmsdyn_AIModel" level="Local" />
     <RolePrivilege name="prvAppendmsdyn_AIOdImage" level="Global" />
@@ -12,6 +13,7 @@
     <RolePrivilege name="prvAppendtc_ServiceRequest" level="Local" />
     <RolePrivilege name="prvAppendToaib_DocumentAutomationConfiguration" level="Local" />
     <RolePrivilege name="prvAppendToaib_DocumentAutomationProcessing" level="Local" />
+    <RolePrivilege name="prvAppendToaib_DocumentAutomationTableData" level="Local" />
     <RolePrivilege name="prvAppendTomsdyn_AIFpTrainingDocument" level="Global" />
     <RolePrivilege name="prvAppendTomsdyn_AIModel" level="Local" />
     <RolePrivilege name="prvAppendTomsdyn_AIOdImage" level="Global" />
@@ -29,6 +31,7 @@
     <RolePrivilege name="prvAssignmsdyn_AIOdTrainingImage" level="Global" />
     <RolePrivilege name="prvCreateaib_DocumentAutomationData" level="Local" />
     <RolePrivilege name="prvCreateaib_DocumentAutomationProcessing" level="Local" />
+    <RolePrivilege name="prvCreateaib_DocumentAutomationTableData" level="Local" />
     <RolePrivilege name="prvCreatemsdyn_AIFpTrainingDocument" level="Global" />
     <RolePrivilege name="prvCreatemsdyn_AIOdImage" level="Global" />
     <RolePrivilege name="prvCreatemsdyn_AIOdLabel" level="Global" />
@@ -77,6 +80,7 @@
     <RolePrivilege name="prvSharemsdyn_AIOdTrainingImage" level="Global" />
     <RolePrivilege name="prvWriteaib_DocumentAutomationData" level="Local" />
     <RolePrivilege name="prvWriteaib_DocumentAutomationProcessing" level="Local" />
+    <RolePrivilege name="prvWriteaib_DocumentAutomationTableData" level="Local" />
     <RolePrivilege name="prvWritemsdyn_AIFpTrainingDocument" level="Global" />
     <RolePrivilege name="prvWritemsdyn_AIModel" level="Local" />
     <RolePrivilege name="prvWritemsdyn_AIOdImage" level="Global" />

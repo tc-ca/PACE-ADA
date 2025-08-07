@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="AI Credits Consumption" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{5a3a26a9-61fb-ef11-bae1-0022483dd18b}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>0</IsDefault>
+  <FormXml>
+    <forms type="powerbi">
+      <form>
+        <tabs>
+          <tab showlabel="false" verticallayout="true" id="{462c33bf-a9d5-4e5c-afc2-f8bc1d36eed0}">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="false" showbar="false" columns="111" id="{f7fe45d5-9e21-47e5-9928-d68b39f7879c}">
+                    <labels>
+                      <label description="" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell colspan="3" rowspan="24" showlabel="false" id="{a85739e1-e51d-40e0-af35-4f911e9424a9}" availableforphone="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                          <control id="386fc550-4953-4e82-9b76-efb34fed969a" classid="{8C54228C-1B25-4909-A12A-F2B968BB0D62}">
+                            <parameters>
+                              <PowerBIGroupId>410a12e2-8457-4cd1-b982-40c330084f5c</PowerBIGroupId>
+                              <PowerBIReportId>0ec7c6b0-fffc-4c87-8eb1-9075ef779a57</PowerBIReportId>
+                              <TileUrl>https://app.powerbi.com/reportEmbed?w=2&amp;config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLUNBTkFEQS1DRU5UUkFMLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19&amp;groupId=410a12e2-8457-4cd1-b982-40c330084f5c&amp;reportId=0ec7c6b0-fffc-4c87-8eb1-9075ef779a57</TileUrl>
+                              <Type>2</Type>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+        <DisplayConditions FallbackForm="true">
+          <Everyone />
+        </DisplayConditions>
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>1.56.0.0</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>

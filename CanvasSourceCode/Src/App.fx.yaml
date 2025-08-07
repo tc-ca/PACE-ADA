@@ -147,11 +147,24 @@ App As appinfo:
                 )
             }
         );
-        
         //====== Set initial language=======
-        Set(varLang, "en");
-        Set(varLanguageTable,Table({Label: "English", Value: "en"}, {Label: "Français", Value: "fr"}));
-        
+        Set(
+            varLang,
+            "en"
+        );
+        Set(
+            varLanguageTable,
+            Table(
+                {
+                    Label: "English",
+                    Value: "en"
+                },
+                {
+                    Label: "Français",
+                    Value: "fr"
+                }
+            )
+        );
         // Invoice Processing Label Definition
         Set(
             InvoiceProcessingModelLabels,
@@ -217,7 +230,6 @@ App As appinfo:
             AllUserRoles,
             UserRoles
         );
-        
         ForAll(
             UserTeams,
             Collect(
@@ -234,7 +246,6 @@ App As appinfo:
             
         );
         
-        
         //========Get Team security roles and add Users aned Teams roles in AllUserRoles collection=========================================
         Set(
             IsPowerUser,
@@ -249,6 +260,7 @@ App As appinfo:
                 )
             ) > 0
         );
+        Set(varAppLoading, true);
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25014.180" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25014.180" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25014.00180">
+<ImportExportXml version="9.2.25065.158" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25065.158" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25065.00158">
   <SolutionManifest>
     <UniqueName>Documenttoolkit</UniqueName>
     <LocalizedNames>
       <LocalizedName description="AI Document toolkit extension" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.56.0.0</Version>
+    <Version>1.62.0.0</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>TransportCanada</UniqueName>
@@ -132,7 +132,11 @@
       <RootComponent type="1" schemaName="aib_documentautomationtabledata" behavior="0" />
       <RootComponent type="1" schemaName="aib_documentautomationtabletaxonomy" behavior="0" />
       <RootComponent type="1" schemaName="aib_documentautomationtaxonomy" behavior="0" />
+      <RootComponent type="1" schemaName="businessunit" behavior="1" />
       <RootComponent type="1" schemaName="msdyn_aievent" behavior="2" />
+      <RootComponent type="1" schemaName="msdyn_aimodel" behavior="1" />
+      <RootComponent type="1" schemaName="tc_aicreditallocation" behavior="0" />
+      <RootComponent type="1" schemaName="tc_aimodelowner" behavior="0" />
       <RootComponent type="1" schemaName="tc_servicerequest" behavior="0" />
       <RootComponent type="1" schemaName="team" behavior="2" />
       <RootComponent type="20" id="{0e9ea012-8bcf-ef11-8ee9-002248b106ff}" behavior="0" />
@@ -143,12 +147,17 @@
       <RootComponent type="29" id="{1ebef602-125b-ef11-bfe3-0022483bf2f0}" behavior="0" />
       <RootComponent type="29" id="{2354bb7a-7440-eb11-a812-000d3a06a63e}" behavior="0" />
       <RootComponent type="29" id="{36a0d496-8322-ef11-840b-6045bdcd3da1}" behavior="0" />
+      <RootComponent type="29" id="{37e6d056-29f9-ef11-bae1-0022483dd18b}" behavior="0" />
+      <RootComponent type="29" id="{4f2123ec-70f8-ef11-bae1-0022483dd18b}" behavior="0" />
+      <RootComponent type="29" id="{506e0fae-63fb-ef11-bae1-6045bd5e8d7e}" behavior="0" />
       <RootComponent type="29" id="{61f6db6c-6a40-eb11-a812-000d3af77de6}" behavior="0" />
       <RootComponent type="29" id="{7e3d4b3c-40a1-ef11-8a69-000d3af3ce6a}" behavior="0" />
       <RootComponent type="29" id="{a19ff5a3-8143-ef11-a316-0022483bf2f0}" behavior="0" />
+      <RootComponent type="29" id="{c11e0a3f-6ef8-ef11-bae1-0022483dd18b}" behavior="0" />
       <RootComponent type="29" id="{d2ba9fde-2932-ef11-8e4f-0022483e4989}" behavior="0" />
       <RootComponent type="300" schemaName="aib_documentautomationapplication_a3a44" behavior="0" />
       <RootComponent type="300" schemaName="aida_assignuser_35955" behavior="0" />
+      <RootComponent type="60" id="{5a3a26a9-61fb-ef11-bae1-0022483dd18b}" behavior="0" />
       <RootComponent type="60" id="{fecd41e1-4c23-ef11-840b-000d3af4271c}" behavior="0" />
       <RootComponent type="62" schemaName="tc_DocumentAutomationAdmin" behavior="0" />
       <RootComponent type="80" schemaName="tc_DocumentAutomationAdmin" behavior="0" />
