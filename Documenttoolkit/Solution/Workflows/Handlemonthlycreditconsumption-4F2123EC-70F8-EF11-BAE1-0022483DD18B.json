@@ -320,14 +320,6 @@
             },
             "If_over_warning_or_allocated_-_Compose_data": {
               "actions": {
-                "Compose_Environment": {
-                  "runAfter": {},
-                  "metadata": {
-                    "operationMetadataId": "46e62235-bd85-4911-8675-4aab462a54d4"
-                  },
-                  "type": "Compose",
-                  "inputs": "@uriHost(outputs('Compose_first_Allocated_Credit_object')?['@odata.id'])"
-                },
                 "Compose_Business_Unit_Name": {
                   "runAfter": {
                     "Compose_Environment": [
@@ -445,6 +437,14 @@
                   },
                   "type": "Compose",
                   "inputs": "@join(variables('arrEmailRecipients'), ';')"
+                },
+                "Compose_Environment": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "46e62235-bd85-4911-8675-4aab462a54d4"
+                  },
+                  "type": "Compose",
+                  "inputs": "@uriHost(outputs('Compose_first_Allocated_Credit_object')?['@odata.id'])"
                 }
               },
               "runAfter": {
@@ -556,7 +556,8 @@
                 },
                 "parameters": {
                   "entityName": "tc_aicreditallocations",
-                  "$filter": "_tc_businessunit_value eq '@{outputs('Compose_business_unit_id')}'"
+                  "$filter": "_tc_businessunit_value eq '@{outputs('Compose_business_unit_id')}'",
+                  "x-ms-odata-metadata-full": true
                 },
                 "authentication": "@parameters('$authentication')"
               }
