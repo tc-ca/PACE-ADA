@@ -55,6 +55,13 @@
                   "x-ms-dynamically-added": true,
                   "description": "Please enter your input",
                   "x-ms-content-hint": "TEXT"
+                },
+                "text_3": {
+                  "title": "Service Request Number",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
                 }
               },
               "required": [
@@ -226,7 +233,11 @@
                       "type": "If"
                     },
                     "Create_a_new_document_processing": {
-                      "runAfter": {},
+                      "runAfter": {
+                        "Condition_-_If_Service_Request_Specified": [
+                          "Succeeded"
+                        ]
+                      },
                       "metadata": {
                         "operationMetadataId": "634bc1d6-38a4-4faf-bdc5-9fe9c6a1117e"
                       },
@@ -244,13 +255,107 @@
                           "item/aib_filemimetype": "@items('For_each_attachment')?['contentType']",
                           "item/aib_filename": "@items('For_each_attachment')?['name']",
                           "item/ownerid@odata.bind": "teams(@{first(body('List_Teams')?['value'])?['teamid']})",
-                          "item/aib_processingstatus": 914700000
+                          "item/aib_processingstatus": 914700000,
+                          "item/tc_ServiceRequest@odata.bind": "@if(empty(triggerBody()?['text_3']), null, concat('tc_servicerequests(', if(greater(length(outputs('Get_Service_Request')?['body']?['value']),0), outputs('Service_Request')?['tc_servicerequestid'], outputs('Create_a_new_Service_Request')?['body/tc_servicerequestid']), ')'))"
                         },
                         "authentication": {
                           "type": "Raw",
                           "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
                         }
                       }
+                    },
+                    "Condition_-_If_Service_Request_Specified": {
+                      "actions": {
+                        "Get_Service_Request": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "7d2345b3-6eb2-4fba-83da-53cb9ef6b36b"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps",
+                              "operationId": "ListRecords",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "tc_servicerequests",
+                              "$filter": "tc_id eq '@{triggerBody()['text_3']}'",
+                              "$top": 1
+                            },
+                            "authentication": {
+                              "type": "Raw",
+                              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                            }
+                          }
+                        },
+                        "Condition_-_Create_new_Service_Request": {
+                          "actions": {
+                            "Create_a_new_Service_Request": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "3bd76119-00ce-4854-b8a9-e5bd1db47b3b"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps",
+                                  "operationId": "CreateRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "tc_servicerequests",
+                                  "item/tc_id": "@triggerBody()['text_3']"
+                                },
+                                "authentication": {
+                                  "type": "Raw",
+                                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                                }
+                              }
+                            }
+                          },
+                          "runAfter": {
+                            "Get_Service_Request": [
+                              "Succeeded"
+                            ]
+                          },
+                          "else": {
+                            "actions": {
+                              "Service_Request": {
+                                "runAfter": {},
+                                "metadata": {
+                                  "operationMetadataId": "c22eb425-0ba0-42ee-bf74-7b59b2bda3ec"
+                                },
+                                "type": "Compose",
+                                "inputs": "@first(outputs('Get_Service_Request')?['body/value'])"
+                              }
+                            }
+                          },
+                          "expression": {
+                            "equals": [
+                              "@length(outputs('Get_Service_Request')?['body']?['value'])",
+                              0
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "83257fd0-59d4-4838-b4b8-a4d2f0b08c31"
+                          },
+                          "type": "If"
+                        }
+                      },
+                      "runAfter": {},
+                      "expression": {
+                        "not": {
+                          "equals": [
+                            "@triggerBody()?['text_3']",
+                            "@null"
+                          ]
+                        }
+                      },
+                      "metadata": {
+                        "operationMetadataId": "138ca430-611d-46d0-9284-817845aeba92"
+                      },
+                      "type": "If"
                     }
                   },
                   "runAfter": {
